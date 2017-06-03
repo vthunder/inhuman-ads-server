@@ -1,0 +1,187 @@
+@import "../vendor/Buttons/scss/buttons";
+
+@font-face {
+    font-family: Zilla;
+    src: url(fonts/ZillaSlab-Bold.otf);
+    font-weight: bold;
+}
+
+* {
+    color: #333;
+    font-family: fira-sans, sans-serif;
+}
+
+p {
+    font-size: 10pt;
+}
+
+h1 {
+    font-family: acier-bat-noir, sans-serif;
+    font-size: 32pt;
+    font-weight: 400;
+    margin: 0 0;
+}
+
+h2 {
+    font-size: 12pt;
+    font-style: italic;
+    margin-top: 0px;
+    padding-left: 1em;
+
+    .firefox {
+	font-size: 14pt;
+	font-style: normal;
+    }
+}
+
+a {
+}
+
+body {
+    background: #ddd;
+    color: #333;
+    margin: 10px;
+}
+
+.container {
+//    margin: 0;
+//    padding: 0;
+//    position: relative;
+//    width: 100%;
+}
+
+.grid {
+    max-width: 1200px;
+}
+.grid-sizer, .card {
+    width: 96%;
+    padding: 10px 2% 10px 2%;
+}
+.card {
+    background: white;
+    border-radius: 2px;
+    box-shadow: 1px 1px 3px 0 dimgrey;
+    float: left;
+    margin-bottom: 20px;
+    min-height: 220px;
+}
+.card-inset {
+//    background: #ccc;
+//    border: 1px solid #aaa;
+//    box-shadow: inset 1px 1px 3px 0 #aaa;
+    background: #ddd;
+    box-shadow: none;
+    text-align: right;
+    :first-child {
+	margin-top: 0;
+    }
+}
+.card-wide {
+}
+.card-wide2 {
+}
+.card-tall {
+    min-height: 320px;
+}
+.card-short {
+    min-height: 140px;
+}
+.gutter-sizer {
+    width: 0%;
+}
+
+.mozlogo {
+    background: #000;
+    color: #fff;
+    font-family: Zilla;
+    font-weight: bold;
+    padding: .25em;
+}
+.terms {
+    list-style: none;
+    padding: 0;
+
+    li {
+	display: inline;
+	font-size: 10pt;
+    }
+}
+
+.category-button {
+    @extend .button;
+    @extend .button-small;
+    @extend .button-rounded;
+    font-family: fira-sans, sans-serif;
+}
+
+.category-selector {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+	margin-right: 5px;
+    }
+}
+
+@media screen and (min-width: 360px) {
+    .grid-sizer,
+    .card {
+	width: 44%;
+    }
+    .card-wide,
+    .card-wide2 {
+	width: 96%;
+    }
+    .gutter-sizer {
+	width: 4%;
+    }
+}
+@media screen and (min-width: 600px) {
+    .grid-sizer,
+    .card {
+	width: 45%;
+    }
+    .card-wide,
+    .card-wide2 {
+	width: 96%;
+    }
+    .gutter-sizer {
+	width: 2%;
+    }
+}
+@media screen and (min-width: 730px) {
+    .grid-sizer,
+    .card {
+	width: 28%;
+    }
+    .card-wide {
+	width: 62%;
+    }
+    .card-wide2 {
+	width: 96%;
+    }
+    .gutter-sizer {
+	width: 2%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    body {
+	margin: 20px;
+    }
+    .grid-sizer,
+    .card {
+	width: 19.5%;
+    }
+    .card-wide {
+	width: 45%;
+    }
+    .card-wide2 {
+	width: 70.5%;
+    }
+    .gutter-sizer {
+	width: 2%;
+    }
+}

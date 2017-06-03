@@ -1,0 +1,23 @@
+{
+  "name": "Inhuman Ads",
+  "description": "",
+  "main": "js/main.js",
+  "authors": [
+    "Dan Mills"
+  ],
+  "license": "MPL-2.0",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs": "^2.3.3",
+    "Buttons": "^2.0.0",
+    "isotope": "^3.0.4"
+  }
+}
