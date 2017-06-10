@@ -1,30 +1,30 @@
 <?php
-  $type = get_post_meta($post->ID, '_inhuman_meta_key_type', true);
-  $height = get_post_meta($post->ID, '_inhuman_meta_key_height', true);
-  $width = get_post_meta($post->ID, '_inhuman_meta_key_width', true);
-
+  $meta = Inhuman_Meta::get_meta($post->ID);
   $class = "card ";
 
-  if ("background" == $type)
+  if ("background" == $meta['type'])
     $class .= "card-inset ";
 
-  if ("short" == $height)
+  if ("short" == $meta['height'])
     $class .= "card-short ";
-  if ("tall" == $height)
+  if ("tall" == $meta['height'])
     $class .= "card-tall ";
 
-  if ("wide" == $width)
+  if ("wide" == $meta['width'])
     $class .= "card-wide ";
-  if ("wide2" == $width)
+  if ("wide2" == $meta['width'])
     $class .= "card-wide2 ";
 
   $class = rtrim($class, " ");
 ?>
 <div class="<?php echo $class ?>">
-  <?php if ("" == $type) : ?>
-    <h3 class="card-title"><?php the_title() ?></h3>
+  <?php if ("" == $meta['type']) : ?>
+    <h3 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
     <p><?php the_excerpt() ?></p>
-  <?php elseif ("plain" == $type or "background" == $type) : ?>
+  <?php elseif ("screenshot" == $meta['type']) : ?>
+    <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+    <?php the_content() ?>
+  <?php elseif ("plain" == $meta['type'] or "background" == $meta['type']) : ?>
     <?php the_content() ?>
   <?php else : ?>
     Error: unknown post type!

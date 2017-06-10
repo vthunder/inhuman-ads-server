@@ -8,11 +8,11 @@
       'post_type' => 'post',
       'meta_query'  => array(
         array(
-          'key' => '_inhuman_meta_key_featured',
+          'key' => '_inhuman_meta_featured',
           'value' => 'on'
         )
       ),
-      'meta_key' => '_inhuman_meta_key_sort',
+      'meta_key' => '_inhuman_meta_sort',
       'orderby' => 'meta_value_num',
       'order' => 'ASC',
     );
@@ -33,16 +33,16 @@
 	<div class="gutter-sizer"></div>
 	<?php 
     $args = array(
-      'post_type' => 'post',
+      'post_type' => array('post', 'inhuman_screenshot'),
       'meta_query'  => array(
         'relation' => 'OR',
         array(
-          'key' => '_inhuman_meta_key_featured',
+          'key' => '_inhuman_meta_featured',
           'compare' => 'NOT EXISTS',
           'value' => ''
         ),
         array(
-          'key' => '_inhuman_meta_key_featured',
+          'key' => '_inhuman_meta_featured',
           'value' => ''
         )
       )
