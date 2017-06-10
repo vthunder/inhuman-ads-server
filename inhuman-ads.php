@@ -3,11 +3,50 @@
    Plugin Name: Inhuman Ads
  */
 
-abstract class Inhuman_Meta_Box
-{
-    public static function add()
-    {
-        $screens = ['post', 'inhuman_card'];
+//
+// Screenshot Post Type
+//
+function create_screenshot_post_type() {
+    register_post_type('inhuman_screenshot',
+		       array(
+			   'labels' => array(
+			       'name' => __( 'Screenshots' ),
+			       'singular_name' => __( 'Screenshot' ),
+			   ),
+			   'public' => true,
+			   'has_archive' => true,
+			   'supports' => array(
+			       'title',
+			       'thumbnail',
+                               //			       'custom-fields'
+			   ),
+			   'taxonomies'   => array(
+			       'post_tag',
+			       'category',
+			   )
+                       ));
+}
+add_action( 'init', 'create_screenshot_post_type' );
+
+//
+// Custom metadata
+//
+abstract class Inhuman_Meta {
+
+    public static $keys = array(
+        'type', 'featured', 'sort', 'width', 'height', 'screenshot'
+    );
+
+    public static function get_meta($post_id) {
+        $meta = array();
+        foreach (self::$keys as $key) {
+            $meta[$key] = get_post_meta($post_id, '_inhuman_meta_' . $key, true);
+        }
+        return $meta;
+    }
+
+    public static function add() {
+        $screens = ['post', 'inhuman_screenshot'];
         foreach ($screens as $screen) {
             add_meta_box(
                 'inhuman_box_id',          // Unique ID
@@ -18,121 +57,136 @@ abstract class Inhuman_Meta_Box
         }
     }
     
-    public static function save($post_id)
-    {
-        if (array_key_exists('inhuman_field_type', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_inhuman_meta_key_type',
-                $_POST['inhuman_field_type']
-            );
-        }
-        if (array_key_exists('inhuman_field_featured', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_inhuman_meta_key_featured',
-                $_POST['inhuman_field_featured']
-            );
-        }
-        if (array_key_exists('inhuman_field_sort', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_inhuman_meta_key_sort',
-                $_POST['inhuman_field_sort']
-            );
-        }
-        if (array_key_exists('inhuman_field_height', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_inhuman_meta_key_height',
-                $_POST['inhuman_field_height']
-            );
-        }
-        if (array_key_exists('inhuman_field_width', $_POST)) {
-            update_post_meta(
-                $post_id,
-                '_inhuman_meta_key_width',
-                $_POST['inhuman_field_width']
-            );
+    public static function save($post_id) {
+	// verify nonce
+	if ( !wp_verify_nonce( $_POST['inhuman_meta_nonce'], basename(__FILE__) ) ) {
+	    return $post_id; 
+	}
+	// check autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+	    return $post_id;
+	}
+	// check permissions
+	if ( 'page' === $_POST['post_type'] ) {
+	    if ( !current_user_can( 'edit_page', $post_id ) ) {
+		return $post_id;
+	    } elseif ( !current_user_can( 'edit_post', $post_id ) ) {
+		return $post_id;
+	    }  
+	}
+
+        $new = $_POST['inhuman_meta'];
+        $old = self::get_meta($post_id);
+
+        foreach (self::$keys as $key) {
+            if ($new[$key] && $new[$key] !== $old[$key]) {
+                update_post_meta($post_id, '_inhuman_meta_' . $key, $new[$key]);
+            } elseif (!$new[$key] && $old[$key]) {
+                delete_post_meta($post_id, '_inhuman_meta_' . $key, $old[$key]);
+            }
         }
     }
     
-    public static function html($post)
-    {
-        $value_type = get_post_meta($post->ID, '_inhuman_meta_key_type', true);
-        $value_featured = get_post_meta($post->ID, '_inhuman_meta_key_featured', true);
-        $value_sort = get_post_meta($post->ID, '_inhuman_meta_key_sort', true);
-        $value_height = get_post_meta($post->ID, '_inhuman_meta_key_height', true);
-        $value_width = get_post_meta($post->ID, '_inhuman_meta_key_width', true);
-?>
+    public static function html($post) {
+	$meta = Inhuman_Meta::get_meta($post->ID); ?>
 
+    <input type="hidden" name="inhuman_meta_nonce"
+           value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
+
+    <!-- All fields will go here -->
     <style type="text/css">
-     .inhuman_meta_block {
-         margin-bottom: 20px;
-     }
-     .inhuman_meta_select_block label {
+     .inhuman_label {
          display: inline-block;
          width: 6em;
-         padding-bottom: 16px;
+     }
+     .inhuman_fieldset {
+         border-top: 1px solid #ddd;
+         margin: 1em 0 1em;
+     }
+     .inhuman_fieldset > * {
+         margin-left: 2em;
+     }
+     .inhuman_fieldset legend {
+         font-weight: bold;
+         margin-left: .75em;
+         padding: 0 .5em 0 .5em;
+     }
+     .inhuman_fieldset select {
+         min-width: 10em;
      }
     </style>
 
-
-    <div class="inhuman_meta_select_block">
-        <label for="inhuman_field_type">Card Type</label>
-        <select name="inhuman_field_type" id="inhuman_field_type" class="postbox">
-            <option value="">Post</option>
-            <option value="plain" <?php selected($value_type, "plain"); ?>>Plain</option>
-            <option value="background" <?php selected($value_type, "background"); ?>>Background (no card)</option>
+<p>
+    <label for="inhuman_meta[type]" class="inhuman_label" style="width:3em;">Type</label>
+        <select name="inhuman_meta[type]" id="inhuman_meta[type]">
+            <option value="">Article</option>
+            <option value="screenshot" <?php selected($meta['type'], "screenshot"); ?>>Screenshot</option>
+            <option value="plain" <?php selected($meta['type'], "plain"); ?>>Card only</option>
+            <option value="background" <?php selected($meta['type'], "background"); ?>>Invisible card (content on background)</option>
         </select>
-    </div>
+    </p>
 
-    <div class="inhuman_meta_block">
-        <input type="checkbox" name="inhuman_field_featured" id="inhuman_field_featured" <?php checked($value_featured, "on"); ?>>
-        <label for="inhuman_field_featured">Featured</label>
-    </div>
+    <fieldset class="inhuman_fieldset">
+        <legend>Homepage Card</legend>
 
-    <div class="inhuman_meta_select_block">
-        <label for="inhuman_field_sort">Sort order</label>
-        <select name="inhuman_field_sort" id="inhuman_field_sort" class="postbox">
-            <option value="">Don't Pin</option>
-            <option value="1" <?php selected($value_sort, 1); ?>>1</option>
-            <option value="2" <?php selected($value_sort, 2); ?>>2</option>
-            <option value="3" <?php selected($value_sort, 3); ?>>3</option>
-            <option value="4" <?php selected($value_sort, 4); ?>>4</option>
-            <option value="5" <?php selected($value_sort, 5); ?>>5</option>
-            <option value="6" <?php selected($value_sort, 6); ?>>6</option>
-            <option value="7" <?php selected($value_sort, 7); ?>>7</option>
-            <option value="8" <?php selected($value_sort, 8); ?>>8</option>
-            <option value="9" <?php selected($value_sort, 9); ?>>9</option>
-            <option value="10" <?php selected($value_sort, 10); ?>>10</option>
-        </select>
-    </div>
+        <p>
+            <input type="checkbox" name="inhuman_meta[featured]" id="inhuman_meta[featured]" <?php checked($meta['featured'], "on"); ?>>
+            <label for="inhuman_meta[featured]">Featured in top section</label>
+        </p>
 
-    <div class="inhuman_meta_select_block">
-        <label for="inhuman_field_width">Card Width</label>
-        <select name="inhuman_field_width" id="inhuman_field_width" class="postbox">
-            <option value="">Standard</option>
-            <option value="wide" <?php selected($value_width, 'wide'); ?>>Wide</option>
-            <option value="wide2" <?php selected($value_width, 'wide2'); ?>>Extra-wide</option>
-        </select>
-    </div>
+        <p>
+            <label for="inhuman_meta[sort]" class="inhuman_label">Sort order</label>
+            <select name="inhuman_meta[sort]" id="inhuman_meta[sort]">
+                <option value="">Don't Pin</option>
+                <option value="1" <?php selected($meta['sort'], 1); ?>>1</option>
+                <option value="2" <?php selected($meta['sort'], 2); ?>>2</option>
+                <option value="3" <?php selected($meta['sort'], 3); ?>>3</option>
+                <option value="4" <?php selected($meta['sort'], 4); ?>>4</option>
+                <option value="5" <?php selected($meta['sort'], 5); ?>>5</option>
+                <option value="6" <?php selected($meta['sort'], 6); ?>>6</option>
+                <option value="7" <?php selected($meta['sort'], 7); ?>>7</option>
+                <option value="8" <?php selected($meta['sort'], 8); ?>>8</option>
+                <option value="9" <?php selected($meta['sort'], 9); ?>>9</option>
+                <option value="10" <?php selected($meta['sort'], 10); ?>>10</option>
+            </select>
+        </p>
 
-    <div class="inhuman_meta_select_block">
-        <label for="inhuman_field_height">Card Height</label>
-        <select name="inhuman_field_height" id="inhuman_field_height" class="postbox">
-            <option value="">Standard</option>
-            <option value="short" <?php selected($value_height, 'short'); ?>>Short</option>
-            <option value="tall" <?php selected($value_height, 'tall'); ?>>Tall</option>
-        </select>
-    </div>
-<?php
+        <p>
+            <label for="inhuman_meta[width]" class="inhuman_label">Width</label>
+            <select name="inhuman_meta[width]" id="inhuman_meta[width]">
+                <option value="">Standard</option>
+                <option value="wide" <?php selected($meta['width'], 'wide'); ?>>Wide</option>
+                <option value="wide2" <?php selected($meta['width'], 'wide2'); ?>>Extra-wide</option>
+            </select>
+        </p>
+
+        <p>
+            <label for="inhuman_meta[height]" class="inhuman_label">Height</label>
+            <select name="inhuman_meta[height]" id="inhuman_meta[height]">
+                <option value="">Standard</option>
+                <option value="short" <?php selected($meta['height'], 'short'); ?>>Short</option>
+                <option value="tall" <?php selected($meta['height'], 'tall'); ?>>Tall</option>
+            </select>
+        </p>
+    </fieldset>
+
+    <fieldset class="inhuman_fieldset">
+        <legend>Screenshots</legend>
+        <p>
+            <label for="inhuman_meta[screenshot]" class="inhuman_label">Image URL</label>
+            <input type="text" name="inhuman_meta[screenshot]" id="inhuman_meta[screenshot]"
+                   value="<?php echo $meta['screenshot']; ?>">
+        </p>
+    </fieldset>
+
+<?php }
 }
-}
+add_action('add_meta_boxes', ['Inhuman_Meta', 'add']);
+add_action('save_post', ['Inhuman_Meta', 'save']);
 
-add_action('add_meta_boxes', ['Inhuman_Meta_Box', 'add']);
-add_action('save_post', ['Inhuman_Meta_Box', 'save']);
-
+//
+// No extra <p> tags on plain cards
+//
 add_filter('the_content', 'inhuman_content_filter', 9);
 function inhuman_content_filter($content) {
     global $post;
