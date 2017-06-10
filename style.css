@@ -1413,6 +1413,9 @@ body {
   .category-selector li {
     margin-right: 5px; }
 
+.screenshot_thumb {
+  width: 100%; }
+
 @media screen and (min-width: 360px) {
   .grid-sizer,
   .card {
