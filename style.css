@@ -97,7 +97,7 @@
 *
 * The default values for the .button class
 */
-.button, .category-button {
+.button, .header .add-screenshot button, .header .signout-button, .header #a0LoginButton, .category-button {
   color: #666;
   background-color: #EEE;
   border-color: #EEE;
@@ -125,13 +125,13 @@
   * The use of !important is only added because this is a state
   * that must be applied to all buttons when in a disabled state.
   */ }
-  .button:visited, .category-button:visited {
+  .button:visited, .header .add-screenshot button:visited, .header .signout-button:visited, .header #a0LoginButton:visited, .category-button:visited {
     color: #666; }
-  .button:hover, .category-button:hover, .button:focus, .category-button:focus {
+  .button:hover, .header .add-screenshot button:hover, .header .signout-button:hover, .header #a0LoginButton:hover, .category-button:hover, .button:focus, .header .add-screenshot button:focus, .header .signout-button:focus, .header #a0LoginButton:focus, .category-button:focus {
     background-color: #f6f6f6;
     text-decoration: none;
     outline: none; }
-  .button:active, .category-button:active, .button.active, .active.category-button, .button.is-active, .is-active.category-button {
+  .button:active, .header .add-screenshot button:active, .header .signout-button:active, .header #a0LoginButton:active, .category-button:active, .button.active, .header .add-screenshot button.active, .header .active.signout-button, .header .active#a0LoginButton, .active.category-button, .button.is-active, .header .add-screenshot button.is-active, .header .is-active.signout-button, .header .is-active#a0LoginButton, .is-active.category-button {
     text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
     text-decoration: none;
     background-color: #eeeeee;
@@ -139,7 +139,7 @@
     color: #d5d5d5;
     transition-duration: 0s;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
-  .button.disabled, .disabled.category-button, .button.is-disabled, .is-disabled.category-button, .button:disabled, .category-button:disabled {
+  .button.disabled, .header .add-screenshot button.disabled, .header .disabled.signout-button, .header .disabled#a0LoginButton, .disabled.category-button, .button.is-disabled, .header .add-screenshot button.is-disabled, .header .is-disabled.signout-button, .header .is-disabled#a0LoginButton, .is-disabled.category-button, .button:disabled, .header .add-screenshot button:disabled, .header .signout-button:disabled, .header #a0LoginButton:disabled, .category-button:disabled {
     top: 0 !important;
     background: #EEE !important;
     border: 1px solid #DDD !important;
@@ -147,7 +147,7 @@
     color: #CCC !important;
     cursor: default !important;
     appearance: none !important; }
-    .button.disabled else, .disabled.category-button else, .button.is-disabled else, .is-disabled.category-button else, .button:disabled else, .category-button:disabled else {
+    .button.disabled else, .header .add-screenshot button.disabled else, .header .disabled.signout-button else, .header .disabled#a0LoginButton else, .disabled.category-button else, .button.is-disabled else, .header .add-screenshot button.is-disabled else, .header .is-disabled.signout-button else, .header .is-disabled#a0LoginButton else, .is-disabled.category-button else, .button:disabled else, .header .add-screenshot button:disabled else, .header .signout-button:disabled else, .header #a0LoginButton:disabled else, .category-button:disabled else {
       box-shadow: none !important;
       opacity: .8 !important; }
 
@@ -366,7 +366,7 @@
 .button-box {
   border-radius: 10px; }
 
-.button-rounded, .category-button {
+.button-rounded, .header .add-screenshot button, .header .signout-button, .header #a0LoginButton, .category-button {
   border-radius: 4px; }
 
 .button-pill {
@@ -401,10 +401,16 @@
   .button-box.button-normal,
   .button-square.button-normal {
     width: 40px; }
-  .button-circle.button-small, .button-circle.category-button,
+  .button-circle.button-small, .header .add-screenshot button.button-circle, .header .button-circle.signout-button, .header .button-circle#a0LoginButton, .button-circle.category-button,
   .button-box.button-small,
+  .header .add-screenshot button.button-box,
+  .header .button-box.signout-button,
+  .header .button-box#a0LoginButton,
   .button-box.category-button,
   .button-square.button-small,
+  .header .add-screenshot button.button-square,
+  .header .button-square.signout-button,
+  .header .button-square#a0LoginButton,
   .button-square.category-button {
     width: 30px; }
   .button-circle.button-tiny,
@@ -620,10 +626,16 @@
   .button-border-thin.button-normal,
   .button-border-thick.button-normal {
     line-height: 36px; }
-  .button-border.button-small, .button-small.button-border-thin, .button-border-thin.category-button, .button-small.button-border-thick, .button-border-thick.category-button, .button-border.category-button,
+  .button-border.button-small, .button-small.button-border-thin, .header .add-screenshot button.button-border-thin, .header .button-border-thin.signout-button, .header .button-border-thin#a0LoginButton, .button-border-thin.category-button, .button-small.button-border-thick, .header .add-screenshot button.button-border-thick, .header .button-border-thick.signout-button, .header .button-border-thick#a0LoginButton, .button-border-thick.category-button, .header .add-screenshot button.button-border, .header .button-border.signout-button, .header .button-border#a0LoginButton, .button-border.category-button,
   .button-border-thin.button-small,
+  .header .add-screenshot button.button-border-thin,
+  .header .button-border-thin.signout-button,
+  .header .button-border-thin#a0LoginButton,
   .button-border-thin.category-button,
   .button-border-thick.button-small,
+  .header .add-screenshot button.button-border-thick,
+  .header .button-border-thick.signout-button,
+  .header .button-border-thick#a0LoginButton,
   .button-border-thick.category-button {
     line-height: 26px; }
   .button-border.button-tiny, .button-tiny.button-border-thin, .button-tiny.button-border-thick,
@@ -694,7 +706,7 @@
     font-size: 20.8px;
     height: 36.8px;
     line-height: 36.8px; }
-  .button-borderless.button-small, .button-borderless.category-button {
+  .button-borderless.button-small, .header .add-screenshot button.button-borderless, .header .button-borderless.signout-button, .header .button-borderless#a0LoginButton, .button-borderless.category-button {
     font-size: 15.6px;
     height: 31.6px;
     line-height: 31.6px; }
@@ -709,16 +721,16 @@
 * A classic looking button that offers
 * great depth and affordance.
 */
-.button-raised {
+.button-raised, .header .add-screenshot button, .header .signout-button, .header #a0LoginButton, .category-button {
   border-color: #e1e1e1;
   border-style: solid;
   border-width: 1px;
   line-height: 38px;
   background: linear-gradient(#f6f6f6, #e1e1e1);
   box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.15); }
-  .button-raised:hover, .button-raised:focus {
+  .button-raised:hover, .header .add-screenshot button:hover, .header .signout-button:hover, .header #a0LoginButton:hover, .category-button:hover, .button-raised:focus, .header .add-screenshot button:focus, .header .signout-button:focus, .header #a0LoginButton:focus, .category-button:focus {
     background: linear-gradient(top, white, gainsboro); }
-  .button-raised:active, .button-raised.active, .button-raised.is-active {
+  .button-raised:active, .header .add-screenshot button:active, .header .signout-button:active, .header #a0LoginButton:active, .category-button:active, .button-raised.active, .header .add-screenshot button.active, .header .active.signout-button, .header .active#a0LoginButton, .active.category-button, .button-raised.is-active, .header .add-screenshot button.is-active, .header .is-active.signout-button, .header .is-active#a0LoginButton, .is-active.category-button {
     background: #eeeeee;
     box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.2), 0px 1px 0px white; }
 
@@ -727,60 +739,60 @@
 *
 * Create colors for raised buttons
 */
-.button-raised.button-primary {
+.button-raised.button-primary, .header .add-screenshot button.button-primary, .header .button-primary.signout-button, .header .button-primary#a0LoginButton, .button-primary.category-button {
   border-color: #088ef0;
   background: linear-gradient(#34a5f8, #088ef0); }
-  .button-raised.button-primary:hover, .button-raised.button-primary:focus {
+  .button-raised.button-primary:hover, .header .add-screenshot button.button-primary:hover, .header .button-primary.signout-button:hover, .header .button-primary#a0LoginButton:hover, .button-primary.category-button:hover, .button-raised.button-primary:focus, .header .add-screenshot button.button-primary:focus, .header .button-primary.signout-button:focus, .header .button-primary#a0LoginButton:focus, .button-primary.category-button:focus {
     background: linear-gradient(top, #42abf8, #0888e6); }
-  .button-raised.button-primary:active, .button-raised.button-primary.active, .button-raised.button-primary.is-active {
+  .button-raised.button-primary:active, .header .add-screenshot button.button-primary:active, .header .button-primary.signout-button:active, .header .button-primary#a0LoginButton:active, .button-primary.category-button:active, .button-raised.button-primary.active, .header .add-screenshot button.button-primary.active, .header .button-primary.active.signout-button, .header .button-primary.active#a0LoginButton, .button-primary.active.category-button, .button-raised.button-primary.is-active, .header .add-screenshot button.button-primary.is-active, .header .button-primary.is-active.signout-button, .header .button-primary.is-active#a0LoginButton, .button-primary.is-active.category-button {
     border-color: #0880d7;
     background: #2798eb; }
-.button-raised.button-plain {
+.button-raised.button-plain, .header .add-screenshot button.button-plain, .header .button-plain.signout-button, .header .button-plain#a0LoginButton, .button-plain.category-button {
   border-color: #f2f2f2;
   background: linear-gradient(white, #f2f2f2); }
-  .button-raised.button-plain:hover, .button-raised.button-plain:focus {
+  .button-raised.button-plain:hover, .header .add-screenshot button.button-plain:hover, .header .button-plain.signout-button:hover, .header .button-plain#a0LoginButton:hover, .button-plain.category-button:hover, .button-raised.button-plain:focus, .header .add-screenshot button.button-plain:focus, .header .button-plain.signout-button:focus, .header .button-plain#a0LoginButton:focus, .button-plain.category-button:focus {
     background: linear-gradient(top, white, #ededed); }
-  .button-raised.button-plain:active, .button-raised.button-plain.active, .button-raised.button-plain.is-active {
+  .button-raised.button-plain:active, .header .add-screenshot button.button-plain:active, .header .button-plain.signout-button:active, .header .button-plain#a0LoginButton:active, .button-plain.category-button:active, .button-raised.button-plain.active, .header .add-screenshot button.button-plain.active, .header .button-plain.active.signout-button, .header .button-plain.active#a0LoginButton, .button-plain.active.category-button, .button-raised.button-plain.is-active, .header .add-screenshot button.button-plain.is-active, .header .button-plain.is-active.signout-button, .header .button-plain.is-active#a0LoginButton, .button-plain.is-active.category-button {
     border-color: #e6e6e6;
     background: white; }
-.button-raised.button-inverse {
+.button-raised.button-inverse, .header .add-screenshot button.button-inverse, .header .button-inverse.signout-button, .header .button-inverse#a0LoginButton, .button-inverse.category-button {
   border-color: #151515;
   background: linear-gradient(#2f2f2f, #151515); }
-  .button-raised.button-inverse:hover, .button-raised.button-inverse:focus {
+  .button-raised.button-inverse:hover, .header .add-screenshot button.button-inverse:hover, .header .button-inverse.signout-button:hover, .header .button-inverse#a0LoginButton:hover, .button-inverse.category-button:hover, .button-raised.button-inverse:focus, .header .add-screenshot button.button-inverse:focus, .header .button-inverse.signout-button:focus, .header .button-inverse#a0LoginButton:focus, .button-inverse.category-button:focus {
     background: linear-gradient(top, #363636, #101010); }
-  .button-raised.button-inverse:active, .button-raised.button-inverse.active, .button-raised.button-inverse.is-active {
+  .button-raised.button-inverse:active, .header .add-screenshot button.button-inverse:active, .header .button-inverse.signout-button:active, .header .button-inverse#a0LoginButton:active, .button-inverse.category-button:active, .button-raised.button-inverse.active, .header .add-screenshot button.button-inverse.active, .header .button-inverse.active.signout-button, .header .button-inverse.active#a0LoginButton, .button-inverse.active.category-button, .button-raised.button-inverse.is-active, .header .add-screenshot button.button-inverse.is-active, .header .button-inverse.is-active.signout-button, .header .button-inverse.is-active#a0LoginButton, .button-inverse.is-active.category-button {
     border-color: #090909;
     background: #222222; }
-.button-raised.button-action {
+.button-raised.button-action, .header .add-screenshot button.button-action, .header .button-action.signout-button, .header .button-action#a0LoginButton, .button-action.category-button {
   border-color: #9ad824;
   background: linear-gradient(#afe24d, #9ad824); }
-  .button-raised.button-action:hover, .button-raised.button-action:focus {
+  .button-raised.button-action:hover, .header .add-screenshot button.button-action:hover, .header .button-action.signout-button:hover, .header .button-action#a0LoginButton:hover, .button-action.category-button:hover, .button-raised.button-action:focus, .header .add-screenshot button.button-action:focus, .header .button-action.signout-button:focus, .header .button-action#a0LoginButton:focus, .button-action.category-button:focus {
     background: linear-gradient(top, #b5e45a, #94cf22); }
-  .button-raised.button-action:active, .button-raised.button-action.active, .button-raised.button-action.is-active {
+  .button-raised.button-action:active, .header .add-screenshot button.button-action:active, .header .button-action.signout-button:active, .header .button-action#a0LoginButton:active, .button-action.category-button:active, .button-raised.button-action.active, .header .add-screenshot button.button-action.active, .header .button-action.active.signout-button, .header .button-action.active#a0LoginButton, .button-action.active.category-button, .button-raised.button-action.is-active, .header .add-screenshot button.button-action.is-active, .header .button-action.is-active.signout-button, .header .button-action.is-active#a0LoginButton, .button-action.is-active.category-button {
     border-color: #8bc220;
     background: #a1d243; }
-.button-raised.button-highlight {
+.button-raised.button-highlight, .header .add-screenshot button.button-highlight, .header .button-highlight.signout-button, .header .button-highlight#a0LoginButton, .button-highlight.category-button {
   border-color: #fea502;
   background: linear-gradient(#feb734, #fea502); }
-  .button-raised.button-highlight:hover, .button-raised.button-highlight:focus {
+  .button-raised.button-highlight:hover, .header .add-screenshot button.button-highlight:hover, .header .button-highlight.signout-button:hover, .header .button-highlight#a0LoginButton:hover, .button-highlight.category-button:hover, .button-raised.button-highlight:focus, .header .add-screenshot button.button-highlight:focus, .header .button-highlight.signout-button:focus, .header .button-highlight#a0LoginButton:focus, .button-highlight.category-button:focus {
     background: linear-gradient(top, #febc44, #f49f01); }
-  .button-raised.button-highlight:active, .button-raised.button-highlight.active, .button-raised.button-highlight.is-active {
+  .button-raised.button-highlight:active, .header .add-screenshot button.button-highlight:active, .header .button-highlight.signout-button:active, .header .button-highlight#a0LoginButton:active, .button-highlight.category-button:active, .button-raised.button-highlight.active, .header .add-screenshot button.button-highlight.active, .header .button-highlight.active.signout-button, .header .button-highlight.active#a0LoginButton, .button-highlight.active.category-button, .button-raised.button-highlight.is-active, .header .add-screenshot button.button-highlight.is-active, .header .button-highlight.is-active.signout-button, .header .button-highlight.is-active#a0LoginButton, .button-highlight.is-active.category-button {
     border-color: #e59501;
     background: #f3ab26; }
-.button-raised.button-caution {
+.button-raised.button-caution, .header .add-screenshot button.button-caution, .header .button-caution.signout-button, .header .button-caution#a0LoginButton, .button-caution.category-button {
   border-color: #ff2a39;
   background: linear-gradient(#ff5d69, #ff2a39); }
-  .button-raised.button-caution:hover, .button-raised.button-caution:focus {
+  .button-raised.button-caution:hover, .header .add-screenshot button.button-caution:hover, .header .button-caution.signout-button:hover, .header .button-caution#a0LoginButton:hover, .button-caution.category-button:hover, .button-raised.button-caution:focus, .header .add-screenshot button.button-caution:focus, .header .button-caution.signout-button:focus, .header .button-caution#a0LoginButton:focus, .button-caution.category-button:focus {
     background: linear-gradient(top, #ff6c77, #ff1f30); }
-  .button-raised.button-caution:active, .button-raised.button-caution.active, .button-raised.button-caution.is-active {
+  .button-raised.button-caution:active, .header .add-screenshot button.button-caution:active, .header .button-caution.signout-button:active, .header .button-caution#a0LoginButton:active, .button-caution.category-button:active, .button-raised.button-caution.active, .header .add-screenshot button.button-caution.active, .header .button-caution.active.signout-button, .header .button-caution.active#a0LoginButton, .button-caution.active.category-button, .button-raised.button-caution.is-active, .header .add-screenshot button.button-caution.is-active, .header .button-caution.is-active.signout-button, .header .button-caution.is-active#a0LoginButton, .button-caution.is-active.category-button {
     border-color: #ff1022;
     background: #f64c59; }
-.button-raised.button-royal {
+.button-raised.button-royal, .header .add-screenshot button.button-royal, .header .button-royal.signout-button, .header .button-royal#a0LoginButton, .button-royal.category-button {
   border-color: #665ce6;
   background: linear-gradient(#9088ec, #665ce6); }
-  .button-raised.button-royal:hover, .button-raised.button-royal:focus {
+  .button-raised.button-royal:hover, .header .add-screenshot button.button-royal:hover, .header .button-royal.signout-button:hover, .header .button-royal#a0LoginButton:hover, .button-royal.category-button:hover, .button-raised.button-royal:focus, .header .add-screenshot button.button-royal:focus, .header .button-royal.signout-button:focus, .header .button-royal#a0LoginButton:focus, .button-royal.category-button:focus {
     background: linear-gradient(top, #9c95ef, #5e53e4); }
-  .button-raised.button-royal:active, .button-raised.button-royal.active, .button-raised.button-royal.is-active {
+  .button-raised.button-royal:active, .header .add-screenshot button.button-royal:active, .header .button-royal.signout-button:active, .header .button-royal#a0LoginButton:active, .button-royal.category-button:active, .button-raised.button-royal.active, .header .add-screenshot button.button-royal.active, .header .button-royal.active.signout-button, .header .button-royal.active#a0LoginButton, .button-royal.active.category-button, .button-raised.button-royal.is-active, .header .add-screenshot button.button-royal.is-active, .header .button-royal.is-active.signout-button, .header .button-royal.is-active#a0LoginButton, .button-royal.is-active.category-button {
     border-color: #5246e2;
     background: #827ae1; }
 
@@ -1138,19 +1150,19 @@
     line-height: 0;
     width: 0;
     height: 0; }
-  .button-group .button, .button-group .category-button,
+  .button-group .button, .button-group .header .add-screenshot button, .header .add-screenshot .button-group button, .button-group .header .signout-button, .header .button-group .signout-button, .button-group .header #a0LoginButton, .header .button-group #a0LoginButton, .button-group .category-button,
   .button-group .button-dropdown {
     float: left; }
-    .button-group .button:not(:first-child):not(:last-child), .button-group .category-button:not(:first-child):not(:last-child),
+    .button-group .button:not(:first-child):not(:last-child), .button-group .header .add-screenshot button:not(:first-child):not(:last-child), .header .add-screenshot .button-group button:not(:first-child):not(:last-child), .button-group .header .signout-button:not(:first-child):not(:last-child), .header .button-group .signout-button:not(:first-child):not(:last-child), .button-group .header #a0LoginButton:not(:first-child):not(:last-child), .header .button-group #a0LoginButton:not(:first-child):not(:last-child), .button-group .category-button:not(:first-child):not(:last-child),
     .button-group .button-dropdown:not(:first-child):not(:last-child) {
       border-radius: 0;
       border-right: none; }
-    .button-group .button:first-child, .button-group .category-button:first-child,
+    .button-group .button:first-child, .button-group .header .add-screenshot button:first-child, .header .add-screenshot .button-group button:first-child, .button-group .header .signout-button:first-child, .header .button-group .signout-button:first-child, .button-group .header #a0LoginButton:first-child, .header .button-group #a0LoginButton:first-child, .button-group .category-button:first-child,
     .button-group .button-dropdown:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
       border-right: none; }
-    .button-group .button:last-child, .button-group .category-button:last-child,
+    .button-group .button:last-child, .button-group .header .add-screenshot button:last-child, .header .add-screenshot .button-group button:last-child, .button-group .header .signout-button:last-child, .header .button-group .signout-button:last-child, .button-group .header #a0LoginButton:last-child, .header .button-group #a0LoginButton:last-child, .button-group .category-button:last-child,
     .button-group .button-dropdown:last-child {
       border-top-left-radius: 0;
       border-bottom-left-radius: 0; }
@@ -1313,7 +1325,7 @@
   line-height: 40px;
   padding: 0 40px; }
 
-.button-small, .category-button {
+.button-small, .header .add-screenshot button, .header .signout-button, .header #a0LoginButton, .category-button {
   font-size: 12px;
   height: 30px;
   line-height: 30px;
@@ -1355,6 +1367,40 @@ body {
   background: #ddd;
   color: #333;
   margin: 10px; }
+
+.header {
+  margin-bottom: 20px; }
+  .header .add-screenshot {
+    display: inline-block; }
+    .header .add-screenshot input {
+      margin-right: 0;
+      width: 20em; }
+    .header .add-screenshot button {
+      margin-left: 0; }
+  .header .login {
+    display: inline-block;
+    margin-left: 20px; }
+
+.footer {
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0; }
+  .footer .footer-right {
+    float: right;
+    margin: 0 10px 10px 0; }
+  .footer .footer-menu {
+    display: inline-block;
+    background: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-right: 5px;
+    padding: 10px;
+    position: relative; }
+  .footer .footer-menu-chevron {
+    position: absolute;
+    left: 100%;
+    bottom: .66em; }
 
 .grid {
   max-width: 1200px; }
@@ -1400,9 +1446,6 @@ body {
   .terms li {
     display: inline;
     font-size: 10pt; }
-
-.category-button {
-  font-family: fira-sans, sans-serif; }
 
 .category-selector {
   align-items: center;
