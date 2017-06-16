@@ -1,0 +1,15 @@
+{
+    "name": "dmills/inhuman-ads",
+    "description": "WP Plugin for Inhuman Ads",
+    "type": "library",
+    "require": {
+        "paquettg/php-html-parser": "^1.7"
+    },
+    "license": "MPL-2.0",
+    "authors": [
+        {
+            "name": "Dan Mills",
+            "email": "danmills@sandmill.org"
+        }
+    ]
+}
