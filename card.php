@@ -22,7 +22,9 @@
     <h3 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
     <p><?php the_excerpt() ?></p>
   <?php elseif ("screenshot" == $meta['type']) : ?>
-    <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+    <a href="<?php the_permalink(); ?>">
+      <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+    </a>
     <?php the_content() ?>
   <?php elseif ("plain" == $meta['type'] or "background" == $meta['type']) : ?>
     <?php the_content() ?>
