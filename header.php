@@ -8,15 +8,21 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.ico">
-    <?php wp_enqueue_style('main', get_bloginfo('template_directory') . '/style.css' ) ?>
-    <?php wp_enqueue_style('buttons', get_bloginfo('template_directory') . '/vendor/buttons/css/buttons.css' ) ?>
-    <?php wp_enqueue_style('font-awesome', get_bloginfo('template_directory') . '/vendor/font-awesome/css/font-awesome.css' ) ?>
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory') . '/styles/noscript.css' ?>">
+    </noscript>
     <script src="https://use.typekit.net/dkl0mwz.js" type="text/javascript"></script>
     <script type="text/javascript">
       try{Typekit.load();}catch(e){}
     </script>
+    <?php 
+      wp_enqueue_style('main', get_bloginfo('template_directory') . '/style.css' );
+      wp_enqueue_style('buttons', get_bloginfo('template_directory') . '/vendor/buttons/css/buttons.css' );
+      wp_enqueue_style('font-awesome', get_bloginfo('template_directory') . '/vendor/font-awesome/css/font-awesome.css' );
+    ?>
     <?php wp_head();?>
   </head>
+
   <body>
     <div class="header">
       <form class="add-screenshot" method="POST" action="inhuman-add-screenshot">

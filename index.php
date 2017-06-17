@@ -1,22 +1,10 @@
 <?php get_header(); ?>
 
-<div class="grid">
+<div class="featured-posts grid">
 	<div class="grid-sizer"></div>
 	<div class="gutter-sizer"></div>
 	<?php 
-    $args = array(
-      'post_type' => 'post',
-      'meta_query'  => array(
-        array(
-          'key' => '_inhuman_meta_featured',
-          'value' => 'on'
-        )
-      ),
-      'meta_key' => '_inhuman_meta_sort',
-      'orderby' => 'meta_value_num',
-      'order' => 'ASC',
-    );
-    $loop = new WP_Query( $args );
+    $loop = new WP_Query($inhuman_featured_query);
 		if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 		get_template_part( 'card', get_post_format() );
 		endwhile; endif;
@@ -28,31 +16,17 @@
 	<li><a href="" class="category-button">Screenshots</a></li>
 	<li><a href="" class="category-button">Articles</a></li>
 </ul>
-<div class="grid">
+<div class="all-posts grid">
 	<div class="grid-sizer"></div>
 	<div class="gutter-sizer"></div>
 	<?php 
-    $args = array(
-      'post_type' => array('post', 'inhuman_screenshot'),
-      'meta_query'  => array(
-        'relation' => 'OR',
-        array(
-          'key' => '_inhuman_meta_featured',
-          'compare' => 'NOT EXISTS',
-          'value' => ''
-        ),
-        array(
-          'key' => '_inhuman_meta_featured',
-          'value' => ''
-        )
-      )
-
-    );
-    $loop = new WP_Query( $args );
+    $loop = new WP_Query($inhuman_posts_query);
 		if ( $loop->have_posts() ) : while ( $loop->have_posts() ) : $loop->the_post();
 		get_template_part( 'card', get_post_format() );
 		endwhile; endif;
 	?>
 </div>
+
+<div class="load-more-button"></div>
 
 <?php get_footer(); ?>

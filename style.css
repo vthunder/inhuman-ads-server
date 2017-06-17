@@ -1384,19 +1384,20 @@ body {
 .footer {
   bottom: 0;
   position: fixed;
-  left: 0;
   right: 0; }
   .footer .footer-right {
     float: right;
     margin: 0 10px 10px 0; }
   .footer .footer-menu {
-    display: inline-block;
+    display: none;
     background: white;
     border-radius: 5px;
     border: 1px solid black;
     margin-right: 5px;
     padding: 10px;
     position: relative; }
+  .footer .footer-menu.visible {
+    display: inline-block; }
   .footer .footer-menu-chevron {
     position: absolute;
     left: 100%;

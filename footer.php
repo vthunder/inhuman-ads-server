@@ -17,15 +17,17 @@
     </a>
   </div>
 </div>
+
 <?php
-  wp_enqueue_script('require', get_bloginfo('template_directory') . '/vendor/requirejs/require.js');
-  wp_enqueue_script('main', get_bloginfo('template_directory') . '/js/main.js');
-  wp_localize_script('main', 'php_data', array(
-    'base_uri' => get_template_directory_uri(),
-    'ajax_url' => admin_url('admin-ajax.php'),
-    'nonce' => wp_create_nonce('inhuman-ads-nonce')
-  ));
+  $tpldir = get_bloginfo('template_directory');
+  wp_enqueue_script('jquery', $tpldir . '/vendor/jquery/dist/jquery.min.js');
+  wp_enqueue_script('jquery-isotope', $tpldir . '/vendor/isotope/dist/isotope.pkgd.min.js');
+  wp_enqueue_script('jquery-serializeForm', $tpldir . '/vendor/jquery-serializeForm/dist/jquery-serializeForm.min.js');
+  wp_enqueue_script('main', get_bloginfo('template_directory') . '/js/main.js',
+                    array('jquery', 'jquery-isotope', 'jquery-serializeForm'));
+  inhuman_setup_js_vars();
   wp_footer();
 ?>
+
 </body>
 </html>
