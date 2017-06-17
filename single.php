@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 
-<?php 
-				if ( have_posts() ) : while ( have_posts() ) : the_post();
-					get_template_part( 'content-single', get_post_format() );
-				endwhile; endif; 
-			?>
+<h2 class="blog-post-title"><?php the_title(); ?></h2>
+<p class="blog-post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
+<?php the_content(); ?>
+
+<?php comments_template(); ?>
 
 <?php get_footer(); ?>
