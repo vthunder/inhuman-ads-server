@@ -21,6 +21,7 @@
     "isotope": "^3.0.4",
     "jquery": "^3.2.1",
     "jquery-serializeForm": "^1.2.3",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "sidr": "^2.2.1"
   }
 }

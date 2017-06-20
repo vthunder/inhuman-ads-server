@@ -1,4 +1,4 @@
-(function($) {
+jQuery(document).ready(function($) {
 
   "use strict";
 
@@ -34,6 +34,29 @@
       });
   });
 
+  $('#sidebar-toggle').sidr({
+    name: 'sidebar-menu',
+    side: 'right'
+  });
+
+  var next_move = "expand";
+  $("#sidebar-toggle").click(function() {
+    console.log(next_move);
+    var css = {};
+    if (next_move == "expand"){
+      css = {
+        marginRight: '260px', // Equals your Sidr width
+      };
+      next_move = "shrink";
+    } else {
+      css = {
+        marginRight: '0px', // Return to original position
+      };
+      next_move = "expand";
+    }
+    $(this).animate(css, 175, "linear"); // Timed to default Sidr movement
+  });
+  
   // Footer corner menu behavior
   $('.footer-button').click(function(e) {
     $('.footer-menu').toggleClass('visible');
@@ -68,4 +91,4 @@
 		  });
 	  }
   });
-})(jQuery);
+});

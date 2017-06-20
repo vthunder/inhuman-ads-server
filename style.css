@@ -1381,6 +1381,17 @@ body {
     display: inline-block;
     margin-left: 20px; }
 
+#sidebar-toggle {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 999; }
+
+.sidebar-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
+
 .footer {
   bottom: 0;
   position: fixed;
