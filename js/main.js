@@ -2,6 +2,12 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
+  $(window).scroll(function() {
+    (window.pageYOffset || document.documentElement.scrollTop) > 300?
+      $("header").addClass("smaller") :
+      $("header").removeClass("smaller");
+  });
+
   var isotope_opts = {
     itemSelector: '.card',
     layoutMode: 'masonry',
@@ -36,7 +42,7 @@ jQuery(document).ready(function($) {
 
   $('#sidebar-toggle').sidr({
     name: 'sidebar-menu',
-    side: 'right'
+    side: 'left'
   });
 
   var next_move = "expand";
@@ -45,12 +51,12 @@ jQuery(document).ready(function($) {
     var css = {};
     if (next_move == "expand"){
       css = {
-        marginRight: '260px', // Equals your Sidr width
+        marginLeft: '260px', // Equals your Sidr width
       };
       next_move = "shrink";
     } else {
       css = {
-        marginRight: '0px', // Return to original position
+        marginLeft: '0px', // Return to original position
       };
       next_move = "expand";
     }

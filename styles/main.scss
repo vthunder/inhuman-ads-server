@@ -1,10 +1,13 @@
 @import "../vendor/Buttons/scss/buttons";
-
 @font-face {
     font-family: Zilla;
     src: url(fonts/ZillaSlab-Bold.otf);
     font-weight: bold;
 }
+
+// ---------------------------------------------------------
+// Global font defaults
+// ---------------------------------------------------------
 
 * {
     color: #333;
@@ -16,15 +19,16 @@ p {
 }
 
 h1 {
-    font-family: acier-bat-noir, sans-serif;
+    font-family: acier-bat-gris, acier-bat-noir, sans-serif;
     font-size: 32pt;
-    font-weight: 400;
+    font-weight: 300;
     margin: 0 0;
 }
 
 h2 {
     font-size: 12pt;
     font-style: italic;
+    font-weight: 200;
     margin-top: 0px;
     padding-left: 1em;
 
@@ -37,43 +41,96 @@ h2 {
 a {
 }
 
+// ---------------------------------------------------------
+// Document structure
+// ---------------------------------------------------------
+
 body {
     background: #ddd;
     color: #333;
     margin: 10px;
+    padding-top: 285px;
 }
 
-.header {
-  margin-bottom: 20px;
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+}
 
-  .add-screenshot {
+// ---------------------------------------------------------
+// Header & sidebar
+// ---------------------------------------------------------
+
+header {
+  background-color: #0683c9;
+  padding-top: 10px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  margin-bottom: 20px;
+  height: 250px;
+  overflow: hidden;
+  width: 100%;
+  z-index: 999;
+  -webkit-transition: height 0.3s;
+  -moz-transition: height 0.3s;
+  -ms-transition: height 0.3s;
+  -o-transition: height 0.3s;
+  transition: height 0.3s;
+
+  * {
+    color: white;
+  }
+
+  .nav-left {
+    float: left;
+    width: 30%;
+  }
+  .nav-right {
+    float: right;
+    width: 30%;
+    text-align: right;
+  }
+  .nav-center {
+    width: 40%;
     display: inline-block;
-    input {
-      margin-right: 0;
-      width: 20em;
+    text-align: center;
+    margin-top: -.5em;
+    
+    //display: table;
+    //margin: auto;
+    h2 {
+      margin-top: -.5em;
     }
-    button {
-      @extend .button, .button-small, .button-rounded, .button-raised;
-      margin-left: 0;
+  }
+
+  .nav-subscribe {
+    margin-left: 2em;
+  }
+  .nav-login {
+    margin-right: 2em;
+  }
+}
+header.smaller {
+  height: 40px;
+
+  h1 {
+    font-size: 22pt;
+  }
+  h2 {
+    font-size: 9pt;
+    .firefox {
+	    font-size: 10pt;
     }
-  }
-  .login {
-    display: inline-block;
-    margin-left: 20px;
-  }
-  .signout-button {
-      @extend .button, .button-small, .button-rounded, .button-raised;
-  }
-  #a0LoginButton {
-    @extend .button, .button-small, .button-rounded, .button-raised;
   }
 }
 
 #sidebar-toggle {
-  position: fixed;
-  right: 10px;
-  top: 10px;
-  z-index: 999;
+//  position: fixed;
+//  left: 10px;
+//  top: 10px;
+//  z-index: 999;
 }
 .sidebar-bottom {
   position: absolute;
@@ -81,42 +138,26 @@ body {
   width: 100%;
 }
 
-.footer {
-  bottom: 0;
-  position: fixed;
-  right: 0;
+.mozlogo {
+    background: #000;
+    color: #fff;
+    font-family: Zilla;
+    font-weight: bold;
+    padding: .25em;
+}
+.terms {
+    list-style: none;
+    padding: 0;
 
-  .footer-right {
-    float: right;
-    margin: 0 10px 10px 0;
-  }
-  .footer-menu {
-    display: none;
-    background: white;
-    border-radius: 5px;
-    border: 1px solid black;
-    margin-right: 5px;
-    padding: 10px;
-    position: relative;
-  }
-  .footer-menu.visible {
-    display: inline-block;
-  }
-  .footer-menu-chevron {
-    position: absolute;
-    left: 100%;
-    bottom: .66em;
-  }
-  .brought-by {
-  }
+    li {
+	display: inline;
+	font-size: 10pt;
+    }
 }
 
-.container {
-//    margin: 0;
-//    padding: 0;
-//    position: relative;
-//    width: 100%;
-}
+// ---------------------------------------------------------
+// Masonry grid
+// ---------------------------------------------------------
 
 .grid {
     max-width: 1200px;
@@ -158,23 +199,6 @@ body {
     width: 0%;
 }
 
-.mozlogo {
-    background: #000;
-    color: #fff;
-    font-family: Zilla;
-    font-weight: bold;
-    padding: .25em;
-}
-.terms {
-    list-style: none;
-    padding: 0;
-
-    li {
-	display: inline;
-	font-size: 10pt;
-    }
-}
-
 .category-button {
     @extend .button, .button-small, .button-rounded, .button-raised;
 }
@@ -195,62 +219,45 @@ body {
   width: 100%;
 }
 
+// ---------------------------------------------------------
+// Masonry grid media queries
+// ---------------------------------------------------------
+
 @media screen and (min-width: 360px) {
-    .grid-sizer,
-    .card {
-	width: 44%;
-    }
-    .card-wide,
-    .card-wide2 {
-	width: 96%;
-    }
-    .gutter-sizer {
-	width: 4%;
-    }
+  .grid-sizer, .card { width: 44%; }
+  .card-wide, .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 4%; }
 }
 @media screen and (min-width: 600px) {
-    .grid-sizer,
-    .card {
-	width: 45%;
-    }
-    .card-wide,
-    .card-wide2 {
-	width: 96%;
-    }
-    .gutter-sizer {
-	width: 2%;
-    }
+  .grid-sizer, .card { width: 45%; }
+  .card-wide, .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 2%; }
 }
 @media screen and (min-width: 730px) {
-    .grid-sizer,
-    .card {
-	width: 28%;
-    }
-    .card-wide {
-	width: 62%;
-    }
-    .card-wide2 {
-	width: 96%;
-    }
-    .gutter-sizer {
-	width: 2%;
-    }
+  .grid-sizer, .card { width: 28%; }
+  .card-wide { width: 62%; }
+  .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 2%; }
 }
 @media screen and (min-width: 1024px) {
-    body {
-	margin: 20px;
-    }
-    .grid-sizer,
-    .card {
-	width: 19.5%;
-    }
-    .card-wide {
-	width: 45%;
-    }
-    .card-wide2 {
-	width: 70.5%;
-    }
-    .gutter-sizer {
-	width: 2%;
-    }
+  .grid-sizer, .card { width: 19.5%; }
+  .card-wide { width: 45%; }
+  .card-wide2 { width: 70.5%; }
+  .gutter-sizer { width: 2%; }
+}
+
+// ---------------------------------------------------------
+// Other media queries
+// ---------------------------------------------------------
+
+@media screen and (min-width: 360px) {
+}
+@media screen and (min-width: 600px) {
+}
+@media screen and (min-width: 730px) {
+}
+@media screen and (min-width: 1024px) {
+  body {
+	  margin: 20px;
+  }
 }

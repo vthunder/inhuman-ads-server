@@ -25,5 +25,28 @@
   </head>
 
   <body>
-    <div class="header">
-    </div>
+    <header>
+      <div class="container">
+        <div class="nav-left">
+          <a id="sidebar-toggle" href="#sidebar-menu"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
+          <span class="nav-subscribe">Subscribe</span>
+        </div>
+
+        <div class="nav-center">
+          <h1>Inhuman Ads</h1>
+          <h2>powered by <span class="firefox">Firefox Screenshots</span></h2>
+        </div>
+
+        <div class="nav-right">
+          <span class="nav-login">
+            <?php if (is_user_logged_in()): ?>
+              <!-- <?php echo wp_get_current_user()->display_name; ?> -->
+              <a class="signout-button" href="<?php echo wp_logout_url(home_url()); ?>">Sign out</a>
+            <?php else: ?>
+              <?php echo do_shortcode('[auth0 show_as_modal="true" modal_trigger_name="Sign in"]'); ?>
+            <?php endif; ?>
+          </span>
+          <a class="nav-search" href="#sidebar-menu"><i class="fa fa-search fa-lg fa-inverse"></i></a>
+        </div>
+      </div>
+    </header>
