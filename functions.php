@@ -33,7 +33,8 @@
       'base_uri' => get_template_directory_uri(),
       'ajax_url' => admin_url('admin-ajax.php'),
       'nonce' => wp_create_nonce('inhuman-ads-nonce'),
-      'posts_query' => $inhuman_posts_query
+      'posts_query' => $inhuman_posts_query,
+      'user_display_name' => wp_get_current_user()->display_name
     ));
   }
 

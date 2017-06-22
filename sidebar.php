@@ -1,17 +1,21 @@
 <div id="sidebar-menu">
-  <div class="login">
-  </div>
-  <br/>
   <h3>Contribute a screenshot</h3>
-  <form class="add-screenshot" method="POST" action="inhuman-add-screenshot">
-    <input name="screenshot-url" type="text"
+  <form id="add-screenshot-form" method="POST" action="inhuman-add-screenshot">
+    <input id="add-screenshot-url" name="screenshot-url" type="text"
            placeholder="Firefox Screenshots link">
     <button href="#">Add</button>
   </form>
   <!-- Your content -->
-  <ul class="sidebar-bottom">
-    <li><a href="#">List 1</a></li>
-    <li class="active"><a href="#">List 2</a></li>
-    <li><a href="#">List 3</a></li>
-  </ul>
+  <div class="sidebar-bottom">
+    <div class="brought-by">
+      Brought to you by <a href="https://mozilla.org"><span class="mozlogo">moz://a</span></a>
+    </div>
+    <ul>
+      <li><a href="">Terms</a></li>
+      <li><a href="">Privacy Notice</a></li>
+      <li><a href="">Report IP Infringement</a></li>
+      <li><a href="">Give Feedback</a></li>
+      <li><a href="">GitHub</a></li>
+    </ul>
+  </div>
 </div>

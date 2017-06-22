@@ -24,6 +24,13 @@ jQuery(document).ready(function($) {
   $(form).submit(function(event) {
     event.preventDefault();
 
+    if (!php_data.user_display_name) {
+      // user not logged in
+      localStorage.setItem('addScreenshotAttempt', $('#add-screenshot-url').val());
+      $('#a0LoginButton').click();
+      return;
+    }
+
     let formData = $(form).serializeForm();
     formData.action = 'inhuman_add_screenshot';
     formData.nonce = php_data.nonce;
@@ -34,12 +41,25 @@ jQuery(document).ready(function($) {
       data: formData
     })
       .done(function(res) {
-        alert(res);
+        if ("0" === res) {
+          alert("Couldn't submit screenshot, try again later");
+        }
+        location.reload();
       })
       .fail(function(err) {
+        alert("Couldn't submit screenshot: " + err);
       });
   });
 
+  var url = localStorage.getItem('addScreenshotAttempt');
+  if (url) {
+    localStorage.removeItem('addScreenshotAttempt');
+    $('#add-screenshot-url').val(url);
+    $(form).submit();
+  }
+
+
+  
   $('#sidebar-toggle').sidr({
     name: 'sidebar-menu',
     side: 'left'
@@ -47,7 +67,6 @@ jQuery(document).ready(function($) {
 
   var next_move = "expand";
   $("#sidebar-toggle").click(function() {
-    console.log(next_move);
     var css = {};
     if (next_move == "expand"){
       css = {

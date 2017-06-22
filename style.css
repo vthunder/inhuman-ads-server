@@ -1338,18 +1338,28 @@ p {
 
 h1 {
   font-family: acier-bat-gris, acier-bat-noir, sans-serif;
-  font-size: 32pt;
+  font-size: 16pt;
   font-weight: 300;
-  margin: 0 0; }
+  margin: 0 0;
+  -webkit-transition: font-size 0.3s;
+  -moz-transition: font-size 0.3s;
+  -ms-transition: font-size 0.3s;
+  -o-transition: font-size 0.3s;
+  transition: font-size 0.3s; }
 
 h2 {
-  font-size: 12pt;
+  font-size: 8pt;
   font-style: italic;
   font-weight: 200;
   margin-top: 0px;
-  padding-left: 1em; }
+  padding-left: 1em;
+  -webkit-transition: font-size 0.3s;
+  -moz-transition: font-size 0.3s;
+  -ms-transition: font-size 0.3s;
+  -o-transition: font-size 0.3s;
+  transition: font-size 0.3s; }
   h2 .firefox {
-    font-size: 14pt;
+    font-size: 9pt;
     font-style: normal; }
 
 body {
@@ -1399,20 +1409,34 @@ header {
     margin-left: 2em; }
   header .nav-login {
     margin-right: 2em; }
+    header .nav-login #form-signin-wrapper {
+      display: inline-block; }
+      header .nav-login #form-signin-wrapper button {
+        background: none !important;
+        border: none;
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        padding: 0 !important; }
 
 header.smaller {
-  height: 40px; }
+  height: 38px; }
   header.smaller h1 {
     font-size: 22pt; }
   header.smaller h2 {
-    font-size: 9pt; }
+    font-size: 8pt; }
     header.smaller h2 .firefox {
-      font-size: 10pt; }
+      font-size: 9pt; }
 
 .sidebar-bottom {
   position: absolute;
   bottom: 0;
   width: 100%; }
+
+.brought-by {
+  color: white;
+  text-align: center;
+  margin-bottom: 1em; }
 
 .mozlogo {
   background: #000;
@@ -1421,24 +1445,15 @@ header.smaller {
   font-weight: bold;
   padding: .25em; }
 
-.terms {
-  list-style: none;
-  padding: 0; }
-  .terms li {
-    display: inline;
-    font-size: 10pt; }
-
 .grid {
   max-width: 1200px; }
 
 .grid-sizer, .card {
-  width: 96%;
-  padding: 10px 2% 10px 2%; }
+  width: 96%; }
 
 .card {
   background: white;
   border-radius: 2px;
-  box-shadow: 1px 1px 3px 0 dimgrey;
   float: left;
   margin-bottom: 20px;
   min-height: 220px; }
@@ -1458,6 +1473,9 @@ header.smaller {
 
 .gutter-sizer {
   width: 0%; }
+
+.card-text {
+  padding: 10px; }
 
 .category-selector {
   align-items: center;
@@ -1503,7 +1521,7 @@ header.smaller {
     width: 2%; } }
 @media screen and (min-width: 1024px) {
   .grid-sizer, .card {
-    width: 19.5%; }
+    width: 23.5%; }
 
   .card-wide {
     width: 45%; }
@@ -1513,8 +1531,47 @@ header.smaller {
 
   .gutter-sizer {
     width: 2%; } }
+@media screen and (min-width: 360px) {
+  h1 {
+    font-size: 14pt; }
+
+  h2 {
+    font-size: 7pt; }
+    h2 .firefox {
+      font-size: 7pt; }
+
+  header.smaller h1 {
+    font-size: 14pt; }
+  header.smaller h2 {
+    font-size: 8pt; }
+    header.smaller h2 .firefox {
+      font-size: 9pt; } }
+@media screen and (min-width: 600px) {
+  h1 {
+    font-size: 22pt; }
+
+  h2 {
+    font-size: 9pt; }
+    h2 .firefox {
+      font-size: 10pt; } }
+@media screen and (min-width: 730px) {
+  h1 {
+    font-size: 26pt; }
+
+  h2 {
+    font-size: 10pt; }
+    h2 .firefox {
+      font-size: 12pt; } }
 @media screen and (min-width: 1024px) {
   body {
-    margin: 20px; } }
+    margin: 20px; }
+
+  h1 {
+    font-size: 32pt; }
+
+  h2 {
+    font-size: 12pt; }
+    h2 .firefox {
+      font-size: 14pt; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -19,8 +19,15 @@
 ?>
 <div class="<?php echo $class ?>">
   <?php if ("" == $meta['type']) : ?>
-    <h3 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
-    <p><?php the_excerpt() ?></p>
+    <a href="<?php the_permalink(); ?>">
+      <?php the_post_thumbnail(); ?>
+    </a>
+    <div class="card-text">
+      <a href="<?php the_permalink(); ?>">
+        <h3 class="card-title"><?php the_title() ?></h3>
+      </a>
+      <p><?php the_excerpt() ?></p>
+    </div>
   <?php elseif ("screenshot" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
       <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />

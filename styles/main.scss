@@ -20,21 +20,31 @@ p {
 
 h1 {
     font-family: acier-bat-gris, acier-bat-noir, sans-serif;
-    font-size: 32pt;
+    font-size: 16pt;
     font-weight: 300;
     margin: 0 0;
+    -webkit-transition: font-size 0.3s;
+    -moz-transition: font-size 0.3s;
+    -ms-transition: font-size 0.3s;
+    -o-transition: font-size 0.3s;
+    transition: font-size 0.3s;
 }
 
 h2 {
-    font-size: 12pt;
+    font-size: 8pt;
     font-style: italic;
     font-weight: 200;
     margin-top: 0px;
     padding-left: 1em;
+    -webkit-transition: font-size 0.3s;
+    -moz-transition: font-size 0.3s;
+    -ms-transition: font-size 0.3s;
+    -o-transition: font-size 0.3s;
+    transition: font-size 0.3s;
 
     .firefox {
-	font-size: 14pt;
-	font-style: normal;
+	    font-size: 9pt;
+	    font-style: normal;
     }
 }
 
@@ -58,7 +68,7 @@ body {
 }
 
 // ---------------------------------------------------------
-// Header & sidebar
+// Header
 // ---------------------------------------------------------
 
 header {
@@ -110,49 +120,54 @@ header {
   }
   .nav-login {
     margin-right: 2em;
+    #form-signin-wrapper {
+      display: inline-block;
+      button {
+        background: none !important;
+        border:none; 
+        color: inherit;
+        cursor: pointer;
+        font: inherit;
+        padding: 0 !important;
+      }
+    }
   }
 }
 header.smaller {
-  height: 40px;
+  height: 38px;
 
   h1 {
     font-size: 22pt;
   }
   h2 {
-    font-size: 9pt;
+    font-size: 8pt;
     .firefox {
-	    font-size: 10pt;
+	    font-size: 9pt;
     }
   }
 }
 
-#sidebar-toggle {
-//  position: fixed;
-//  left: 10px;
-//  top: 10px;
-//  z-index: 999;
-}
+// ---------------------------------------------------------
+// Sidebar
+// ---------------------------------------------------------
+
 .sidebar-bottom {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
 
-.mozlogo {
-    background: #000;
-    color: #fff;
-    font-family: Zilla;
-    font-weight: bold;
-    padding: .25em;
+.brought-by {
+  color: white;
+  text-align: center;
+  margin-bottom: 1em;
 }
-.terms {
-    list-style: none;
-    padding: 0;
-
-    li {
-	display: inline;
-	font-size: 10pt;
-    }
+.mozlogo {
+  background: #000;
+  color: #fff;
+  font-family: Zilla;
+  font-weight: bold;
+  padding: .25em;
 }
 
 // ---------------------------------------------------------
@@ -164,12 +179,12 @@ header.smaller {
 }
 .grid-sizer, .card {
     width: 96%;
-    padding: 10px 2% 10px 2%;
+//    padding: 10px 2% 10px 2%;
 }
 .card {
     background: white;
     border-radius: 2px;
-    box-shadow: 1px 1px 3px 0 dimgrey;
+//    box-shadow: 1px 1px 3px 0 dimgrey;
     float: left;
     margin-bottom: 20px;
     min-height: 220px;
@@ -197,6 +212,10 @@ header.smaller {
 }
 .gutter-sizer {
     width: 0%;
+}
+
+.card-text {
+  padding: 10px;
 }
 
 .category-button {
@@ -240,7 +259,7 @@ header.smaller {
   .gutter-sizer { width: 2%; }
 }
 @media screen and (min-width: 1024px) {
-  .grid-sizer, .card { width: 19.5%; }
+  .grid-sizer, .card { width: 23.5%; }
   .card-wide { width: 45%; }
   .card-wide2 { width: 70.5%; }
   .gutter-sizer { width: 2%; }
@@ -251,13 +270,43 @@ header.smaller {
 // ---------------------------------------------------------
 
 @media screen and (min-width: 360px) {
+  header * {
+//    font-size: 8pt;
+  }
+  h1 { font-size: 14pt; }
+  h2 {
+    font-size: 7pt;
+    .firefox { font-size: 7pt; }
+  }
+  header.smaller {
+    h1 { font-size: 14pt; }
+    h2 {
+      font-size: 8pt;
+      .firefox { font-size: 9pt; }
+    }
+  }
 }
 @media screen and (min-width: 600px) {
+  h1 { font-size: 22pt; }
+  h2 {
+    font-size: 9pt;
+    .firefox { font-size: 10pt; }
+  }
 }
 @media screen and (min-width: 730px) {
+  h1 { font-size: 26pt; }
+  h2 {
+    font-size: 10pt;
+    .firefox { font-size: 12pt; }
+  }
 }
 @media screen and (min-width: 1024px) {
   body {
 	  margin: 20px;
+  }
+  h1 { font-size: 32pt; }
+  h2 {
+    font-size: 12pt;
+    .firefox { font-size: 14pt; }
   }
 }
