@@ -26,7 +26,7 @@
 
   <body>
     <header>
-      <div class="container">
+      <div class="header-container">
         <div class="nav-left">
           <a id="sidebar-toggle" href="#sidebar-menu"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
           <span class="nav-subscribe">Subscribe</span>

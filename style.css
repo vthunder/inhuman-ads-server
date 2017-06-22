@@ -1338,7 +1338,7 @@ p {
 
 h1 {
   font-family: acier-bat-gris, acier-bat-noir, sans-serif;
-  font-size: 16pt;
+  font-size: 20pt;
   font-weight: 300;
   margin: 0 0;
   -webkit-transition: font-size 0.3s;
@@ -1374,14 +1374,14 @@ body {
 
 header {
   background-color: #0683c9;
-  padding-top: 10px;
-  position: fixed;
   left: 0px;
   top: 0px;
   right: 0px;
   margin-bottom: 20px;
   height: 250px;
   overflow: hidden;
+  padding-top: 10px;
+  position: fixed;
   width: 100%;
   z-index: 999;
   -webkit-transition: height 0.3s;
@@ -1390,25 +1390,30 @@ header {
   -o-transition: height 0.3s;
   transition: height 0.3s; }
   header * {
-    color: white; }
+    color: white;
+    font-size: 9pt; }
+  header .header-container {
+    margin: 0 10px 0 10px; }
   header .nav-left {
     float: left;
-    width: 30%; }
+    width: 20%; }
   header .nav-right {
     float: right;
-    width: 30%;
+    width: 20%;
     text-align: right; }
   header .nav-center {
-    width: 40%;
+    width: 60%;
     display: inline-block;
     text-align: center;
     margin-top: -.5em; }
     header .nav-center h2 {
       margin-top: -.5em; }
   header .nav-subscribe {
-    margin-left: 2em; }
+    margin-left: 10px;
+    display: none; }
   header .nav-login {
-    margin-right: 2em; }
+    display: none;
+    margin-right: 10px; }
     header .nav-login #form-signin-wrapper {
       display: inline-block; }
       header .nav-login #form-signin-wrapper button {
@@ -1421,12 +1426,6 @@ header {
 
 header.smaller {
   height: 38px; }
-  header.smaller h1 {
-    font-size: 22pt; }
-  header.smaller h2 {
-    font-size: 8pt; }
-    header.smaller h2 .firefox {
-      font-size: 9pt; }
 
 .sidebar-bottom {
   position: absolute;
@@ -1531,47 +1530,42 @@ header.smaller {
 
   .gutter-sizer {
     width: 2%; } }
-@media screen and (min-width: 360px) {
-  h1 {
-    font-size: 14pt; }
-
-  h2 {
-    font-size: 7pt; }
-    h2 .firefox {
-      font-size: 7pt; }
+@media screen and (min-width: 410px) {
+  header .nav-subscribe, header .nav-login {
+    display: inline; }
+  header .nav-left, header .nav-right {
+    width: 25%; }
+  header .nav-center {
+    width: 50%; } }
+@media screen and (min-width: 730px) {
+  header .nav-left, header .nav-right {
+    margin-top: .25em; }
+  header * {
+    font-size: 10pt; }
+  header h1 {
+    font-size: 26pt; }
+  header h2 {
+    font-size: 10pt; }
+    header h2 .firefox {
+      font-size: 12pt; }
 
   header.smaller h1 {
-    font-size: 14pt; }
-  header.smaller h2 {
-    font-size: 8pt; }
-    header.smaller h2 .firefox {
-      font-size: 9pt; } }
-@media screen and (min-width: 600px) {
-  h1 {
     font-size: 22pt; }
-
-  h2 {
-    font-size: 9pt; }
-    h2 .firefox {
-      font-size: 10pt; } }
-@media screen and (min-width: 730px) {
-  h1 {
-    font-size: 26pt; }
-
-  h2 {
-    font-size: 10pt; }
-    h2 .firefox {
-      font-size: 12pt; } }
+  header.smaller h2 {
+    font-size: 7pt; }
+    header.smaller h2 .firefox {
+      font-size: 8pt; } }
 @media screen and (min-width: 1024px) {
   body {
     margin: 20px; }
 
-  h1 {
+  header h1 {
     font-size: 32pt; }
-
-  h2 {
+  header h2 {
     font-size: 12pt; }
-    h2 .firefox {
-      font-size: 14pt; } }
+    header h2 .firefox {
+      font-size: 14pt; }
+  header .header-container {
+    margin: 0 2em 0 2em; } }
 
 /*# sourceMappingURL=style.css.map */
