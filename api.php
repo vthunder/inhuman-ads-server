@@ -4,9 +4,8 @@
   use PHPHtmlParser\Dom;
 
   function inhuman_add_screenshot() {
-    // FIXME: sanitize input
     $dom = new Dom;
-    $dom->loadFromUrl($_POST["screenshot-url"]);
+    $dom->loadFromUrl(sanitize_text_field($_POST["screenshot-url"]));
     $img = $dom->find('#clipImage')[0];
 
     $post_id = wp_insert_post(array(

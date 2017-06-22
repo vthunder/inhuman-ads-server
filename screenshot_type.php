@@ -15,6 +15,7 @@ function create_screenshot_post_type() {
 			   'supports' => array(
 			       'title',
 			       'thumbnail',
+             'comments',
                                //			       'custom-fields'
 			   ),
 			   'taxonomies'   => array(
