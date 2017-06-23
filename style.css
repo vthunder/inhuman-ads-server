@@ -1337,7 +1337,7 @@ p {
   font-size: 10pt; }
 
 h1 {
-  font-family: acier-bat-gris, acier-bat-noir, sans-serif;
+  font-family: acier-bat-noir, sans-serif;
   font-size: 20pt;
   font-weight: 300;
   margin: 0 0;
@@ -1352,7 +1352,6 @@ h2 {
   font-style: italic;
   font-weight: 200;
   margin-top: 0px;
-  padding-left: 1em;
   -webkit-transition: font-size 0.3s;
   -moz-transition: font-size 0.3s;
   -ms-transition: font-size 0.3s;
@@ -1544,11 +1543,12 @@ header.smaller {
   header * {
     font-size: 10pt; }
   header h1 {
+    font-family: acier-bat-gris, acier-bat-noir, sans-serif;
     font-size: 26pt; }
   header h2 {
-    font-size: 10pt; }
+    font-size: 9pt; }
     header h2 .firefox {
-      font-size: 12pt; }
+      font-size: 11pt; }
 
   header.smaller h1 {
     font-size: 22pt; }
@@ -1563,9 +1563,9 @@ header.smaller {
   header h1 {
     font-size: 32pt; }
   header h2 {
-    font-size: 12pt; }
+    font-size: 10pt; }
     header h2 .firefox {
-      font-size: 14pt; }
+      font-size: 11pt; }
   header .header-container {
     margin: 0 2em 0 2em; } }
 
