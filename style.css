@@ -1348,7 +1348,7 @@ h1 {
   transition: font-size 0.3s; }
 
 h2 {
-  font-size: 8pt;
+  font-size: 6pt;
   font-style: italic;
   font-weight: 200;
   margin-top: 0px;
@@ -1359,7 +1359,7 @@ h2 {
   -o-transition: font-size 0.3s;
   transition: font-size 0.3s; }
   h2 .firefox {
-    font-size: 9pt;
+    font-size: 7pt;
     font-style: normal; }
 
 body {
@@ -1390,15 +1390,16 @@ header {
   -o-transition: height 0.3s;
   transition: height 0.3s; }
   header * {
-    color: white;
-    font-size: 9pt; }
+    color: white; }
   header .header-container {
     margin: 0 10px 0 10px; }
   header .nav-left {
     float: left;
+    font-size: 9pt;
     width: 20%; }
   header .nav-right {
     float: right;
+    font-size: 9pt;
     width: 20%;
     text-align: right; }
   header .nav-center {

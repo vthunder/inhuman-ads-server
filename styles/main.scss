@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-    font-size: 8pt;
+    font-size: 6pt;
     font-style: italic;
     font-weight: 200;
     margin-top: 0px;
@@ -43,7 +43,7 @@ h2 {
     transition: font-size 0.3s;
 
     .firefox {
-	    font-size: 9pt;
+	    font-size: 7pt;
 	    font-style: normal;
     }
 }
@@ -91,7 +91,6 @@ header {
 
   * {
     color: white;
-    font-size: 9pt;
   }
 
   .header-container {
@@ -100,10 +99,12 @@ header {
   
   .nav-left {
     float: left;
+    font-size: 9pt;
     width: 20%;
   }
   .nav-right {
     float: right;
+    font-size: 9pt;
     width: 20%;
     text-align: right;
   }
