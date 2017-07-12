@@ -1,9 +1,10 @@
 @import "../vendor/Buttons/scss/buttons";
-@font-face {
-    font-family: Zilla;
-    src: url(fonts/ZillaSlab-Bold.otf);
-    font-weight: bold;
-}
+@import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+//@font-face {
+//    font-family: Zilla;
+//    src: url(fonts/ZillaSlab-Bold.otf);
+//    font-weight: bold;
+//}
 
 // ---------------------------------------------------------
 // Global font defaults
@@ -47,7 +48,16 @@ h2 {
     }
 }
 
+h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
 a {
+}
+
+a.sitelink {
+  text-decoration: none;
 }
 
 // ---------------------------------------------------------
@@ -55,10 +65,10 @@ a {
 // ---------------------------------------------------------
 
 body {
-    background: #ddd;
+    background: #f5f5f7;
     color: #333;
     margin: 10px;
-    padding-top: 285px;
+    padding-top: 325px;
 }
 
 .container {
@@ -71,12 +81,12 @@ body {
 // ---------------------------------------------------------
 
 header {
-  background-color: #0683c9;
-  left: 0px;
+  background-color: #32d0dd;
+  Left: 0px;
   top: 0px;
   right: 0px;
   margin-bottom: 20px;
-  height: 250px;
+  height: 325px;
   overflow: hidden;
   padding-top: 10px;
   position: fixed;
@@ -88,23 +98,26 @@ header {
   -o-transition: height 0.3s;
   transition: height 0.3s;
 
-  * {
-    color: white;
-  }
-
   .header-container {
     margin: 0 10px 0 10px;
+    border-bottom: 1px solid #2ec8d5;
   }
   
-  .nav-left {
-    float: left;
+  .nav-left, .nav-right, .header-bottom {
+    * {
+      color: white;
+    }
+  }
+  .nav-left, .nav-right {
     font-size: 9pt;
     width: 20%;
+  }
+
+  .nav-left {
+    float: left;
   }
   .nav-right {
     float: right;
-    font-size: 9pt;
-    width: 20%;
     text-align: right;
   }
   .nav-center {
@@ -139,6 +152,24 @@ header {
       }
     }
   }
+
+  .header-bottom {
+    position: relative;
+  }
+  .hero {
+    left: 20%;
+    margin-top: 1em;
+    position: absolute;
+    width: 60%;
+  }
+  .hero-text-heading {
+    font-size: 24pt;
+    text-align: center;
+  }
+  .hero-text-body {
+    font-size: 12pt;
+    text-align: center;
+  }
 }
 header.smaller {
   height: 38px;
@@ -162,9 +193,38 @@ header.smaller {
 .mozlogo {
   background: #000;
   color: #fff;
-  font-family: Zilla;
+  font-family: 'Zilla Slab';
   font-weight: bold;
-  padding: .25em;
+  padding: 0 2px 0 2px;
+}
+
+// ---------------------------------------------------------
+// Content sections
+// ---------------------------------------------------------
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #e6e6e9;
+  margin: 1em 0 .25em 0;
+  padding: 0;
+}
+
+.category-selector {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+
+  li {
+	  margin-right: 5px;
+  }
+
+  .category-button {
+    @extend .button, .button-small, .button-rounded, .button-raised;
+  }
 }
 
 // ---------------------------------------------------------
@@ -215,22 +275,6 @@ header.smaller {
   padding: 10px;
 }
 
-.category-button {
-    @extend .button, .button-small, .button-rounded, .button-raised;
-}
-
-.category-selector {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    list-style: none;
-    padding-left: 0;
-
-    li {
-	margin-right: 5px;
-    }
-}
-
 .screenshot_thumb {
   width: 100%;
 }
@@ -257,6 +301,7 @@ header.smaller {
 }
 @media screen and (min-width: 1024px) {
   .grid-sizer, .card { width: 23.5%; }
+  .card-wide-3col { width: 23.5%; }
   .card-wide { width: 45%; }
   .card-wide2 { width: 70.5%; }
   .gutter-sizer { width: 2%; }
@@ -273,6 +318,7 @@ header.smaller {
     }
 
     .nav-left, .nav-right {
+      margin-top: .25em;
       width: 25%;
     }
     .nav-center {
@@ -283,14 +329,13 @@ header.smaller {
 @media screen and (min-width: 730px) {
   header {
     .nav-left, .nav-right {
-      margin-top: .25em;
     }
 
     * {
       font-size: 10pt;
     }
     h1 {
-      font-family: acier-bat-gris, acier-bat-noir, sans-serif;
+//      font-family: acier-bat-gris, acier-bat-noir, sans-serif;
       font-size: 26pt;
     }
     h2 {
@@ -311,13 +356,15 @@ header.smaller {
 	  margin: 20px;
   }
   header {
-    h1 { font-size: 32pt; }
+    h1 {
+      font-size: 32pt;
+    }
     h2 {
       font-size: 10pt;
       .firefox { font-size: 11pt; }
     }
     .header-container {
-      margin: 0 2em 0 2em;
+      margin: 0 4em 0 4em;
     }
   }
 }

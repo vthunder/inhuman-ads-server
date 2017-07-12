@@ -1,14 +1,11 @@
-<div id="sidebar-menu">
-  <h3>Contribute a screenshot</h3>
-  <ul>
-    <li><a href="">Learn How</a></li>
-  </ul>
-
-  <div class="sidebar-bottom">
+<div class="footer">
+  <div class="footer-left">
     <div class="brought-by">
-      Brought to you by <a href="https://mozilla.org"><span class="mozlogo">moz://a</span></a>
+      <a href="https://mozilla.org"><span class="mozlogo">moz://a</span></a>
     </div>
-    <ul>
+  </div>
+  <div class="footer-right">
+    <ul class="terms">
       <li><a href="">Terms</a></li>
       <li><a href="">Privacy Notice</a></li>
       <li><a href="">Report IP Infringement</a></li>
@@ -17,3 +14,8 @@
     </ul>
   </div>
 </div>
+
+<?php wp_footer(); ?>
+
+</body>
+</html>

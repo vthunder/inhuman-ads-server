@@ -1,0 +1,133 @@
+body {
+  padding-top: 75px;
+  margin: 0;
+}
+
+header {
+  height: 38px;
+  h1 { font-size: 22pt; }
+  h2 {
+    font-size: 7pt;
+    .firefox { font-size: 8pt; }
+  }
+}
+
+.footer {
+  background: #ccc;
+  height: 60px;
+  margin-top: 5em;
+  width: 100%;
+  .footer-left {
+    padding-left: 20px;
+    padding-top: 20px;
+    float: left;
+    font-size: 12pt;
+  }
+  .footer-right {
+    padding-right: 20px;
+//    padding-top: 20px;
+    float: right;
+    .terms {
+      list-style: none;
+      padding: 0;
+      li {
+        display: inline;
+        font-size: 10pt;
+        margin-left: 1em;
+      }
+    }
+  }
+}
+
+.content {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+
+  hr {
+    margin-top: 3em;
+  }
+}
+
+.screenshot-card {
+  border: 1px solid #ccc;
+
+  .screenshot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  .screenshot-meta {
+    background: #fff;
+    padding: .5em;
+    
+    .screenshot-caption {
+      font-size: 16pt;
+      padding-right: 3em;
+    }
+    .screenshot-actions {
+      float: right;
+
+      * {
+        text-decoration: none;
+      }
+
+      .like {
+        margin-right: .25em;
+      }
+
+      .like i:hover {
+        -webkit-transition: transform 0.3s;
+        -moz-transition: transform 0.3s;
+        -ms-transition: transform 0.3s;
+        -o-transition: transform 0.3s;
+        transition: transform 0.3s;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .screenshot-meta-2 {
+    background: #ccc;
+    padding: .25em .5em .25em .5em;
+    font-size: 9pt;
+    .screenshot-brand {
+    }
+    .screenshot-domain {
+      float: right;
+    }
+  }
+  .offensive {
+    float: right;
+    margin-top: .25em;
+    text-decoration: none;
+    * {
+      color: #888;
+      font-size: 9pt;
+    }
+    .report-txt {
+      text-decoration: underline;
+    }
+  }
+}
+
+.screenshot-edit {
+  columns: 2;
+  .screenshot-meta-form {
+    input[type="text"] {
+      display: block;
+      font-size: 14pt;
+      margin: .5em auto;
+      width: 100%;
+    }
+    .meta-offensive-wrapper {
+      font-size: 10pt;
+      margin: .5em 0;
+      width: 100%;
+    }
+  }
+}

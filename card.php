@@ -33,6 +33,11 @@
       <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
     </a>
     <?php the_content() ?>
+  <?php elseif ("contest" == $meta['type']) : ?>
+    <a href="<?php the_permalink(); ?>">
+      <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+    </a>
+    <?php the_content() ?>
   <?php elseif ("plain" == $meta['type'] or "background" == $meta['type']) : ?>
     <?php the_content() ?>
   <?php else : ?>

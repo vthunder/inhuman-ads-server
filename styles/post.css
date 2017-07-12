@@ -1,0 +1,100 @@
+body {
+  padding-top: 75px;
+  margin: 0; }
+
+header {
+  height: 38px; }
+  header h1 {
+    font-size: 22pt; }
+  header h2 {
+    font-size: 7pt; }
+    header h2 .firefox {
+      font-size: 8pt; }
+
+.footer {
+  background: #ccc;
+  height: 60px;
+  margin-top: 5em;
+  width: 100%; }
+  .footer .footer-left {
+    padding-left: 20px;
+    padding-top: 20px;
+    float: left;
+    font-size: 12pt; }
+  .footer .footer-right {
+    padding-right: 20px;
+    float: right; }
+    .footer .footer-right .terms {
+      list-style: none;
+      padding: 0; }
+      .footer .footer-right .terms li {
+        display: inline;
+        font-size: 10pt;
+        margin-left: 1em; }
+
+.content {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto; }
+  .content hr {
+    margin-top: 3em; }
+
+.screenshot-card {
+  border: 1px solid #ccc; }
+  .screenshot-card .screenshot {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%; }
+  .screenshot-card .screenshot-meta {
+    background: #fff;
+    padding: .5em; }
+    .screenshot-card .screenshot-meta .screenshot-caption {
+      font-size: 16pt;
+      padding-right: 3em; }
+    .screenshot-card .screenshot-meta .screenshot-actions {
+      float: right; }
+      .screenshot-card .screenshot-meta .screenshot-actions * {
+        text-decoration: none; }
+      .screenshot-card .screenshot-meta .screenshot-actions .like {
+        margin-right: .25em; }
+      .screenshot-card .screenshot-meta .screenshot-actions .like i:hover {
+        -webkit-transition: transform 0.3s;
+        -moz-transition: transform 0.3s;
+        -ms-transition: transform 0.3s;
+        -o-transition: transform 0.3s;
+        transition: transform 0.3s;
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg); }
+  .screenshot-card .screenshot-meta-2 {
+    background: #ccc;
+    padding: .25em .5em .25em .5em;
+    font-size: 9pt; }
+    .screenshot-card .screenshot-meta-2 .screenshot-domain {
+      float: right; }
+  .screenshot-card .offensive {
+    float: right;
+    margin-top: .25em;
+    text-decoration: none; }
+    .screenshot-card .offensive * {
+      color: #888;
+      font-size: 9pt; }
+    .screenshot-card .offensive .report-txt {
+      text-decoration: underline; }
+
+.screenshot-edit {
+  columns: 2; }
+  .screenshot-edit .screenshot-meta-form input[type="text"] {
+    display: block;
+    font-size: 14pt;
+    margin: .5em auto;
+    width: 100%; }
+  .screenshot-edit .screenshot-meta-form .meta-offensive-wrapper {
+    font-size: 10pt;
+    margin: .5em 0;
+    width: 100%; }
+
+/*# sourceMappingURL=post.css.map */
