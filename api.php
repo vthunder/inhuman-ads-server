@@ -3,9 +3,17 @@
   require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
   use PHPHtmlParser\Dom;
 
+  //
+  // Add screenshot (XHR from add-on method)
+  //
   function inhuman_add_screenshot() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $shotId = $data["shotId"];
+    $shotDomain = $data["shotDomain"];
+    $url = sanitize_text_field("https://screenshots.firefox.com/{$shotId}/{$shotDomain}");
+
     $dom = new Dom;
-    $dom->loadFromUrl(sanitize_text_field($_POST["screenshot-url"]));
+    $dom->loadFromUrl($url);
     $img = $dom->find('#clipImage')[0];
 
     $post_id = wp_insert_post(array(
@@ -20,7 +28,23 @@
       )
     ));
 
+    $image = media_sideload_image($img->src, $post_id, "Screenshot");
+
+    echo json_encode(array('success'=>true,
+                           'url'=>get_permalink($post_id),
+                           'editUrl'=>get_permalink($post_id) . "?edit"
+    ));
+
     die();
+  }
+  add_action('wp_ajax_inhuman_add_screenshot', 'inhuman_add_screenshot');
+
+  
+  //
+  // Pagination
+  //
+  function inhuman_image_size_override() {
+    return array( 825, 510 );
   }
 
   function inhuman_ajax_pagination() {
@@ -53,69 +77,49 @@
 
     die();
   }
-
-  function inhuman_image_size_override() {
-    return array( 825, 510 );
-  }
-
-  function handleContactForm() {
-
-    if($this->isFormSubmitted() && $this->isNonceSet()) {
-      if($this->isFormValid()) {
-        $this->sendContactForm();
-      } else {
-        $this->displayContactForm();
-      }
-    } else {
-      $this->displayContactForm();
-    }
-
-  }
-
-  function sendContactForm() {
-  }
-
-  function isNonceSet() {
-    if( isset( $_POST['nonce_field_for_submit_contact_form'] )  &&
-        wp_verify_nonce( $_POST['nonce_field_for_submit_contact_form'],  'submit_contact_form' ) ) return true;
-    else 
-      return false;
-  }
-
-  function isFormValid() {
-    //Check all mandatory fields are present.
-    if ( trim( $_POST['contactname'] ) === '' ) {
-      $error = 'Please enter your name.';
-      $hasError = true;
-    } else if (!filter_var($_POST['contactemail'], FILTER_VALIDATE_EMAIL) )    {
-      $error = 'Please enter a valid email.';
-      $hasError = true;
-    } else if ( trim( $_POST['contactcontent'] ) === '' ) {
-      $error = 'Please enter the content.';
-      $hasError = true;
-    } 
-
-    //Check if any error was detected in validation.
-    if($hasError == true) {
-      echo $error;
-      return false;
-    } 
-    return true;
-  }
-
-  function isFormSubmitted() {
-    if( isset( $_POST['submitContactForm'] ) ) return true;
-    else return false;
-  }
-
-  add_action('wp_ajax_inhuman_add_screenshot', 'inhuman_add_screenshot');
-
   add_action('wp_ajax_nopriv_ajax_pagination', 'inhuman_ajax_pagination');
   add_action('wp_ajax_ajax_pagination', 'inhuman_ajax_pagination');
 
+  //
+  // Login
+  //
+  function inhuman_register() {
+    $data = json_decode(file_get_contents('php://input'), true);
 
-  add_action( 'auth0_user_login', 'auth0UserLoginAction', 0,5 );
+    $user_id = username_exists($data["deviceId"]);
+    if (!$user_id) {
+	    $user_id = wp_create_user($data["deviceId"], $data["secret"]);
+    } else {
+      http_response_code(403); // user already exists
+      die();
+    }
 
-  function auth0UserLoginAction($user_id, $user_profile, $is_new, $id_token, $access_token) {
+    inhuman_login();
   }
+  add_action('wp_ajax_nopriv_inhuman_register', 'inhuman_register');
+
+  function inhuman_login() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $user_id = username_exists($data["deviceId"]);
+    if (!$user_id) {
+      http_response_code(404); // unknown user
+      die();
+    } else {
+      $info = array();
+      $info['user_login'] = $data["deviceId"];
+      $info['user_password'] = $data["secret"];
+      $info['remember'] = true;
+      $user_signon = wp_signon($info, false);
+      if (is_wp_error($user_signon)){
+        http_response_code(403); // wrong password
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+      } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful.')));
+      }
+      die();
+    }
+  }
+  add_action('wp_ajax_inhuman_login', 'inhuman_login');
+  add_action('wp_ajax_nopriv_inhuman_login', 'inhuman_login');
+
 ?>
