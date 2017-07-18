@@ -30,12 +30,12 @@
     </div>
   <?php elseif ("screenshot" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
-      <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+      <?php the_post_thumbnail(); ?>
+      <div class="card-title"><?php the_title() ?></div>
     </a>
-    <?php the_content() ?>
   <?php elseif ("contest" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
-      <img class="screenshot_thumb" src="<?php echo $meta['screenshot'] ?>" />
+      <?php the_post_thumbnail(); ?>
     </a>
     <?php the_content() ?>
   <?php elseif ("plain" == $meta['type'] or "background" == $meta['type']) : ?>

@@ -23,4 +23,8 @@ jQuery(document).ready(function($) {
     }
     $(this).animate(css, 175, "linear"); // Timed to default Sidr movement
   });
+
+  //
+  // Hook up post edit/publish form
+  //
 });

@@ -1,6 +1,10 @@
+html {
+  height: 100%; }
+
 body {
   padding-top: 75px;
-  margin: 0; }
+  margin: 0;
+  height: calc(100% - 5em); }
 
 header {
   height: 38px; }
@@ -35,16 +39,21 @@ header {
 .content {
   width: 50%;
   margin-left: auto;
-  margin-right: auto; }
+  margin-right: auto;
+  min-height: 70%;
+  min-height: -webkit-calc(100% - 135px);
+  min-height: -moz-calc(100% - 135px);
+  min-height: calc(100% - 135px); }
   .content hr {
     margin-top: 3em; }
 
 .screenshot-card {
   border: 1px solid #ccc; }
-  .screenshot-card .screenshot {
+  .screenshot-card .wp-post-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    height: 100%;
     width: 100%; }
   .screenshot-card .screenshot-meta {
     background: #fff;
@@ -87,12 +96,12 @@ header {
 
 .screenshot-edit {
   columns: 2; }
-  .screenshot-edit .screenshot-meta-form input[type="text"] {
+  .screenshot-edit #screenshot-meta-form input[type="text"] {
     display: block;
     font-size: 14pt;
     margin: .5em auto;
     width: 100%; }
-  .screenshot-edit .screenshot-meta-form .meta-offensive-wrapper {
+  .screenshot-edit #screenshot-meta-form .meta-offensive-wrapper {
     font-size: 10pt;
     margin: .5em 0;
     width: 100%; }

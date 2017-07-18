@@ -59,36 +59,22 @@ jQuery(document).ready(function($) {
   }
 
 
-  
-  $('#sidebar-toggle').sidr({
-    name: 'sidebar-menu',
-    side: 'left'
-  });
-
-  var next_move = "expand";
-  $("#sidebar-toggle").click(function() {
-    var css = {};
-    if (next_move == "expand"){
-      css = {
-        marginLeft: '260px', // Equals your Sidr width
-      };
-      next_move = "shrink";
-    } else {
-      css = {
-        marginLeft: '0px', // Return to original position
-      };
-      next_move = "expand";
+  //
+  // Sidebar
+  //
+  $('#sidebar-toggle').add('#sidebar .close-button').sidr({
+    name: 'sidebar',
+    side: 'left',
+    onOpen: function() {
+      $('#sidebar-toggle').dimBackground();
+    },
+    onClose: function() {
+      $.undim();
     }
-    $(this).animate(css, 175, "linear"); // Timed to default Sidr movement
   });
   
-  // Footer corner menu behavior
-  $('.footer-button').click(function(e) {
-    $('.footer-menu').toggleClass('visible');
-  });
 
-
-
+  
   $('.all-posts').parent().append('<span class="load-more"></span>');
 	var loadmore = $('.container .load-more');
 	var page = 2;
