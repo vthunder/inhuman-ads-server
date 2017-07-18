@@ -6,13 +6,15 @@
   abstract class Inhuman_Meta {
 
     public static $keys = array(
-      'type', 'featured', 'sort', 'width', 'height', 'screenshot'
+      'type', 'featured', 'sort', 'width', 'height',
+      'shot_url', 'shot_id', 'shot_domain',
+      'ad_brand', 'publisher_domain', 'flagged_count', 'offensive'
     );
 
     public static function get_meta($post_id) {
       $meta = array();
       foreach (self::$keys as $key) {
-        $meta[$key] = get_post_meta($post_id, '_inhuman_meta_' . $key, true);
+        $meta[$key] = get_post_meta($post_id, 'inhuman_meta_' . $key, true);
       }
       return $meta;
     }
@@ -52,9 +54,9 @@
 
       foreach (self::$keys as $key) {
         if ($new[$key] && $new[$key] !== $old[$key]) {
-          update_post_meta($post_id, '_inhuman_meta_' . $key, $new[$key]);
+          update_post_meta($post_id, 'inhuman_meta_' . $key, $new[$key]);
         } elseif (!$new[$key] && $old[$key]) {
-          delete_post_meta($post_id, '_inhuman_meta_' . $key, $old[$key]);
+          delete_post_meta($post_id, 'inhuman_meta_' . $key, $old[$key]);
         }
       }
     }
