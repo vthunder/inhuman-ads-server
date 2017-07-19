@@ -1,5 +1,7 @@
 @import "../vendor/Buttons/scss/buttons";
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+@import "sidebar";
+
 //@font-face {
 //    font-family: Zilla;
 //    src: url(fonts/ZillaSlab-Bold.otf);
@@ -173,87 +175,6 @@ header {
 }
 header.smaller {
   height: 38px;
-}
-
-// ---------------------------------------------------------
-// Sidebar
-// ---------------------------------------------------------
-
-#sidebar {
-  background-color: #f5f5f7;
-
-  .sidebar-content {
-    margin: 12px 30px 0;
-    height: calc(100% - 12px);
-  }
-
-  .sidebar-top {
-    margin-bottom: 3em;
-    min-height: -webkit-calc(100% - 262px);
-    min-height: -moz-calc(100% - 262px);
-    min-height: calc(100% - 262px);
-    
-    .close-button {
-      font-size: 20pt;
-      text-decoration: none;
-    }
-
-    .sidebar-menu {
-      border: none;
-      list-style-type: none;
-      padding-left: 0;
-
-      li {
-        border: none;
-        line-height: 2.5em;
-        font-size: 16pt;
-        font-weight: 500;
-        text-transform: uppercase;
-        a { text-decoration: none; }
-        :hover {
-          background-color: yellow;
-        }
-      }
-    }
-
-    .title-divider {
-      margin-top: 2em;
-    }
-
-    h1 {
-      font-size: 22pt;
-    }
-    .poweredby {
-      font-size: 8pt;
-    }
-
-    .icons {
-      margin-top: 1em;
-      .icon {
-        width: 30px;
-      }
-    }
-  }
-
-  .sidebar-bottom {
-    width: 100%;
-
-    .mozlogo img {
-      width: 100px;
-    }
-
-    ul {
-      list-style-type: none;
-      padding-left: 0;
-      padding-top: 0;
-      margin-top: 0;
-
-      li {
-        line-height: 2em;
-        a { text-decoration: none; }
-      }
-    }
-  }
 }
 
 // ---------------------------------------------------------
