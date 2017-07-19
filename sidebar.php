@@ -1,22 +1,24 @@
 <div id="sidebar">
   <div class="sidebar-content">
 
-    <a class="close-button" href="#sidebar">╳</a>
+    <div class="sidebar-top">
+      <a class="close-button" href="#sidebar">╳</a>
 
-    <ul class="sidebar-menu">
-      <li><a href="">About us</a></li>
-      <li><a href="">Contribute</a></li>
-      <li><a href="">Blog</a></li>
-    </ul>
+      <ul class="sidebar-menu">
+        <li><a href="">About us</a></li>
+        <li><a href="">Contribute</a></li>
+        <li><a href="">Blog</a></li>
+      </ul>
 
-    <hr class="title-divider" />
+      <hr class="title-divider" />
 
-    <h1>Inhuman Ads</h1>
-    <div class="poweredby">Powered by<br>Firefox Screenshots</div>
+      <h1>Inhuman Ads</h1>
+      <div class="poweredby">Powered by<br>Firefox Screenshots</div>
 
-    <div class="icons">
-      <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-Twitter.svg"></a>
-      <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-github.svg"></a>
+      <div class="icons">
+        <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-Twitter.svg"></a>
+        <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-github.svg"></a>
+      </div>
     </div>
 
     <div class="sidebar-bottom">

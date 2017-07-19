@@ -1447,49 +1447,53 @@ header.smaller {
 #sidebar {
   background-color: #f5f5f7; }
   #sidebar .sidebar-content {
-    margin: 12px 30px; }
-    #sidebar .sidebar-content .close-button {
+    margin: 12px 30px 0;
+    height: calc(100% - 12px); }
+  #sidebar .sidebar-top {
+    margin-bottom: 3em;
+    min-height: -webkit-calc(100% - 262px);
+    min-height: -moz-calc(100% - 262px);
+    min-height: calc(100% - 262px); }
+    #sidebar .sidebar-top .close-button {
       font-size: 20pt;
       text-decoration: none; }
-    #sidebar .sidebar-content .sidebar-menu {
+    #sidebar .sidebar-top .sidebar-menu {
       border: none;
       list-style-type: none;
       padding-left: 0; }
-      #sidebar .sidebar-content .sidebar-menu li {
+      #sidebar .sidebar-top .sidebar-menu li {
         border: none;
         line-height: 2.5em;
         font-size: 16pt;
         font-weight: 500;
         text-transform: uppercase; }
-        #sidebar .sidebar-content .sidebar-menu li a {
+        #sidebar .sidebar-top .sidebar-menu li a {
           text-decoration: none; }
-        #sidebar .sidebar-content .sidebar-menu li :hover {
+        #sidebar .sidebar-top .sidebar-menu li :hover {
           background-color: yellow; }
-    #sidebar .sidebar-content .title-divider {
+    #sidebar .sidebar-top .title-divider {
       margin-top: 2em; }
-    #sidebar .sidebar-content h1 {
+    #sidebar .sidebar-top h1 {
       font-size: 22pt; }
-    #sidebar .sidebar-content .poweredby {
+    #sidebar .sidebar-top .poweredby {
       font-size: 8pt; }
-    #sidebar .sidebar-content .icons {
+    #sidebar .sidebar-top .icons {
       margin-top: 1em; }
-      #sidebar .sidebar-content .icons .icon {
+      #sidebar .sidebar-top .icons .icon {
         width: 30px; }
-    #sidebar .sidebar-content .sidebar-bottom {
-      position: absolute;
-      bottom: 0;
-      width: 100%; }
-      #sidebar .sidebar-content .sidebar-bottom .mozlogo img {
-        width: 100px; }
-      #sidebar .sidebar-content .sidebar-bottom ul {
-        list-style-type: none;
-        padding-left: 0;
-        padding-top: 0;
-        margin-top: 0; }
-        #sidebar .sidebar-content .sidebar-bottom ul li {
-          line-height: 2em; }
-          #sidebar .sidebar-content .sidebar-bottom ul li a {
-            text-decoration: none; }
+  #sidebar .sidebar-bottom {
+    width: 100%; }
+    #sidebar .sidebar-bottom .mozlogo img {
+      width: 100px; }
+    #sidebar .sidebar-bottom ul {
+      list-style-type: none;
+      padding-left: 0;
+      padding-top: 0;
+      margin-top: 0; }
+      #sidebar .sidebar-bottom ul li {
+        line-height: 2em; }
+        #sidebar .sidebar-bottom ul li a {
+          text-decoration: none; }
 
 hr {
   display: block;
