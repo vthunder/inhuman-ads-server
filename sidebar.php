@@ -7,6 +7,7 @@
       <ul class="sidebar-menu">
         <li><a href="">About</a></li>
         <li><a href="">Contribute</a></li>
+        <li><a href="">High Scores</a></li>
         <li><a href="">Blog</a></li>
         <li><a href="">Subscribe <i class="fa fa-envelope-o"></i></a></li>
       </ul>
