@@ -24,6 +24,7 @@
       'post_type' => 'inhuman_screenshot',
       'meta_input' => array(
         'inhuman_meta_type' => 'screenshot',
+        'inhuman_meta_status' => 'draft',
         'inhuman_meta_shot_url' => $url,
         'inhuman_meta_publisher_domain' => $domain
       )
@@ -75,6 +76,7 @@
         'post_title' => sanitize_text_field($raw["caption"]),
         'post_status' => 'publish',
         'meta_input' => array(
+          'inhuman_meta_status' => 'publish',
           'inhuman_meta_ad_brand' => sanitize_text_field($raw["brand"]),
           'inhuman_meta_offensive' => sanitize_text_field($raw["offensive"])
         )));
