@@ -7,6 +7,10 @@
       array(
         'key' => 'inhuman_meta_featured',
         'value' => 'on'
+      ),
+      array(
+        'key' => 'inhuman_meta_status',
+        'value' => 'publish'
       )
     ),
     'meta_key' => 'inhuman_meta_sort',
@@ -16,15 +20,22 @@
   $inhuman_posts_query = array(
     'post_type' => array('post', 'inhuman_screenshot'),
     'meta_query'  => array(
-      'relation' => 'OR',
+//      'relation' => 'OR',
       array(
-        'key' => 'inhuman_meta_featured',
-        'compare' => 'NOT EXISTS',
-        'value' => ''
+        'key' => 'inhuman_meta_status',
+        'value' => 'publish'
       ),
       array(
-        'key' => 'inhuman_meta_featured',
-        'value' => ''
+        'relation' => 'OR',
+        array(
+          'key' => 'inhuman_meta_featured',
+          'compare' => 'NOT EXISTS',
+          'value' => ''
+        ),
+        array(
+          'key' => 'inhuman_meta_featured',
+          'value' => ''
+        )
       )
     )
 
