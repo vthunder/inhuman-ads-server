@@ -6,7 +6,7 @@
   abstract class Inhuman_Meta {
 
     public static $keys = array(
-      'type', 'featured', 'sort', 'width', 'height',
+      'type', 'status', 'featured', 'sort', 'width', 'height',
       'shot_url', 'shot_id', 'shot_domain',
       'ad_brand', 'publisher_domain', 'flagged_count', 'offensive'
     );
