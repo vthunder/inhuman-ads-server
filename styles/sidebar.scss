@@ -12,9 +12,9 @@
 
   .sidebar-top {
     margin-bottom: 3em;
-    min-height: -webkit-calc(100% - 262px);
-    min-height: -moz-calc(100% - 262px);
-    min-height: calc(100% - 262px);
+    min-height: -webkit-calc(100% - 228px);
+    min-height: -moz-calc(100% - 228px);
+    min-height: calc(100% - 214px);
     
     .close-button {
       font-size: 20pt;
@@ -62,7 +62,7 @@
     width: 100%;
 
     .mozlogo img {
-      width: 100px;
+      width: 90px;
     }
 
     ul {
@@ -72,6 +72,7 @@
       margin-top: 0;
 
       li {
+        font-size: 11pt;
         line-height: 2em;
         a { text-decoration: none; }
       }

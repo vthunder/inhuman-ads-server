@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
   "use strict";
 
   $(window).scroll(function() {
-    (window.pageYOffset || document.documentElement.scrollTop) > 300?
+    (window.pageYOffset || document.documentElement.scrollTop) > 200?
       $("header").addClass("smaller") :
       $("header").removeClass("smaller");
   });

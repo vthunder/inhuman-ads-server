@@ -57,6 +57,7 @@ header {
     width: 100%; }
   .screenshot-card .screenshot-meta {
     background: #fff;
+    min-height: 2.5em;
     padding: .5em; }
     .screenshot-card .screenshot-meta .screenshot-caption {
       font-size: 16pt;
@@ -66,7 +67,24 @@ header {
       .screenshot-card .screenshot-meta .screenshot-actions * {
         text-decoration: none; }
       .screenshot-card .screenshot-meta .screenshot-actions .like {
-        margin-right: .25em; }
+        margin-right: .25em;
+        position: relative; }
+        .screenshot-card .screenshot-meta .screenshot-actions .like .like-box-wrapper {
+          display: none;
+          height: 100px;
+          left: -180px;
+          position: absolute;
+          top: 20px;
+          width: 320px; }
+        .screenshot-card .screenshot-meta .screenshot-actions .like .like-box {
+          background: #fff;
+          border: 1px solid #ccc;
+          left: 30px;
+          position: absolute;
+          padding: 5px 10px;
+          top: 5px; }
+          .screenshot-card .screenshot-meta .screenshot-actions .like .like-box .like-emoji {
+            margin: 2px; }
       .screenshot-card .screenshot-meta .screenshot-actions .like i:hover {
         -webkit-transition: transform 0.3s;
         -moz-transition: transform 0.3s;
@@ -78,6 +96,30 @@ header {
         -o-transform: rotate(180deg);
         -ms-transform: rotate(180deg);
         transform: rotate(180deg); }
+      .screenshot-card .screenshot-meta .screenshot-actions .share {
+        position: relative; }
+        .screenshot-card .screenshot-meta .screenshot-actions .share .share-box-wrapper {
+          display: none;
+          height: 130px;
+          left: -130px;
+          position: absolute;
+          top: 20px;
+          width: 300px; }
+        .screenshot-card .screenshot-meta .screenshot-actions .share .share-box {
+          background: #fff;
+          border: 1px solid #ccc;
+          left: 30px;
+          position: absolute;
+          padding: 5px 10px;
+          top: 5px; }
+    .screenshot-card .screenshot-meta .like-emoji-count-box {
+      clear: both;
+      float: right; }
+      .screenshot-card .screenshot-meta .like-emoji-count-box img {
+        height: 14px;
+        width: 14px; }
+      .screenshot-card .screenshot-meta .like-emoji-count-box .count-text {
+        font-size: 9pt; }
   .screenshot-card .screenshot-meta-2 {
     background: #ccc;
     padding: .25em .5em .25em .5em;
@@ -105,5 +147,11 @@ header {
     font-size: 10pt;
     margin: .5em 0;
     width: 100%; }
+
+.logged-in-as {
+  display: none; }
+
+.comment-form-comment label {
+  display: none; }
 
 /*# sourceMappingURL=post.css.map */

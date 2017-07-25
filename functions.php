@@ -1,26 +1,13 @@
 <?php
+  function tpldir() {
+    echo get_template_directory_uri();
+  }
+
   add_theme_support('post-thumbnails');
 
-  $inhuman_featured_query = array(
-    'post_type' => 'post',
-    'meta_query'  => array(
-      array(
-        'key' => 'inhuman_meta_featured',
-        'value' => 'on'
-      ),
-      array(
-        'key' => 'inhuman_meta_status',
-        'value' => 'publish'
-      )
-    ),
-    'meta_key' => 'inhuman_meta_sort',
-    'orderby' => 'meta_value_num',
-    'order' => 'ASC',
-  );
   $inhuman_posts_query = array(
     'post_type' => array('post', 'inhuman_screenshot'),
     'meta_query'  => array(
-//      'relation' => 'OR',
       array(
         'key' => 'inhuman_meta_status',
         'value' => 'publish'

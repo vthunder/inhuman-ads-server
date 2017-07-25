@@ -4,6 +4,30 @@
 
 <div class="container">
 
+  <div class="filters-section">
+    <a class="filter-emoji filter-mostviewed selected" href="#">
+      <img src="<? tpldir(); ?>/assets/emojiicon-mostviewed.svg">
+      <span class="filter-text">Popular</span>
+    </a>
+    <a class="filter-emoji filter-funny" href="#">
+      <img src="<? tpldir(); ?>/assets/emojiicon-funny.svg">
+      <span class="filter-text">Funny</span>
+    </a>
+    <a class="filter-emoji filter-angry" href="#">
+      <img src="<? tpldir(); ?>/assets/emojiicon-angry.svg">
+      <span class="filter-text">Angry</span>
+    </a>
+    <a class="filter-emoji filter-sad" href="#">
+      <img src="<? tpldir(); ?>/assets/emojiicon-sad.svg">
+      <span class="filter-text">Sad</span>
+    </a>
+    <a class="filter-emoji filter-huh" href="#">
+      <img src="<? tpldir(); ?>/assets/emojiicon-huh.svg">
+      <span class="filter-text">Huh?</span>
+    </a>
+  </div>
+
+
   <hr>
 
   <div class="section-heading">

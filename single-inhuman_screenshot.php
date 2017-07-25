@@ -4,7 +4,13 @@
   $meta = get_post_meta(get_the_ID());
   $edit = isset($_GET['edit']);
   $isowner = is_user_logged_in() && $post->post_author == get_current_user_id();
+
+  $likes = get_post_meta(get_the_ID(), "inhuman_meta_total_like_count", true);
+  if (!$likes)
+    $likes = 0;
 ?>
+
+<input id="post_id" type="hidden" value="<?php echo get_the_ID(); ?>">
 
 <div class="content">
   <?php if($edit && $isowner): ?>
@@ -31,9 +37,47 @@
       <div class="screenshot-meta">
         <span class="screenshot-caption"><?php the_title(); ?></span>
         <span class="screenshot-actions">
-          <a class="like" href="#"><i class="fa fa-smile-o fa-lg"></i></a>
-          <a class="share" href="#"><i class="fa fa-share-square-o fa-lg"></i></a>
+          <span class="like">
+            <a class="like-link" href="#"><i class="fa fa-smile-o fa-lg"></i></a>
+            <div class="like-box-wrapper">
+              <div class="like-box">
+                <a class="like-emoji-link" data-emoji="funny" href="#">
+                  <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+                </a>
+                <a class="like-emoji-link" data-emoji="angry" href="#">
+                  <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+                </a>
+                <a class="like-emoji-link" data-emoji="sad" href="#">
+                  <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+                </a>
+                <a class="like-emoji-link" data-emoji="huh" href="#">
+                  <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
+                </a>
+              </div>
+            </div>
+          </span>
+
+          <span class="share">
+            <a class="share-link" href="#"><i class="fa fa-share-square-o fa-lg"></i></a>
+            <div class="share-box-wrapper">
+              <div class="share-box">
+                <a class="twitter-share-button"
+                   href="http://twitter.com/intent/tweet?status=<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>">
+                  <i class="fa fa-twitter-square fa-3x"></i></a>
+                <a class="facebook-share-button"
+                   href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>">
+                  <i class="fa fa-facebook-square fa-3x"></i></a>
+                <a class="email-share-button"
+                   href="mailto:?Subject=<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>">
+                  <i class="fa fa-envelope-square fa-3x"></i></a>
+              </div>
+            </div>
+          </span>
         </span>
+        <div class="like-emoji-count-box">
+          <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+          <span class="count-text"><?php echo $likes; ?></span>
+        </div>
       </div>
       <div class="screenshot-meta-2">
         <span class="screenshot-brand">Brand: <?php echo $meta["inhuman_meta_ad_brand"][0]; ?></span>
