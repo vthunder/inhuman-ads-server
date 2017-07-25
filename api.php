@@ -138,6 +138,7 @@
     $user_id = username_exists($data["deviceId"]);
     if (!$user_id) {
 	    $user_id = wp_create_user($data["deviceId"], $data["secret"]);
+      wp_update_user(array('ID' => $user_id, 'display_name' => 'Anonymous User'));
     } else {
       http_response_code(403); // user already exists
       die();
@@ -170,5 +171,46 @@
   }
   add_action('wp_ajax_inhuman_login', 'inhuman_login');
   add_action('wp_ajax_nopriv_inhuman_login', 'inhuman_login');
+
+  function _inhuman_meta_counter_incr($post_id, $key) {
+    $cur = get_post_meta($post_id, $key, true);
+    if (!$cur)
+      $cur = 0;
+    return update_post_meta($post_id, $key, $cur + 1);
+  }
+
+  function _inhuman_like($post_id, $emoji) {
+    return _inhuman_meta_counter_incr($post_id, "inhuman_meta_like_" . $emoji . "_count") &&
+           _inhuman_meta_counter_incr($post_id, "inhuman_meta_total_like_count");
+  }
+
+  function inhuman_like() {
+    $raw = json_decode(file_get_contents('php://input'), true);
+    $post_id = sanitize_text_field($raw["post_id"]);
+    $emoji = $raw["emoji"];
+    $success = true;
+
+    switch ($emoji) {
+      case "funny":
+        $success = _inhuman_like($post_id, "funny");
+        break;
+      case "angry":
+        $success = _inhuman_like($post_id, "angry");
+        break;
+      case "sad":
+        $success = _inhuman_like($post_id, "sad");
+        break;
+      case "huh":
+        $success = _inhuman_like($post_id, "huh");
+        break;
+      default:
+        http_response_code(404); // unknown emoji
+        $success = false;
+    }
+    echo json_encode(array('success'=>$success));
+    die();
+  }
+  add_action('wp_ajax_inhuman_like', 'inhuman_like');
+  add_action('wp_ajax_nopriv_inhuman_like', 'inhuman_like');
 
 ?>

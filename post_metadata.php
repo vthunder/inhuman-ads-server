@@ -8,7 +8,8 @@
     public static $keys = array(
       'type', 'status', 'featured', 'sort', 'width', 'height',
       'shot_url', 'shot_id', 'shot_domain',
-      'ad_brand', 'publisher_domain', 'flagged_count', 'offensive'
+      'ad_brand', 'publisher_domain', 'flagged_count', 'offensive',
+      'like_funny_count', 'like_angry_count', 'like_sad_count', 'like_huh_count', 'total_like_count'
     );
 
     public static function get_meta($post_id) {
