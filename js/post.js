@@ -3,7 +3,7 @@ jQuery(document).ready(function($) {
   "use strict";
 
   $('#sidebar-toggle').sidr({
-    name: 'sidebar-menu',
+    name: 'sidebar',
     side: 'left'
   });
 
