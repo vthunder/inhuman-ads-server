@@ -32,7 +32,7 @@
           <input type="submit" class="button button-primary button-raised" value="Post" />
         </form>
       </div>
-    <? else: ?>
+    <?php else: ?>
       <p>Looks like you're new around here!</p>
       <p>Set a username and optional email (for account recovery) to
         post your first screenshot:</p>
@@ -47,7 +47,7 @@
         </div>
         <input type="button" class="button button-primary" value="Submit">
       </form>
-    <? endif; ?>
+    <?php endif; ?>
 
   <?php else: ?>
     <div class="screenshot-card">
