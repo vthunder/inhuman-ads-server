@@ -1,8 +1,8 @@
 <div class="footer">
   <div class="footer-left">
-    <div class="brought-by">
-      <a href="https://mozilla.org"><span class="mozlogo">moz://a</span></a>
-    </div>
+    <a class="mozlogo" href="https://mozilla.org">
+      <img src="<?php echo get_bloginfo('template_directory'); ?>/assets/mozilla-logo/moz-logo-bw-rgb.svg">
+    </a>
   </div>
   <div class="footer-right">
     <ul class="terms">

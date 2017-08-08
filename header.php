@@ -23,6 +23,13 @@
       <div class="header-container">
         <div class="nav-left">
           <a id="sidebar-toggle" href="#sidebar"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
+          <?php if (!is_user_logged_in()): ?>
+            <span class="nav-contribute">
+              <a class="contribute-link" href="/contribute">
+                <i class="fa fa-plus-square fa-lg"></i> Contribute a screenshot
+              </a>
+            </span>
+          <? endif; ?>
         </div>
 
         <div class="nav-center">
@@ -36,12 +43,14 @@
           <a class="nav-search" href="#sidebar-menu"><i class="fa fa-search fa-lg fa-inverse"></i></a>
         </div>
       </div>
-
-      <div class="header-bottom">
-        <div class="hero">
-          <p class="hero-text-heading">Lorem ipsum dolor</p>
-          <p class="hero-text-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-      </div>
     </header>
+
+    <div class="header-bottom">
+      <div class="hero-left"></div>
+      <div class="hero">
+        <p class="hero-text-heading">The Advertising Hall of Shame</p>
+        <p class="hero-text-body">Advertising on the Web is a mess, and we're shining a spotlight on the worst of the worst.</p>
+      </div>
+      <div class="hero-right"></div>
+    </div>
 

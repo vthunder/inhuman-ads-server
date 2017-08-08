@@ -5,16 +5,13 @@
       <a class="close-button" href="#sidebar">╳</a>
 
       <ul class="sidebar-menu">
-        <li><a href="">About</a></li>
-        <li><a href="">Contribute</a></li>
-        <li><a href="">High Scores</a></li>
-        <li><a href="">Blog</a></li>
+        <?php wp_list_pages( '&title_li=' ); ?>
         <li><a href="">Subscribe <i class="fa fa-envelope-o"></i></a></li>
       </ul>
 
       <hr class="title-divider" />
 
-      <h1>Inhuman Ads</h1>
+      <a href="/" class="sitelink"><h1>Inhuman Ads</h1></a>
       <div class="poweredby">Powered by<br>Firefox Screenshots</div>
 
       <div class="icons">

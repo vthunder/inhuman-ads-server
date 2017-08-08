@@ -2,15 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
 @import "sidebar";
 
+// ---------------------------------------------------------
+// Global font defaults
+// ---------------------------------------------------------
+
 //@font-face {
 //    font-family: Zilla;
 //    src: url(fonts/ZillaSlab-Bold.otf);
 //    font-weight: bold;
 //}
-
-// ---------------------------------------------------------
-// Global font defaults
-// ---------------------------------------------------------
 
 * {
     color: #333;
@@ -66,16 +66,28 @@ a.sitelink {
 // Document structure
 // ---------------------------------------------------------
 
+html {
+  height: 100%;
+}
+
 body {
-    background: #f5f5f7;
-    color: #333;
-    margin: 10px;
-    padding-top: 325px;
+  background: #f5f5f7;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 65px);
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 65px;
 }
 
 .container {
   margin-left: 10%;
   margin-right: 10%;
+}
+
+#bottom-filler {
+  height: 100%;
 }
 
 // ---------------------------------------------------------
@@ -84,16 +96,18 @@ body {
 
 header {
   background-color: #32d0dd;
-  Left: 0px;
+
+  left: 0px;
   top: 0px;
   right: 0px;
-  margin-bottom: 20px;
-  height: 325px;
+  height: 55px;
+  width: 100%;
+
   overflow: hidden;
   padding-top: 10px;
   position: fixed;
-  width: 100%;
   z-index: 999;
+
   -webkit-transition: height 0.3s;
   -moz-transition: height 0.3s;
   -ms-transition: height 0.3s;
@@ -101,35 +115,30 @@ header {
   transition: height 0.3s;
 
   .header-container {
-    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 1px);
+    margin: 0 20px;
     border-bottom: 1px solid #2ec8d5;
   }
   
-  .nav-left, .nav-right, .header-bottom {
+  .nav-left, .nav-right {
     * {
       color: white;
     }
   }
   .nav-left, .nav-right {
     font-size: 9pt;
-    width: 20%;
   }
 
-  .nav-left {
-    float: left;
-  }
   .nav-right {
-    float: right;
     text-align: right;
   }
   .nav-center {
-    width: 60%;
     display: inline-block;
     text-align: center;
     margin-top: -.5em;
-    
-    //display: table;
-    //margin: auto;
+
     h2 {
       margin-top: -.5em;
     }
@@ -154,15 +163,19 @@ header {
       }
     }
   }
+}
+header.smaller {
+  height: 38px;
+}
+.header-bottom {
+  background-color: #32d0dd;
+  display: grid;
+  grid-template-columns: auto 60% auto;
 
-  .header-bottom {
-    position: relative;
+  * {
+    color: white;
   }
   .hero {
-    left: 20%;
-    margin-top: 1em;
-    position: absolute;
-    width: 60%;
   }
   .hero-text-heading {
     font-size: 24pt;
@@ -171,10 +184,8 @@ header {
   .hero-text-body {
     font-size: 12pt;
     text-align: center;
+    margin-bottom: 30px;
   }
-}
-header.smaller {
-  height: 38px;
 }
 
 // ---------------------------------------------------------
@@ -186,7 +197,7 @@ header.smaller {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px 30px 30px;
+  margin: 20px 0px 30px;
 
   .filter-emoji {
     position: relative;
@@ -202,10 +213,20 @@ header.smaller {
       transform: translateX(-50%);
     }
   }
-  .filter-emoji.selected {
+  .filter-emoji.selected,
+  .filter-emoji:hover {
     .filter-text {
       top: 100%;
+      -webkit-transition: top 0.15s;
+      -moz-transition: top 0.15s;
+      -ms-transition: top 0.15s;
+      -o-transition: top 0.15s;
+      transition: top 0.15s;
     }
+  }
+  .filter-sad,
+  .filter-huh {
+    display: none;
   }
 }
 
@@ -338,18 +359,36 @@ hr {
     .nav-center {
       width: 50%;
     }
+    .nav-contribute {
+      margin-left: 1em;
+    }
+    .contribute-link {
+      text-decoration: none;
+    }
+  }
+}
+@media screen and (min-width: 540px) {
+  .filters-section {
+    margin: 20px 10px 30px;
+    .filter-sad {
+      display: block;
+    }
+  }
+}
+@media screen and (min-width: 640px) {
+  .filters-section {
+    margin: 20px 20px 30px;
+    .filter-huh {
+      display: block;
+    }
   }
 }
 @media screen and (min-width: 730px) {
   header {
-    .nav-left, .nav-right {
-    }
-
     * {
       font-size: 10pt;
     }
     h1 {
-//      font-family: acier-bat-gris, acier-bat-noir, sans-serif;
       font-size: 26pt;
     }
     h2 {
@@ -367,7 +406,6 @@ hr {
 }
 @media screen and (min-width: 1024px) {
   body {
-	  margin: 20px;
   }
   header {
     h1 {
@@ -380,5 +418,8 @@ hr {
     .header-container {
       margin: 0 4em 0 4em;
     }
+  }
+  .filters-section {
+    margin: 20px 30px 30px;
   }
 }

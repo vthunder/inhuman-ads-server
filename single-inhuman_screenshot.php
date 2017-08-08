@@ -9,28 +9,46 @@
   if (!$likes)
     $likes = 0;
 ?>
+<?php get_sidebar(); ?>
 
 <input id="post_id" type="hidden" value="<?php echo get_the_ID(); ?>">
 
 <div class="content">
   <?php if($edit && $isowner): ?>
-    <div class="screenshot-edit">
-      <div class="screenshot-card">
-        <?php the_post_thumbnail('full'); ?>
-      </div>
-      <form id="screenshot-meta-form">
-        <input type="hidden" name="post_id" value="<?php the_ID(); ?>" />
-        <input class="meta-caption" name="caption" type="text" value="<?php the_title(); ?>" placeholder="Caption" />
-        <input class="meta-brand" name="brand" type="text" value="<?php echo $meta['inhuman_meta_ad_brand'][0]; ?>" placeholder="Ad Brand" />
-        <input class="meta-domain" name="domain" type="text" value="<?php echo $meta['inhuman_meta_publisher_domain'][0]; ?>" placeholder="(unknown domain)" disabled="disabled" />
-        <div class="meta-offensive-wrapper">
-          <input class="meta-offensive" name="offensive" type="checkbox" />
-          <label for="offensive">This screenshot might be offensive to some.</label>
+    <?php if (get_user_meta(get_current_user_id(), "inhuman_user_complete", true)): ?>
+      <div class="screenshot-edit">
+        <div class="screenshot-card">
+          <?php the_post_thumbnail('full'); ?>
         </div>
-        <input type="submit" class="button button-primary button-raised" value="Post" />
+        <form id="screenshot-meta-form">
+          <input type="hidden" name="post_id" value="<?php the_ID(); ?>" />
+          <input class="meta-caption" name="caption" type="text" value="<?php the_title(); ?>" placeholder="Caption" />
+          <input class="meta-brand" name="brand" type="text" value="<?php echo $meta['inhuman_meta_ad_brand'][0]; ?>" placeholder="Ad Brand" />
+          <input class="meta-domain" name="domain" type="text" value="<?php echo $meta['inhuman_meta_publisher_domain'][0]; ?>" placeholder="(unknown domain)" disabled="disabled" />
+          <div class="meta-offensive-wrapper">
+            <input class="meta-offensive" name="offensive" type="checkbox" />
+            <label for="offensive">This screenshot might be offensive to some.</label>
+          </div>
+          <input type="submit" class="button button-primary button-raised" value="Post" />
+        </form>
+      </div>
+    <? else: ?>
+      <p>Looks like you're new around here!</p>
+      <p>Set a username and optional email (for account recovery) to
+        post your first screenshot:</p>
+      <form id="user-setup">
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" name="name" value="<?php echo user()->display_name; ?>">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" name="email" placeholder="(optional)">
+        </div>
+        <input type="button" class="button button-primary" value="Submit">
       </form>
-    </div>
-    
+    <? endif; ?>
+
   <?php else: ?>
     <div class="screenshot-card">
       <?php the_post_thumbnail('full'); ?>

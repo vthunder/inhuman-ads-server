@@ -22,8 +22,14 @@
     <header>
       <div class="header-container">
         <div class="nav-left">
-          <a id="sidebar-toggle" href="#sidebar-menu"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
-          <span class="nav-subscribe">Subscribe</span>
+          <a id="sidebar-toggle" href="#sidebar"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
+          <?php if (!is_user_logged_in()): ?>
+            <span class="nav-contribute">
+              <a class="contribute-link" href="/contribute">
+                <i class="fa fa-plus-square fa-lg"></i> Contribute a screenshot
+              </a>
+            </span>
+          <? endif; ?>
         </div>
 
         <div class="nav-center">

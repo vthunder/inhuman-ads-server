@@ -1,9 +1,28 @@
+// from: https://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
+function isElementInViewport (el) {
+
+  //special bonus for those using jQuery
+  if (typeof jQuery === "function" && el instanceof jQuery) {
+    el = el[0];
+  }
+
+  var rect = el.getBoundingClientRect();
+
+  return (
+    rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /*or $(window).height() */
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth) /*or $(window).width() */
+  );
+}
+
 jQuery(document).ready(function($) {
 
   "use strict";
 
   $(window).scroll(function() {
-    (window.pageYOffset || document.documentElement.scrollTop) > 200?
+    // 234 is the height of the extended header/hero
+    (window.pageYOffset || document.documentElement.scrollTop) > 234?
       $("header").addClass("smaller") :
       $("header").removeClass("smaller");
   });
@@ -56,23 +75,7 @@ jQuery(document).ready(function($) {
     localStorage.removeItem('addScreenshotAttempt');
     $('#add-screenshot-url').val(url);
     $(form).submit();
-  }
-
-
-  //
-  // Sidebar
-  //
-  $('#sidebar-toggle').add('#sidebar .close-button').sidr({
-    name: 'sidebar',
-    side: 'left',
-    onOpen: function() {
-      $('#sidebar-toggle').dimBackground();
-    },
-    onClose: function() {
-      $.undim();
-    }
-  });
-  
+  }  
 
   
   $('.all-posts').parent().append('<span class="load-more"></span>');
@@ -91,30 +94,26 @@ jQuery(document).ready(function($) {
 		if(!loading && scrollHandling.allow) {
 			scrollHandling.allow = false;
 			setTimeout(scrollHandling.reallow, scrollHandling.delay);
-      var viewBottom = $(window).scrollTop() + $(window).height();
-			var loadMoreTop = $(loadmore).offset().top;
-      var offset = loadMoreTop - viewBottom;
 
-			if(500 > offset) {
+      if ($(loadmore).isInViewport({tolerance: 200})) {
+        console.log('loading more... page: ' + page);
 				loading = true;
 				var data = {
 					action: 'ajax_load_more',
-					page: page,
-					query: php_data.posts_query,
+					page: page
 				};
 				$.post(php_data.ajax_url, data, function(res) {
-					if(res.success) {
+					if(res.success) {console.log(JSON.stringify(res.data));
             var $html = $(res.data)
 				    $('.all-posts').append($html);
 				    $('.all-posts').isotope('appended', $html);
-//				    $('.all-posts').append(button);
 						page = page + 1;
 						loading = false;
 					} else {
-						// console.log(res);
+						console.log('failed to load more content: ' + res);
 					}
 				}).fail(function(xhr, textStatus, e) {
-					// console.log(xhr.responseText);
+					console.log(xhr.responseText);
 				});
 
 			}

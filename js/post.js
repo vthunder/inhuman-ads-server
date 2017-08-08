@@ -2,11 +2,6 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
-  $('#sidebar-toggle').sidr({
-    name: 'sidebar',
-    side: 'left'
-  });
-
   $(".screenshot-actions .like").hover(function(e) {
     e.preventDefault();
     $(".like-box-wrapper").toggle();
@@ -18,6 +13,8 @@ jQuery(document).ready(function($) {
 
   $(".like-emoji-link").click(function(e) {
     e.preventDefault();
+
+//    $(".like-box-wrapper").toggle();
 
 	  var data = {
 		  action: 'inhuman_like',
@@ -37,13 +34,42 @@ jQuery(document).ready(function($) {
           var count = parseInt(count_span.text());
           count_span.text(count + 1);
 		    } else {
-          alert("error");
+          console.log("Error liking screenshot:");
 			    console.log(res);
 		    }
       })
       .fail(function(err) {
-        alert("error");
-        alert(err.responseText);
+        console.log("Error liking screenshot:");
+        console.log(err.responseText);
+      });
+  });
+
+  $("#user-setup .button").click(function(e) {
+    e.preventDefault();
+
+  	  var data = {
+		  action: 'inhuman_user_setup',
+		  name: $('#user-setup input[name="name"]').val(),
+		  email: $('#user-setup input[name="email"]').val()
+	  };
+
+    $.ajax({
+      type: 'POST',
+      url: php_data.ajax_url + "?action=inhuman_user_setup",
+      data: JSON.stringify(data)
+    })
+      .done(function(res) {
+        res = JSON.parse(res);
+		    if(res.success) {
+          window.location.reload();
+		    } else {
+          console.log("Error setting user details:");
+			    console.log(res);
+		    }
+      })
+      .fail(function(err) {
+        console.log("Error setting user details:");
+        console.log(err.responseText);
       });
   });
 

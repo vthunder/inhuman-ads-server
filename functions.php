@@ -3,43 +3,86 @@
     echo get_template_directory_uri();
   }
 
+  function user() {
+    return wp_get_current_user();
+  }
+
   add_theme_support('post-thumbnails');
 
-  $inhuman_posts_query = array(
-    'post_type' => array('post', 'inhuman_screenshot'),
-    'meta_query'  => array(
-      array(
-        'key' => 'inhuman_meta_status',
-        'value' => 'publish'
-      ),
-      array(
-        'relation' => 'OR',
+  function inhuman_query($type, $page = null) {
+    $query = array(
+      'post_type' => array('post', 'inhuman_screenshot'),
+      'meta_query'  => array(
         array(
-          'key' => 'inhuman_meta_featured',
-          'compare' => 'NOT EXISTS',
-          'value' => ''
+          'key' => 'inhuman_meta_status',
+          'value' => 'publish'
         ),
         array(
-          'key' => 'inhuman_meta_featured',
-          'value' => ''
+          'relation' => 'OR',
+          array(
+            'key' => 'inhuman_meta_featured',
+            'compare' => 'NOT EXISTS',
+            'value' => ''
+          ),
+          array(
+            'key' => 'inhuman_meta_featured',
+            'value' => ''
+          )
         )
       )
-    )
+    );
 
-  );
+    switch ($type) {
+      case "popular":
+        $query['meta_key'] = 'inhuman_meta_total_like_count';
+        $query['orderby'] = 'meta_value_num';
+        break;
+      case "funny":
+        $query['meta_key'] = 'inhuman_meta_like_funny_count';
+        $query['orderby'] = 'meta_value_num';
+        break;
+      case "angry":
+        $query['meta_key'] = 'inhuman_meta_like_angry_count';
+        $query['orderby'] = 'meta_value_num';
+        break;
+      case "sad":
+        $query['meta_key'] = 'inhuman_meta_like_sad_count';
+        $query['orderby'] = 'meta_value_num';
+        break;
+      case "huh":
+        $query['meta_key'] = 'inhuman_meta_like_huh_count';
+        $query['orderby'] = 'meta_value_num';
+        break;
+      default:
+        break;
+    }
+
+    if ($page) {
+      $query['paged'] = $page;
+    }
+
+    return $query;
+  }
+
+  function add_query_vars_filter($vars){
+    $vars[] = "e";
+    return $vars;
+  }
+  add_filter('query_vars', 'add_query_vars_filter');
 
   //
   // Server-side variables to make available to JS
   //
   function inhuman_setup_js_vars() {
-    wp_localize_script('main', 'php_data', array(
+    $vars = array(
       'post_id' => get_the_ID(),
       'base_uri' => get_template_directory_uri(),
       'ajax_url' => admin_url('admin-ajax.php'),
       'nonce' => wp_create_nonce('inhuman-ads-nonce'),
-      'posts_query' => $inhuman_posts_query,
       'user_display_name' => wp_get_current_user()->display_name
-    ));
+    );
+    wp_localize_script('front', 'php_data', $vars);
+    wp_localize_script('post', 'php_data', $vars);
   }
 
   //
@@ -54,15 +97,22 @@
   }
   function inhuman_enqueue_scripts() {
     $tpldir = get_bloginfo('template_directory');
-    wp_enqueue_script('jquery', $tpldir . '/vendor/jquery/dist/jquery.min.js');
-    wp_enqueue_script('sidr', $tpldir . '/vendor/sidr/dist/jquery.sidr.min.js', array('jquery'));
-    wp_enqueue_script('dim-bg', $tpldir . '/vendor/jquery-dim-background/jquery.dim-background.min.js', array('jquery'));
-    if (is_front_page()) {
-      wp_enqueue_script('jquery-isotope', $tpldir . '/vendor/isotope/dist/isotope.pkgd.min.js', array('jquery'));
-      wp_enqueue_script('main', $tpldir . '/js/front.js', array('jquery', 'jquery-isotope', 'sidr'));
+    wp_register_script('jquery', $tpldir . '/vendor/jquery/dist/jquery.min.js');
+    wp_register_script('sidr', $tpldir . '/vendor/sidr/dist/jquery.sidr.min.js', array('jquery'));
+    wp_register_script('dim-bg', $tpldir . '/vendor/jquery-dim-background/jquery.dim-background.min.js', array('jquery'));
+    wp_register_script('jquery-isotope', $tpldir . '/vendor/isotope/dist/isotope.pkgd.min.js', array('jquery'));
+    wp_register_script('jquery-docsize', $tpldir . '/vendor/jquery.documentsize/dist/jquery.documentsize.min.js', array('jquery'));
+    wp_register_script('jquery-isinview', $tpldir . '/vendor/jquery.isinview/dist/jquery.isinview.min.js', array('jquery', 'jquery-docsize'));
+    wp_register_script('sidebar', $tpldir . '/js/sidebar.js', array('jquery', 'sidr', 'dim-bg'));
+    wp_register_script('front', $tpldir . '/js/front.js', array('jquery', 'jquery-isotope', 'jquery-isinview', 'sidebar'));
+    wp_register_script('post', $tpldir . '/js/post.js', array('jquery', 'sidebar'));
+
+    if (is_single()) {
+      wp_enqueue_script('post');
     } else {
-      wp_enqueue_script('main', $tpldir . '/js/post.js', array('jquery', 'sidr'));
+      wp_enqueue_script('front');
     }
+
     inhuman_setup_js_vars();
   }
   add_action('wp_enqueue_scripts', 'inhuman_enqueue_styles');
@@ -72,27 +122,9 @@
   // AJAX Pagination
   //
   function load_more() {
-    $args = array(
-      'post_type' => array('post', 'inhuman_screenshot'),
-      'meta_query'  => array(
-        'relation' => 'OR',
-        array(
-          'key' => 'inhuman_meta_featured',
-          'compare' => 'NOT EXISTS',
-          'value' => ''
-        ),
-        array(
-          'key' => 'inhuman_meta_featured',
-          'value' => ''
-        )
-      )
-    );
-    $args['paged'] = esc_attr($_POST['page']);
-    //	  $args['post_status'] = 'publish';
-
     ob_start();
 
-    $loop = new WP_Query($args);
+    $loop = new WP_Query(inhuman_query('popular', esc_attr($_POST['page'])));
     if($loop->have_posts()): while($loop->have_posts()): $loop->the_post();
     get_template_part('card', get_post_format());
 	  endwhile; endif; wp_reset_postdata();

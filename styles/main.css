@@ -1417,27 +1417,36 @@ h3 {
 a.sitelink {
   text-decoration: none; }
 
+html {
+  height: 100%; }
+
 body {
   background: #f5f5f7;
   color: #333;
-  margin: 10px;
-  padding-top: 325px; }
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 65px);
+  justify-content: space-between;
+  margin: 0;
+  margin-top: 65px; }
 
 .container {
   margin-left: 10%;
   margin-right: 10%; }
 
+#bottom-filler {
+  height: 100%; }
+
 header {
   background-color: #32d0dd;
-  Left: 0px;
+  left: 0px;
   top: 0px;
   right: 0px;
-  margin-bottom: 20px;
-  height: 325px;
+  height: 55px;
+  width: 100%;
   overflow: hidden;
   padding-top: 10px;
   position: fixed;
-  width: 100%;
   z-index: 999;
   -webkit-transition: height 0.3s;
   -moz-transition: height 0.3s;
@@ -1445,20 +1454,18 @@ header {
   -o-transition: height 0.3s;
   transition: height 0.3s; }
   header .header-container {
-    margin: 0 10px 0 10px;
+    display: flex;
+    justify-content: space-between;
+    height: calc(100% - 1px);
+    margin: 0 20px;
     border-bottom: 1px solid #2ec8d5; }
-  header .nav-left *, header .nav-right *, header .header-bottom * {
+  header .nav-left *, header .nav-right * {
     color: white; }
   header .nav-left, header .nav-right {
-    font-size: 9pt;
-    width: 20%; }
-  header .nav-left {
-    float: left; }
+    font-size: 9pt; }
   header .nav-right {
-    float: right;
     text-align: right; }
   header .nav-center {
-    width: 60%;
     display: inline-block;
     text-align: center;
     margin-top: -.5em; }
@@ -1479,29 +1486,30 @@ header {
         cursor: pointer;
         font: inherit;
         padding: 0 !important; }
-  header .header-bottom {
-    position: relative; }
-  header .hero {
-    left: 20%;
-    margin-top: 1em;
-    position: absolute;
-    width: 60%; }
-  header .hero-text-heading {
-    font-size: 24pt;
-    text-align: center; }
-  header .hero-text-body {
-    font-size: 12pt;
-    text-align: center; }
 
 header.smaller {
   height: 38px; }
+
+.header-bottom {
+  background-color: #32d0dd;
+  display: grid;
+  grid-template-columns: auto 60% auto; }
+  .header-bottom * {
+    color: white; }
+  .header-bottom .hero-text-heading {
+    font-size: 24pt;
+    text-align: center; }
+  .header-bottom .hero-text-body {
+    font-size: 12pt;
+    text-align: center;
+    margin-bottom: 30px; }
 
 .filters-section {
   align-items: center;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 20px 30px 30px; }
+  margin: 20px 0px 30px; }
   .filters-section .filter-emoji {
     position: relative; }
     .filters-section .filter-emoji .filter-text {
@@ -1514,8 +1522,17 @@ header.smaller {
       text-transform: uppercase;
       top: 50%;
       transform: translateX(-50%); }
-  .filters-section .filter-emoji.selected .filter-text {
-    top: 100%; }
+  .filters-section .filter-emoji.selected .filter-text,
+  .filters-section .filter-emoji:hover .filter-text {
+    top: 100%;
+    -webkit-transition: top 0.15s;
+    -moz-transition: top 0.15s;
+    -ms-transition: top 0.15s;
+    -o-transition: top 0.15s;
+    transition: top 0.15s; }
+  .filters-section .filter-sad,
+  .filters-section .filter-huh {
+    display: none; }
 
 hr {
   display: block;
@@ -1626,7 +1643,21 @@ hr {
     margin-top: .25em;
     width: 25%; }
   header .nav-center {
-    width: 50%; } }
+    width: 50%; }
+  header .nav-contribute {
+    margin-left: 1em; }
+  header .contribute-link {
+    text-decoration: none; } }
+@media screen and (min-width: 540px) {
+  .filters-section {
+    margin: 20px 10px 30px; }
+    .filters-section .filter-sad {
+      display: block; } }
+@media screen and (min-width: 640px) {
+  .filters-section {
+    margin: 20px 20px 30px; }
+    .filters-section .filter-huh {
+      display: block; } }
 @media screen and (min-width: 730px) {
   header * {
     font-size: 10pt; }
@@ -1644,9 +1675,6 @@ hr {
     header.smaller h2 .firefox {
       font-size: 8pt; } }
 @media screen and (min-width: 1024px) {
-  body {
-    margin: 20px; }
-
   header h1 {
     font-size: 32pt; }
   header h2 {
@@ -1654,6 +1682,9 @@ hr {
     header h2 .firefox {
       font-size: 11pt; }
   header .header-container {
-    margin: 0 4em 0 4em; } }
+    margin: 0 4em 0 4em; }
+
+  .filters-section {
+    margin: 20px 30px 30px; } }
 
 /*# sourceMappingURL=main.css.map */

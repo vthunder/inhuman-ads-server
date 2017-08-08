@@ -1,11 +1,6 @@
-html {
-  height: 100%;
-}
-body {
-  padding-top: 75px;
-  margin: 0;
-  height: calc(100% - 5em);
-}
+//
+// Header & Footer
+//
 
 header {
   height: 38px;
@@ -15,24 +10,32 @@ header {
     .firefox { font-size: 8pt; }
   }
 }
+.header-bottom {
+  display: none;
+}
 
 .footer {
   background: #ccc;
-  height: 60px;
-  margin-top: 5em;
+  height: 40px;
+  margin-top: 20px;
   width: 100%;
   .footer-left {
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 10px;
     float: left;
     font-size: 12pt;
+
+    .mozlogo img {
+      width: 5em;
+    }
   }
   .footer-right {
     padding-right: 20px;
-//    padding-top: 20px;
+    padding-top: 10px;
     float: right;
     .terms {
       list-style: none;
+      margin: 0;
       padding: 0;
       li {
         display: inline;
@@ -43,14 +46,32 @@ header {
   }
 }
 
+//
+// Articles / Pages
+//
+
+h1.page-title {
+  font-family: fira-sans, sans-serif;
+  font-weight: bold;
+}
+
+.page-body {
+  background: #fff;
+  margin: 0 80px;
+  padding: 10px;
+}
+
+.page-wrapper {
+//  height: calc(100% - 115px);
+}
+
+//
+// Screenshot posts
+//
+
 .content {
-  width: 50%;
-  margin-left: auto;
-  margin-right: auto;
-  min-height: 70%;
-  min-height: -webkit-calc(100% - 135px);
-  min-height: -moz-calc(100% - 135px);
-  min-height: calc(100% - 135px);
+  margin: 0 80px;
+  padding: 10px;
 
   hr {
     margin-top: 3em;
@@ -92,7 +113,7 @@ header {
           height: 100px;
           left: -180px;
           position: absolute;
-          top: 20px;
+          bottom: 15px;
           width: 320px;
         }
 
@@ -102,7 +123,7 @@ header {
           left: 30px;
           position: absolute;
           padding: 5px 10px;
-          top: 5px;
+          bottom: 10px;
 
           .like-emoji {
             margin: 2px;
@@ -131,7 +152,7 @@ header {
           height: 130px;
           left: -130px;
           position: absolute;
-          top: 20px;
+          bottom: 15px;
           width: 300px;
         }
 
@@ -141,7 +162,7 @@ header {
           left: 30px;
           position: absolute;
           padding: 5px 10px;
-          top: 5px;
+          bottom: 10px;
         }
       }
     }
@@ -199,10 +220,24 @@ header {
   }
 }
 
-.logged-in-as {
+//
+// Comments
+//
+
+.logged-in-as a:nth-child(2) {
   display: none;
 }
 
 .comment-form-comment label {
   display: none;
+}
+
+#user-setup {
+  label {
+    display: inline-block;
+    min-width: 4em;
+  }
+  .button {
+    margin-top: 10px;
+  }
 }
