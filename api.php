@@ -88,47 +88,6 @@
   }
   add_action('wp_ajax_inhuman_update_screenshot', 'inhuman_update_screenshot');
 
-  
-  //
-  // Pagination
-  //
-  function inhuman_image_size_override() {
-    return array( 825, 510 );
-  }
-
-  function inhuman_ajax_pagination() {
-    $query_vars = json_decode( stripslashes( $_POST['query_vars'] ), true );
-
-    $query_vars['paged'] = $_POST['page'];
-
-
-    $posts = new WP_Query( $query_vars );
-    $GLOBALS['wp_query'] = $posts;
-
-    add_filter( 'editor_max_image_size', 'inhuman_image_size_override' );
-
-    if( ! $posts->have_posts() ) { 
-      get_template_part( 'content', 'none' );
-    }
-    else {
-      while ( $posts->have_posts() ) { 
-        $posts->the_post();
-        get_template_part( 'content', get_post_format() );
-      }
-    }
-    remove_filter( 'editor_max_image_size', 'inhuman_image_size_override' );
-
-    the_posts_pagination( array(
-      'prev_text'          => __( 'Previous page', 'inhuman-ads' ),
-      'next_text'          => __( 'Next page', 'inhuman-ads' ),
-      'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'inhuman-ads' ) . ' </span>',
-    ) );
-
-    die();
-  }
-  add_action('wp_ajax_nopriv_ajax_pagination', 'inhuman_ajax_pagination');
-  add_action('wp_ajax_ajax_pagination', 'inhuman_ajax_pagination');
-
   //
   // Login
   //
@@ -212,5 +171,33 @@
   }
   add_action('wp_ajax_inhuman_like', 'inhuman_like');
   add_action('wp_ajax_nopriv_inhuman_like', 'inhuman_like');
+
+  //
+  // Process form to set username (&email?)
+  //
+
+  function inhuman_user_setup() {
+    $raw = json_decode(file_get_contents('php://input'), true);
+    $name = sanitize_text_field($raw["name"]);
+    $email = sanitize_text_field($raw["email"]);
+
+    if (is_user_logged_in()) {
+      $user_id = get_current_user_id();
+      wp_update_user(array(
+        'ID' => $user_id,
+        'display_name' => $name,
+        'email' => $email
+      ));
+
+      update_user_meta($user_id, "inhuman_user_score_today", 0);
+      update_user_meta($user_id, "inhuman_user_score_week", 0);
+      update_user_meta($user_id, "inhuman_user_score_forever", 0);
+
+      update_user_meta($user_id, "inhuman_user_complete", true);
+    }
+    echo json_encode(array('success'=>true));
+    die();
+  }
+  add_action('wp_ajax_inhuman_user_setup', 'inhuman_user_setup');
 
 ?>

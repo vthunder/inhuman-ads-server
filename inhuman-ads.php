@@ -4,7 +4,9 @@
    */
 
   //require_once(plugin_dir_path(__FILE__) . 'debug.php');
-  require_once(plugin_dir_path(__FILE__) . 'api.php');
+  require_once(plugin_dir_path(__FILE__) . 'api_publish.php');
+  require_once(plugin_dir_path(__FILE__) . 'api_users.php');
+  require_once(plugin_dir_path(__FILE__) . 'api_screenshots.php');
   require_once(plugin_dir_path(__FILE__) . 'post_types.php');
   require_once(plugin_dir_path(__FILE__) . 'post_metadata.php');
 
