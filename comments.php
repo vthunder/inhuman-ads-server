@@ -51,7 +51,7 @@
   <?php if (is_user_logged_in()): ?>
     <?php if (get_user_meta(get_current_user_id(), "inhuman_user_complete", true)): ?>
       <?php comment_form(); ?>
-    <? else: ?>
+    <?php else: ?>
       <p>Looks like you're new around here!</p>
       <p>Set a username and optional email (for account recovery) to
         leave a comment:</p>
@@ -66,7 +66,7 @@
         </div>
         <input type="button" class="button button-primary" value="Submit">
       </form>
-    <? endif; ?>
+    <?php endif; ?>
   <?php endif; ?>
   
 </div><!-- #comments -->

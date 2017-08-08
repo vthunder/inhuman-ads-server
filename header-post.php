@@ -29,7 +29,7 @@
                 <i class="fa fa-plus-square fa-lg"></i> Contribute a screenshot
               </a>
             </span>
-          <? endif; ?>
+          <?php endif; ?>
         </div>
 
         <div class="nav-center">
