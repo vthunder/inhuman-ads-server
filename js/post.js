@@ -63,8 +63,12 @@ jQuery(document).ready(function($) {
 		    if(res.success) {
           window.location.reload();
 		    } else {
-          console.log("Error setting user details:");
-			    console.log(res);
+          if (res.error == "Name taken") {
+            $("#name-error").text("This name is taken.");
+          } else {
+            console.log("Error setting user details:");
+			      console.log(res);
+          }
 		    }
       })
       .fail(function(err) {

@@ -40,6 +40,7 @@
         <div>
           <label for="name">Name:</label>
           <input type="text" name="name" value="<?php echo user()->display_name; ?>">
+          <span id="name-error"></span>
         </div>
         <div>
           <label for="email">Email:</label>
