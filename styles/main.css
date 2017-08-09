@@ -1382,9 +1382,6 @@
   color: #333;
   font-family: fira-sans, sans-serif; }
 
-p {
-  font-size: 10pt; }
-
 h1 {
   font-family: acier-bat-noir, sans-serif;
   font-size: 20pt;
@@ -1493,14 +1490,14 @@ header.smaller {
 .header-bottom {
   background-color: #32d0dd;
   display: grid;
-  grid-template-columns: auto 60% auto; }
+  grid-template-columns: auto 75% auto; }
   .header-bottom * {
     color: white; }
   .header-bottom .hero-text-heading {
-    font-size: 24pt;
+    font-size: 18pt;
     text-align: center; }
   .header-bottom .hero-text-body {
-    font-size: 12pt;
+    font-size: 10pt;
     text-align: center;
     margin-bottom: 30px; }
 
@@ -1673,7 +1670,17 @@ hr {
   header.smaller h2 {
     font-size: 7pt; }
     header.smaller h2 .firefox {
-      font-size: 8pt; } }
+      font-size: 8pt; }
+
+  .header-bottom {
+    grid-template-columns: auto 55% auto; }
+    .header-bottom .hero-text-heading {
+      font-size: 24pt;
+      text-align: center; }
+    .header-bottom .hero-text-body {
+      font-size: 12pt;
+      text-align: center;
+      margin-bottom: 30px; } }
 @media screen and (min-width: 1024px) {
   header h1 {
     font-size: 32pt; }

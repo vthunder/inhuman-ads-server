@@ -53,8 +53,19 @@
       <?php comment_form(); ?>
     <?php else: ?>
       <p>Looks like you're new around here!</p>
-      <p>Set a username and optional email (for account recovery) to
-        leave a comment:</p>
+      <p>Before posting your first comment, pick a username that
+        we'll use on the site to identify you. It will be visible on
+        screenshot pages, our high scores boards, etc. If you provide
+        an email, we'll use it for account recovery and to send you
+        site updates and responses to your comments.</p>
+      <p>Also note that:
+        <ul>
+          <li>Your screenshot posts will be available at Inhuman Ads indefinitely</li>
+          <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
+          <li>You can read about our
+            <a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a> and <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a>.</li>
+        </ul>
+      </p>
       <form id="user-setup">
         <div>
           <label for="name">Name:</label>

@@ -18,7 +18,7 @@
 }
 
 p {
-    font-size: 10pt;
+//    font-size: 10pt;
 }
 
 h1 {
@@ -170,7 +170,7 @@ header.smaller {
 .header-bottom {
   background-color: #32d0dd;
   display: grid;
-  grid-template-columns: auto 60% auto;
+  grid-template-columns: auto 75% auto;
 
   * {
     color: white;
@@ -178,11 +178,11 @@ header.smaller {
   .hero {
   }
   .hero-text-heading {
-    font-size: 24pt;
+    font-size: 18pt;
     text-align: center;
   }
   .hero-text-body {
-    font-size: 12pt;
+    font-size: 10pt;
     text-align: center;
     margin-bottom: 30px;
   }
@@ -401,6 +401,18 @@ hr {
     h2 {
       font-size: 7pt;
       .firefox { font-size: 8pt; }
+    }
+  }
+  .header-bottom {
+    grid-template-columns: auto 55% auto;
+    .hero-text-heading {
+      font-size: 24pt;
+      text-align: center;
+    }
+    .hero-text-body {
+      font-size: 12pt;
+      text-align: center;
+      margin-bottom: 30px;
     }
   }
 }

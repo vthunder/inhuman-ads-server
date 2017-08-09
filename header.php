@@ -49,7 +49,10 @@
       <div class="hero-left"></div>
       <div class="hero">
         <p class="hero-text-heading">The Advertising Hall of Shame</p>
-        <p class="hero-text-body">Advertising on the Web is a mess, and we're shining a spotlight on the worst of the worst.</p>
+        <p class="hero-text-body">Advertising on the Web is a
+          mess. Help us shine a spotlight on the worst of it, and work
+          on making it better.</p>
+        
       </div>
       <div class="hero-right"></div>
     </div>
