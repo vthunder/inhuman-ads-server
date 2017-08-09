@@ -44,29 +44,45 @@
   add_action('wp_ajax_nopriv_inhuman_login', 'inhuman_login');
 
   //
-  // Process form to set username (&email?)
+  // Process form to set username & email
   //
 
   function inhuman_user_setup() {
+    global $wpdb;
     $raw = json_decode(file_get_contents('php://input'), true);
     $name = sanitize_text_field($raw["name"]);
     $email = sanitize_text_field($raw["email"]);
+    $success = false;
+    $error = '';
 
     if (is_user_logged_in()) {
       $user_id = get_current_user_id();
-      wp_update_user(array(
-        'ID' => $user_id,
-        'display_name' => $name,
-        'email' => $email
-      ));
 
-      update_user_meta($user_id, "inhuman_user_score_today", 0);
-      update_user_meta($user_id, "inhuman_user_score_week", 0);
-      update_user_meta($user_id, "inhuman_user_score_forever", 0);
+      $name_taken = $wpdb->get_var($wpdb->prepare(
+        "SELECT COUNT(ID) FROM $wpdb->users WHERE display_name = %s AND ID <> %d",
+        $name, $user_id));
 
-      update_user_meta($user_id, "inhuman_user_complete", true);
+      if ($name_taken) {
+        $error = "Name taken";
+      } else {
+        wp_update_user(array(
+          'ID' => $user_id,
+          'display_name' => $name,
+          'email' => $email
+        ));
+
+        update_user_meta($user_id, "inhuman_user_score_today", 0);
+        update_user_meta($user_id, "inhuman_user_score_week", 0);
+        update_user_meta($user_id, "inhuman_user_score_forever", 0);
+        update_user_meta($user_id, "inhuman_user_likes", array());
+
+        update_user_meta($user_id, "inhuman_user_complete", true);
+
+        $success = true;
+      }
+
+      echo json_encode(array('success' => $success, 'error' => $error));
     }
-    echo json_encode(array('success'=>true));
     die();
   }
   add_action('wp_ajax_inhuman_user_setup', 'inhuman_user_setup');
@@ -95,6 +111,17 @@
       if (0 == $day) // Sunday
         update_user_meta($user->ID, "inhuman_user_score_week", 0);
     }
+
+    $shots = new WP_Query(array(
+      'post_type' => array('inhuman_screenshot')
+    ));
+		if ($shots->have_posts()) {
+      while ($shots->have_posts()) {
+        $shots->the_post();
+        update_post_meta($shots->ID, "inhuman_meta_weekly_like_count", 0);
+      }
+    }
+
   }
   add_action('inhuman_daily_users_event', 'inhuman_daily_high_scores_reset');
 

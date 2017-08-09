@@ -1,5 +1,7 @@
 <?php
 
+  $emojis = array('funny', 'angry', 'sad', 'huh');
+
   function _inhuman_bump_high_score($user_id, $amount) {
     $day = get_user_meta($user_id, "inhuman_user_score_today", true);
     $week = get_user_meta($user_id, "inhuman_user_score_week", true);
@@ -19,36 +21,51 @@
 
   function _inhuman_like($post_id, $emoji) {
     return _inhuman_meta_counter_incr($post_id, "inhuman_meta_like_" . $emoji . "_count") &&
+           _inhuman_meta_counter_incr($post_id, "inhuman_meta_weekly_like_count") &&
            _inhuman_meta_counter_incr($post_id, "inhuman_meta_total_like_count");
   }
 
   function inhuman_like() {
+    global $emojis;
     $raw = json_decode(file_get_contents('php://input'), true);
     $post_id = sanitize_text_field($raw["post_id"]);
     $emoji = $raw["emoji"];
-    $success = true;
+    $success = false;
 
-    switch ($emoji) {
-      case "funny":
-        $success = _inhuman_like($post_id, "funny");
+    foreach ($emojis as $e) {
+      if ($emoji == $e) {
+        $success = _inhuman_like($post_id, $e);
         break;
-      case "angry":
-        $success = _inhuman_like($post_id, "angry");
-        break;
-      case "sad":
-        $success = _inhuman_like($post_id, "sad");
-        break;
-      case "huh":
-        $success = _inhuman_like($post_id, "huh");
-        break;
-      default:
-        http_response_code(404); // unknown emoji
-        $success = false;
+      }
     }
+    if ($success) {
+      // bump score of screenshot owner
+      $author_id = get_post_field('post_author', $post_id);
+      _inhuman_bump_high_score($author_id, 1);
 
-    // bump score of screenshot owner
-    $user_id = get_post_field('post_author', $post_id);
-    _inhuman_bump_high_score($user_id, 1);
+      // track user likes if user is logged in
+      if (is_user_logged_in()) {
+        $user_id = get_current_user_id();
+        $likes = get_user_meta($user_id, "inhuman_user_likes", true);
+        if (!$likes[$post_id]) {
+          $likes[$post_id] = array();
+          foreach ($emojis as $e) {
+            $likes[$post_id][$e] = 0;
+          }
+        }
+        $likes[$post_id][$emoji] = $likes[$post_id][$emoji] + 1;
+        update_user_meta($user_id, "inhuman_user_likes", $likes);
+
+        // track users by post in case we want that later
+        $users_liked = get_post_meta($post_id, 'inhuman_like_user_list', true);
+        if (!$users_liked)
+          $users_liked = array();
+        $users_liked[$user_id] = true;
+        update_post_meta($post_id, 'inhuman_like_user_list', $users_liked);
+      }
+    } else {
+      http_response_code(404); // unknown emoji
+    }
 
     echo json_encode(array('success'=>$success));
     die();
