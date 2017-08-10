@@ -98,6 +98,7 @@
 * The default values for the .button class
 */
 @import url("https://fonts.googleapis.com/css?family=Zilla+Slab");
+@import url("https://code.cdn.mozilla.net/fonts/fira.css");
 .button, .category-selector .category-button {
   color: #666;
   background-color: #EEE;
@@ -1380,23 +1381,12 @@
 
 * {
   color: #333;
-  font-family: fira-sans, sans-serif; }
-
-h1 {
-  font-family: acier-bat-noir, sans-serif;
-  font-size: 20pt;
-  font-weight: 300;
-  margin: 0 0;
-  -webkit-transition: font-size 0.3s;
-  -moz-transition: font-size 0.3s;
-  -ms-transition: font-size 0.3s;
-  -o-transition: font-size 0.3s;
-  transition: font-size 0.3s; }
+  font-family: 'Fira Sans', 'Sans Serif'; }
 
 h2 {
-  font-size: 6pt;
+  font-size: 8pt;
   font-style: italic;
-  font-weight: 200;
+  font-weight: 300;
   margin-top: 0px;
   -webkit-transition: font-size 0.3s;
   -moz-transition: font-size 0.3s;
@@ -1404,7 +1394,7 @@ h2 {
   -o-transition: font-size 0.3s;
   transition: font-size 0.3s; }
   h2 .firefox {
-    font-size: 7pt;
+    font-size: 9pt;
     font-style: normal; }
 
 h3 {
@@ -1459,13 +1449,23 @@ header {
   header .nav-left *, header .nav-right * {
     color: white; }
   header .nav-left, header .nav-right {
-    font-size: 9pt; }
+    font-size: 9pt;
+    width: 15%; }
   header .nav-right {
     text-align: right; }
   header .nav-center {
     display: inline-block;
     text-align: center;
-    margin-top: -.5em; }
+    width: 70%; }
+    header .nav-center .title-logo {
+      max-height: 70%;
+      max-width: 100%;
+      margin: 0 0;
+      -webkit-transition: max-width 0.3s, max-height 0.3s;
+      -moz-transition: max-width 0.3s, max-height 0.3s;
+      -ms-transition: max-width 0.3s, max-height 0.3s;
+      -o-transition: max-width 0.3s, max-height 0.3s;
+      transition: max-width 0.3s, max-height 0.3s; }
     header .nav-center h2 {
       margin-top: -.5em; }
   header .nav-subscribe {
@@ -1485,7 +1485,14 @@ header {
         padding: 0 !important; }
 
 header.smaller {
-  height: 38px; }
+  height: 38px;
+  margin-top: -.25em; }
+  header.smaller .title-logo {
+    max-height: 45%; }
+  header.smaller h2 {
+    font-size: 6pt; }
+    header.smaller h2 .firefox {
+      font-size: 7pt; }
 
 .header-bottom {
   background-color: #32d0dd;
@@ -1638,24 +1645,38 @@ hr {
     display: inline; }
   header .nav-left, header .nav-right {
     margin-top: .25em;
-    width: 25%; }
+    width: 20%; }
   header .nav-center {
-    width: 50%; }
+    width: 60%; }
   header .nav-contribute {
     margin-left: 1em; }
   header .contribute-link {
     text-decoration: none; } }
 @media screen and (min-width: 540px) {
+  header .nav-left, header .nav-right {
+    width: 25%; }
+  header .nav-center {
+    width: 50%; }
+
   .filters-section {
     margin: 20px 10px 30px; }
     .filters-section .filter-sad {
       display: block; } }
 @media screen and (min-width: 640px) {
+  header .nav-left, header .nav-right {
+    width: 30%; }
+  header .nav-center {
+    width: 40%; }
+
   .filters-section {
     margin: 20px 20px 30px; }
     .filters-section .filter-huh {
       display: block; } }
 @media screen and (min-width: 730px) {
+  header .nav-left, header .nav-right {
+    width: 35%; }
+  header .nav-center {
+    width: 30%; }
   header * {
     font-size: 10pt; }
   header h1 {
@@ -1663,17 +1684,17 @@ hr {
   header h2 {
     font-size: 9pt; }
     header h2 .firefox {
-      font-size: 11pt; }
+      font-size: 10pt; }
 
-  header.smaller h1 {
-    font-size: 22pt; }
+  header.smaller .title-logo {
+    max-height: 50%; }
   header.smaller h2 {
-    font-size: 7pt; }
+    font-size: 8pt; }
     header.smaller h2 .firefox {
-      font-size: 8pt; }
+      font-size: 10pt; }
 
   .header-bottom {
-    grid-template-columns: auto 55% auto; }
+    grid-template-columns: auto 60% auto; }
     .header-bottom .hero-text-heading {
       font-size: 24pt;
       text-align: center; }
@@ -1682,6 +1703,10 @@ hr {
       text-align: center;
       margin-bottom: 30px; } }
 @media screen and (min-width: 1024px) {
+  header .nav-left, header .nav-right {
+    width: 40%; }
+  header .nav-center {
+    width: 25%; }
   header h1 {
     font-size: 32pt; }
   header h2 {
@@ -1690,6 +1715,9 @@ hr {
       font-size: 11pt; }
   header .header-container {
     margin: 0 4em 0 4em; }
+
+  .header-bottom {
+    grid-template-columns: auto 50% auto; }
 
   .filters-section {
     margin: 20px 30px 30px; } }

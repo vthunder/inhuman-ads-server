@@ -11,10 +11,6 @@
     <noscript>
       <link rel="stylesheet" type="text/css" href="<?php echo get_bloginfo('template_directory') . '/styles/noscript.css' ?>">
     </noscript>
-    <script src="https://use.typekit.net/dkl0mwz.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      try{Typekit.load();}catch(e){}
-    </script>
     <?php wp_head();?>
   </head>
 

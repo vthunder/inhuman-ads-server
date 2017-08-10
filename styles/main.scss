@@ -1,42 +1,25 @@
 @import "../vendor/Buttons/scss/buttons";
 @import url('https://fonts.googleapis.com/css?family=Zilla+Slab');
+@import url('https://code.cdn.mozilla.net/fonts/fira.css');
 @import "sidebar";
 
 // ---------------------------------------------------------
 // Global font defaults
 // ---------------------------------------------------------
 
-//@font-face {
-//    font-family: Zilla;
-//    src: url(fonts/ZillaSlab-Bold.otf);
-//    font-weight: bold;
-//}
-
 * {
     color: #333;
-    font-family: fira-sans, sans-serif;
+    font-family: 'Fira Sans', 'Sans Serif';
 }
 
 p {
 //    font-size: 10pt;
 }
 
-h1 {
-    font-family: acier-bat-noir, sans-serif;
-    font-size: 20pt;
-    font-weight: 300;
-    margin: 0 0;
-    -webkit-transition: font-size 0.3s;
-    -moz-transition: font-size 0.3s;
-    -ms-transition: font-size 0.3s;
-    -o-transition: font-size 0.3s;
-    transition: font-size 0.3s;
-}
-
 h2 {
-    font-size: 6pt;
+    font-size: 8pt;
     font-style: italic;
-    font-weight: 200;
+    font-weight: 300;
     margin-top: 0px;
     -webkit-transition: font-size 0.3s;
     -moz-transition: font-size 0.3s;
@@ -45,7 +28,7 @@ h2 {
     transition: font-size 0.3s;
 
     .firefox {
-	    font-size: 7pt;
+	    font-size: 9pt;
 	    font-style: normal;
     }
 }
@@ -129,6 +112,7 @@ header {
   }
   .nav-left, .nav-right {
     font-size: 9pt;
+    width: 15%;
   }
 
   .nav-right {
@@ -137,8 +121,19 @@ header {
   .nav-center {
     display: inline-block;
     text-align: center;
-    margin-top: -.5em;
+//    margin-top: -.5em;
+    width: 70%;
 
+    .title-logo {
+      max-height: 70%;
+      max-width: 100%;
+      margin: 0 0;
+      -webkit-transition: max-width 0.3s, max-height 0.3s;
+      -moz-transition: max-width 0.3s, max-height 0.3s;
+      -ms-transition: max-width 0.3s, max-height 0.3s;
+      -o-transition: max-width 0.3s, max-height 0.3s;
+      transition: max-width 0.3s, max-height 0.3s;
+    }
     h2 {
       margin-top: -.5em;
     }
@@ -166,6 +161,12 @@ header {
 }
 header.smaller {
   height: 38px;
+  margin-top: -.25em;
+  .title-logo { max-height: 45%; }
+  h2 {
+    font-size: 6pt;
+    .firefox { font-size: 7pt; }
+  }
 }
 .header-bottom {
   background-color: #32d0dd;
@@ -354,10 +355,10 @@ hr {
 
     .nav-left, .nav-right {
       margin-top: .25em;
-      width: 25%;
+      width: 20%;
     }
     .nav-center {
-      width: 50%;
+      width: 60%;
     }
     .nav-contribute {
       margin-left: 1em;
@@ -368,6 +369,14 @@ hr {
   }
 }
 @media screen and (min-width: 540px) {
+  header {
+    .nav-left, .nav-right {
+      width: 25%;
+    }
+    .nav-center {
+      width: 50%;
+    }
+  }
   .filters-section {
     margin: 20px 10px 30px;
     .filter-sad {
@@ -376,6 +385,14 @@ hr {
   }
 }
 @media screen and (min-width: 640px) {
+  header {
+    .nav-left, .nav-right {
+      width: 30%;
+    }
+    .nav-center {
+      width: 40%;
+    }
+  }
   .filters-section {
     margin: 20px 20px 30px;
     .filter-huh {
@@ -385,6 +402,12 @@ hr {
 }
 @media screen and (min-width: 730px) {
   header {
+    .nav-left, .nav-right {
+      width: 35%;
+    }
+    .nav-center {
+      width: 30%;
+    }
     * {
       font-size: 10pt;
     }
@@ -393,18 +416,18 @@ hr {
     }
     h2 {
       font-size: 9pt;
-      .firefox { font-size: 11pt; }
+      .firefox { font-size: 10pt; }
     }
   }
   header.smaller {
-    h1 { font-size: 22pt; }
+    .title-logo { max-height: 50%; }
     h2 {
-      font-size: 7pt;
-      .firefox { font-size: 8pt; }
+      font-size: 8pt;
+      .firefox { font-size: 10pt; }
     }
   }
   .header-bottom {
-    grid-template-columns: auto 55% auto;
+    grid-template-columns: auto 60% auto;
     .hero-text-heading {
       font-size: 24pt;
       text-align: center;
@@ -420,6 +443,12 @@ hr {
   body {
   }
   header {
+    .nav-left, .nav-right {
+      width: 40%;
+    }
+    .nav-center {
+      width: 25%;
+    }
     h1 {
       font-size: 32pt;
     }
@@ -430,6 +459,9 @@ hr {
     .header-container {
       margin: 0 4em 0 4em;
     }
+  }
+  .header-bottom {
+    grid-template-columns: auto 50% auto;
   }
   .filters-section {
     margin: 20px 30px 30px;
