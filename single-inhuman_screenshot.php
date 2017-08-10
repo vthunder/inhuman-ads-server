@@ -112,12 +112,23 @@
       </div>
       <div class="screenshot-meta-2">
         <span class="screenshot-brand">Brand: <?php echo $meta["inhuman_meta_ad_brand"][0]; ?></span>
-        <span class="screenshot-domain">Spotted on: <?php echo $meta["inhuman_meta_publisher_domain"][0]; ?></span>
+        <?php
+          $author_id = get_post_field('post_author', $post_id);
+          $author = get_user_by('id', $author_id);
+        ?>
+        <span class="screenshot-domain">Spotted on: <?php echo $meta["inhuman_meta_publisher_domain"][0]; ?> by <?php echo $author->display_name; ?></span>
       </div>
-      <a class="offensive" href="#">
-        <i class="fa fa-warning"></i>
-        <span class="report-txt">Report</span>
-      </a>
+      <div class="secondary-actions">
+        <a href="#">
+          <i class="fa fa-warning"></i><span class="action-txt">Report</span>
+        </a>
+        <?php if ($isowner): ?>
+          &nbsp;
+          <a href="?edit">
+            <i class="fa fa-pencil"></i><span class="action-txt">Edit</span>
+          </a>
+        <?php endif; ?>
+      </div>
     </div>
 
     <hr>

@@ -189,7 +189,7 @@ h1.page-title {
       float: right;
     }
   }
-  .offensive {
+  .secondary-actions {
     float: right;
     margin-top: .25em;
     text-decoration: none;
@@ -197,7 +197,10 @@ h1.page-title {
       color: #888;
       font-size: 9pt;
     }
-    .report-txt {
+    .fa {
+      padding-right: .25em;
+    }
+    .action-txt {
       text-decoration: underline;
     }
   }

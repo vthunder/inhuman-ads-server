@@ -129,14 +129,16 @@ h1.page-title {
     font-size: 9pt; }
     .screenshot-card .screenshot-meta-2 .screenshot-domain {
       float: right; }
-  .screenshot-card .offensive {
+  .screenshot-card .secondary-actions {
     float: right;
     margin-top: .25em;
     text-decoration: none; }
-    .screenshot-card .offensive * {
+    .screenshot-card .secondary-actions * {
       color: #888;
       font-size: 9pt; }
-    .screenshot-card .offensive .report-txt {
+    .screenshot-card .secondary-actions .fa {
+      padding-right: .25em; }
+    .screenshot-card .secondary-actions .action-txt {
       text-decoration: underline; }
 
 .screenshot-edit {
