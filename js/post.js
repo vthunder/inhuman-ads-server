@@ -14,7 +14,10 @@ jQuery(document).ready(function($) {
   $(".like-emoji-link").click(function(e) {
     e.preventDefault();
 
-//    $(".like-box-wrapper").toggle();
+    var postId = $("#post_id").val();
+    if (localStorage["liked-"+postId])
+      return;
+    //    $(".like-box-wrapper").toggle();
 
 	  var data = {
 		  action: 'inhuman_like',
@@ -27,21 +30,22 @@ jQuery(document).ready(function($) {
       url: php_data.ajax_url + "?action=inhuman_like",
       data: JSON.stringify(data)
     })
-      .done(function(res) {
-        res = JSON.parse(res);
-		    if(res.success) {
-          var count_span = $(".like-emoji-count-box .count-text");
-          var count = parseInt(count_span.text());
-          count_span.text(count + 1);
-		    } else {
-          console.log("Error liking screenshot:");
-			    console.log(res);
-		    }
-      })
-      .fail(function(err) {
-        console.log("Error liking screenshot:");
-        console.log(err.responseText);
-      });
+     .done(function(res) {
+       res = JSON.parse(res);
+		   if(res.success) {
+         var count_span = $(".like-emoji-count-box .count-text");
+         var count = parseInt(count_span.text());
+         count_span.text(count + 1);
+         localStorage["liked-"+postId] = true;
+		   } else {
+         console.log("Error liking screenshot:");
+			   console.log(res);
+		   }
+     })
+     .fail(function(err) {
+       console.log("Error liking screenshot:");
+       console.log(err.responseText);
+     });
   });
 
   $("#user-setup .button").click(function(e) {
