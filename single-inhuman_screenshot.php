@@ -29,8 +29,8 @@
             <input class="meta-offensive" name="offensive" type="checkbox" />
             <label for="offensive">This screenshot might be offensive to some.</label>
           </div>
-          <input type="submit" class="button button-primary button-raised" value="Post Screenshot" />
-          <input type="submit" class="button button-raised" value="Delete Screenshot" />
+          <input id="post-screenshot" type="submit" class="button button-primary button-raised" value="Post Screenshot" />
+          <input id="delete-screenshot" type="submit" class="button button-raised" value="Delete Screenshot" />
         </form>
       </div>
     <?php else: ?>
@@ -42,7 +42,7 @@
         site updates and responses to your comments.</p>
       <p>Also note that:
         <ul>
-          <li>Your screenshot posts will be available at Inhuman Ads indefinitely</li>
+          <li>Your screenshot posts will be available at Inhuman Ads indefinitely unless you delete them.</li>
           <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
           <li>You can read about our
             <a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a> and <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a>.</li>

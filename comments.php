@@ -60,7 +60,7 @@
         site updates and responses to your comments.</p>
       <p>Also note that:
         <ul>
-          <li>Your screenshot posts will be available at Inhuman Ads indefinitely</li>
+          <li>Your screenshot posts will be available at Inhuman Ads indefinitely unless you delete them.</li>
           <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
           <li>You can read about our
             <a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a> and <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a>.</li>
