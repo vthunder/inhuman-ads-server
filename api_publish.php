@@ -88,4 +88,26 @@
   }
   add_action('wp_ajax_inhuman_update_screenshot', 'inhuman_update_screenshot');
 
+  //
+  // Remove screenshot
+  //
+  function inhuman_delete_screenshot() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    $post_id = sanitize_text_field($data["post_id"]);
+    $author_id = get_post_field('post_author', $post_id);
+    $success = false;
+
+    if ($author_id == get_current_user_id()) {
+      if (wp_delete_post($post_id))
+        $success = true;
+    } else {
+      http_response_code(401);
+      die();
+    }
+
+    echo json_encode(array('success' => $success));
+    die();
+  }
+  add_action('wp_ajax_inhuman_delete_screenshot', 'inhuman_delete_screenshot');
+
 ?>
