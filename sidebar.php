@@ -11,7 +11,7 @@
 
       <hr class="title-divider" />
 
-      <a href="/" class="sitelink"><h1>Inhuman Ads</h1></a>
+      <a href="/" class="sitelink"><img class="sidebar-logo" src="<?php tpldir(); ?>/assets/inhuman-logo.svg"></a>
       <div class="poweredby">Powered by<br>Firefox Screenshots</div>
 
       <div class="icons">

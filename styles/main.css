@@ -1356,8 +1356,8 @@
           background-color: yellow; }
     #sidebar .sidebar-top .title-divider {
       margin-top: 1.5em; }
-    #sidebar .sidebar-top h1 {
-      font-size: 18pt; }
+    #sidebar .sidebar-top .sidebar-logo {
+      width: 100%; }
     #sidebar .sidebar-top .poweredby {
       font-size: 8pt; }
     #sidebar .sidebar-top .icons {
@@ -1395,7 +1395,8 @@ h2 {
   transition: font-size 0.3s; }
   h2 .firefox {
     font-size: 9pt;
-    font-style: normal; }
+    font-style: normal;
+    font-weight: 400; }
 
 h3 {
   margin-top: 0;
