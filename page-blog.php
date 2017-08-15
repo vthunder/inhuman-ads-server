@@ -1,13 +1,12 @@
 <?php get_header(); ?>
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/post.css"); ?>
-<?php wp_enqueue_style('page', get_template_directory_uri() . "/styles/page.css"); ?>
 <?php get_sidebar(); ?>
 
-<div class="page-body">
-  <?php while ( have_posts() ) : the_post(); ?>
-    <?php get_template_part( 'content', 'page' ); ?>
-  <?php endwhile; ?>
-  <?php the_content(); ?>
-</div>
+<?php
+  $loop = new WP_Query(inhuman_query("blog"));
+	if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+	get_template_part('blog-post', get_post_format());
+	endwhile; endif;
+?>
 
 <?php get_footer('post'); ?>

@@ -15,7 +15,8 @@
   </head>
 
   <body>
-    <header>
+    <?php $is_blog = substr_compare(get_page_template(), "page-blog.php", -strlen("page-blog.php") ) === 0; ?>
+    <header class="<?php echo (is_single() || $is_blog)? "smaller" : ""; ?>">
       <div class="header-container">
         <div class="nav-left">
           <a id="sidebar-toggle" href="#sidebar"><i class="fa fa-bars fa-lg fa-inverse"></i></a>

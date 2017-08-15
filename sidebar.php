@@ -27,8 +27,8 @@
       <ul>
         <li><a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">Terms</a></li>
         <li><a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></li>
+        <li><a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a></li>
         <li><a href="https://www.mozilla.org/en-US/about/legal/report-infringement/">Report IP Infringement</a></li>
-        <li><a href="">Give Feedback</a></li>
       </ul>
     </div>
   </div>

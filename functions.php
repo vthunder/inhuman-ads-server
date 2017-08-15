@@ -1,4 +1,6 @@
 <?php
+  require_once(plugin_dir_path(__FILE__) . 'install-button.php');
+
   function tpldir() {
     echo get_template_directory_uri();
   }
@@ -11,7 +13,7 @@
 
   function inhuman_query($type, $page = null) {
     $query = array(
-      'post_type' => array('post', 'inhuman_screenshot'),
+      'post_type' => array('inhuman_screenshot'),
       'meta_query'  => array(
         array(
           'key' => 'inhuman_meta_status',
@@ -53,6 +55,10 @@
         $query['meta_key'] = 'inhuman_meta_like_huh_count';
         $query['orderby'] = 'meta_value_num';
         break;
+      case "blog":
+        $query = array(
+          'post_type' => array('post')
+        );
       default:
         break;
     }
@@ -62,6 +68,23 @@
     }
 
     return $query;
+  }
+
+  function queryIds($query_type) {
+    $query = inhuman_query($query_type);
+    $posts = get_posts($query);
+    $ids = array();
+    foreach ($posts as $post) {
+      $ids[] = $post->ID;
+    }
+    return $ids;
+  }
+
+  function prevNextIds($post_id, $query_type) {
+    $ids = queryIds($query_type);
+    $thisindex = array_search($post_id, $ids);
+    return array(prev => $ids[$thisindex - 1],
+                 next => $ids[$thisindex + 1]);
   }
 
   function add_query_vars_filter($vars){

@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <header>
+    <header class="smaller">
       <div class="header-container">
         <div class="nav-left">
           <a id="sidebar-toggle" href="#sidebar"><i class="fa fa-bars fa-lg fa-inverse"></i></a>

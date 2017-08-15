@@ -3,12 +3,12 @@
 //
 
 header {
-  height: 38px;
-  h1 { font-size: 22pt; }
-  h2 {
-    font-size: 7pt;
-    .firefox { font-size: 8pt; }
-  }
+//  height: 38px;
+//  .title-logo { max-height: 45%; }
+//  h2 {
+//    font-size: 6pt;
+//    .firefox { font-size: 7pt; }
+//  }
 }
 .header-bottom {
   display: none;
@@ -47,10 +47,10 @@ header {
 }
 
 //
-// Articles / Pages
+// Pages
 //
 
-h1.page-title {
+h2.page-title {
   font-family: fira-sans, sans-serif;
   font-weight: bold;
 }
@@ -61,8 +61,32 @@ h1.page-title {
   padding: 10px;
 }
 
-.page-wrapper {
-//  height: calc(100% - 115px);
+//
+// Articles
+//
+
+h2.article-title {
+  font-family: fira-sans, sans-serif;
+  font-size: 18pt;
+  font-weight: bold;
+}
+
+.article-meta {
+  font-family: fira-sans, sans-serif;
+  font-size: 9pt;
+  text-align: right;
+}
+
+.article-content {
+  font-family: fira-sans, sans-serif;
+  font-size: 11pt;
+  margin-top: 20px;
+}
+
+.article-body {
+  background: #fff;
+  margin: 20px 80px;
+  padding: 20px;
 }
 
 //
@@ -80,7 +104,22 @@ h1.page-title {
 
 .screenshot-card {
   border: 1px solid #ccc;
+  position: relative;
 
+  .prev-screenshot,
+  .next-screenshot {
+    position: absolute;
+    margin-top: 25%;
+    color: gray;
+    text-decoration: none;
+  }
+  .prev-screenshot:hover,
+  .next-screenshot:hover {
+    color: black;
+  }
+  .prev-screenshot { left: -40px; }
+  .next-screenshot { right: -40px; }
+  
   .wp-post-image {
     display: block;
     margin-left: auto;
@@ -242,5 +281,36 @@ h1.page-title {
   }
   .button {
     margin-top: 10px;
+  }
+}
+
+//
+// High Scores Page
+//
+
+table.highscore-table {
+  width:90%;
+  border-top:1px solid #e5eff8;
+  border-right:1px solid #e5eff8;
+  margin:1em auto;
+  border-collapse:collapse;
+
+  th {
+    padding:.3em 1em;
+    border-left:1px solid #e5eff8;
+    border-bottom:1px solid #e5eff8;
+  }
+  th.user-header {
+    text-align: left;
+  }
+  td {
+    color:#678197;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+  }
+  td.highscore-user {
+    text-align: left;
   }
 }

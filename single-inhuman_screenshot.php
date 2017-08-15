@@ -1,5 +1,5 @@
 <?php
-  get_header('post');
+  get_header();
   wp_enqueue_style('post', get_template_directory_uri() . "/styles/post.css");
   $meta = get_post_meta(get_the_ID());
   $edit = isset($_GET['edit']);
@@ -64,6 +64,13 @@
 
   <?php else: ?>
     <div class="screenshot-card">
+      <?php $prev_next = prevNextIds(get_the_ID(), ""); // FIXME: need to pass in $query_type here ?>
+      <?php if (!empty($prev_next['prev'])): ?>
+        <a href="<?php echo get_permalink($prev_next['prev']); ?>" class="fa fa-2x fa-chevron-circle-left prev-screenshot"></a>
+      <?php endif; ?>
+      <?php if (!empty($prev_next['next'])): ?>
+        <a href="<?php echo get_permalink($prev_next['next']); ?>" class="fa fa-2x fa-chevron-circle-right next-screenshot"></a>
+      <?php endif; ?>
       <?php the_post_thumbnail('full'); ?>
       <div class="screenshot-meta">
         <span class="screenshot-caption"><?php the_title(); ?></span>

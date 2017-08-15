@@ -25,45 +25,45 @@
 
   <br><br>
   <h3>Today</h3>
-  <table>
+  <table class="highscore-table">
     <tr>
-      <th>User</th>
-      <th>Score</th>
+      <th class="user-header">User</th>
+      <th class="score-header">Score</th>
     </tr>
     <?php foreach ($day_users as $user): ?>
       <tr>
-        <td><?php echo $user->display_name; ?></td>
-        <td><?php echo get_user_meta($user->ID, 'inhuman_user_score_today', true); ?></td>
+        <td class="highscore-user"><?php echo $user->display_name; ?></td>
+        <td class="highscore-score"><?php echo get_user_meta($user->ID, 'inhuman_user_score_today', true); ?></td>
       </tr>
     <?php endforeach; ?>
   </table>
 
   <br><br>
   <h3>This week</h3>
-  <table>
+  <table class="highscore-table">
     <tr>
-      <th>User</th>
-      <th>Score</th>
+      <th class="user-header">User</th>
+      <th class="score-header">Score</th>
     </tr>
     <?php foreach ($week_users as $user): ?>
       <tr>
-        <td><?php echo $user->display_name; ?></td>
-        <td><?php echo get_user_meta($user->ID, 'inhuman_user_score_week', true); ?></td>
+        <td class="highscore-user"><?php echo $user->display_name; ?></td>
+        <td class="highscore-score"><?php echo get_user_meta($user->ID, 'inhuman_user_score_week', true); ?></td>
       </tr>
     <?php endforeach; ?>
   </table>
 
   <br><br>
   <h3>All time</h3>
-  <table>
+  <table class="highscore-table">
     <tr>
-      <th>User</th>
-      <th>Score</th>
+      <th class="user-header">User</th>
+      <th class="score-header">Score</th>
     </tr>
     <?php foreach ($forever_users as $user): ?>
       <tr>
-        <td><?php echo $user->display_name; ?></td>
-        <td><?php echo get_user_meta($user->ID, 'inhuman_user_score_forever', true); ?></td>
+        <td class="highscore-user"><?php echo $user->display_name; ?></td>
+        <td class="highscore-score"><?php echo get_user_meta($user->ID, 'inhuman_user_score_forever', true); ?></td>
       </tr>
     <?php endforeach; ?>
   </table>
