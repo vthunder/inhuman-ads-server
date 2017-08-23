@@ -5,7 +5,7 @@
       <a class="close-button" href="#sidebar">╳</a>
 
       <ul class="sidebar-menu">
-        <?php wp_list_pages( '&title_li=' ); ?>
+        <?php wp_list_pages(array('title_li' => '', 'exclude' => '230')); ?>
         <li><a href="">Subscribe <i class="fa fa-envelope-o"></i></a></li>
       </ul>
 
@@ -15,7 +15,7 @@
       <div class="poweredby">Powered by<br>Firefox Screenshots</div>
 
       <div class="icons">
-        <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-Twitter.svg"></a>
+        <a href="https://twitter.com/inhumanads"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-Twitter.svg"></a>
         <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-github.svg"></a>
       </div>
     </div>

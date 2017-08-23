@@ -275,12 +275,31 @@ h2.article-title {
 }
 
 #user-setup {
+  display: inline-block;
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  padding: 10px;
+
   label {
     display: inline-block;
     min-width: 4em;
   }
-  .button {
+  #user-setup-submit {
+    display: block;
     margin-top: 10px;
+  }
+  #user-setup-existing {
+    display: none;
+  }
+  #create-account-link {
+    display: none;
+    font-size: 10pt;
+  }
+  #existing-account-link {
+    font-size: 10pt;
+  }
+  #user-setup-error {
+    font-weight: 500;
   }
 }
 

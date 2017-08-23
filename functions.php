@@ -104,8 +104,11 @@
       'nonce' => wp_create_nonce('inhuman-ads-nonce'),
       'user_display_name' => wp_get_current_user()->display_name
     );
-    wp_localize_script('front', 'php_data', $vars);
-    wp_localize_script('post', 'php_data', $vars);
+    foreach ($vars as $key => $value) {
+      echo '<input type="hidden" id="php_data_' . $key . '" value="' . $value . '">';
+    }
+    //    wp_localize_script('front', 'php_data', $vars);
+    //    wp_localize_script('post', 'php_data', $vars);
   }
 
   //
@@ -147,7 +150,7 @@
   function load_more() {
     ob_start();
 
-    $loop = new WP_Query(inhuman_query('popular', esc_attr($_POST['page'])));
+    $loop = new WP_Query(inhuman_query('latest', esc_attr($_POST['paged'])));
     if($loop->have_posts()): while($loop->have_posts()): $loop->the_post();
     get_template_part('card', get_post_format());
 	  endwhile; endif; wp_reset_postdata();

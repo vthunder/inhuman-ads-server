@@ -27,7 +27,7 @@ jQuery(document).ready(function($) {
 
     $.ajax({
       type: 'POST',
-      url: php_data.ajax_url + "?action=inhuman_like",
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_like",
       data: JSON.stringify(data)
     })
      .done(function(res) {
@@ -48,18 +48,32 @@ jQuery(document).ready(function($) {
      });
   });
 
-  $("#user-setup .button").click(function(e) {
+  //
+  // New user setup
+  //
+  $("#existing-account-link").click(function(e) {
+    e.preventDefault();
+    $('#user-setup-create').add('#existing-account-link').hide();
+    $('#user-setup-existing').add('#create-account-link').show();
+  });
+  $("#create-account-link").click(function(e) {
+    e.preventDefault();
+    $('#user-setup-create').add('#existing-account-link').show();
+    $('#user-setup-existing').add('#create-account-link').hide();
+  });
+
+  $("#user-setup-create .button").click(function(e) {
     e.preventDefault();
 
   	var data = {
 		  action: 'inhuman_user_setup',
-		  name: $('#user-setup input[name="name"]').val(),
-		  email: $('#user-setup input[name="email"]').val()
+		  name: $('#user-setup-create input[name="name"]').val(),
+		  email: $('#user-setup-create input[name="email"]').val()
 	  };
 
     $.ajax({
       type: 'POST',
-      url: php_data.ajax_url + "?action=inhuman_user_setup",
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_user_setup",
       data: JSON.stringify(data)
     })
      .done(function(res) {
@@ -68,8 +82,43 @@ jQuery(document).ready(function($) {
          window.location.reload();
 		   } else {
          if (res.error == "Name taken") {
-           $("#name-error").text("This name is taken.");
-         } else {
+           $("#user-setup-error").text("This name is taken.");
+         }
+         else {
+           console.log("Error setting user details:");
+			     console.log(res);
+         }
+		   }
+     })
+     .fail(function(err) {
+       console.log("Error setting user details:");
+       console.log(err.responseText);
+     });
+  });
+
+  $("#user-setup-existing .button").click(function(e) {
+    e.preventDefault();
+
+  	var data = {
+		  action: 'inhuman_user_setup_existing',
+		  email: $('#user-setup-existing input[name="email"]').val()
+	  };
+
+    $.ajax({
+      type: 'POST',
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_user_setup_existing",
+      data: JSON.stringify(data)
+    })
+     .done(function(res) {
+       res = JSON.parse(res);
+		   if(res.success) {
+         $('#user-setup-existing').hide();
+         $("#user-setup-error").text("Email sent! Remember to check your spam folder.");
+		   } else {
+         if (res.error) {
+           $("#user-setup-error").text("Error: " + res.error);
+         }
+         else {
            console.log("Error setting user details:");
 			     console.log(res);
          }
@@ -128,7 +177,7 @@ jQuery(document).ready(function($) {
 	    };
       $.ajax({
         type: 'POST',
-        url: php_data.ajax_url + "?action=inhuman_delete_screenshot",
+        url: $('#php_data_ajax_url').val() + "?action=inhuman_delete_screenshot",
         data: JSON.stringify(data),
         contentType: "application/json"
       })
@@ -142,6 +191,27 @@ jQuery(document).ready(function($) {
     }, function() {
       console.log("Login failure");
     });
+  });
+
+  $("#report-link").click(function(e) {
+    e.preventDefault();
+  	var data = {
+		  action: 'inhuman_report',
+      post_id: $("#post_id").val()
+	  };
+    $.ajax({
+      type: 'POST',
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_report",
+      data: JSON.stringify(data),
+      contentType: "application/json"
+    })
+     .done(function(res) {
+       alert("Post reported");
+       window.location = "/";
+     })
+     .fail(function(err) {
+       console.log("Error verifying token: " + JSON.stringify(err));
+     });
   });
 
 });

@@ -184,11 +184,26 @@ h2.article-title {
 .comment-form-comment label {
   display: none; }
 
-#user-setup label {
+#user-setup {
   display: inline-block;
-  min-width: 4em; }
-#user-setup .button {
-  margin-top: 10px; }
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  padding: 10px; }
+  #user-setup label {
+    display: inline-block;
+    min-width: 4em; }
+  #user-setup #user-setup-submit {
+    display: block;
+    margin-top: 10px; }
+  #user-setup #user-setup-existing {
+    display: none; }
+  #user-setup #create-account-link {
+    display: none;
+    font-size: 10pt; }
+  #user-setup #existing-account-link {
+    font-size: 10pt; }
+  #user-setup #user-setup-error {
+    font-weight: 500; }
 
 table.highscore-table {
   width: 90%;

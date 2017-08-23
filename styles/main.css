@@ -1572,6 +1572,8 @@ hr {
     text-decoration: none; }
     .card > a .card-title {
       padding: .5em; }
+  .card .spam-shield {
+    padding: 10px; }
 
 .card-inset {
   background: #ddd;

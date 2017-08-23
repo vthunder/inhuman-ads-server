@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
   $(form).submit(function(event) {
     event.preventDefault();
 
-    if (!php_data.user_display_name) {
+    if (!$('#php_data_user_display_name').val()) {
       // user not logged in
       localStorage.setItem('addScreenshotAttempt', $('#add-screenshot-url').val());
       $('#a0LoginButton').click();
@@ -35,11 +35,11 @@ jQuery(document).ready(function($) {
 
     let formData = $(form).serializeForm();
     formData.action = 'inhuman_add_screenshot';
-    formData.nonce = php_data.nonce;
+    formData.nonce = $('#php_data_nonce').val();
 
     $.ajax({
       type: 'POST',
-      url: php_data.ajax_url,
+      url: $('#php_data_ajax_url').val(),
       data: formData
     })
       .done(function(res) {
@@ -83,9 +83,9 @@ jQuery(document).ready(function($) {
 				loading = true;
 				var data = {
 					action: 'ajax_load_more',
-					page: page
+					paged: page
 				};
-				$.post(php_data.ajax_url, data, function(res) {
+				$.post($('#php_data_ajax_url').val(), data, function(res) {
 					if(res.success) {console.log(JSON.stringify(res.data));
             var $html = $(res.data)
 				    $('.all-posts').append($html);
@@ -102,4 +102,36 @@ jQuery(document).ready(function($) {
 			}
 		}
   });
+
+  $("#verify-submit").click(function(e) {
+    e.preventDefault();
+  	var data = {
+		  action: 'inhuman_user_verify_token',
+      token: $("#verify-token").val()
+	  };
+    $.ajax({
+      type: 'POST',
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_user_verify_token",
+      data: JSON.stringify(data),
+      contentType: "application/json"
+    })
+    .done(function(res) {
+      if (res.success) {
+        alert("Email verified!");
+        window.location = "/";
+      } else {
+        alert("Email verification failed: " + res.error);
+      }
+    })
+    .fail(function(err) {
+      console.log("Error verifying token: " + JSON.stringify(err));
+    });
+  });
+  if ("/verify/" === window.location.pathname) {
+    var params = new URLSearchParams(document.location.search.substring(1));
+    var token = params.get("token");
+    $("#verify-token").val(token);
+    $("#verify-submit").trigger("click");
+  }
+
 });

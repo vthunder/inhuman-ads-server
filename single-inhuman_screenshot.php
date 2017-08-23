@@ -10,6 +10,7 @@
     $likes = 0;
 ?>
 <?php get_sidebar(); ?>
+<?php inhuman_setup_js_vars(); ?>
 
 <input id="post_id" type="hidden" value="<?php echo get_the_ID(); ?>">
 
@@ -35,31 +36,41 @@
       </div>
     <?php else: ?>
       <p>Looks like you're new around here!</p>
-      <p>Before posting your first screenshot, pick a username that
-        we'll use on the site to identify you. It will be visible on
-        screenshot pages, our high scores boards, etc. If you provide
-        an email, we'll use it for account recovery and to send you
-        site updates and responses to your comments.</p>
-      <p>Also note that:
-        <ul>
-          <li>Your screenshot posts will be available at Inhuman Ads indefinitely unless you delete them.</li>
-          <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
-          <li>You can read about our
-            <a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a> and <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a>.</li>
-        </ul>
-      </p>
-      <form id="user-setup">
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" name="name" value="<?php echo user()->display_name; ?>">
-          <span id="name-error"></span>
-        </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="text" name="email" placeholder="(optional)">
-        </div>
-        <input type="button" class="button button-primary" value="Submit">
-      </form>
+      <p>Pick a username that we'll use on the site to identify
+        you. It will be visible on screenshot pages, our high scores
+        boards, etc. If you provide an email, we'll use it for account
+        recovery and to send you site updates and responses to your
+        comments.</p>
+      <ul>
+        <li>Your screenshot posts will be available at Inhuman Ads indefinitely unless you delete them.</li>
+        <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
+        <li>Read our <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></li>
+      </ul>
+      <div id="user-setup">
+        <span id="user-setup-error"></span>
+        <form id="user-setup-create">
+          <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" value="<?php echo user()->display_name; ?>">
+          </div>
+          <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" placeholder="(optional)">
+          </div>
+          <input type="button" class="button button-primary" value="Submit">
+        </form>
+        <form id="user-setup-existing">
+          <!--
+               <div>
+               <label for="email">Email:</label>
+               <input type="text" name="email" placeholder="">
+               </div>
+               <input type="button" class="button button-primary" value="Submit"> -->
+          This feature isn't implemented yet.<br>Create a new username on this browser/device.
+        </form>
+        <a id="existing-account-link" href="#">Use existing account</a>
+        <a id="create-account-link" href="#">Create account</a>
+      </div>
     <?php endif; ?>
 
   <?php else: ?>
@@ -126,7 +137,7 @@
         <span class="screenshot-domain">Spotted on: <?php echo $meta["inhuman_meta_publisher_domain"][0]; ?> by <?php echo $author->display_name; ?></span>
       </div>
       <div class="secondary-actions">
-        <a href="#">
+        <a id="report-link" href="#">
           <i class="fa fa-warning"></i><span class="action-txt">Report</span>
         </a>
         <?php if ($isowner): ?>
