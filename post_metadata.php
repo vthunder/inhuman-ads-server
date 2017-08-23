@@ -65,95 +65,17 @@
     public static function html($post) {
 	    $meta = Inhuman_Meta::get_meta($post->ID); ?>
 
-  <input type="hidden" name="inhuman_meta_nonce"
-         value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
-
-  <!-- All fields will go here -->
-  <style type="text/css">
-    .inhuman_label {
-      display: inline-block;
-      width: 6em;
-    }
-    .inhuman_fieldset {
-      border-top: 1px solid #ddd;
-      margin: 1em 0 1em;
-    }
-    .inhuman_fieldset > * {
-      margin-left: 2em;
-    }
-    .inhuman_fieldset legend {
-      font-weight: bold;
-      margin-left: .75em;
-      padding: 0 .5em 0 .5em;
-    }
-    .inhuman_fieldset select {
-      min-width: 10em;
-    }
-  </style>
-
-  <p>
-    <label for="inhuman_meta[type]" class="inhuman_label" style="width:3em;">Type</label>
-    <select name="inhuman_meta[type]" id="inhuman_meta[type]">
-      <option value="">Article</option>
-      <option value="screenshot" <?php selected($meta['type'], "screenshot"); ?>>Screenshot</option>
-      <option value="contest" <?php selected($meta['type'], "contest"); ?>>Contest</option>
-      <option value="plain" <?php selected($meta['type'], "plain"); ?>>Card only</option>
-      <option value="background" <?php selected($meta['type'], "background"); ?>>Invisible card (content on background)</option>
-    </select>
-  </p>
-
-  <fieldset class="inhuman_fieldset">
-    <legend>Homepage Card</legend>
-
-    <p>
-      <input type="checkbox" name="inhuman_meta[featured]" id="inhuman_meta[featured]" <?php checked($meta['featured'], "on"); ?>>
-      <label for="inhuman_meta[featured]">Featured in top section</label>
-    </p>
-
-    <p>
-      <label for="inhuman_meta[sort]" class="inhuman_label">Sort order</label>
-      <select name="inhuman_meta[sort]" id="inhuman_meta[sort]">
-        <option value="">Don't Pin</option>
-        <option value="1" <?php selected($meta['sort'], 1); ?>>1</option>
-        <option value="2" <?php selected($meta['sort'], 2); ?>>2</option>
-        <option value="3" <?php selected($meta['sort'], 3); ?>>3</option>
-        <option value="4" <?php selected($meta['sort'], 4); ?>>4</option>
-        <option value="5" <?php selected($meta['sort'], 5); ?>>5</option>
-        <option value="6" <?php selected($meta['sort'], 6); ?>>6</option>
-        <option value="7" <?php selected($meta['sort'], 7); ?>>7</option>
-        <option value="8" <?php selected($meta['sort'], 8); ?>>8</option>
-        <option value="9" <?php selected($meta['sort'], 9); ?>>9</option>
-        <option value="10" <?php selected($meta['sort'], 10); ?>>10</option>
-      </select>
-    </p>
-
-    <p>
-      <label for="inhuman_meta[width]" class="inhuman_label">Width</label>
-      <select name="inhuman_meta[width]" id="inhuman_meta[width]">
-        <option value="">Standard</option>
-        <option value="wide" <?php selected($meta['width'], 'wide'); ?>>Wide</option>
-        <option value="wide2" <?php selected($meta['width'], 'wide2'); ?>>Extra-wide</option>
-      </select>
-    </p>
-
-    <p>
-      <label for="inhuman_meta[height]" class="inhuman_label">Height</label>
-      <select name="inhuman_meta[height]" id="inhuman_meta[height]">
-        <option value="">Standard</option>
-        <option value="short" <?php selected($meta['height'], 'short'); ?>>Short</option>
-        <option value="tall" <?php selected($meta['height'], 'tall'); ?>>Tall</option>
-      </select>
-    </p>
-  </fieldset>
-
-  <fieldset class="inhuman_fieldset">
-    <legend>Screenshots</legend>
-    <p>
-      <label for="inhuman_meta[screenshot]" class="inhuman_label">Image URL</label>
-      <input type="text" name="inhuman_meta[screenshot]" id="inhuman_meta[screenshot]"
-             value="<?php echo $meta['screenshot']; ?>">
-    </p>
-  </fieldset>
+  <div class="heading"><b>Inappropriate content/spam</b></div>
+  <?php
+    $flagged_status = get_post_meta($post->ID, "inhuman_flagged_status", true);
+    if ($flagged_status == '')
+      $flagged_status = "No flags";
+  ?>
+  Current setting: <?php echo $flagged_status; ?>
+	<ul class="bullet-links">
+    <li><a class="inhuman_flag_confirm" href="<?php echo admin_url("admin-post.php?post_type=inhuman_screenshot&action=inhuman_flag_confirm&post=$post->ID"); ?>">Spam</a></li>
+	  <li><a class="inhuman_flag_clear" href="<?php echo admin_url("admin-post.php?post_type=inhuman_screenshot&action=inhuman_flag_clear&post=$post->ID"); ?>">Not spam</a></li>
+  </ul>
 
 <?php }
   }

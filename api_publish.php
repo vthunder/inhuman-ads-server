@@ -71,6 +71,7 @@
     } elseif (false) {
       // FIXME: check if flagged for moderation / as spam
     } else {
+      $offensive = sanitize_text_field($raw["offensive"]);
       wp_update_post(array(
         'ID' => $post_id,
         'post_title' => sanitize_text_field($raw["caption"]),
@@ -78,8 +79,12 @@
         'meta_input' => array(
           'inhuman_meta_status' => 'publish',
           'inhuman_meta_ad_brand' => sanitize_text_field($raw["brand"]),
-          'inhuman_meta_offensive' => sanitize_text_field($raw["offensive"])
+          'inhuman_meta_offensive' => $offensive
         )));
+      if ($offensive) {
+        _inhuman_report($post_id);
+        _inhuman_flag_confirm($post_id);
+      }
 
       echo json_encode(array('success' => true));
 

@@ -73,4 +73,59 @@
   add_action('wp_ajax_inhuman_like', 'inhuman_like');
   add_action('wp_ajax_nopriv_inhuman_like', 'inhuman_like');
 
+  function _inhuman_report() {
+    $count = get_post_meta($post_id, 'inhuman_flagged_count', true);
+    if ($count == '')
+      $count = 0;
+    update_post_meta($post_id, 'inhuman_flagged_count', $count + 1);
+
+    $status = get_post_meta($post_id, 'inhuman_flagged_status', true);
+    if ($status != 'Confirmed' && $status != 'Cleared') {
+      // keep a separate count of pre-review flags for better admin panel sorting
+      $pre_count = get_post_meta($post_id, 'inhuman_flagged_unreviewed_count', true);
+      if ($pre_count == '')
+        $pre_count = 0;
+      update_post_meta($post_id, 'inhuman_flagged_unreviewed_count', $pre_count + 1);
+      update_post_meta($post_id, 'inhuman_flagged_status', 'Flagged');
+    }
+  }
+  function inhuman_report() {
+    $raw = json_decode(file_get_contents('php://input'), true);
+    $post_id = sanitize_text_field($raw["post_id"]);
+
+    _inhuman_report($post_id);
+
+    echo json_encode(array('success'=>true));
+    die();
+  }
+  add_action('wp_ajax_inhuman_report', 'inhuman_report');
+  add_action('wp_ajax_nopriv_inhuman_report', 'inhuman_report');
+
+  // Admin page actions
+
+  add_action('admin_post_inhuman_flag_confirm', 'inhuman_flag_confirm');
+  function _inhuman_flag_confirm($post_id) {
+    // setting unreviewed_count negative keeps it in list sorted at bottom
+    update_post_meta($post_id, 'inhuman_flagged_unreviewed_count', -1);
+    update_post_meta($post_id, 'inhuman_flagged_status', 'Confirmed');
+  }
+  function inhuman_flag_confirm() {
+    $post_id = sanitize_text_field($_GET["post"]);
+
+    _inhuman_flag_confirm();
+
+    wp_redirect(admin_url('edit.php?post_type=inhuman_screenshot&orderby=flag'));
+  }
+
+  add_action('admin_post_inhuman_flag_clear', 'inhuman_flag_clear');
+  function inhuman_flag_clear() {
+    $post_id = sanitize_text_field($_GET["post"]);
+
+    // setting unreviewed_count negative keeps it in list sorted at bottom
+    update_post_meta($post_id, 'inhuman_flagged_unreviewed_count', -2);
+    update_post_meta($post_id, 'inhuman_flagged_status', 'Cleared');
+
+    wp_redirect(admin_url('edit.php?post_type=inhuman_screenshot&orderby=flag'));
+  }
+
 ?>

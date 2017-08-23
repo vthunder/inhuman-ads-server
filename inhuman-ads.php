@@ -9,6 +9,8 @@
   require_once(plugin_dir_path(__FILE__) . 'api_screenshots.php');
   require_once(plugin_dir_path(__FILE__) . 'post_types.php');
   require_once(plugin_dir_path(__FILE__) . 'post_metadata.php');
+  require_once(plugin_dir_path(__FILE__) . 'admin_columns.php');
+  require_once(plugin_dir_path(__FILE__) . 'email_confirmation.php');
 
   //
   // No extra <p> tags on plain cards
