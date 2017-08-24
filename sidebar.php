@@ -5,7 +5,16 @@
       <a class="close-button" href="#sidebar">╳</a>
 
       <ul class="sidebar-menu">
-        <?php wp_list_pages(array('title_li' => '', 'exclude' => '230')); ?>
+        <?php
+          $excluded_pages = array(
+            get_page_by_title('Verify'),
+            get_page_by_title('Subscribe'));
+          $excluded_ids = array();
+          foreach ($excluded_pages as $page) {
+            if ($page != NULL)
+              $excluded_ids[] = $page->ID;
+          }
+          wp_list_pages(array('title_li' => '', 'exclude' => join(',', $excluded_ids))); ?>
         <li><a href="">Subscribe <i class="fa fa-envelope-o"></i></a></li>
       </ul>
 

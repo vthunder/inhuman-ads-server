@@ -30,8 +30,8 @@
             <input class="meta-offensive" name="offensive" type="checkbox" />
             <label for="offensive">This screenshot might be offensive to some.</label>
           </div>
-          <input id="post-screenshot" type="submit" class="button button-primary button-raised" value="Post Screenshot" />
-          <input id="delete-screenshot" type="submit" class="button button-raised" value="Delete Screenshot" />
+          <input id="post-screenshot" type="submit" class="button button-primary button-raised" value="Post to Inhuman Ads" />
+          <input id="delete-screenshot" type="submit" class="button button-raised" value="Delete Post" />
         </form>
       </div>
     <?php else: ?>
