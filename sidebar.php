@@ -6,16 +6,16 @@
 
       <ul class="sidebar-menu">
         <?php
+          $subscribe = get_page_by_title('Subscribe');
           $excluded_pages = array(
-            get_page_by_title('Verify'),
-            get_page_by_title('Subscribe'));
+            get_page_by_title('Verify'), $subscribe);
           $excluded_ids = array();
           foreach ($excluded_pages as $page) {
             if ($page != NULL)
               $excluded_ids[] = $page->ID;
           }
           wp_list_pages(array('title_li' => '', 'exclude' => join(',', $excluded_ids))); ?>
-        <li><a href="">Subscribe <i class="fa fa-envelope-o"></i></a></li>
+        <li><a href="<?php echo get_permalink($subscribe); ?>">Subscribe <i class="fa fa-envelope-o"></i></a></li>
       </ul>
 
       <hr class="title-divider" />
