@@ -104,7 +104,8 @@
   add_action('manage_users_custom_column', 'inhuman_admin_users_columns_content', 10, 3);
   function inhuman_admin_users_columns_content($val, $column, $user_id) {
     if ($column == 'display_name') {
-      return get_the_author_meta('display_name', $user_id);
+      $name = get_the_author_meta('display_name', $user_id);
+      return "<a href=\"/wp-admin/user-edit.php?user_id=$user_id\">$name</a>";
     }
     return $val;
   }
