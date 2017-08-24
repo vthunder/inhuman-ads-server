@@ -2,6 +2,13 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
+  let handleShowSpam = function(e) {
+      e.preventDefault();
+      $(this).parent().hide().next().show();
+		  $('.all-posts').isotope('layout');
+  }
+  $(".spam-shield a").click(handleShowSpam);
+
   $(window).scroll(function() {
     // FIXME: incorrectly removes smaller on secondary pages after scrolling down & back up
     // 234 is the height of the extended header/hero
@@ -86,9 +93,9 @@ jQuery(document).ready(function($) {
 					paged: page
 				};
 				$.post($('#php_data_ajax_url').val(), data, function(res) {
-					if(res.success) {console.log(JSON.stringify(res.data));
+					if(res.success) {
             var $html = $(res.data)
-				    $('.all-posts').append($html);
+				    $('.all-posts').append($html).find(".spam-shield a").click(handleShowSpam);
 				    $('.all-posts').isotope('appended', $html);
 						page = page + 1;
 						loading = false;

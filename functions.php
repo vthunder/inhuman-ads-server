@@ -9,7 +9,12 @@
     return wp_get_current_user();
   }
 
-  add_theme_support('post-thumbnails');
+  function inhuman_setup_theme() {
+    add_theme_support('post-thumbnails');
+    add_image_size('screenshot_preview', 100, 100, true);
+  }
+
+  add_action('after_setup_theme', 'inhuman_setup_theme');
 
   function inhuman_query($type, $page = null) {
     $query = array(

@@ -1405,6 +1405,9 @@ h3 {
 a.sitelink {
   text-decoration: none; }
 
+.hide {
+  display: none; }
+
 html {
   height: 100%; }
 

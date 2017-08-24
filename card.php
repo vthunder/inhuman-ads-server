@@ -34,14 +34,17 @@
       <p><?php the_excerpt() ?></p>
     </div>
   <?php elseif ("screenshot" == $meta['type']) : ?>
-    <?php if ($spam == "Confirmed" || $flag_count > 10): ?>
-      <p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>
-    <?php else: ?>
-      <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail(); ?>
-        <div class="card-title"><?php the_title() ?></div>
-      </a>
-    <?php endif; ?>
+    <?php
+      $class = "";
+      if ($spam == "Confirmed" || $flag_count > 10) {
+        echo '<p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>';
+        $class = "hide";
+      }
+    ?>
+    <a class="<?php echo $class; ?>" href="<?php the_permalink(); ?>">
+      <?php the_post_thumbnail(); ?>
+      <div class="card-title"><?php the_title() ?></div>
+    </a>
   <?php elseif ("contest" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
