@@ -75,8 +75,9 @@
     return $query;
   }
 
-  function queryIds($query_type) {
+  function queryAllIds($query_type) {
     $query = inhuman_query($query_type);
+    $query['posts_per_page'] = -1;
     $posts = get_posts($query);
     $ids = array();
     foreach ($posts as $post) {
@@ -86,10 +87,16 @@
   }
 
   function prevNextIds($post_id, $query_type) {
-    $ids = queryIds($query_type);
+    $ids = queryAllIds($query_type);
     $thisindex = array_search($post_id, $ids);
-    return array(prev => $ids[$thisindex - 1],
-                 next => $ids[$thisindex + 1]);
+    if (0 == $thisindex)
+      return array('prev' => NULL,
+                   'next' => $ids[$thisindex + 1]);
+    if (count($ids) == $thisindex + 1)
+      return array('prev' => $ids[$thisindex - 1],
+                   'next' => NULL);
+    return array('prev' => $ids[$thisindex - 1],
+                 'next' => $ids[$thisindex + 1]);
   }
 
   function add_query_vars_filter($vars){

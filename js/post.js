@@ -2,6 +2,12 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
+  let handleShowSpam = function(e) {
+      e.preventDefault();
+      $(this).parent().hide().next().show();
+  }
+  $(".spam-shield a").click(handleShowSpam);
+
   $(".screenshot-actions .like").hover(function(e) {
     e.preventDefault();
     $(".like-box-wrapper").toggle();
