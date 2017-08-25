@@ -81,8 +81,8 @@ h2.article-title {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    height: 100%;
-    width: 100%; }
+    height: auto;
+    max-width: 100%; }
   .screenshot-card .screenshot-meta {
     background: #fff;
     min-height: 2.5em;
