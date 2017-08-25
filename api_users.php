@@ -148,7 +148,9 @@
   //
   // Regularly reset daily/weekly high scores
   //
-  function inhuman_daily_high_scores_reset() {
+
+  add_action('inhuman_daily_cron_hook', 'inhuman_daily_cron_job');
+  function inhuman_daily_cron_job() {
     $day = date('w');
     $users = get_users();
     foreach ($users as $user) {
@@ -157,23 +159,31 @@
         update_user_meta($user->ID, "inhuman_user_score_week", 0);
     }
 
-    $shots = new WP_Query(array(
-      'post_type' => array('inhuman_screenshot')
-    ));
-		if ($shots->have_posts()) {
-      while ($shots->have_posts()) {
-        $shots->the_post();
-        update_post_meta($shots->ID, "inhuman_meta_weekly_like_count", 0);
+    if (0 == $day) { // Sunday
+      $shots = new WP_Query(array(
+        'post_type' => 'inhuman_screenshot',
+        'posts_per_page' => -1
+      ));
+		  if ($shots->have_posts()) {
+        while ($shots->have_posts()) {
+          $shots->the_post();
+          update_post_meta($shots->ID, "inhuman_meta_weekly_like_count", 0);
+        }
       }
     }
-
   }
 
-  function inhuman_cron_job() {
-    if (!wp_next_scheduled('inhuman_daily_high_scores_reset' )) {
-	    wp_schedule_event(time(), 'daily', 'inhuman_daily_high_scores_reset');
+  add_action('init', 'inhuman_cron_setup');
+  function inhuman_cron_setup() {
+    if (!wp_next_scheduled('inhuman_daily_cron_hook')) {
+	    wp_schedule_event(time(), 'daily', 'inhuman_daily_cron_hook');
     }
   }
-  add_action('wp', 'inhuman_cron_job');
+
+  register_deactivation_hook( __FILE__, 'inhuman_cron_deactivate');
+  function inhuman_cron_deactivate() {
+    $timestamp = wp_next_scheduled('inhuman_daily_cron_hook');
+    wp_unschedule_event($timestamp, 'inhuman_daily_cron_hook');
+  }
 
 ?>
