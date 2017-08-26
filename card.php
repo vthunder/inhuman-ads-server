@@ -21,6 +21,9 @@
   $flag_count = get_post_meta($post->ID, "inhuman_flagged_unreviewed_count", true);
   if ($flag_count == '')
     $flag_count = 0;
+  $spam_class = "";
+  if ($spam == "Confirmed" || $flag_count > 10)
+    $spam_class = "hide";
 ?>
 <div class="<?php echo $class ?>">
   <?php if ("" == $meta['type']) : ?>
@@ -34,14 +37,10 @@
       <p><?php the_excerpt() ?></p>
     </div>
   <?php elseif ("screenshot" == $meta['type']) : ?>
-    <?php
-      $class = "";
-      if ($spam == "Confirmed" || $flag_count > 10) {
-        echo '<p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>';
-        $class = "hide";
-      }
-    ?>
-    <a class="<?php echo $class; ?>" href="<?php the_permalink(); ?>">
+    <?php if ($spam_class == "hide"): ?>
+      <p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>
+    <?php endif; ?>
+    <a class="<?php echo $spam_class; ?>" href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
       <div class="card-title"><?php the_title() ?></div>
     </a>

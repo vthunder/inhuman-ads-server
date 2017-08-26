@@ -1,9 +1,12 @@
 <?php
   get_header();
   wp_enqueue_style('post', get_template_directory_uri() . "/styles/post.css");
-  $meta = get_post_meta(get_the_ID());
+
   $edit = isset($_GET['edit']);
   $isowner = is_user_logged_in() && $post->post_author == get_current_user_id();
+
+  $brand = get_post_meta($post->ID, "inhuman_meta_ad_brand", true);
+  $domain = get_post_meta($post->ID, "inhuman_meta_publisher_domain", true);
 
   $spam = get_post_meta($post->ID, "inhuman_flagged_status", true);
   $flag_count = get_post_meta($post->ID, "inhuman_flagged_unreviewed_count", true);
@@ -29,8 +32,8 @@
         <form id="screenshot-meta-form">
           <input type="hidden" name="post_id" value="<?php the_ID(); ?>" />
           <input class="meta-caption" name="caption" type="text" value="<?php the_title(); ?>" placeholder="Caption" />
-          <input class="meta-brand" name="brand" type="text" value="<?php echo $meta['inhuman_meta_ad_brand'][0]; ?>" placeholder="Ad Brand" />
-          <input class="meta-domain" name="domain" type="text" value="<?php echo $meta['inhuman_meta_publisher_domain'][0]; ?>" placeholder="(unknown domain)" disabled="disabled" />
+          <input class="meta-brand" name="brand" type="text" value="<?php echo $brand; ?>" placeholder="Ad Brand" />
+          <input class="meta-domain" name="domain" type="text" value="<?php echo $domain; ?>" placeholder="(unknown domain)" disabled="disabled" />
           <div class="meta-offensive-wrapper">
             <input class="meta-offensive" name="offensive" type="checkbox" />
             <label for="offensive">This screenshot might be offensive to some.</label>
@@ -143,12 +146,12 @@
         </div>
       </div>
       <div class="screenshot-meta-2">
-        <span class="screenshot-brand">Brand: <?php echo $meta["inhuman_meta_ad_brand"][0]; ?></span>
+        <span class="screenshot-brand">Brand: <a href="/?s=<?php echo $brand; ?>"><?php echo $brand; ?></a></span>
         <?php
           $author_id = get_post_field('post_author', $post->ID);
           $author = get_user_by('id', $author_id);
         ?>
-        <span class="screenshot-domain">Spotted on: <?php echo $meta["inhuman_meta_publisher_domain"][0]; ?> by <?php echo $author->display_name; ?></span>
+        <span class="screenshot-domain">Spotted on: <a href="/?s=<?php echo $domain; ?>"><?php echo $domain; ?></a> by <?php echo $author->display_name; ?></span>
       </div>
       <div class="secondary-actions">
         <a id="report-link" href="#">

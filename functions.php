@@ -142,8 +142,9 @@
     wp_register_script('jquery-docsize', $tpldir . '/vendor/jquery.documentsize/dist/jquery.documentsize.min.js', array('jquery'));
     wp_register_script('jquery-isinview', $tpldir . '/vendor/jquery.isinview/dist/jquery.isinview.min.js', array('jquery', 'jquery-docsize'));
     wp_register_script('sidebar', $tpldir . '/js/sidebar.js', array('jquery', 'sidr', 'dim-bg'));
-    wp_register_script('front', $tpldir . '/js/front.js', array('jquery', 'jquery-isotope', 'jquery-isinview', 'sidebar'));
-    wp_register_script('post', $tpldir . '/js/post.js', array('jquery', 'sidebar'));
+    wp_register_script('header', $tpldir . '/js/header.js', array('jquery'));
+    wp_register_script('front', $tpldir . '/js/front.js', array('jquery', 'header', 'jquery-isotope', 'jquery-isinview', 'sidebar'));
+    wp_register_script('post', $tpldir . '/js/post.js', array('jquery', 'header', 'sidebar'));
 
     if (is_single()) {
       wp_enqueue_script('post');

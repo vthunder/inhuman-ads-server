@@ -163,6 +163,13 @@ header {
       }
     }
   }
+  #searchform {
+    display: none;
+    input { color: black; }
+    label {
+      display: none;
+    }
+  }
 }
 header.smaller {
   height: 38px;
@@ -321,6 +328,51 @@ hr {
 .card .wp-post-image {
   width: 100%;
   height: 100%;
+}
+
+// ---------------------------------------------------------
+// Search results page
+// ---------------------------------------------------------
+
+ul.search-results {
+  border: 1px solid lightgray;
+  list-style-type: none;
+  margin: 0 20px;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    a {
+      display: flex;
+      text-decoration: none;
+    }
+    a.hide {
+      display: none;
+    }
+    .spam-shield a {
+      text-decoration: underline;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 10px;
+    }
+    .caption {
+      font-weight: 500;
+    }
+    .brand-domain {
+      font-size: 10pt;
+      .domain {
+        margin-left: 1em;
+      }
+    }
+  }
+  li:last-child {
+    border-bottom: none;
+  }
 }
 
 // ---------------------------------------------------------
