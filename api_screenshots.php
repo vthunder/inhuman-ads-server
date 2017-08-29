@@ -73,7 +73,7 @@
   add_action('wp_ajax_inhuman_like', 'inhuman_like');
   add_action('wp_ajax_nopriv_inhuman_like', 'inhuman_like');
 
-  function _inhuman_report() {
+  function _inhuman_report($post_id) {
     $count = get_post_meta($post_id, 'inhuman_flagged_count', true);
     if ($count == '')
       $count = 0;
