@@ -112,7 +112,7 @@
   function inhuman_flag_confirm() {
     $post_id = sanitize_text_field($_GET["post"]);
 
-    _inhuman_flag_confirm();
+    _inhuman_flag_confirm($post_id);
 
     wp_redirect(admin_url('edit.php?post_type=inhuman_screenshot&orderby=flag'));
   }
