@@ -1,0 +1,38 @@
+{
+  "name": "jquery-dim-background",
+  "version": "1.3.1",
+  "homepage": "https://github.com/andywer/jquery-dim-background",
+  "authors": [
+    "Andy Wermke <andy@dev.next-step-software.com>"
+  ],
+  "description": "This lightweight plugin allows you to dim (darken) all the website but one or more user-selected elements. A frequently used eye candy for every web application.",
+  "main": "jquery.dim-background.js",
+  "keywords": [
+    "jquery",
+    "background",
+    "dim",
+    "darken",
+    "curtain"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "jasmine-jquery": "~2.0.5"
+  },
+  "_release": "1.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.3.1",
+    "commit": "68025c5d14d175b4d788d3c31d7805e90dc95160"
+  },
+  "_source": "https://github.com/andywer/jquery-dim-background.git",
+  "_target": "^1.3.1",
+  "_originalSource": "jquery-dim-background"
+}
