@@ -16,6 +16,9 @@
 
   add_action('after_setup_theme', 'inhuman_setup_theme');
 
+  // Disable admin bar for all users
+  add_filter('show_admin_bar', '__return_false');
+
   function inhuman_query($type, $page = null) {
     $query = array(
       'post_type' => array('inhuman_screenshot'),
