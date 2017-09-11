@@ -9,6 +9,7 @@ Thumbs.db
 
 # Local config
 .env
+.htaccess
 
 # wordpress specific
 wp-config.php
