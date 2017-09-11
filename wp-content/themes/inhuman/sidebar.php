@@ -5,6 +5,7 @@
       <a class="close-button" href="#sidebar">╳</a>
 
       <ul class="sidebar-menu">
+        <li><a href="<?php echo home_url(); ?>">Home</a></li>
         <?php
           $subscribe = get_page_by_title('Subscribe');
           $excluded_pages = array(

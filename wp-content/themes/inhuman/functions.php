@@ -1,5 +1,6 @@
 <?php
-  require_once(plugin_dir_path(__FILE__) . 'install-button.php');
+  require_once(plugin_dir_path(__FILE__) . 'functions/create-pages.php');
+  require_once(plugin_dir_path(__FILE__) . 'functions/install-button.php');
 
   function tpldir() {
     echo get_template_directory_uri();
