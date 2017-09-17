@@ -376,6 +376,30 @@ ul.search-results {
 }
 
 // ---------------------------------------------------------
+// Newsletter subscribe page
+// ---------------------------------------------------------
+
+.newsletter-subscribe {
+  input[name="email"] {
+    padding: 10px;
+    border: solid 5px #c9c9c9;
+    transition: border 0.3s;
+    font-size: 12pt;
+    width: 25em;
+  }
+  input[name="email"]:focus,
+  input[name="email"].focus {
+    border: solid 5px #969696;
+  }
+  label[for="privacy-accept"] {
+    font-size: 10pt;
+  }
+  input[name="submit"] {
+    margin-top: 1em;
+  }
+}
+
+// ---------------------------------------------------------
 // Masonry grid media queries
 // ---------------------------------------------------------
 

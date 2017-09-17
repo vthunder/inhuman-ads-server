@@ -1636,6 +1636,20 @@ ul.search-results {
   ul.search-results li:last-child {
     border-bottom: none; }
 
+.newsletter-subscribe input[name="email"] {
+  padding: 10px;
+  border: solid 5px #c9c9c9;
+  transition: border 0.3s;
+  font-size: 12pt;
+  width: 25em; }
+.newsletter-subscribe input[name="email"]:focus,
+.newsletter-subscribe input[name="email"].focus {
+  border: solid 5px #969696; }
+.newsletter-subscribe label[for="privacy-accept"] {
+  font-size: 10pt; }
+.newsletter-subscribe input[name="submit"] {
+  margin-top: 1em; }
+
 @media screen and (min-width: 360px) {
   .grid-sizer, .card {
     width: 44%; }
