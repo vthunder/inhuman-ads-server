@@ -56,10 +56,14 @@
     <div class="header-bottom">
       <div class="hero-left"></div>
       <div class="hero">
-        <p class="hero-text-heading">The Advertising Hall of Shame</p>
-        <p class="hero-text-body">Advertising on the Web is a
-          mess. Help us shine a spotlight on the worst of it, and work
-          on making it better.</p>
+        <p class="hero-text-heading">Cleaning up the web, one awful ad at a time.</p>
+        <div class="hero-text-body">
+          <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contribute">Contribute</a></li>
+            <li><a href="/blog">Blog</a></li>
+          </ul>
+        </div>
         
       </div>
       <div class="hero-right"></div>

@@ -198,6 +198,21 @@ header.smaller {
     font-size: 10pt;
     text-align: center;
     margin-bottom: 30px;
+
+    ul {
+      list-style: none;
+      li {
+        display: inline;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-right: 2em;
+        a { text-decoration: none; }
+        :hover {
+          background-color: yellow;
+          color: black;
+        }
+      }
+    }
   }
 }
 

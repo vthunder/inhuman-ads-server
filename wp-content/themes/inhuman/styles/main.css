@@ -1517,6 +1517,18 @@ header.smaller {
     font-size: 10pt;
     text-align: center;
     margin-bottom: 30px; }
+    .header-bottom .hero-text-body ul {
+      list-style: none; }
+      .header-bottom .hero-text-body ul li {
+        display: inline;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding-right: 2em; }
+        .header-bottom .hero-text-body ul li a {
+          text-decoration: none; }
+        .header-bottom .hero-text-body ul li :hover {
+          background-color: yellow;
+          color: black; }
 
 .filters-section {
   align-items: center;

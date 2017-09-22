@@ -34,10 +34,12 @@
         <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
         <span class="filter-text">Sad</span>
       </a>
+      <!--
       <a class="filter-emoji filter-huh <?php s("huh"); ?>" href="/?e=huh">
         <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
         <span class="filter-text">Huh?</span>
       </a>
+      -->
     </div>
 
 

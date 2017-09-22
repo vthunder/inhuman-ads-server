@@ -4,7 +4,7 @@ $page_content = <<<'EOF'
 
 [ua_fx]
 <ol>
-  <li>Install the Inhuman Ads add-on: <a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></li>
+  <li><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></li>
   <li>Use Firefox Screenshots to capture the ads you find</li>
   <li>Click “Send to Inhuman Ads” when you’re done.</li>
 </ol>
