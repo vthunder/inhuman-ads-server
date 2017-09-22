@@ -115,9 +115,11 @@
                   <a class="like-emoji-link" data-emoji="sad" href="#">
                     <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
                   </a>
+                  <!--
                   <a class="like-emoji-link" data-emoji="huh" href="#">
                     <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
                   </a>
+                  -->
                 </div>
               </div>
             </span>

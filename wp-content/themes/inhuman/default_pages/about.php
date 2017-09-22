@@ -9,5 +9,7 @@
 <p>Inhuman Ads is a space for humans to clean up the mess made by automated platforms and advertiser dollars. Brought to you by Mozilla, this is a forum for you to share the funny, frustrating, and infuriating ad placements you find in your online adventures. It’s also a community where you can see the inhuman ads spotted by other fellow travelers and upvote the best (worst?) ones. Laugh, cry, or laugh-cry at the tragic absurdity of the modern web. By sharing these poor ad placements (plus the URLs where they came from — receipts!) we are creating a forum for advertisers and publishers to face their audience and own the flaws of a broken system.</p>
 
 <p>We’re all about accountability but we’re definitely not here to make enemies. Mozilla, through Inhuman Ads, envisions a healthier ad ecosystem where end users, publishers, and advertisers collectively push for better content and experiences by first identifying the problem. When you see equality fundraisers promoted on xenophobic blogs or adult content served on family websites, you don’t have to resign yourself to thinking, well, that’s just the Internet. Mozilla believes that with your involvement, bad ads can become a thing of the past.</p>
+
+<p>Ready to jump in and help? <a href="/contribute">Contribute your own ad</a>.</p>
 EOF;
 ?>
