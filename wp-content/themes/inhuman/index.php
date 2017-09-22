@@ -35,11 +35,11 @@
         <span class="filter-text">Sad</span>
       </a>
       <!--
-      <a class="filter-emoji filter-huh <?php s("huh"); ?>" href="/?e=huh">
-        <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
-        <span class="filter-text">Huh?</span>
-      </a>
-      -->
+           <a class="filter-emoji filter-huh <?php s("huh"); ?>" href="/?e=huh">
+           <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
+           <span class="filter-text">Huh?</span>
+           </a>
+         -->
     </div>
 
 
@@ -57,6 +57,9 @@
 		    get_template_part('card', get_post_format());
 		    endwhile; endif;
 	    ?>
+    </div>
+    <div class="the-end">You've reached the end!<br>
+      Maybe you can <a href="/contribute">contribute a new post</a>?
     </div>
   </div>
 </div>

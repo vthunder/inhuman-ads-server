@@ -94,11 +94,17 @@ jQuery(document).ready(function($) {
 				};
 				$.post($('#php_data_ajax_url').val(), data, function(res) {
 					if(res.success) {
-            var $html = $(res.data)
-				    $('.all-posts').append($html).find(".spam-shield a").click(handleShowSpam);
-				    $('.all-posts').isotope('appended', $html);
-						page = page + 1;
-						loading = false;
+            if ("" != res.data) {
+              var $html = $(res.data)
+				      $('.all-posts').append($html).find(".spam-shield a").click(handleShowSpam);
+				      $('.all-posts').isotope('appended', $html);
+						  page = page + 1;
+						  loading = false;
+            } else {
+              // no more items, stop paginating
+              $(window).off("scroll");
+				      $('.the-end').show();
+            }
 					} else {
 						console.log('failed to load more content: ' + res);
 					}
