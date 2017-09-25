@@ -1,27 +1,38 @@
 <?php 
-$page_content = <<<'EOF'
+  $page_content = <<<'EOF'
 <h1>Submit an Ad</h1>
 
 [ua_fx]
-<ol>
-  <li><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></li>
-  <li>Use Firefox Screenshots to capture the ads you find</li>
-  <li>Click “Send to Inhuman Ads” when you’re done.</li>
+<p>Ready to call out some bad ads with us? First click on the button below to install the Inhuman Ads add-on (no restart required):</p>
+
+<p class="install-p"><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></p>
+
+<p>Then:</p>
+
+<ol class="contribute-instructions">
+  <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find</li>
+  <li>Click “Send to Inhuman Ads”.</li>
 </ol>
 [/ua_fx]
 
 [ua_other]
-<ol>
-  <li>Download the latest version of Firefox: <a id="install_button" href="https://www.mozilla.org/firefox/new/?scene=2&utm_source=inhumanads.com&utm_medium=referral&utm_campaign=non-fx-button#download-fx" class="button button-primary">Only with Firefox — Get Firefox Now!</a></li>
-  <li>Install the Inhuman Ads add-on</li>
-  <li>Use Firefox Screenshots to capture the ads you find</li>
-  <li>Click “Send to Inhuman Ads” when you’re done.</li>
+<p>Ready to call out some bad ads with us? First click on the button below to install Firefox:</p>
+
+<p class="install-p"><a id="install_button" href="https://www.mozilla.org/firefox/new/?scene=2&utm_source=inhumanads.com&utm_medium=referral&utm_campaign=non-fx-button#download-fx" class="button button-primary">Only with Firefox — Get Firefox Now!</a></p>
+
+<p>Then come back to this page to install the Inhuman Ads add-on, and:</p>
+
+<ol class="contribute-instructions">
+  <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find</li>
+  <li>Click “Send to Inhuman Ads”.</li>
 </ol>
 [/ua_other]
 
-<p>Once you upload it, your inhuman ad post, along with the URL of the site where your screenshot came from, will be live at inhumanads.com. Your post can be voted on and commented on by anyone.</p>
+<p>Your post, along with the original site URL of your screenshot, will now be live at inhumanads.com. You can start getting votes and comments from users in the Inhuman community immediately. You can also spread the love by upvoting and commenting on other posts from our Wall of Shame.</p>
 
-<h3>FAQ</h3>
+<p>Now, go forth and browse! Good luck with your newfound superpower — use it wisely.</p>
+
+<h3 class="faq-header">FAQ</h3>
 
 <dl>
   <dt>Can I upload screenshots that I have saved on my computer?</dt>
