@@ -425,7 +425,7 @@ ul.search-results {
 
 .install-p {
   text-align: center;
-  padding: 2em 0 1em 0;
+  padding: 2em 0 0 0;
 }
 
 ol.contribute-instructions {
@@ -442,6 +442,15 @@ ol.contribute-instructions {
   text-align: center;
   margin-top: 3em;
   padding-top: 1em;
+}
+
+.install-faq {
+  dt {
+    font-style: italic;
+  }
+  dd {
+    margin-bottom: 1em;
+  }
 }
 
 // ---------------------------------------------------------

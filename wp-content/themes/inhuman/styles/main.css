@@ -1668,7 +1668,7 @@ ul.search-results {
 
 .install-p {
   text-align: center;
-  padding: 2em 0 1em 0; }
+  padding: 2em 0 0; }
 
 ol.contribute-instructions li:first-child {
   padding: 0 0 0 5%; }
@@ -1680,6 +1680,11 @@ ol.contribute-instructions li {
   text-align: center;
   margin-top: 3em;
   padding-top: 1em; }
+
+.install-faq dt {
+  font-style: italic; }
+.install-faq dd {
+  margin-bottom: 1em; }
 
 @media screen and (min-width: 360px) {
   .grid-sizer, .card {
