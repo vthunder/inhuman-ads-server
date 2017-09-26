@@ -2,14 +2,13 @@
   $page_content = <<<'EOF'
 <h1>Submit an Ad</h1>
 
+<p>Ready to call out some bad ads with us?</p>
+
 [ua_fx]
-<p>Ready to call out some bad ads with us? First click on the button below to install the Inhuman Ads add-on (no restart required):</p>
-
-<p class="install-p"><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></p>
-
-<p>Then:</p>
-
 <ol class="contribute-instructions">
+  <li><p>Click on the button below to install the Inhuman Ads add-on (no restart required):</p>
+
+    <p class="install-p"><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></p></li>
   <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find</li>
   <li>Click “Send to Inhuman Ads”.</li>
 </ol>
