@@ -15,13 +15,12 @@
 [/ua_fx]
 
 [ua_other]
-<p>Ready to call out some bad ads with us? First click on the button below to install Firefox:</p>
-
-<p class="install-p"><a id="install_button" href="https://www.mozilla.org/firefox/new/?scene=2&utm_source=inhumanads.com&utm_medium=referral&utm_campaign=non-fx-button#download-fx" class="button button-primary">Only with Firefox — Get Firefox Now!</a></p>
-
-<p>Then come back to this page to install the Inhuman Ads add-on, and:</p>
-
 <ol class="contribute-instructions">
+  <li><p>Click on the button below to install Firefox:</p>
+
+  <p class="install-p"><a id="install_button" href="https://www.mozilla.org/firefox/new/?scene=2&utm_source=inhumanads.com&utm_medium=referral&utm_campaign=non-fx-button#download-fx" class="button button-primary">Only with Firefox — Get Firefox Now!</a></p></li>
+
+  <li>Return to this page to install the Inhuman Ads add-on</li>
   <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find</li>
   <li>Click “Send to Inhuman Ads”.</li>
 </ol>
