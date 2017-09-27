@@ -56,7 +56,7 @@
     <div class="header-bottom">
       <div class="hero-left"></div>
       <div class="hero">
-        <p class="hero-text-heading">Cleaning up the web, one awful ad at a time.</p>
+        <p class="hero-text-heading">Money and robots made a mess of the web.<br>Humans will clean it up.</p>
         <div class="hero-text-body">
           <ul>
             <li><a href="/about">About</a></li>
