@@ -132,6 +132,7 @@
   //
   function inhuman_enqueue_styles() {
     $tpldir = get_bloginfo('template_directory');
+    wp_enqueue_style('wp-default', $tpldir . '/styles/wp-default.css');
     wp_enqueue_style('default', $tpldir . '/styles/main.css');
     wp_enqueue_style('sidr', $tpldir . '/vendor/sidr/dist/stylesheets/jquery.sidr.bare.css' );
     wp_enqueue_style('buttons', $tpldir . '/vendor/buttons/css/buttons.css' );
