@@ -25,8 +25,7 @@
   </head>
 
   <body>
-    <?php $is_blog = substr_compare(get_page_template(), "page-blog.php", -strlen("page-blog.php") ) === 0; ?>
-    <header class="<?php echo (is_single() || $is_blog)? "smaller" : ""; ?>">
+    <header class="<?php echo (is_single() || is_page())? "smaller" : ""; ?>">
       <div class="header-container">
         <div class="nav-left">
           <a id="sidebar-toggle" href="#sidebar"><i class="fa fa-bars fa-lg fa-inverse"></i></a>
@@ -53,7 +52,7 @@
       </div>
     </header>
 
-    <div class="header-bottom">
+    <div class="header-bottom<?php echo (is_single() || is_page())? " hide" : ""; ?>">
       <div class="hero-left"></div>
       <div class="hero">
         <p class="hero-text-heading">Money and robots made a mess of the web.<br>Humans will clean it up.</p>

@@ -1406,7 +1406,7 @@ a.sitelink {
   text-decoration: none; }
 
 .hide {
-  display: none; }
+  display: none !important; }
 
 html {
   height: 100%; }
