@@ -10,7 +10,7 @@
       <li><a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></li>
       <li><a href="https://www.mozilla.org/en-US/privacy/websites/#cookies">Cookie Policy</a></li>
       <li><a href="https://www.mozilla.org/en-US/about/legal/report-infringement/">Report IP Infringement</a></li>
-      <li><a href="">GitHub</a></li>
+      <li><a href="https://github.com/vthunder/inhuman-ads-server">GitHub</a></li>
     </ul>
   </div>
 </div>

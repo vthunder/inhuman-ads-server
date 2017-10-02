@@ -26,7 +26,7 @@
 
       <div class="icons">
         <a href="https://twitter.com/inhumanads"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-Twitter.svg"></a>
-        <a href="#"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-github.svg"></a>
+        <a href="https://github.com/vthunder/inhuman-ads-server"><img class="icon" src="<?php echo get_bloginfo('template_directory'); ?>/assets/icon-github.svg"></a>
       </div>
     </div>
 
