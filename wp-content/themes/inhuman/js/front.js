@@ -29,45 +29,6 @@ jQuery(document).ready(function($) {
   $('.featured-posts').isotope(isotope_opts);
   $('.all-posts').isotope(isotope_opts);
 
-  let form = $('#add-screenshot-form');
-  $(form).submit(function(event) {
-    event.preventDefault();
-
-    if (!$('#php_data_user_display_name').val()) {
-      // user not logged in
-      localStorage.setItem('addScreenshotAttempt', $('#add-screenshot-url').val());
-      $('#a0LoginButton').click();
-      return;
-    }
-
-    let formData = $(form).serializeForm();
-    formData.action = 'inhuman_add_screenshot';
-    formData.nonce = $('#php_data_nonce').val();
-
-    $.ajax({
-      type: 'POST',
-      url: $('#php_data_ajax_url').val(),
-      data: formData
-    })
-      .done(function(res) {
-        if ("0" === res) {
-          alert("Couldn't submit screenshot, try again later");
-        }
-        location.reload();
-      })
-      .fail(function(err) {
-        alert("Couldn't submit screenshot: " + err);
-      });
-  });
-
-  var url = localStorage.getItem('addScreenshotAttempt');
-  if (url) {
-    localStorage.removeItem('addScreenshotAttempt');
-    $('#add-screenshot-url').val(url);
-    $(form).submit();
-  }  
-
-  
   $('.all-posts').parent().append('<span class="load-more"></span>');
 	var loadmore = $('.container .load-more');
 	var page = 2;
