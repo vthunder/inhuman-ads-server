@@ -49,7 +49,7 @@
         <div class="hero-text-body">
           <ul>
             <li><a href="/about">About</a></li>
-            <li><a href="/contribute">Contribute</a></li>
+            <li><a href="/high-scores">High Scores</a></li>
             <li><a href="/blog">Blog</a></li>
           </ul>
         </div>
