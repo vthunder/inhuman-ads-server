@@ -215,6 +215,10 @@ h2.article-title {
       }
       .count-text {
         font-size: 9pt;
+        margin-right: .5em;
+      }
+      .count-text:last-child {
+        margin-right: 0;
       }
     }
   }

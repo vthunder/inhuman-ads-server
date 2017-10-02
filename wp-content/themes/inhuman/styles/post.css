@@ -144,7 +144,10 @@ h2.article-title {
         height: 14px;
         width: 14px; }
       .screenshot-card .screenshot-meta .like-emoji-count-box .count-text {
-        font-size: 9pt; }
+        font-size: 9pt;
+        margin-right: .5em; }
+      .screenshot-card .screenshot-meta .like-emoji-count-box .count-text:last-child {
+        margin-right: 0; }
   .screenshot-card .screenshot-meta-2 {
     background: #ccc;
     padding: .25em .5em .25em .5em;

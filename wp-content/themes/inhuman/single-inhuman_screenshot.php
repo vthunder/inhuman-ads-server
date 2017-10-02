@@ -16,6 +16,15 @@
   $likes = get_post_meta(get_the_ID(), "inhuman_meta_total_like_count", true);
   if (!$likes)
     $likes = 0;
+  $funny_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_funny_count", true);
+  if (!$funny_likes)
+    $funny_likes = 0;
+  $angry_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_angry_count", true);
+  if (!$angry_likes)
+    $angry_likes = 0;
+  $sad_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_sad_count", true);
+  if (!$sad_likes)
+    $sad_likes = 0;
 ?>
 <?php get_sidebar(); ?>
 <?php inhuman_setup_js_vars(); ?>
@@ -116,10 +125,10 @@
                     <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
                   </a>
                   <!--
-                  <a class="like-emoji-link" data-emoji="huh" href="#">
-                    <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
-                  </a>
-                  -->
+                       <a class="like-emoji-link" data-emoji="huh" href="#">
+                       <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
+                       </a>
+                     -->
                 </div>
               </div>
             </span>
@@ -147,7 +156,11 @@
           </span>
           <div class="like-emoji-count-box">
             <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-            <span class="count-text"><?php echo $likes; ?></span>
+            <span class="count-text"><?php echo $funny_likes; ?></span>
+            <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+            <span class="count-text"><?php echo $angry_likes; ?></span>
+            <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+            <span class="count-text"><?php echo $sad_likes; ?></span>
           </div>
         </div>
       </div>
