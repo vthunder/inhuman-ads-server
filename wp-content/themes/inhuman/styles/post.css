@@ -178,6 +178,10 @@ h2.article-title {
     margin: .5em 0;
     width: 100%; }
 
+.tos-privacy {
+  font-size: 9pt;
+  text-align: center; }
+
 .logged-in-as a:nth-child(2) {
   display: none; }
 

@@ -52,17 +52,8 @@
     <?php if (get_user_meta(get_current_user_id(), "inhuman_user_complete", true)): ?>
       <?php comment_form(); ?>
     <?php else: ?>
-      <p>Looks like you're new around here!</p>
-      <p>Pick a username that we'll use on the site to identify
-        you. It will be visible on screenshot pages, our high scores
-        boards, etc. If you provide an email, we'll use it for account
-        recovery and to send you site updates and responses to your
-        comments.</p>
-      <ul>
-        <li>Your screenshot posts will be available at Inhuman Ads indefinitely unless you delete them.</li>
-        <li>Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a>.</li>
-        <li>Read our <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></li>
-      </ul>
+      <p>Welcome to Inhuman Ads! 🎉</p>
+      <p>To leave a comment, create a username below or continue as an Anonymous User, no password required. Whether you choose a username or opt for the default, Anonymous User, that’s the name that will appear in the leaderboard if the ads you post are upvoted. Share your email for account recovery, important updates, and to get responses to your comments.</p>
       <div id="user-setup">
         <span id="user-setup-error"></span>
         <form id="user-setup-create">
@@ -85,9 +76,11 @@
                <input type="button" class="button button-primary" value="Submit"> -->
           This feature isn't implemented yet. <br>Create a new username on this browser/device.
         </form>
-        <a id="existing-account-link" href="#">Use existing account</a>
+        <!--        <a id="existing-account-link" href="#">Use existing account</a> -->
         <a id="create-account-link" href="#">Create account</a>
       </div>
+      <p>Your comments and posts will be live on Inhuman Ads unless you delete them. If you’re logged in, you can click on any post that belongs to you to edit or delete it.</p>
+      <p class="tos-privacy">Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a> | Read our <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></p>
     <?php endif; ?>
   <?php endif; ?>
   
