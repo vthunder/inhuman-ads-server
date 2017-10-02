@@ -123,8 +123,6 @@
     foreach ($vars as $key => $value) {
       echo '<input type="hidden" id="php_data_' . $key . '" value="' . $value . '">';
     }
-    //    wp_localize_script('front', 'php_data', $vars);
-    //    wp_localize_script('post', 'php_data', $vars);
   }
 
   //
@@ -140,23 +138,78 @@
   }
   function inhuman_enqueue_scripts() {
     $tpldir = get_bloginfo('template_directory');
-    wp_register_script('jquery', $tpldir . '/vendor/jquery/dist/jquery.min.js');
-    wp_register_script('sidr', $tpldir . '/vendor/sidr/dist/jquery.sidr.min.js', array('jquery'));
-    wp_register_script('dim-bg', $tpldir . '/vendor/jquery-dim-background/jquery.dim-background.min.js', array('jquery'));
-    wp_register_script('jquery-isotope', $tpldir . '/vendor/isotope/dist/isotope.pkgd.min.js', array('jquery'));
-    wp_register_script('jquery-docsize', $tpldir . '/vendor/jquery.documentsize/dist/jquery.documentsize.min.js', array('jquery'));
-    wp_register_script('jquery-isinview', $tpldir . '/vendor/jquery.isinview/dist/jquery.isinview.min.js', array('jquery', 'jquery-docsize'));
-    wp_register_script('sidebar', $tpldir . '/js/sidebar.js', array('jquery', 'sidr', 'dim-bg'));
-    wp_register_script('header', $tpldir . '/js/header.js', array('jquery'));
-    wp_register_script('front', $tpldir . '/js/front.js', array('jquery', 'header', 'jquery-isotope', 'jquery-isinview', 'sidebar'));
-    wp_register_script('post', $tpldir . '/js/post.js', array('jquery', 'header', 'sidebar'));
+    $vendor = $tpldir . '/vendor';
+    $jsdir = $tpldir . '/js';
 
+    $scripts = [
+      'vendor' => [
+        'jquery' => [
+          'file' => "$vendor/jquery/dist/jquery.min.js",
+          'deps' => []
+        ],
+        'sidr' => [
+          'file' => "$vendor/sidr/dist/jquery.sidr.min.js",
+          'deps' => ['jquery']
+        ],
+        'dim-bg' => [
+          'file' => "$vendor/jquery-dim-background/jquery.dim-background.min.js",
+          'deps' => ['jquery']
+        ],
+        'jquery-isotope' => [
+          'file' => "$vendor/isotope/dist/isotope.pkgd.min.js",
+          'deps' => ['jquery']
+        ],
+        'jquery-docsize' => [
+          'file' => "$vendor/jquery.documentsize/dist/jquery.documentsize.min.js",
+          'deps' => ['jquery']
+        ],
+        'jquery-isinview' => [
+          'file' => "$vendor/jquery.isinview/dist/jquery.isinview.min.js",
+          'deps' => ['jquery', 'jquery-docsize']
+        ]
+      ],
+      'components' => [
+        'analytics' => [
+          'file' => "$jsdir/analytics.js",
+          'deps' => []
+        ],
+        'header' => [
+          'file' => "$jsdir/header.js",
+          'deps' => ['jquery']
+        ],
+        'sidebar' => [
+          'file' => "$jsdir/sidebar.js",
+          'deps' => ['jquery', 'sidr', 'dim-bg']
+        ]
+      ],
+      'main' => [
+        'front' => [
+          'file' => "$jsdir/front.js",
+          'deps' => ['jquery', 'jquery-isotope', 'jquery-isinview',
+                     'analytics', 'header', 'sidebar']
+        ],
+        'post' => [
+          'file' => "$jsdir/post.js",
+          'deps' => ['jquery', 'analytics', 'header', 'sidebar']
+        ]
+      ]
+    ];
+
+    // Register all scripts
+    foreach ($scripts as $defs) {
+      foreach ($defs as $name => $props) {
+        wp_register_script($name, $props['file'], $props['deps']);
+      }
+    }
+
+    // Single pages load post.js, front page loads front.js
     if (is_single()) {
       wp_enqueue_script('post');
     } else {
       wp_enqueue_script('front');
     }
 
+    // Set some data as hidden fields so it can be accessible to JS
     inhuman_setup_js_vars();
   }
   add_action('wp_enqueue_scripts', 'inhuman_enqueue_styles');
