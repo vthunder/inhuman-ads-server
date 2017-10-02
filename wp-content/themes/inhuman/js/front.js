@@ -80,7 +80,7 @@ jQuery(document).ready(function($) {
 	    delay: 400 //(milliseconds) adjust to the highest acceptable value
 	};
 
-	$(window).scroll(function() {
+	let paginateOnScroll = function() {
 		if(!loading && scrollHandling.allow) {
 			scrollHandling.allow = false;
 			setTimeout(scrollHandling.reallow, scrollHandling.delay);
@@ -102,7 +102,7 @@ jQuery(document).ready(function($) {
 						  loading = false;
             } else {
               // no more items, stop paginating
-              $(window).off("scroll");
+              $(window).off("scroll", paginateOnScroll);
 				      $('.the-end').show();
             }
 					} else {
@@ -114,7 +114,8 @@ jQuery(document).ready(function($) {
 
 			}
 		}
-  });
+  };
+  $(window).scroll(paginateOnScroll);
 
   $("#verify-submit").click(function(e) {
     e.preventDefault();
