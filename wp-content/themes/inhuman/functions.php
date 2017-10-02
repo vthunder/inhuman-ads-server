@@ -20,6 +20,33 @@
   // Disable admin bar for all users
   add_filter('show_admin_bar', '__return_false');
 
+  // Allow searching by display name in users table
+  add_filter('user_search_columns', 'inhuman_user_search_columns' , 10, 3);
+  function inhuman_user_search_columns($search_columns, $search){
+
+    if(!in_array('display_name', $search_columns)){
+      $search_columns[] = 'display_name';
+    }
+    return $search_columns;
+  }
+
+  function inhuman_users_with_display_name($display_name) {
+    $user_ids = [];
+    $user_query = new WP_User_Query([
+      'search' => $display_name,
+      'search_fields' => ['display_name']]);
+    if (!empty($user_query->results)) {
+	    foreach ($user_query->results as $user) {
+        $user_ids[] = $user->ID;
+	    }
+    }
+    return $user_ids;
+  }
+
+  function inhuman_anon_user_ids() {
+    return inhuman_users_with_display_name('Anonymous User');
+  }
+
   function inhuman_query($type, $page = null) {
     $query = array(
       'post_type' => array('inhuman_screenshot'),

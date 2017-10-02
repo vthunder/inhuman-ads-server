@@ -1,17 +1,21 @@
 <?php
+  $anon_users = inhuman_anon_user_ids();
   $day_users = get_users(array(
     'meta_key' => 'inhuman_user_score_today',
     'orderby' => 'meta_value',
+    'exclude' => $anon_users,
     'number' => 10
   ));
   $week_users = get_users(array(
     'meta_key' => 'inhuman_user_score_week',
     'orderby' => 'meta_value',
+    'exclude' => $anon_users,
     'number' => 10
   ));
   $forever_users = get_users(array(
     'meta_key' => 'inhuman_user_score_forever',
     'orderby' => 'meta_value',
+    'exclude' => $anon_users,
     'number' => 10
   ));
 ?>
