@@ -88,6 +88,65 @@ jQuery(document).ready(function($) {
   });
 
   //
+  // Wire up "share" buttons
+  //
+  let bumpHighScore = function(shareFn) {
+    var postId = $("#post_id").val();
+    if (localStorage["shared-"+postId])
+      return shareFn();
+    $(".share-box-wrapper").hide();
+
+	  var data = {
+		  action: 'inhuman_share',
+		  post_id: $("#post_id").val()
+	  };
+
+    $.ajax({
+      type: 'POST',
+      url: $('#php_data_ajax_url').val() + "?action=inhuman_share",
+      data: JSON.stringify(data)
+    })
+     .done(function(res) {
+       res = JSON.parse(res);
+		   if(res.success) {
+         localStorage["shared-"+postId] = true;
+		   } else {
+         console.log("Error sharing screenshot:");
+			   console.log(res);
+		   }
+       shareFn();
+     })
+     .fail(function(err) {
+       console.log("Error liking screenshot:");
+       console.log(err.responseText);
+       shareFn();
+     });
+  };
+
+  $(".twitter-share-button").click(function(e) {
+    e.preventDefault();
+    var status = this.getAttribute('data-twitter-status');
+    bumpHighScore(function(e) {
+      document.location = "http://twitter.com/intent/tweet?status=" + status;
+    });
+  });
+  $(".facebook-share-button").click(function(e) {
+    e.preventDefault();
+    var u = this.getAttribute('data-fb-u');
+    var title = this.getAttribute('data-fb-title');
+    bumpHighScore(function(e) {
+      document.location = "http://www.facebook.com/sharer/sharer.php?u=" + u + "&title=" + title;
+    });
+  });
+  $(".email-share-button").click(function(e) {
+    e.preventDefault();
+    var email = this.getAttribute('data-email');
+    bumpHighScore(function(e) {
+      document.location = "mailto:?Subject=" + email;
+    });
+  });
+
+  //
   // New user setup
   //
   $("#existing-account-link").click(function(e) {

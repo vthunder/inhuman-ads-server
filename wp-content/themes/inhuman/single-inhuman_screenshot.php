@@ -129,13 +129,17 @@
               <div class="share-box-wrapper">
                 <div class="share-box">
                   <a class="twitter-share-button"
-                     href="http://twitter.com/intent/tweet?status=<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>">
+                     data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
+                     href="#">
                     <i class="fa fa-twitter-square fa-3x"></i></a>
                   <a class="facebook-share-button"
-                     href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>&title=<?php echo urlencode(get_the_title()); ?>">
+                     data-fb-u="<?php echo urlencode(get_permalink()); ?>"
+                     data-fb-title="<?php echo urlencode(get_the_title()); ?>"
+                     href="#">
                     <i class="fa fa-facebook-square fa-3x"></i></a>
                   <a class="email-share-button"
-                     href="mailto:?Subject=<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>">
+                     data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
+                     href="#">
                     <i class="fa fa-envelope-square fa-3x"></i></a>
                 </div>
               </div>

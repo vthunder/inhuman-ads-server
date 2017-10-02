@@ -73,6 +73,38 @@
   add_action('wp_ajax_inhuman_like', 'inhuman_like');
   add_action('wp_ajax_nopriv_inhuman_like', 'inhuman_like');
 
+  function inhuman_share() {
+    $raw = json_decode(file_get_contents('php://input'), true);
+    $post_id = sanitize_text_field($raw["post_id"]);
+
+    // bump score of screenshot owner
+    $author_id = get_post_field('post_author', $post_id);
+    _inhuman_bump_high_score($author_id, 10);
+
+    // track user shares if user is logged in
+    if (is_user_logged_in()) {
+      $user_id = get_current_user_id();
+      $shares = get_user_meta($user_id, "inhuman_user_shares", true);
+      if (!$shares[$post_id]) {
+        $shares[$post_id] = 0;
+      }
+      $shares[$post_id] = $shares[$post_id] + 1;
+      update_user_meta($user_id, "inhuman_user_shares", $shares);
+
+      // track users by post in case we want that later
+      $users_shared = get_post_meta($post_id, 'inhuman_shared_user_list', true);
+      if (!$users_shared)
+        $users_shared = array();
+      $users_shared[$user_id] = true;
+      update_post_meta($post_id, 'inhuman_shared_user_list', $users_shared);
+    }
+
+    echo json_encode(array('success'=>true));
+    die();
+  }
+  add_action('wp_ajax_inhuman_share', 'inhuman_share');
+  add_action('wp_ajax_nopriv_inhuman_share', 'inhuman_share');
+
   function _inhuman_report($post_id) {
     $count = get_post_meta($post_id, 'inhuman_flagged_count', true);
     if ($count == '')
