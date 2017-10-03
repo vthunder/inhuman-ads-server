@@ -43,7 +43,7 @@
   <dd>Ah-ha, you’re almost there! Just <a href="https://addons.mozilla.org/en-US/firefox/addon/inhuman-ads/">install the Inhuman Ads add-on</a> and the next time you use Firefox Screenshots, the button will be there.</dd>
   
   <dt>Why does Mozilla hate ads?</dt>
-  <dd>We 💜 good, creative ads that reach the right users and make sense in context. It’s the dark side — poorly placed ads that hurt our heads and eyes — that we’re trying to call out. Ad blockers don’t solve this problem, either. Indiscriminately blocking ads hurts the writers, visual artists, and other creato  rs that depend on ad revenue to fund their work. You, the consumer, deserve better ads.</dd>
+  <dd>We 💜 good, creative ads that reach the right users and make sense in context. It’s the dark side — poorly placed ads that hurt our heads and eyes — that we’re trying to call out. Ad blockers don’t solve this problem, either. Indiscriminately blocking ads hurts the writers, visual artists, and other creators that depend on ad revenue to fund their work. You, the consumer, deserve better ads.</dd>
 </dl>
 EOF;
 ?>
