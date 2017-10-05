@@ -1621,6 +1621,7 @@ hr {
 
 .the-end {
   display: none;
+  margin-top: 200px;
   text-align: center; }
 
 ul.search-results {

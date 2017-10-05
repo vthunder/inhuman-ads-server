@@ -347,6 +347,8 @@ hr {
 
 .the-end {
   display: none;
+  // FIXME: margin hack to move it below cards - but cards are variable-height
+  margin-top: 200px;
   text-align: center;
 }
 
