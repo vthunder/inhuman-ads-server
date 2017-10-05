@@ -4,7 +4,7 @@ jQuery(document).ready(function($) {
 
   let handleShowSpam = function(e) {
       e.preventDefault();
-      $(this).parent().hide().next().show();
+      $(this).parent().hide().next().show().removeClass("hide");
 		  $('.all-posts').isotope('layout');
   }
   $(".spam-shield a").click(handleShowSpam);
