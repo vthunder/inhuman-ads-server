@@ -1,5 +1,6 @@
 <?php
 
+  require_once(plugin_dir_path(__FILE__) . 'offensive_domains.php');
   require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
   use PHPHtmlParser\Dom;
 
@@ -29,6 +30,13 @@
         'inhuman_meta_publisher_domain' => $domain
       )
     ));
+
+    // Automatically flag as spam/inappropriate if domain is likely to
+    // contain inappropriate material (e.g., porn sites)
+    if (likely_offensive_domain($domain)) {
+      _inhuman_report($post_id);
+      _inhuman_flag_confirm($post_id);
+    }
 
     // download screenshot image, add is as an attachment, and set it
     // as the featured image (thumbnail)
