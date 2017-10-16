@@ -46,7 +46,7 @@
 
     <div class="section-heading">
       <img src="<?php tpldir(); ?>/assets/emojiicon-mostviewed.svg">
-      <h3 class="heading-text">Popular</h3>
+      <h3 class="heading-text">Most Popular</h3>
     </div>
     <div class="popular-posts grid">
 	    <div class="grid-sizer"></div>
@@ -67,7 +67,7 @@
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-      <h3 class="heading-text">Funny</h3>
+      <h3 class="heading-text">Top "Funny"</h3>
     </div>
     <div class="funny-posts grid">
 	    <div class="grid-sizer"></div>
@@ -88,7 +88,7 @@
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
-      <h3 class="heading-text">Angry</h3>
+      <h3 class="heading-text">Top "Angry"</h3>
     </div>
     <div class="angry-posts grid">
 	    <div class="grid-sizer"></div>
@@ -110,7 +110,7 @@
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
-      <h3 class="heading-text">Sad</h3>
+      <h3 class="heading-text">Top "Sad"</h3>
     </div>
     <div class="sad-posts grid">
 	    <div class="grid-sizer"></div>
