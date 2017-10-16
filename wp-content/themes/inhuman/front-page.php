@@ -59,7 +59,7 @@
 
     <div class="section-heading">
       <i class="fa fa-3x fa-book"></i>
-      <h3 class="heading-text">From The Blog</h3>
+      <h3 class="heading-text"><a href="/blog">From The Blog</a></h3>
     </div>
     <div class="popular-posts grid">
 	    <div class="grid-sizer"></div>
