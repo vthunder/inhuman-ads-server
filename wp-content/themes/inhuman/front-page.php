@@ -57,6 +57,21 @@
 	    ?>
     </div>
 
+    <div class="section-heading">
+      <i class="fa fa-3x fa-book"></i>
+      <h3 class="heading-text">From The Blog</h3>
+    </div>
+    <div class="popular-posts grid">
+	    <div class="grid-sizer"></div>
+	    <div class="gutter-sizer"></div>
+	    <?php
+        $loop = new WP_Query(inhuman_query("blog", null, 4, $shown_ids));
+		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		    get_template_part('card', get_post_format());
+		    endwhile; endif;
+	    ?>
+    </div>
+
     <?php
       $shown_ids = [];
       $loop = new WP_Query(inhuman_query("funny", null, 4, $shown_ids));
