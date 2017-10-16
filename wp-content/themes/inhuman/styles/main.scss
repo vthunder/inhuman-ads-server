@@ -220,6 +220,24 @@ header.smaller {
 // Content sections
 // ---------------------------------------------------------
 
+.section-heading {
+  clear: both;
+  margin: 1em 0;
+  position: relative;
+  .heading-text {
+    display: inline;
+    background: yellow;
+    font-size: 12pt;
+    font-weight: 500;
+    height: 24.5px;
+    margin: 0 8px;
+    padding: 4px 8px;
+    position: absolute;
+    top: calc(50% - 12.25px);
+    text-transform: uppercase;
+  }
+}
+
 .filters-section {
   align-items: center;
   display: flex;

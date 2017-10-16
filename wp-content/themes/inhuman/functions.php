@@ -47,7 +47,7 @@
     return inhuman_users_with_display_name('Anonymous User');
   }
 
-  function inhuman_query($type, $page = null) {
+  function inhuman_query($type, $page = null, $limit = 10, $exclude_ids = null) {
     $query = array(
       'post_type' => array('inhuman_screenshot'),
       'meta_query'  => array(
@@ -67,7 +67,9 @@
             'value' => ''
           )
         )
-      )
+      ),
+      'posts_per_page' => $limit,
+      'post__not_in' => $exclude_ids
     );
 
     switch ($type) {

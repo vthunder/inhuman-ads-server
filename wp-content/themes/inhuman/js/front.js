@@ -26,7 +26,10 @@ jQuery(document).ready(function($) {
       percentPosition: true
     }
   };
-  $('.featured-posts').isotope(isotope_opts);
+  $('.popular-posts').isotope(isotope_opts);
+  $('.funny-posts').isotope(isotope_opts);
+  $('.angry-posts').isotope(isotope_opts);
+  $('.sad-posts').isotope(isotope_opts);
   $('.all-posts').isotope(isotope_opts);
 
   $('.all-posts').parent().append('<span class="load-more"></span>');
