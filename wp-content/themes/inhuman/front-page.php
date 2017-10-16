@@ -60,6 +60,10 @@
 	    ?>
     </div>
 
+    <?php
+      $loop = new WP_Query(inhuman_query("funny", null, 4, $shown_ids));
+      if ($loop->have_posts()):
+    ?>
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
@@ -69,14 +73,18 @@
 	    <div class="grid-sizer"></div>
 	    <div class="gutter-sizer"></div>
 	    <?php
-        $loop = new WP_Query(inhuman_query("funny", null, 4, $shown_ids));
-		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		    while ($loop->have_posts()) : $loop->the_post();
 		    get_template_part('card', get_post_format());
         $shown_ids[] = get_the_ID();
-		    endwhile; endif;
+		    endwhile;
 	    ?>
     </div>
+    <?php endif; ?>
 
+    <?php
+      $loop = new WP_Query(inhuman_query("angry", null, 4, $shown_ids));
+      if ($loop->have_posts()):
+    ?>
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
@@ -86,14 +94,19 @@
 	    <div class="grid-sizer"></div>
 	    <div class="gutter-sizer"></div>
 	    <?php
-        $loop = new WP_Query(inhuman_query("angry", null, 4, $shown_ids));
-		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		    while ($loop->have_posts()) : $loop->the_post();
 		    get_template_part('card', get_post_format());
         $shown_ids[] = get_the_ID();
-		    endwhile; endif;
+		    endwhile;
 	    ?>
     </div>
+    <?php endif; ?>
+    
 
+    <?php
+      $loop = new WP_Query(inhuman_query("sad", null, 4, $shown_ids));
+      if ($loop->have_posts()):
+    ?>
     <div class="section-heading">
       <hr>
       <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
@@ -103,13 +116,13 @@
 	    <div class="grid-sizer"></div>
 	    <div class="gutter-sizer"></div>
 	    <?php
-        $loop = new WP_Query(inhuman_query("sad", null, 4, $shown_ids));
-		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		    while ($loop->have_posts()) : $loop->the_post();
 		    get_template_part('card', get_post_format());
         $shown_ids[] = get_the_ID();
-		    endwhile; endif;
+		    endwhile;
 	    ?>
     </div>
+    <?php endif; ?>
 
     <div class="section-heading">
       <hr>
