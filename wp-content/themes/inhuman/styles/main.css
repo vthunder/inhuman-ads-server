@@ -1544,8 +1544,9 @@ header.smaller {
     padding: 4px 8px;
     position: absolute;
     top: calc(50% - 12.25px);
-    text-transform: uppercase;
-    text-decoration: none; }
+    text-transform: uppercase; }
+    .section-heading .heading-text a {
+      text-decoration: none; }
 
 .filters-section {
   align-items: center;

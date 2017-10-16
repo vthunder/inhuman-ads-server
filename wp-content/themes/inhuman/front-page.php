@@ -58,6 +58,7 @@
     </div>
 
     <div class="section-heading">
+      <hr>
       <i class="fa fa-3x fa-book"></i>
       <h3 class="heading-text"><a href="/blog">From The Blog</a></h3>
     </div>
