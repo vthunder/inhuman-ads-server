@@ -9,7 +9,7 @@
   <li><p>Click on the button below to install the Inhuman Ads add-on (no restart required):</p>
 
     <p class="install-p"><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></p></li>
-  <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find</li>
+  <li>Use <a href="https://screenshots.firefox.com/">Firefox Screenshots</a> to capture the worst ads you can find<br>Tip: click '...' to the right of the URL bar</li>
   <li>Click “Send to Inhuman Ads”.</li>
 </ol>
 [/ua_fx]
