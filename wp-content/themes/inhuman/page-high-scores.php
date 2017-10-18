@@ -4,6 +4,8 @@
     inhuman_users_with_display_name('wpengine'));
   $day_users = get_users(array(
     'meta_key' => 'inhuman_user_score_today',
+    'meta_value' => 0,
+    'meta_compare' => '>',
     'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'exclude' => $excluded_users,
@@ -11,6 +13,8 @@
   ));
   $week_users = get_users(array(
     'meta_key' => 'inhuman_user_score_week',
+    'meta_value' => 0,
+    'meta_compare' => '>',
     'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'exclude' => $excluded_users,
@@ -18,6 +22,8 @@
   ));
   $forever_users = get_users(array(
     'meta_key' => 'inhuman_user_score_forever',
+    'meta_value' => 0,
+    'meta_compare' => '>',
     'orderby' => 'meta_value_num',
     'order' => 'DESC',
     'exclude' => $excluded_users,
