@@ -316,15 +316,31 @@ hr {
 .card {
   background: white;
   border-radius: 2px;
-  //    box-shadow: 1px 1px 3px 0 dimgrey;
+  box-shadow: 1px 1px 3px 0 lightgrey;
   float: left;
   margin-bottom: 20px;
   min-height: 120px;
+
+  hr.nopadding {
+    padding: 0;
+    margin: 0;
+  }
   >a {
     text-decoration: none;
-    .card-title {
-      padding: .5em;
-    }
+  }
+  .card-title {
+    font-size: 12pt;
+    font-weight: 500;
+    padding: 10px;
+  }
+  .attachment-post-thumbnail {
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+  }
+  .card-bottom-text {
+    font-size: 9pt;
+    padding: 5px;
+    text-align: right;
   }
   .spam-shield {
     padding: 10px;

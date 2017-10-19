@@ -41,8 +41,9 @@
       <p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>
     <?php endif; ?>
     <a class="<?php echo $spam_class; ?>" href="<?php the_permalink(); ?>">
-      <?php the_post_thumbnail(); ?>
       <div class="card-title"><?php the_title() ?></div>
+      <?php the_post_thumbnail(); ?>
+      <div class="card-bottom-text">Uploaded by <?php echo "foo" ?></div>
     </a>
   <?php elseif ("contest" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">

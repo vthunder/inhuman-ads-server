@@ -13,7 +13,6 @@
 <div class="main">
   <div class="container">
 
-    <!--
     <div class="filters-section">
       <a class="filter-emoji filter-latest <?php s("latest"); ?>" href="/">
         <i class="fa fa-3x fa-clock-o"></i>
@@ -35,114 +34,10 @@
         <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
         <span class="filter-text">Sad</span>
       </a>
-           <a class="filter-emoji filter-huh <?php s("huh"); ?>" href="/?e=huh">
-           <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
-           <span class="filter-text">Huh?</span>
-           </a>
-    </div>
-    -->
-
-    <div class="section-heading">
-      <img src="<?php tpldir(); ?>/assets/emojiicon-mostviewed.svg">
-      <h3 class="heading-text">Most Popular</h3>
-    </div>
-    <div class="popular-posts grid">
-	    <div class="grid-sizer"></div>
-	    <div class="gutter-sizer"></div>
-	    <?php
-        $loop = new WP_Query(inhuman_query("popular", null, 4, $shown_ids));
-		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
-		    get_template_part('card', get_post_format());
-		    endwhile; endif;
-	    ?>
     </div>
 
-    <div class="section-heading">
-      <hr>
-      <i class="fa fa-3x fa-book"></i>
-      <h3 class="heading-text"><a href="/blog">From The Blog</a></h3>
-    </div>
-    <div class="popular-posts grid">
-	    <div class="grid-sizer"></div>
-	    <div class="gutter-sizer"></div>
-	    <?php
-        $loop = new WP_Query(inhuman_query("blog", null, 4, $shown_ids));
-		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
-		    get_template_part('card', get_post_format());
-		    endwhile; endif;
-	    ?>
-    </div>
+    <br><hr><br>
 
-    <?php
-      $shown_ids = [];
-      $loop = new WP_Query(inhuman_query("funny", null, 4, $shown_ids));
-      if ($loop->have_posts()):
-    ?>
-      <div class="section-heading">
-        <hr>
-        <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-        <h3 class="heading-text">Top "Funny"</h3>
-      </div>
-      <div class="funny-posts grid">
-	      <div class="grid-sizer"></div>
-	      <div class="gutter-sizer"></div>
-	      <?php
-		      while ($loop->have_posts()) : $loop->the_post();
-		      get_template_part('card', get_post_format());
-          $shown_ids[] = get_the_ID();
-		      endwhile;
-	      ?>
-      </div>
-    <?php endif; ?>
-
-    <?php
-      $loop = new WP_Query(inhuman_query("angry", null, 4, $shown_ids));
-      if ($loop->have_posts()):
-    ?>
-      <div class="section-heading">
-        <hr>
-        <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
-        <h3 class="heading-text">Top "Angry"</h3>
-      </div>
-      <div class="angry-posts grid">
-	      <div class="grid-sizer"></div>
-	      <div class="gutter-sizer"></div>
-	      <?php
-		      while ($loop->have_posts()) : $loop->the_post();
-		      get_template_part('card', get_post_format());
-          $shown_ids[] = get_the_ID();
-		      endwhile;
-	      ?>
-      </div>
-    <?php endif; ?>
-    
-
-    <?php
-      $loop = new WP_Query(inhuman_query("sad", null, 4, $shown_ids));
-      if ($loop->have_posts()):
-    ?>
-      <div class="section-heading">
-        <hr>
-        <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
-        <h3 class="heading-text">Top "Sad"</h3>
-      </div>
-      <div class="sad-posts grid">
-	      <div class="grid-sizer"></div>
-	      <div class="gutter-sizer"></div>
-	      <?php
-		      while ($loop->have_posts()) : $loop->the_post();
-		      get_template_part('card', get_post_format());
-          $shown_ids[] = get_the_ID();
-		      endwhile;
-	      ?>
-      </div>
-    <?php endif; ?>
-
-    <div class="section-heading">
-      <hr>
-      <i class="fa fa-3x fa-clock-o"></i>
-      <h3 class="heading-text">Latest</h3>
-    </div>
     <div class="all-posts grid">
 	    <div class="grid-sizer"></div>
 	    <div class="gutter-sizer"></div>
