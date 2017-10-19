@@ -43,7 +43,11 @@
     <a class="<?php echo $spam_class; ?>" href="<?php the_permalink(); ?>">
       <div class="card-title"><?php the_title() ?></div>
       <?php the_post_thumbnail(); ?>
-      <div class="card-bottom-text">Uploaded by <?php echo "foo" ?></div>
+      <?php
+        $author_id = get_post_field('post_author', $post->ID);
+        $author = get_user_by('id', $author_id);
+      ?>
+      <div class="card-bottom-text">Uploaded by <?php echo $author->display_name; ?></div>
     </a>
   <?php elseif ("contest" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
