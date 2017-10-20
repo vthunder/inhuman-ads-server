@@ -60,7 +60,9 @@
         ?>
         <div class="author">By: <?php echo $author->display_name; ?></div>
       </article>
-      <div class="thumb" style="background-image: url(<?php echo $thumb_url; ?>);"></div>
+      <a href="<?php the_permalink(); ?>">
+        <div class="thumb" style="background-image: url(<?php echo $thumb_url; ?>);"></div>
+      </a>
     </div>
 
 
