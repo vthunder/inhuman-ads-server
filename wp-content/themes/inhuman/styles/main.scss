@@ -50,6 +50,10 @@ a.sitelink {
   display: none !important;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 // ---------------------------------------------------------
 // Document structure
 // ---------------------------------------------------------
@@ -88,7 +92,7 @@ header {
   left: 0px;
   top: 0px;
   right: 0px;
-  height: 55px;
+  height: 65px;
   width: 100%;
 
   overflow: hidden;
@@ -307,40 +311,69 @@ hr {
 // ---------------------------------------------------------
 
 .grid {
-    max-width: 1200px;
-}
-.grid-sizer, .card {
-    width: 96%;
-//    padding: 10px 2% 10px 2%;
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
 }
 .card {
   background: white;
-  border-radius: 2px;
-  box-shadow: 1px 1px 3px 0 lightgrey;
-  float: left;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin-bottom: 20px;
-  min-height: 120px;
+  min-height: 100%;
+  overflow: hidden;
 
-  hr.nopadding {
-    padding: 0;
-    margin: 0;
-  }
-  >a {
+  .card-content {
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
     text-decoration: none;
   }
-  .card-title {
+
+  article {
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
     font-size: 12pt;
+    font-style: normal;
     font-weight: 500;
-    padding: 10px;
+    >a { text-decoration: none; }
   }
-  .attachment-post-thumbnail {
+  
+  p { 
+    line-height: 1.4;
+  }
+  
+  .author {
+    font-size: 8pt;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-right: 10px;
+  }
+
+  .thumb {
     border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray;
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+    min-height: 200px;
   }
+
   .card-bottom-text {
+    background: lightgray;
     font-size: 9pt;
-    padding: 5px;
+    padding: 10px;
     text-align: right;
+    width: 100%;
   }
   .spam-shield {
     padding: 10px;
@@ -494,6 +527,17 @@ ol.contribute-instructions {
 // Masonry grid media queries
 // ---------------------------------------------------------
 
+@media only screen and (min-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }  
+}
+@media only screen and (min-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+/*
 @media screen and (min-width: 360px) {
   .grid-sizer, .card { width: 44%; }
   .card-wide, .card-wide2 { width: 96%; }
@@ -517,6 +561,7 @@ ol.contribute-instructions {
   .card-wide2 { width: 70.5%; }
   .gutter-sizer { width: 2%; }
 }
+*/
 
 // ---------------------------------------------------------
 // Other media queries

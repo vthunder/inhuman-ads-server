@@ -39,8 +39,6 @@
     <br><hr><br>
 
     <div class="all-posts grid">
-	    <div class="grid-sizer"></div>
-	    <div class="gutter-sizer"></div>
 	    <?php
         $loop = new WP_Query(inhuman_query($query_type));
 		    if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();

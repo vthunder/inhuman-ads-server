@@ -24,8 +24,14 @@
   $spam_class = "";
   if ($spam == "Confirmed" || $flag_count > 10)
     $spam_class = "hide";
+
+  $thumb_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),
+                                           'medium_large');
+  if ($thumb_url)
+    $thumb_url = $thumb_url[0];
 ?>
 <div class="<?php echo $class ?>">
+
   <?php if ("" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
@@ -36,26 +42,39 @@
       </a>
       <p><?php the_excerpt() ?></p>
     </div>
+
+
   <?php elseif ("screenshot" == $meta['type']) : ?>
     <?php if ($spam_class == "hide"): ?>
-      <p class="spam-shield">This post is potentially offensive or inappropriate.<br><br><a href="#">Load anyway</a></p>
+      <p class="spam-shield">
+        This post is potentially offensive or inappropriate.<br><br>
+        <a href="#">Load anyway</a>
+      </p>
     <?php endif; ?>
-    <a class="<?php echo $spam_class; ?>" href="<?php the_permalink(); ?>">
-      <div class="card-title"><?php the_title() ?></div>
-      <?php the_post_thumbnail(); ?>
-      <?php
-        $author_id = get_post_field('post_author', $post->ID);
-        $author = get_user_by('id', $author_id);
-      ?>
-      <div class="card-bottom-text">Uploaded by <?php echo $author->display_name; ?></div>
-    </a>
+    <div class="card-content <?php echo $spam_class; ?>">
+      <article>
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
+        <?php
+          $author_id = get_post_field('post_author', $post->ID);
+          $author = get_user_by('id', $author_id);
+        ?>
+        <div class="author">By: <?php echo $author->display_name; ?></div>
+      </article>
+      <div class="thumb" style="background-image: url(<?php echo $thumb_url; ?>);"></div>
+    </div>
+
+
   <?php elseif ("contest" == $meta['type']) : ?>
     <a href="<?php the_permalink(); ?>">
       <?php the_post_thumbnail(); ?>
     </a>
     <?php the_content() ?>
+
+
   <?php elseif ("plain" == $meta['type'] or "background" == $meta['type']) : ?>
     <?php the_content() ?>
+
+
   <?php else : ?>
     Error: unknown post type!
   <?php endif; ?>

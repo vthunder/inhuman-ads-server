@@ -5,7 +5,7 @@ jQuery(document).ready(function($) {
   let handleShowSpam = function(e) {
       e.preventDefault();
       $(this).parent().hide().next().show().removeClass("hide");
-		  $('.all-posts').isotope('layout');
+//		  $('.all-posts').isotope('layout');
   }
   $(".spam-shield a").click(handleShowSpam);
 
@@ -26,11 +26,11 @@ jQuery(document).ready(function($) {
       percentPosition: true
     }
   };
-  $('.popular-posts').isotope(isotope_opts);
-  $('.funny-posts').isotope(isotope_opts);
-  $('.angry-posts').isotope(isotope_opts);
-  $('.sad-posts').isotope(isotope_opts);
-  $('.all-posts').isotope(isotope_opts);
+//  $('.popular-posts').isotope(isotope_opts);
+//  $('.funny-posts').isotope(isotope_opts);
+//  $('.angry-posts').isotope(isotope_opts);
+//  $('.sad-posts').isotope(isotope_opts);
+//  $('.all-posts').isotope(isotope_opts);
 
   $('.all-posts').parent().append('<span class="load-more"></span>');
 	var loadmore = $('.container .load-more');
@@ -61,7 +61,7 @@ jQuery(document).ready(function($) {
             if ("" != res.data) {
               var $html = $(res.data)
 				      $('.all-posts').append($html).find(".spam-shield a").click(handleShowSpam);
-				      $('.all-posts').isotope('appended', $html);
+//				      $('.all-posts').isotope('appended', $html);
 						  page = page + 1;
 						  loading = false;
             } else {

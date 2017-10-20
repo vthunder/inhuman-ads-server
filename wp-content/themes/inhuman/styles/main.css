@@ -1408,6 +1408,9 @@ a.sitelink {
 .hide {
   display: none !important; }
 
+* {
+  box-sizing: border-box; }
+
 html {
   height: 100%; }
 
@@ -1433,7 +1436,7 @@ header {
   left: 0px;
   top: 0px;
   right: 0px;
-  height: 55px;
+  height: 65px;
   width: 100%;
   overflow: hidden;
   padding-top: 10px;
@@ -1596,34 +1599,57 @@ hr {
     margin-right: 5px; }
 
 .grid {
-  max-width: 1200px; }
-
-.grid-sizer, .card {
-  width: 96%; }
+  width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px; }
 
 .card {
   background: white;
-  border-radius: 2px;
-  box-shadow: 1px 1px 3px 0 lightgrey;
-  float: left;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
-  min-height: 120px; }
-  .card hr.nopadding {
-    padding: 0;
-    margin: 0; }
-  .card > a {
+  min-height: 100%;
+  overflow: hidden; }
+  .card .card-content {
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
     text-decoration: none; }
-  .card .card-title {
+  .card article {
+    padding: 20px; }
+  .card h2 {
+    color: #333;
     font-size: 12pt;
-    font-weight: 500;
-    padding: 10px; }
-  .card .attachment-post-thumbnail {
+    font-style: normal;
+    font-weight: 500; }
+    .card h2 > a {
+      text-decoration: none; }
+  .card p {
+    line-height: 1.4; }
+  .card .author {
+    font-size: 8pt;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    padding-right: 10px; }
+  .card .thumb {
     border-top: 1px solid lightgray;
-    border-bottom: 1px solid lightgray; }
+    padding-bottom: 60%;
+    background-size: cover;
+    background-position: center center;
+    min-height: 200px; }
   .card .card-bottom-text {
+    background: lightgray;
     font-size: 9pt;
-    padding: 5px;
-    text-align: right; }
+    padding: 10px;
+    text-align: right;
+    width: 100%; }
   .card .spam-shield {
     padding: 10px; }
 
@@ -1718,51 +1744,37 @@ ol.contribute-instructions li {
 .install-faq dd {
   margin-bottom: 1em; }
 
+@media only screen and (min-width: 500px) {
+  .grid {
+    grid-template-columns: 1fr 1fr; } }
+@media only screen and (min-width: 850px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr; } }
+/*
 @media screen and (min-width: 360px) {
-  .grid-sizer, .card {
-    width: 44%; }
-
-  .card-wide, .card-wide2 {
-    width: 96%; }
-
-  .gutter-sizer {
-    width: 4%; } }
+  .grid-sizer, .card { width: 44%; }
+  .card-wide, .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 4%; }
+}
 @media screen and (min-width: 600px) {
-  .grid-sizer, .card {
-    width: 45%; }
-
-  .card-wide, .card-wide2 {
-    width: 96%; }
-
-  .gutter-sizer {
-    width: 2%; } }
+  .grid-sizer, .card { width: 45%; }
+  .card-wide, .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 2%; }
+}
 @media screen and (min-width: 730px) {
-  .grid-sizer, .card {
-    width: 28%; }
-
-  .card-wide {
-    width: 62%; }
-
-  .card-wide2 {
-    width: 96%; }
-
-  .gutter-sizer {
-    width: 2%; } }
+  .grid-sizer, .card { width: 28%; }
+  .card-wide { width: 62%; }
+  .card-wide2 { width: 96%; }
+  .gutter-sizer { width: 2%; }
+}
 @media screen and (min-width: 1024px) {
-  .grid-sizer, .card {
-    width: 23.5%; }
-
-  .card-wide-3col {
-    width: 23.5%; }
-
-  .card-wide {
-    width: 45%; }
-
-  .card-wide2 {
-    width: 70.5%; }
-
-  .gutter-sizer {
-    width: 2%; } }
+  .grid-sizer, .card { width: 23.5%; }
+  .card-wide-3col { width: 23.5%; }
+  .card-wide { width: 45%; }
+  .card-wide2 { width: 70.5%; }
+  .gutter-sizer { width: 2%; }
+}
+*/
 @media screen and (min-width: 410px) {
   header .nav-subscribe, header .nav-login {
     display: inline; }
