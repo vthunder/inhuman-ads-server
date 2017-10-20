@@ -167,11 +167,10 @@ header {
       }
     }
   }
-  #searchform {
-    display: none;
-    input { color: black; }
-    label {
-      display: none;
+  .search-form {
+    .screen-reader-text, .search-submit { display: none; }
+    input {
+      color: black;
     }
   }
 }
@@ -338,6 +337,11 @@ hr {
 
   article {
     padding: 20px;
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   
   h2 {

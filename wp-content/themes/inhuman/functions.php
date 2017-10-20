@@ -13,8 +13,8 @@
   function inhuman_setup_theme() {
     add_theme_support('post-thumbnails');
     add_image_size('screenshot_preview', 100, 100, true);
+    add_theme_support('html5', array('search-form'));
   }
-
   add_action('after_setup_theme', 'inhuman_setup_theme');
 
   // Disable admin bar for all users

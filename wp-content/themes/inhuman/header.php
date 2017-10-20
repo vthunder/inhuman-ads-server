@@ -36,7 +36,6 @@
         </div>
 
         <div class="nav-right">
-          <a class="nav-search" href="#sidebar-menu"><i class="fa fa-search fa-lg fa-inverse"></i></a>
           <?php get_search_form(); ?>
         </div>
       </div>

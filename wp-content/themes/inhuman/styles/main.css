@@ -1490,12 +1490,10 @@ header {
         cursor: pointer;
         font: inherit;
         padding: 0 !important; }
-  header #searchform {
+  header .search-form .screen-reader-text, header .search-form .search-submit {
     display: none; }
-    header #searchform input {
-      color: black; }
-    header #searchform label {
-      display: none; }
+  header .search-form input {
+    color: black; }
 
 header.smaller {
   height: 38px;
@@ -1622,7 +1620,11 @@ hr {
     min-height: 100%;
     text-decoration: none; }
   .card article {
-    padding: 20px; }
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
   .card h2 {
     color: #333;
     font-size: 12pt;
