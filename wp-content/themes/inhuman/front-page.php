@@ -54,3 +54,4 @@
 </div>
 
 <div id="bottom-filler"></div>
+<?php get_footer(); ?>

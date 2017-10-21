@@ -9,13 +9,13 @@ jQuery(document).ready(function($) {
   }
   $(".spam-shield a").click(handleShowSpam);
 
-  $(window).scroll(function() {
-    // FIXME: incorrectly removes smaller on secondary pages after scrolling down & back up
-    // 234 is the height of the extended header/hero
-    (window.pageYOffset || document.documentElement.scrollTop) > 234?
-      $("header").addClass("smaller") :
-      $("header").removeClass("smaller");
-  });
+//  $(window).scroll(function() {
+//    // FIXME: incorrectly removes smaller on secondary pages after scrolling down & back up
+//    // 234 is the height of the extended header/hero
+//    (window.pageYOffset || document.documentElement.scrollTop) > 234?
+//      $("header").addClass("smaller") :
+//      $("header").removeClass("smaller");
+//  });
 
   var isotope_opts = {
     itemSelector: '.card',
