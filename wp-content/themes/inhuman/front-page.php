@@ -11,6 +11,20 @@
 <?php inhuman_setup_js_vars(); ?>
 
 <div class="left-sidebar">
+  <a href="/contribute">
+    <img class="submit-an-ad" src="<?php tpldir(); ?>/assets/submit-an-ad.png">
+  </a>
+  <p>What are Inhuman Ads?</p>  
+  <p>Lorem ipsum <a href="/contribute">Learn More&raquo;</a></p>
+
+  <div class="latest-blog-posts-header">
+    <span>Latest Blog Posts</span>
+    <span><a href="/blog">See all&raquo;</a></span>
+  </div>
+
+  <p>Share Bad Ads</p>
+  <button class="share-facebook"><i class="fa fa-facebook"></i> Share us on Facebook</button>
+  <button class="share-twitter"><i class="fa fa-twitter"></i> Tweet about us</button>
 </div>
 
 <div class="main">
