@@ -209,17 +209,21 @@
         'sidebar' => [
           'file' => "$jsdir/sidebar.js",
           'deps' => ['jquery', 'sidr', 'dim-bg']
+        ],
+        'basket' => [
+          'file' => "$jsdir/basket-client.js",
+          'deps' => []
         ]
       ],
       'main' => [
         'front' => [
           'file' => "$jsdir/front.js",
           'deps' => ['jquery', 'jquery-isotope', 'jquery-isinview',
-                     'analytics', 'header', 'sidebar']
+                     'analytics', 'header', 'sidebar', 'basket']
         ],
         'post' => [
           'file' => "$jsdir/post.js",
-          'deps' => ['jquery', 'analytics', 'header', 'sidebar']
+          'deps' => ['jquery', 'analytics', 'header', 'sidebar', 'basket']
         ]
       ]
     ];
