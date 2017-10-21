@@ -15,6 +15,12 @@ see where your offending elements cross the line */
 //body * { border: 1px solid red; }
 
 // ---------------------------------------------------------
+// Colors
+// ---------------------------------------------------------
+
+$main-color: #24d1e4;
+
+// ---------------------------------------------------------
 // Global font defaults
 // ---------------------------------------------------------
 
@@ -33,7 +39,7 @@ h3 {
 }
 
 a {
-  color: darken(saturate(#24d1e4, 20%), 5%);
+  color: darken(saturate($main-color, 20%), 5%);
   text-decoration: none;
 }
 a:hover {
@@ -146,16 +152,16 @@ header {
     .search-form {
       .screen-reader-text, .search-submit { display: none; }
       .search-field {
-        border: 2px solid #24d1e4;
+        border: 2px solid $main-color;
         border-radius: 15px;
-        color: darken(saturate(#24d1e4, 30%), 20%);
+        color: darken(saturate($main-color, 30%), 20%);
         padding: 4px;
       }
     }
   }
 
   .header-bottom {
-    background-color: #24d1e4;
+    background-color: $main-color;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 30px 20px 10px;
@@ -203,7 +209,7 @@ footer {
   width: 100%;
 
   .footer-top {
-    background-color: #24d1e4;
+    background-color: $main-color;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -258,7 +264,7 @@ footer {
         text-align: center;
       }
       button#newsletter_submit {
-        background-color: #24d1e4;
+        background-color: $main-color;
         border: 1px solid white;
         border-radius: 2px;
         color: white;
@@ -306,7 +312,7 @@ footer {
         display: inline;
         padding-right: 2em;
         a {
-          color: darken(saturate(#24d1e4, 30%), 10%);
+          color: darken(saturate($main-color, 30%), 10%);
           font-size: 10pt;
           font-weight: 300;
         }
@@ -320,14 +326,44 @@ footer {
 // ---------------------------------------------------------
 
 .left-sidebar {
+  h3 {
+    font-size: 12pt;
+    margin: 20px 0px 10px;
+  }
+  
   .submit-an-ad {
     height: 100px;
   }
   .latest-blog-posts-header {
+    align-items: baseline;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0px;
   }
+  .latest-blog-posts {
+    margin-bottom: 20px;
+
+    .blog-post-summary {
+      align-items: start;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 5px;
+
+      .thumb div {
+        height: 75px;
+        width: 75px;
+      }
+      .text {
+        padding-left: 10px;
+        h3 {
+          font-size: 11pt;
+          margin: 0;
+        }
+      }
+    }
+  }
+
   .share-facebook,
   .share-twitter {
     border: 0;

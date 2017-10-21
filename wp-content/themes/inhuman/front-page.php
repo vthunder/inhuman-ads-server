@@ -14,15 +14,24 @@
   <a href="/contribute">
     <img class="submit-an-ad" src="<?php tpldir(); ?>/assets/submit-an-ad.png">
   </a>
-  <p>What are Inhuman Ads?</p>  
-  <p>Lorem ipsum <a href="/contribute">Learn More&raquo;</a></p>
+  <h3>What is Inhuman Ads?</h3>
+  <p>Inhuman Ads is a space for humans to clean up the mess made by automated platforms and advertiser dollars. It's a forum for you to share the funny, frustrating, and infuriating ad placements you find in your online adventures. <a href="/about">Learn More&raquo;</a></p>
 
   <div class="latest-blog-posts-header">
-    <span>Latest Blog Posts</span>
+    <h3>Latest Blog Posts</h3>
     <span><a href="/blog">See all&raquo;</a></span>
   </div>
+  <div class="latest-blog-posts">
+	  <?php
+      $loop = new WP_Query(inhuman_query('blog', null, 10));
+		  if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		  get_template_part('blog-post-summary', get_post_format());
+      $shown_ids[] = get_the_ID();
+		  endwhile; endif;
+	  ?>
+  </div>
 
-  <p>Share Bad Ads</p>
+  <h3>Share Bad Ads</h3>
   <button class="share-facebook"><i class="fa fa-facebook"></i> Share us on Facebook</button>
   <button class="share-twitter"><i class="fa fa-twitter"></i> Tweet about us</button>
 </div>
