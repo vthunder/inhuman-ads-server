@@ -43,16 +43,9 @@
     </a>
     <article>
       <div class="details">
-        <a href="<?php get_search_link($domain); ?>" class="domain"><?php echo $domain; ?></a>
-        <?php
-          //          $query = WP_Query(['author' => $author_id]);
-        ?>
-        
-        <span class="author">By: <a href="<?php echo get_author_posts_url($author_id); ?>"><?php echo $author->display_name; ?></a>
+        <a href="/?s=<?php echo urlencode($domain); ?>" class="domain"><?php echo $domain; ?></a>
+        <span class="author">By: <a href="/?s=<?php echo urlencode($author->display_name); ?>"><?php echo $author->display_name; ?></a>
         </span>
-
-
-          <!--         <a href="<?php get_search_link($query->query); ?>"></a></span> -->
       </div>
       <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
       <div class="bottom-details">
@@ -70,7 +63,7 @@
             <span class="count-text"><?php echo $sad_likes; ?></span>
           </div>
         </div>
-        <div class="posted-time">1 day ago</div>
+        <div class="posted-time"><?php echo human_time_diff(get_the_time('U'), current_time('timestamp')); ?> ago</div>
       </div>
     </article>
   </div>
