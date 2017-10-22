@@ -12,6 +12,7 @@
   require_once(plugin_dir_path(__FILE__) . 'admin_columns.php');
   require_once(plugin_dir_path(__FILE__) . 'email_confirmation.php');
   require_once(plugin_dir_path(__FILE__) . 'search_custom_fields.php');
+  require_once(plugin_dir_path(__FILE__) . 'search_post_authors.php');
 
   //
   // No extra <p> tags on plain cards

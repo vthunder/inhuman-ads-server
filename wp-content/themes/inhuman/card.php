@@ -1,4 +1,9 @@
 <?php
+  $author_id = get_post_field('post_author', $post->ID);
+  $author = get_user_by('id', $author_id);
+
+  $domain = get_post_meta($post->ID, "inhuman_meta_publisher_domain", true);
+
   $spam = get_post_meta($post->ID, "inhuman_flagged_status", true);
   $flag_count = get_post_meta($post->ID, "inhuman_flagged_unreviewed_count", true);
   if ($flag_count == '')
@@ -11,6 +16,19 @@
                                            'medium_large');
   if ($thumb_url)
     $thumb_url = $thumb_url[0];
+
+  $likes = get_post_meta(get_the_ID(), "inhuman_meta_total_like_count", true);
+  if (!$likes)
+    $likes = 0;
+  $funny_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_funny_count", true);
+  if (!$funny_likes)
+    $funny_likes = 0;
+  $angry_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_angry_count", true);
+  if (!$angry_likes)
+    $angry_likes = 0;
+  $sad_likes = get_post_meta(get_the_ID(), "inhuman_meta_like_sad_count", true);
+  if (!$sad_likes)
+    $sad_likes = 0;
 ?>
 <div class="card">
   <?php if ($spam_class == "hide"): ?>
@@ -24,12 +42,36 @@
       <div class="thumb" style="background-image: url(<?php echo $thumb_url; ?>);"></div>
     </a>
     <article>
-      <h2><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h2>
-      <?php
-        $author_id = get_post_field('post_author', $post->ID);
-        $author = get_user_by('id', $author_id);
-      ?>
-      <div class="author">By: <?php echo $author->display_name; ?></div>
+      <div class="details">
+        <a href="<?php get_search_link($domain); ?>" class="domain"><?php echo $domain; ?></a>
+        <?php
+          //          $query = WP_Query(['author' => $author_id]);
+        ?>
+        
+        <span class="author">By: <a href="<?php echo get_author_posts_url($author_id); ?>"><?php echo $author->display_name; ?></a>
+        </span>
+
+
+          <!--         <a href="<?php get_search_link($query->query); ?>"></a></span> -->
+      </div>
+      <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
+      <div class="bottom-details">
+        <div class="likes">
+          <div class="funny">
+            <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+            <span class="count-text"><?php echo $funny_likes; ?></span>
+          </div>
+          <div class="angry">
+            <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+            <span class="count-text"><?php echo $angry_likes; ?></span>
+          </div>
+          <div class="sad">
+            <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+            <span class="count-text"><?php echo $sad_likes; ?></span>
+          </div>
+        </div>
+        <div class="posted-time">1 day ago</div>
+      </div>
     </article>
   </div>
 </div>
