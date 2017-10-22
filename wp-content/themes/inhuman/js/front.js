@@ -2,6 +2,15 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
+  $(".top-posts .arrow-left").click(function() {
+    $(".top-posts-viewport").animate({scrollLeft: 0}, 1000);
+  });
+  $(".top-posts .arrow-right").click(function() {
+    $(".top-posts-viewport").animate({
+      scrollLeft: $(".top-posts-viewport")[0].scrollWidth
+    }, 1000);
+  });
+  
   let handleShowSpam = function(e) {
       e.preventDefault();
       $(this).parent().hide().next().show().removeClass("hide");
