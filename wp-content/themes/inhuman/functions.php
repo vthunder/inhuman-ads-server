@@ -20,6 +20,22 @@
   // Disable admin bar for all users
   add_filter('show_admin_bar', '__return_false');
 
+  // Sets query type for home page pagination to work
+  function inhuman_set_query_post_type() {
+    if(!is_category() && !is_admin())
+      set_query_var('post_type', array('post', 'inhuman_screenshot'));
+    return;
+  }
+  add_action('parse_query', 'inhuman_set_query_post_type');
+
+  function inhuman_add_rewrites() {
+    $cat = get_option('category_base');
+    add_rewrite_rule($cat . '/page/?([0-9]{1,})/?$',
+                     'index.php?pagename=' . $cat . '&paged=$matches[1]',
+                     'top');
+  }
+  add_action('init', 'inhuman_add_rewrites');
+
   // Allow searching by display name in users table
   add_filter('user_search_columns', 'inhuman_user_search_columns' , 10, 3);
   function inhuman_user_search_columns($search_columns, $search){
@@ -48,29 +64,14 @@
   }
 
   function inhuman_query($type, $page = null, $limit = 10, $exclude_ids = null) {
-    $query = array(
-      'post_type' => array('inhuman_screenshot'),
-      'meta_query'  => array(
-        array(
-          'key' => 'inhuman_meta_status',
-          'value' => 'publish'
-        ),
-        array(
-          'relation' => 'OR',
-          array(
-            'key' => 'inhuman_meta_featured',
-            'compare' => 'NOT EXISTS',
-            'value' => ''
-          ),
-          array(
-            'key' => 'inhuman_meta_featured',
-            'value' => ''
-          )
-        )
-      ),
+    $query = [
+      'post_type' => ['inhuman_screenshot'],
+      'meta_query'  => [
+        ['key' => 'inhuman_meta_status', 'value' => 'publish']
+      ],
       'posts_per_page' => $limit,
       'post__not_in' => $exclude_ids
-    );
+    ];
 
     switch ($type) {
       case "popular":
@@ -247,24 +248,5 @@
   }
   add_action('wp_enqueue_scripts', 'inhuman_enqueue_styles');
   add_action('wp_enqueue_scripts', 'inhuman_enqueue_scripts');
-
-  //
-  // AJAX Pagination
-  //
-  function load_more() {
-    ob_start();
-
-    $loop = new WP_Query(inhuman_query('latest', esc_attr($_POST['paged'])));
-    if($loop->have_posts()): while($loop->have_posts()): $loop->the_post();
-    get_template_part('card', get_post_format());
-	  endwhile; endif; wp_reset_postdata();
-
-	  $data = ob_get_clean();
-    wp_send_json_success($data);
-
-    wp_die();
-  }
-  add_action('wp_ajax_ajax_load_more', 'load_more' );
-  add_action('wp_ajax_nopriv_ajax_load_more', 'load_more' );
 
 ?>

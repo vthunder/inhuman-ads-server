@@ -1,4 +1,6 @@
 <?php
+  $paged = (get_query_var('paged'))? get_query_var('paged') : 1;
+
   $query_type = get_query_var('e', 'latest');
   function s($emoji) {
     global $query_type;
@@ -6,7 +8,7 @@
       echo "selected";
   }
 ?>
-<?php get_header(); ?>
+<?php include('header.php'); ?>
 <?php get_sidebar(); ?>
 <?php inhuman_setup_js_vars(); ?>
 
@@ -19,12 +21,12 @@
 
   <div class="latest-blog-posts-header">
     <h3>Latest Blog Posts</h3>
-    <span><a href="/blog">See all&raquo;</a></span>
+    <span><a href="/category/blog">See all&raquo;</a></span>
   </div>
   <div class="latest-blog-posts">
 	  <?php
       $loop = new WP_Query(inhuman_query('blog', null, 10));
-		  if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('blog-post-summary', get_post_format());
       $shown_ids[] = get_the_ID();
 		  endwhile; endif;
@@ -39,42 +41,66 @@
 </div>
 
 <div class="main">
-  <h3>Top 10 Most Inhuman Ads</h3>
-  <div class="top-posts">
-    <button class="arrow arrow-left"><i class="fa fa-caret-left"></i></button>
-    <div class="top-posts-viewport">
-      <div class="top-posts-list">
-	      <?php
-          $loop = new WP_Query(inhuman_query('popular', null, 10));
-		      if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
-		      get_template_part('card', get_post_format());
-          $shown_ids[] = get_the_ID();
-		      endwhile; endif;
-	      ?>
+  <?php if ($paged == 1): ?>
+    <h3>Top 10 Most Inhuman Ads</h3>
+    <div class="top-posts">
+      <button class="arrow arrow-left"><i class="fa fa-caret-left"></i></button>
+      <div class="top-posts-viewport">
+        <div class="top-posts-list">
+	        <?php
+            $loop = new WP_Query(inhuman_query('popular', null, 10));
+		        if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
+		        get_template_part('card', get_post_format());
+            $shown_ids[] = get_the_ID();
+		        endwhile; endif;
+	        ?>
+        </div>
       </div>
+      <button class="arrow arrow-right"><i class="fa fa-caret-right"></i></button>
     </div>
-    <button class="arrow arrow-right"><i class="fa fa-caret-right"></i></button>
-  </div>
 
-  <h3>More Bad Ads</h3>
+    <h3>More Bad Ads</h3>
+  <?php endif; ?>
+  
   <div class="grid">
 	  <?php
-      $loop = new WP_Query(inhuman_query($query_type));
-		  if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
+      $query_args = [
+        'post_type' => ['inhuman_screenshot'],
+        'meta_query'  => [
+          ['key' => 'inhuman_meta_status', 'value' => 'publish']
+        ],
+        'posts_per_page' => 9,
+        'paged' => $paged,
+        'page' => $paged
+      ];
+
+      $loop = new WP_Query($query_args);
+		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('card', get_post_format());
       $shown_ids[] = get_the_ID();
-		  endwhile; endif;
+		  endwhile;
+
+      $pagination_args = array(
+        'base' => get_pagenum_link(1) . '%_%',
+        'format' => 'page/%#%',
+        'total' => $loop->max_num_pages,
+        'current' => $paged,
+        'show_all' => False,
+        'end_size' => 1,
+        'mid_size' => 2,
+        'prev_next' => True,
+        'prev_text' => __('&laquo;prev'),
+        'next_text' => __('next&raquo;'),
+        'type' => 'plain',
+        'add_args' => false,
+        'add_fragment' => ''
+      );
+      $paginate_links = paginate_links($pagination_args);
 	  ?>
-  </div>
-  <?php 
-    the_posts_pagination(array(
-	    'mid_size'  => 2,
-	    'prev_text' => __('Previous', 'textdomain'),
-	    'next_text' => __('Next', 'textdomain'),
-    ));
-  ?>
-  <div class="the-end">You've reached the end!<br>
-    Maybe you can <a href="/contribute">contribute a new post</a>?
+      <nav class="pagination">
+        <?php echo $paginate_links; ?>
+      </nav>
+    <?php endif; ?>
   </div>
 </div>
 

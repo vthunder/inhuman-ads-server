@@ -468,6 +468,23 @@ hr {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 10px;
+
+  nav {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .page-numbers { margin-right: 10px; }
+    .page-num { margin-right: 20px; }
+    .prev {
+      position: absolute;
+      left: 0;
+    }
+    .next {
+      position: absolute;
+      right: 0;
+    }
+  }
 }
 .card {
   background: white;
@@ -720,5 +737,8 @@ ol.contribute-instructions {
   }
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
+    nav {
+      grid-column: 1 / 4;
+    }
   }
 }

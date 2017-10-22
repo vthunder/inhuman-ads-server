@@ -1707,6 +1707,20 @@ hr {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-gap: 10px; }
+  .grid nav {
+    display: flex;
+    justify-content: center;
+    position: relative; }
+    .grid nav .page-numbers {
+      margin-right: 10px; }
+    .grid nav .page-num {
+      margin-right: 20px; }
+    .grid nav .prev {
+      position: absolute;
+      left: 0; }
+    .grid nav .next {
+      position: absolute;
+      right: 0; }
 
 .card {
   background: white;
@@ -1880,6 +1894,8 @@ ol.contribute-instructions li {
     width: 75vw; }
 
   .grid {
-    grid-template-columns: 1fr 1fr 1fr; } }
+    grid-template-columns: 1fr 1fr 1fr; }
+    .grid nav {
+      grid-column: 1 / 4; } }
 
 /*# sourceMappingURL=main.css.map */
