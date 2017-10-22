@@ -404,7 +404,7 @@ footer {
   display: none;
   flex-direction: row;
   margin-bottom: 20px;
-  width: 100%;
+  width: 95vw;
 
   .arrow {
     border: 0;
@@ -715,34 +715,10 @@ ol.contribute-instructions {
       }
     }
   }
+  .top-posts {
+    width: 75vw;
+  }
   .grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
-
-// XXX TMP HACK
-
-@media only screen and (min-width: 670px) {
-  .top-posts { width: 630px; }
-}
-@media only screen and (min-width: 770px) {
-  .top-posts { width: 730px; }
-}
-@media only screen and (min-width: 870px) {
-  .top-posts { width: 830px; }
-}
-@media only screen and (min-width: 950px) {
-  .top-posts { width: 593px; }
-}
-@media only screen and (min-width: 1050px) {
-  .top-posts { width: 747px; }
-}
-@media only screen and (min-width: 1150px) {
-  .top-posts { width: 822px; }
-}
-@media only screen and (min-width: 1250px) {
-  .top-posts { width: 895px; }
-}
-@media only screen and (min-width: 1350px) {
-  .top-posts { width: 100%; }
 }
