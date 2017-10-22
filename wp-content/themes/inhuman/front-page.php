@@ -56,7 +56,8 @@
     <button class="arrow arrow-right"><i class="fa fa-caret-right"></i></button>
   </div>
 
-  <div class="all-posts grid">
+  <h3>More Bad Ads</h3>
+  <div class="grid">
 	  <?php
       $loop = new WP_Query(inhuman_query($query_type));
 		  if ($loop->have_posts() ) : while ($loop->have_posts()) : $loop->the_post();
