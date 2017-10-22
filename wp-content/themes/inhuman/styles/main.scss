@@ -419,6 +419,11 @@ footer {
 
       .card {
         margin-bottom: 0;
+        .card-content {
+          .thumb {
+//            height: 100px;
+          }
+        }
       }
     }
   }
@@ -480,10 +485,10 @@ hr {
 
     .thumb {
     border-top: 1px solid lightgray;
-    padding-bottom: 60%;
+    padding-bottom: 40%;
     background-size: cover;
     background-position: center center;
-    max-height: 100px;
+    height: 100px;
     width: 100%;
   }
 
