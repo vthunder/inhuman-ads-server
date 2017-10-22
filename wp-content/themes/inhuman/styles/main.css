@@ -1670,7 +1670,8 @@ footer {
       flex-direction: row;
       width: 200%; }
       .top-posts .top-posts-viewport .top-posts-list .card {
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        width: 15%; }
 
 hr {
   display: block;
@@ -1705,7 +1706,8 @@ hr {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 0 5px 20px;
   min-height: 100%;
-  overflow: hidden; }
+  overflow: hidden;
+  width: 100%; }
   .card .card-content {
     color: #444;
     display: flex;

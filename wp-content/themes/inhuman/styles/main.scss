@@ -419,11 +419,7 @@ footer {
 
       .card {
         margin-bottom: 0;
-        .card-content {
-          .thumb {
-//            height: 100px;
-          }
-        }
+        width: 15%;
       }
     }
   }
@@ -475,6 +471,7 @@ hr {
   margin: 0 5px 20px;
   min-height: 100%;
   overflow: hidden;
+  width: 100%;
 
   .card-content {
     color: #444;
