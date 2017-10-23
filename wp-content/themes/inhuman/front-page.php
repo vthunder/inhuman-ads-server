@@ -9,7 +9,6 @@
   }
 ?>
 <?php include('header.php'); ?>
-<?php get_sidebar(); ?>
 <?php inhuman_setup_js_vars(); ?>
 
 <div class="left-sidebar">

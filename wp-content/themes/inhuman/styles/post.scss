@@ -1,49 +1,7 @@
-//
-// Header & Footer
-//
+$main-color: #24d1e4;
 
-header {
-//  height: 38px;
-//  .title-logo { max-height: 45%; }
-//  h2 {
-//    font-size: 6pt;
-//    .firefox { font-size: 7pt; }
-//  }
-}
-//.header-bottom {
-//  display: none;
-//}
-
-.footer {
-  background: #ccc;
-  height: 40px;
-  margin-top: 20px;
-  width: 100%;
-  .footer-left {
-    padding-left: 20px;
-    padding-top: 10px;
-    float: left;
-    font-size: 12pt;
-
-    .mozlogo img {
-      width: 5em;
-    }
-  }
-  .footer-right {
-    padding-right: 20px;
-    padding-top: 10px;
-    float: right;
-    .terms {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      li {
-        display: inline;
-        font-size: 10pt;
-        margin-left: 1em;
-      }
-    }
-  }
+body {
+  grid-template-columns: 1fr;
 }
 
 //
@@ -56,7 +14,7 @@ h2.page-title {
 }
 
 .page-body {
-  background: #fff;
+  background-color: #fff;
   margin: 0 80px;
   padding: 10px;
 }
@@ -85,7 +43,7 @@ h2.article-title {
 }
 
 .article-body {
-  background: #fff;
+  background-color: #fff;
   margin: 20px 80px;
   padding: 20px;
 }
@@ -93,6 +51,11 @@ h2.article-title {
 //
 // Screenshot posts
 //
+
+.content {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr;
+}
 
 .content {
   margin: 0 80px;
@@ -104,14 +67,14 @@ h2.article-title {
 }
 
 .screenshot-card {
-  border: 1px solid #ccc;
+  border: 1px solid $main-color;
   position: relative;
 
   .prev-screenshot,
   .next-screenshot {
     position: absolute;
     margin-top: 25%;
-    color: gray;
+    color: $main-color;
     text-decoration: none;
   }
   .prev-screenshot:hover,
@@ -127,110 +90,46 @@ h2.article-title {
     margin-right: auto;
     height: auto;
     max-width: 100%;
+    max-height: 80%;
   }
   .screenshot-meta {
-    background: #fff;
+    background-color: #fff;
     min-height: 2.5em;
     padding: .5em;
-    
+
+    .screenshot-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+
+      .like {
+        margin-right: 20px;
+        img { height: 20px; }
+      }
+
+      .share {
+        img { height: 20px; }
+      }
+    }
     .screenshot-caption {
       font-size: 16pt;
       padding-right: 3em;
     }
-    .screenshot-actions {
-      float: right;
-
-      * {
-        text-decoration: none;
-      }
-
-      .like {
-        margin-right: .25em;
-        position: relative;
-
-        .like-box-wrapper {
-          display: none;
-          height: 100px;
-          left: -180px;
-          position: absolute;
-          bottom: 15px;
-          width: 320px;
-        }
-
-        .like-box {
-          background: #fff;
-          border: 1px solid #ccc;
-          left: 30px;
-          position: absolute;
-          padding: 5px 10px;
-          bottom: 10px;
-
-          .like-emoji {
-            margin: 2px;
-          }
-        }
-      }
-
-      .like i:hover {
-        -webkit-transition: transform 0.3s;
-        -moz-transition: transform 0.3s;
-        -ms-transition: transform 0.3s;
-        -o-transition: transform 0.3s;
-        transition: transform 0.3s;
-        -webkit-transform: rotate(180deg);
-        -moz-transform: rotate(180deg);
-        -o-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-        transform: rotate(180deg);
-      }
-
-      .share {
-        position: relative;
-
-        .share-box-wrapper {
-          display: none;
-          height: 130px;
-          left: -130px;
-          position: absolute;
-          bottom: 15px;
-          width: 300px;
-        }
-
-        .share-box {
-          background: #fff;
-          border: 1px solid #ccc;
-          left: 30px;
-          position: absolute;
-          padding: 5px 10px;
-          bottom: 10px;
-        }
-      }
-    }
-    .like-emoji-count-box {
-      clear: both;
-      float: right;
-
-      img {
-        height: 14px;
-        width: 14px;
-      }
-      .count-text {
-        font-size: 9pt;
-        margin-right: .5em;
-      }
-      .count-text:last-child {
-        margin-right: 0;
-      }
-    }
   }
   .screenshot-meta-2 {
-    background: #ccc;
-    padding: .25em .5em .25em .5em;
+    background-color: $main-color;
+    display: flex;
+    flex-direction: row;
     font-size: 9pt;
-    .screenshot-brand {
-    }
+    justify-content: space-between;
+    padding: .25em .5em;
+
+    .screenshot-brand,
     .screenshot-domain {
-      float: right;
+      a {
+        color: black;
+        text-decoration: underline;
+      }
     }
   }
   .secondary-actions {

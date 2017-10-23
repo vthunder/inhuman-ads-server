@@ -1,34 +1,12 @@
-.footer {
-  background: #ccc;
-  height: 40px;
-  margin-top: 20px;
-  width: 100%; }
-  .footer .footer-left {
-    padding-left: 20px;
-    padding-top: 10px;
-    float: left;
-    font-size: 12pt; }
-    .footer .footer-left .mozlogo img {
-      width: 5em; }
-  .footer .footer-right {
-    padding-right: 20px;
-    padding-top: 10px;
-    float: right; }
-    .footer .footer-right .terms {
-      list-style: none;
-      margin: 0;
-      padding: 0; }
-      .footer .footer-right .terms li {
-        display: inline;
-        font-size: 10pt;
-        margin-left: 1em; }
+body {
+  grid-template-columns: 1fr; }
 
 h2.page-title {
   font-family: fira-sans, sans-serif;
   font-weight: bold; }
 
 .page-body {
-  background: #fff;
+  background-color: #fff;
   margin: 0 80px;
   padding: 10px; }
 
@@ -49,9 +27,13 @@ h2.article-title {
   margin-top: 20px; }
 
 .article-body {
-  background: #fff;
+  background-color: #fff;
   margin: 20px 80px;
   padding: 20px; }
+
+.content {
+  display: grid;
+  grid-template-columns: 3fr 6fr 3fr; }
 
 .content {
   margin: 0 80px;
@@ -60,13 +42,13 @@ h2.article-title {
     margin-top: 3em; }
 
 .screenshot-card {
-  border: 1px solid #ccc;
+  border: 1px solid #24d1e4;
   position: relative; }
   .screenshot-card .prev-screenshot,
   .screenshot-card .next-screenshot {
     position: absolute;
     margin-top: 25%;
-    color: gray;
+    color: #24d1e4;
     text-decoration: none; }
   .screenshot-card .prev-screenshot:hover,
   .screenshot-card .next-screenshot:hover {
@@ -80,81 +62,36 @@ h2.article-title {
     margin-left: auto;
     margin-right: auto;
     height: auto;
-    max-width: 100%; }
+    max-width: 100%;
+    max-height: 80%; }
   .screenshot-card .screenshot-meta {
-    background: #fff;
+    background-color: #fff;
     min-height: 2.5em;
     padding: .5em; }
+    .screenshot-card .screenshot-meta .screenshot-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: end; }
+      .screenshot-card .screenshot-meta .screenshot-actions .like {
+        margin-right: 20px; }
+        .screenshot-card .screenshot-meta .screenshot-actions .like img {
+          height: 20px; }
+      .screenshot-card .screenshot-meta .screenshot-actions .share img {
+        height: 20px; }
     .screenshot-card .screenshot-meta .screenshot-caption {
       font-size: 16pt;
       padding-right: 3em; }
-    .screenshot-card .screenshot-meta .screenshot-actions {
-      float: right; }
-      .screenshot-card .screenshot-meta .screenshot-actions * {
-        text-decoration: none; }
-      .screenshot-card .screenshot-meta .screenshot-actions .like {
-        margin-right: .25em;
-        position: relative; }
-        .screenshot-card .screenshot-meta .screenshot-actions .like .like-box-wrapper {
-          display: none;
-          height: 100px;
-          left: -180px;
-          position: absolute;
-          bottom: 15px;
-          width: 320px; }
-        .screenshot-card .screenshot-meta .screenshot-actions .like .like-box {
-          background: #fff;
-          border: 1px solid #ccc;
-          left: 30px;
-          position: absolute;
-          padding: 5px 10px;
-          bottom: 10px; }
-          .screenshot-card .screenshot-meta .screenshot-actions .like .like-box .like-emoji {
-            margin: 2px; }
-      .screenshot-card .screenshot-meta .screenshot-actions .like i:hover {
-        -webkit-transition: transform 0.3s;
-        -moz-transition: transform 0.3s;
-        -ms-transition: transform 0.3s;
-        -o-transition: transform 0.3s;
-        transition: transform 0.3s;
-        -webkit-transform: rotate(180deg);
-        -moz-transform: rotate(180deg);
-        -o-transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-        transform: rotate(180deg); }
-      .screenshot-card .screenshot-meta .screenshot-actions .share {
-        position: relative; }
-        .screenshot-card .screenshot-meta .screenshot-actions .share .share-box-wrapper {
-          display: none;
-          height: 130px;
-          left: -130px;
-          position: absolute;
-          bottom: 15px;
-          width: 300px; }
-        .screenshot-card .screenshot-meta .screenshot-actions .share .share-box {
-          background: #fff;
-          border: 1px solid #ccc;
-          left: 30px;
-          position: absolute;
-          padding: 5px 10px;
-          bottom: 10px; }
-    .screenshot-card .screenshot-meta .like-emoji-count-box {
-      clear: both;
-      float: right; }
-      .screenshot-card .screenshot-meta .like-emoji-count-box img {
-        height: 14px;
-        width: 14px; }
-      .screenshot-card .screenshot-meta .like-emoji-count-box .count-text {
-        font-size: 9pt;
-        margin-right: .5em; }
-      .screenshot-card .screenshot-meta .like-emoji-count-box .count-text:last-child {
-        margin-right: 0; }
   .screenshot-card .screenshot-meta-2 {
-    background: #ccc;
-    padding: .25em .5em .25em .5em;
-    font-size: 9pt; }
-    .screenshot-card .screenshot-meta-2 .screenshot-domain {
-      float: right; }
+    background-color: #24d1e4;
+    display: flex;
+    flex-direction: row;
+    font-size: 9pt;
+    justify-content: space-between;
+    padding: .25em .5em; }
+    .screenshot-card .screenshot-meta-2 .screenshot-brand a,
+    .screenshot-card .screenshot-meta-2 .screenshot-domain a {
+      color: black;
+      text-decoration: underline; }
   .screenshot-card .secondary-actions {
     float: right;
     margin-top: .25em;

@@ -26,12 +26,14 @@
   if (!$sad_likes)
     $sad_likes = 0;
 ?>
-<?php get_sidebar(); ?>
+
 <?php inhuman_setup_js_vars(); ?>
 
 <input id="post_id" type="hidden" value="<?php echo get_the_ID(); ?>">
 
 <div class="content">
+  <div class="left-bar"></div>
+  <div class="center-content">
   <?php if($edit && $isowner): ?>
     <?php if (get_user_meta(get_current_user_id(), "inhuman_user_complete", true)): ?>
       <div class="screenshot-edit">
@@ -103,68 +105,52 @@
         <?php the_post_thumbnail('full'); ?>
         <div class="screenshot-meta">
           <span class="screenshot-caption"><?php the_title(); ?></span>
-          <span class="screenshot-actions">
-            <span class="like">
-              <a class="like-link" href="#"><i class="fa fa-smile-o fa-lg"></i></a>
-              <div class="like-box-wrapper">
-                <div class="like-box">
-                  <a class="like-emoji-link" data-emoji="funny" href="#">
-                    <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-                  </a>
-                  <a class="like-emoji-link" data-emoji="angry" href="#">
-                    <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
-                  </a>
-                  <a class="like-emoji-link" data-emoji="sad" href="#">
-                    <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
-                  </a>
-                  <!--
-                       <a class="like-emoji-link" data-emoji="huh" href="#">
-                       <img src="<?php tpldir(); ?>/assets/emojiicon-huh.svg">
-                       </a>
-                     -->
-                </div>
-              </div>
-            </span>
+          <div class="screenshot-actions">
+            <div class="like">
+              <a class="like-emoji-link" data-emoji="funny" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+              </a>
+              <span class="count-text"><?php echo $funny_likes; ?></span>
 
-            <span class="share">
-              <a class="share-link" href="#"><i class="fa fa-share-square-o fa-lg"></i></a>
-              <div class="share-box-wrapper">
-                <div class="share-box">
-                  <a class="twitter-share-button"
-                     data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
-                     href="#">
-                    <i class="fa fa-twitter-square fa-3x"></i></a>
-                  <a class="facebook-share-button"
-                     data-fb-u="<?php echo urlencode(get_permalink()); ?>"
-                     data-fb-title="<?php echo urlencode(get_the_title()); ?>"
-                     href="#">
-                    <i class="fa fa-facebook-square fa-3x"></i></a>
-                  <a class="email-share-button"
-                     data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
-                     href="#">
-                    <i class="fa fa-envelope-square fa-3x"></i></a>
-                </div>
-              </div>
-            </span>
-          </span>
-          <div class="like-emoji-count-box">
-            <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-            <span class="count-text"><?php echo $funny_likes; ?></span>
-            <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
-            <span class="count-text"><?php echo $angry_likes; ?></span>
-            <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
-            <span class="count-text"><?php echo $sad_likes; ?></span>
+              <a class="like-emoji-link" data-emoji="angry" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+              </a>
+              <span class="count-text"><?php echo $angry_likes; ?></span>
+
+              <a class="like-emoji-link" data-emoji="sad" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+              </a>
+              <span class="count-text"><?php echo $sad_likes; ?></span>
+            </div>
+            <div class="share">
+              <a class="twitter-share-button"
+                 data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
+                 href="#">
+                <i class="fa fa-twitter-square fa-lg"></i></a>
+              <a class="facebook-share-button"
+                 data-fb-u="<?php echo urlencode(get_permalink()); ?>"
+                 data-fb-title="<?php echo urlencode(get_the_title()); ?>"
+                 href="#">
+                <i class="fa fa-facebook-square fa-lg"></i></a>
+              <a class="email-share-button"
+                 data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
+                 href="#">
+                <i class="fa fa-envelope-square fa-lg"></i></a>
+            </div>
           </div>
         </div>
       </div>
       <div class="screenshot-meta-2">
-        <span class="screenshot-brand">Brand: <a href="/?s=<?php echo $brand; ?>"><?php echo $brand; ?></a></span>
+        <?php if ($brand): ?>
+          <span class="screenshot-brand">Brand: <a href="/?s=<?php echo $brand; ?>"><?php echo $brand; ?></a></span>
+        <?php endif; ?>
         <?php
           $author_id = get_post_field('post_author', $post->ID);
           $author = get_user_by('id', $author_id);
         ?>
-        <span class="screenshot-domain">Spotted on: <a href="/?s=<?php echo $domain; ?>"><?php echo $domain; ?></a> by <?php echo $author->display_name; ?></span>
+        <span class="screenshot-domain">Spotted on: <a href="/?s=<?php echo $domain; ?>"><?php echo $domain; ?></a> by <a href="/?s=<?php echo $author->display_name; ?>"><?php echo $author->display_name; ?></a></span>
       </div>
+
       <div class="secondary-actions">
         <a id="report-link" href="#">
           <i class="fa fa-warning"></i><span class="action-txt">Report</span>
@@ -182,6 +168,8 @@
 
     <?php comments_template(); ?>
   <?php endif; ?>
+  </div>
+  <div class="right-bar"></div>
 </div>
 
 <?php get_footer(); ?>
