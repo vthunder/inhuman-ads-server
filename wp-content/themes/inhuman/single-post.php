@@ -1,6 +1,5 @@
 <?php get_header(); ?>
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/post.css"); ?>
-<?php get_sidebar(); ?>
 <?php inhuman_setup_js_vars(); ?>
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>

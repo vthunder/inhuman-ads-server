@@ -9,4 +9,4 @@
 	endwhile; endif;
 ?>
 
-<?php get_footer('post'); ?>
+<?php get_footer(); ?>
