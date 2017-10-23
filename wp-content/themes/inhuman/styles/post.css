@@ -92,6 +92,9 @@ h2.article-title {
     .screenshot-card .screenshot-meta-2 .screenshot-domain a {
       color: black;
       text-decoration: underline; }
+    .screenshot-card .screenshot-meta-2 .screenshot-domain {
+      flex: 1;
+      text-align: right; }
   .screenshot-card .secondary-actions {
     float: right;
     margin-top: .25em;
