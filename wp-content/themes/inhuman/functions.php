@@ -22,19 +22,11 @@
 
   // Sets query type for home page pagination to work
   function inhuman_set_query_post_type() {
-    if(!is_category() && !is_admin())
+    if(!is_page() && !is_category() && !is_admin())
       set_query_var('post_type', array('post', 'inhuman_screenshot'));
     return;
   }
   add_action('parse_query', 'inhuman_set_query_post_type');
-
-  function inhuman_add_rewrites() {
-    $cat = get_option('category_base');
-    add_rewrite_rule($cat . '/page/?([0-9]{1,})/?$',
-                     'index.php?pagename=' . $cat . '&paged=$matches[1]',
-                     'top');
-  }
-  add_action('init', 'inhuman_add_rewrites');
 
   // Allow searching by display name in users table
   add_filter('user_search_columns', 'inhuman_user_search_columns' , 10, 3);

@@ -21,7 +21,7 @@
 
   <div class="latest-blog-posts-header">
     <h3>Latest Blog Posts</h3>
-    <span><a href="/category/blog">See all&raquo;</a></span>
+    <span><a href="/blog">See all&raquo;</a></span>
   </div>
   <div class="latest-blog-posts">
 	  <?php
