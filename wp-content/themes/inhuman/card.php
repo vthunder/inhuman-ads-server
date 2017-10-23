@@ -38,6 +38,11 @@
     </p>
   <?php endif; ?>
   <div class="card-content <?php echo $spam_class; ?>">
+    <?php if ($card_num): ?>
+      <div class="card-num">
+        <div class="number"><?php echo $card_num; ?></div>
+      </div>
+    <?php endif; ?>
     <a href="<?php the_permalink(); ?>">
       <div class="thumb" style="background-image: url(<?php echo $thumb_url; ?>);"></div>
     </a>

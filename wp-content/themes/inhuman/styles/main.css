@@ -1736,7 +1736,24 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 100%; }
+    min-height: 100%;
+    position: relative; }
+    .card .card-content .card-num {
+      background: #24d1e4;
+      border-bottom: 5px solid #24d1e4;
+      border-right: 5px solid #24d1e4;
+      border-radius: 2em;
+      height: 3em;
+      left: -1.25em;
+      position: absolute;
+      top: -1.25em;
+      width: 3em; }
+      .card .card-content .card-num .number {
+        bottom: 0;
+        color: white;
+        font-size: 12pt;
+        right: .5em;
+        position: absolute; }
     .card .card-content .thumb {
       border-top: 1px solid lightgray;
       padding-bottom: 40%;

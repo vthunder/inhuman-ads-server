@@ -502,6 +502,27 @@ hr {
     flex-direction: column;
     justify-content: space-between;
     min-height: 100%;
+    position: relative;
+
+    .card-num {
+      background: $main-color;
+      border-bottom: 5px solid $main-color;
+      border-right: 5px solid $main-color;
+      border-radius: 2em;
+      height: 3em;
+      left: -1.25em;
+      position: absolute;
+      top: -1.25em;
+      width: 3em;
+
+      .number {
+        bottom: 0;
+        color: white;
+        font-size: 12pt;
+        right: .5em;
+        position: absolute;
+      }
+    }
 
     .thumb {
       border-top: 1px solid lightgray;

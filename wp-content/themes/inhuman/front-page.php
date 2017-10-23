@@ -28,7 +28,6 @@
       $loop = new WP_Query(inhuman_query('blog', null, 10));
 		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('blog-post-summary', get_post_format());
-      $shown_ids[] = get_the_ID();
 		  endwhile; endif;
 	  ?>
   </div>
@@ -48,10 +47,11 @@
       <div class="top-posts-viewport">
         <div class="top-posts-list">
 	        <?php
+            $card_num = 1;
             $loop = new WP_Query(inhuman_query('popular', null, 10));
 		        if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
-		        get_template_part('card', get_post_format());
-            $shown_ids[] = get_the_ID();
+            include(locate_template('card.php', false, false));
+            $card_num++;
 		        endwhile; endif;
 	        ?>
         </div>
@@ -77,7 +77,6 @@
       $loop = new WP_Query($query_args);
 		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('card', get_post_format());
-      $shown_ids[] = get_the_ID();
 		  endwhile;
 
       $pagination_args = array(
