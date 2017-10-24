@@ -1,0 +1,62 @@
+body {
+  background: white;
+  color: #333;
+  display: grid;
+  grid-template-areas: "header" "main" "sidebar" "footer";
+  grid-template-columns: 1fr;
+  margin: 0; }
+
+.main {
+  grid-area: main; }
+
+.faq {
+  grid-area: sidebar; }
+
+.install-p {
+  padding: 0;
+  margin-bottom: 0; }
+
+.landing1 {
+  float: right;
+  height: 150px;
+  width: 150px;
+  margin: 20px 20px 10px 10px; }
+
+.landing2 {
+  width: 100%;
+  height: auto; }
+
+.upload-button {
+  position: relative;
+  overflow: hidden;
+  margin: 10px; }
+
+.upload-button input.upload {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0); }
+
+.faq {
+  background-color: #f5f5f7;
+  padding: 20px; }
+  .faq dt {
+    font-size: 11pt;
+    font-weight: 500;
+    margin-bottom: 1em; }
+  .faq dd {
+    font-size: 10pt;
+    margin-bottom: 1em;
+    margin-left: 0; }
+
+@media only screen and (min-width: 950px) {
+  body {
+    grid-template-areas: "header header header header" "   .  sidebar  main    .   " "footer footer footer footer";
+    grid-template-columns: 1fr 4fr 6fr 1fr; } }
+
+/*# sourceMappingURL=contribute.css.map */
