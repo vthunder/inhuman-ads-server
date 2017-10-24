@@ -44,16 +44,11 @@
     // under default_pages/ are expected to define a variable called
     // '$page_content'. Each include re-defines the same variable.
 
-    require_once(plugin_dir_path(__FILE__) . '../default_pages/about.php');
-    create_or_update_page('About', 'about', 0, $page_content);
-
-    require_once(plugin_dir_path(__FILE__) . '../default_pages/contribute.php');
-    create_or_update_page('Contribute', 'contribute', 1, $page_content);
-
+    create_or_update_page('About', 'about', 0, '');
+    create_or_update_page('Contribute', 'contribute', 1, '');
     create_or_update_page('High Scores', 'high-scores', 2, '');
     create_or_update_page('Blog', 'blog', 3, '');
-
-    require_once(plugin_dir_path(__FILE__) . '../default_pages/subscribe.php');
-    create_or_update_page('Subscribe', 'subscribe', 4, $page_content);
+    create_or_update_page('Login', 'login', 4, '');
+    create_or_update_page('User', 'user', 5, '');
   }
 ?>
