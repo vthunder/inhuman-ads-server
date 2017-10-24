@@ -1,0 +1,34 @@
+body {
+  background: white;
+  color: #333;
+  display: grid;
+  grid-template-areas: "header" "main" "sidebar" "footer";
+  grid-template-columns: 1fr;
+  margin: 0; }
+
+#main {
+  grid-area: main;
+  width: 400px;
+  margin: 20px auto; }
+
+.tabs {
+  display: inline;
+  list-style: none;
+  padding-left: 0; }
+  .tabs li {
+    display: inline;
+    padding: 0 5px 0; }
+  .tabs li.active-tab {
+    border: 2px solid #24d1e4;
+    border-bottom: 2px solid white;
+    border-radius: 4px 4px 0 0; }
+    .tabs li.active-tab a {
+      color: black;
+      text-decoration: none; }
+
+.tab-content {
+  border: 2px solid #24d1e4;
+  border-radius: 0 4px 4px;
+  padding: 0 20px 20px; }
+
+/*# sourceMappingURL=login.css.map */
