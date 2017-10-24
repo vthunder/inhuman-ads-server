@@ -11,13 +11,15 @@
 <?php include('header.php'); ?>
 <?php inhuman_setup_js_vars(); ?>
 
-<div class="left-sidebar">
-  <a href="/contribute">
-    <img class="submit-an-ad" src="<?php tpldir(); ?>/assets/submit-an-ad.png">
+<div class="submit-an-ad-sidebar">
+  <a class="submit-an-ad" href="/contribute">
+    <img src="<?php tpldir(); ?>/assets/submit-an-ad.png">
   </a>
   <h3>What is Inhuman Ads?</h3>
   <p>Inhuman Ads is a space for humans to point out the mess made by automated platforms and advertiser dollars, so we can one day clean it up. It's a forum for you to share the funny, frustrating, and infuriating ad placements you find in your online adventures. <a href="/about">Learn More&raquo;</a></p>
+</div>
 
+<div class="blog-posts-sidebar">
   <div class="latest-blog-posts-header">
     <h3>Latest Blog Posts</h3>
     <span><a href="/blog">See all&raquo;</a></span>
@@ -30,7 +32,9 @@
 		  endwhile; endif;
 	  ?>
   </div>
+</div>
 
+<div class="share-buttons-sidebar">
   <h3>Share Bad Ads</h3>
   <div class="share-buttons">
     <button class="share-facebook"><i class="fa fa-facebook"></i> Share us on Facebook</button>
