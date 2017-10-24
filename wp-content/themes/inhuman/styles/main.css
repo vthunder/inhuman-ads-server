@@ -1862,7 +1862,7 @@ ul.search-results {
 @media only screen and (min-width: 950px) {
   body {
     grid-template-areas: "header header header header" "   .  sidebar1 main    .   " "   .  sidebar2 main    .   " "   .  sidebar3 main    .   " "   .      .    main    .   " "footer footer footer footer";
-    grid-template-columns: 2fr 2fr 6fr 2fr; }
+    grid-template-columns: 1fr 3fr 7fr 1fr; }
 
   header .header-top {
     padding: 10px; }
