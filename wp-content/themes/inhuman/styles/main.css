@@ -1394,9 +1394,6 @@ header {
 footer {
   grid-area: footer; }
 
-#bottom-filler {
-  height: 100%; }
-
 header {
   width: 100%; }
   header .header-top {
@@ -1573,7 +1570,8 @@ footer {
 .submit-an-ad-sidebar {
   align-items: center;
   background: #f5f5f7;
-  padding: 20px; }
+  padding: 20px;
+  min-width: 250px; }
   .submit-an-ad-sidebar .submit-an-ad {
     display: flex;
     justify-content: start; }
@@ -1692,7 +1690,8 @@ footer {
   .grid nav {
     display: flex;
     justify-content: center;
-    position: relative; }
+    position: relative;
+    width: 100%; }
     .grid nav .page-numbers {
       margin-right: 10px; }
     .grid nav .page-num {
@@ -1891,9 +1890,11 @@ ol.contribute-instructions li {
         display: block;
         height: 40px; }
 
-  .left-sidebar .share-buttons {
+  .share-buttons-sidebar .share-buttons {
     flex-direction: column; }
-    .left-sidebar .share-buttons .share-twitter {
+    .share-buttons-sidebar .share-buttons button {
+      font-size: 10pt; }
+    .share-buttons-sidebar .share-buttons .share-twitter {
       margin-left: 0; }
 
   footer .footer-top {

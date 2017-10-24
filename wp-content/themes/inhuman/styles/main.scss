@@ -113,10 +113,6 @@ footer {
   grid-area: footer;
 }
 
-#bottom-filler {
-  height: 100%;
-}
-
 // ---------------------------------------------------------
 // Header
 // ---------------------------------------------------------
@@ -358,6 +354,7 @@ footer {
   align-items: center;
   background: #f5f5f7;
   padding: 20px;
+  min-width: 250px;
 
   .submit-an-ad {
     display: flex;
@@ -514,6 +511,7 @@ footer {
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
 
     .page-numbers { margin-right: 10px; }
     .page-num { margin-right: 20px; }
@@ -810,9 +808,11 @@ ol.contribute-instructions {
       }
     }
   }
-  .left-sidebar {
+  .share-buttons-sidebar {
     .share-buttons {
       flex-direction: column;
+
+      button { font-size: 10pt; }
       .share-twitter {
         margin-left: 0;
       }
