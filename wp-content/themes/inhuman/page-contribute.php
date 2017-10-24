@@ -17,7 +17,7 @@
     <p><a id="install_button" href="https://addons.mozilla.org/firefox/downloads/latest/inhuman-ads/addon-841180-latest.xpi?src=dp-btn-primary" class="button button-primary">Activate Inhuman Ads</a></p>
 
     <p>Once the add-on is installed, simply take a screenshot and
-      click the “Send to Inhuman Ads” link!</p>
+      click the “Send to Inhuman Ads” button!</p>
 
     <img class="landing2" src="<?php tpldir(); ?>/assets/send-to-inhuman-ads.png">
   <?php else: ?>
