@@ -65,6 +65,28 @@
     public static function html($post) {
 	    $meta = Inhuman_Meta::get_meta($post->ID); ?>
 
+  <style type="text/css">
+    .inhuman_label {
+      display: inline-block;
+      width: 6em;
+    }
+    .inhuman_fieldset {
+      border-top: 1px solid #ddd;
+      margin: 1em 0 1em;
+    }
+    .inhuman_fieldset > * {
+      margin-left: 2em;
+    }
+    .inhuman_fieldset legend {
+      font-weight: bold;
+      margin-left: .75em;
+      padding: 0 .5em 0 .5em;
+    }
+    .inhuman_fieldset select {
+      min-width: 10em;
+    }
+  </style>
+
   <div class="heading"><b>Inappropriate content/spam</b></div>
   <?php
     $flagged_status = get_post_meta($post->ID, "inhuman_flagged_status", true);
@@ -76,7 +98,13 @@
     <li><a class="inhuman_flag_confirm" href="<?php echo admin_url("admin-post.php?post_type=inhuman_screenshot&action=inhuman_flag_confirm&post=$post->ID"); ?>">Spam</a></li>
 	  <li><a class="inhuman_flag_clear" href="<?php echo admin_url("admin-post.php?post_type=inhuman_screenshot&action=inhuman_flag_clear&post=$post->ID"); ?>">Not spam</a></li>
   </ul>
-
+  <p>
+    <label for="inhuman_meta[status]" class="inhuman_label" style="width:3em;">Status</label>
+    <select name="inhuman_meta[status]" id="inhuman_meta[status]">
+      <option value="draft" <?php selected($meta['status'], "draft"); ?>>Draft</option>
+      <option value="published" <?php selected($meta['status'], "published"); ?>>Published</option>
+    </select>
+  </p>
 <?php }
   }
   add_action('add_meta_boxes', ['Inhuman_Meta', 'add']);
