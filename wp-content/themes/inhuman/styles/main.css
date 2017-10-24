@@ -1416,6 +1416,8 @@ header {
         display: inline;
         padding-left: 0;
         padding-right: 2em; }
+        header .header-top .header-links li a {
+          color: black; }
     header .header-top .powered-by {
       align-items: top;
       display: flex;
@@ -1813,26 +1815,6 @@ ul.search-results {
         margin-left: 1em; }
   ul.search-results li:last-child {
     border-bottom: none; }
-
-.install-p {
-  padding: 0;
-  margin-bottom: 0; }
-
-ol.contribute-instructions li:first-child {
-  padding: 0 0 0 5%; }
-ol.contribute-instructions li {
-  padding: 1em 0 0 5%; }
-
-.faq-header {
-  border-top: 1px solid #eee;
-  text-align: center;
-  margin-top: 3em;
-  padding-top: 1em; }
-
-.install-faq dt {
-  font-style: italic; }
-.install-faq dd {
-  margin-bottom: 1em; }
 
 @media only screen and (min-width: 450px) {
   header .header-top .header-links {
