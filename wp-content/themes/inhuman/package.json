@@ -1,0 +1,20 @@
+{
+  "name": "inhuman",
+  "version": "0.0.1",
+  "description": "Inhuman Ads Theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylegen": "cd styles; sass --watch main.scss:main.css post.scss:post.css contribute.scss:contribute.css login.scss:login.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vthunder/inhuman-ads-server.git"
+  },
+  "author": "Dan Mills <thunder@mozilla.com>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/vthunder/inhuman-ads-server/issues"
+  },
+  "homepage": "https://github.com/vthunder/inhuman-ads-server#readme"
+}
