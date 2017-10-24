@@ -7,7 +7,7 @@
     <meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.ico">
+    <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.png">
     <?php wp_head();?>
   </head>
 
