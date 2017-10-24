@@ -7,6 +7,10 @@
 Thumbs.db
 .sass-cache
 
+# debug plugins
+wp-content/plugins/debug-this/*
+wp-content/plugins/what-the-file/*
+
 # Local config
 .env
 .htaccess
