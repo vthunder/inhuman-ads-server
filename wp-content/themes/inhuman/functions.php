@@ -18,7 +18,7 @@
   add_action('after_setup_theme', 'inhuman_setup_theme');
 
   // Disable admin bar for all users
-  add_filter('show_admin_bar', '__return_false');
+  //add_filter('show_admin_bar', '__return_false');
 
   // Sets query type for home page pagination to work
   function inhuman_set_query_post_type() {
