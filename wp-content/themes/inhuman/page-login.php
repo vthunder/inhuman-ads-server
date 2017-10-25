@@ -137,6 +137,9 @@
 
 					      <input type="hidden" name="redirect_to" value="/login/?action=register&amp;success=1" />
 					      <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Register" /></p>
+
+                <p>Your comments and posts will be live on Inhuman Ads unless you delete them. If you’re logged in, you can click on any post that belongs to you to edit or delete it.</p>
+                <p class="tos-privacy">Use of Inhuman Ads is subject to these <a href="https://www.mozilla.org/en-US/about/legal/terms/mozilla/">terms and conditions</a> | Read our <a href="https://www.mozilla.org/en-US/privacy/websites/">Privacy Notice</a></p>
 				      </form>
 
 			      </div>
@@ -213,8 +216,8 @@
 						          list( $rp_login, $rp_key ) = explode( ':', wp_unslash( $_COOKIE[ $rp_cookie ] ), 2 );
 					          }
 					        ?>
-					        <input type="hidden" name="rp_key" value="<?php echo esc_attr( $rp_key ); ?>">
-					        <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Get New Password" /></p>
+					        <input type="hidden" name="rp_key" value="<?php echo esc_attr( $_GET['key'] ); ?>">
+					        <p class="submit"><input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="Set New Password" /></p>
 				        </form>
 			        </div>
             <?php endif; ?>

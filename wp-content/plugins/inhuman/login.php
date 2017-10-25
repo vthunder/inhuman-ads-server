@@ -22,7 +22,7 @@
 			  setcookie( $rp_cookie, $value, 0, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
 		  }
 		  
-		  wp_redirect( home_url('/login/?action=resetpass') );
+		  wp_redirect( home_url('/login/?action=resetpass&key=' . $_GET['key']) );
 		  exit;
 	  }
 
