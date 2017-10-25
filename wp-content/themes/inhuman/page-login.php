@@ -115,7 +115,8 @@
 				      </header>
 
 				      <div class="entry-content">
-					      <p>Sign up for the cool stuff!</p>
+                <p>Welcome to Inhuman Ads! 🎉</p>
+                <p>Create a username below or continue as an Anonymous User, no password required. Whether you choose a username or opt for the default, Anonymous User, that’s the name that will appear in the leaderboard if the ads you post are upvoted. Share your email for account recovery, important updates, and to get responses to your comments.</p>
 				      </div>
 
 				      <form name="registerform" id="registerform" action="<?php echo site_url('wp-login.php?action=register', 'login_post') ?>" method="post">

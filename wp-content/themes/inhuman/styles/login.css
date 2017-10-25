@@ -31,4 +31,9 @@ body {
   border-radius: 0 4px 4px;
   padding: 0 20px 20px; }
 
+.message-error {
+  border: 2px solid red;
+  margin-top: 1em;
+  padding: .5em; }
+
 /*# sourceMappingURL=login.css.map */

@@ -16,7 +16,7 @@
 	  // redirect to change password form
 	  if ( $action == 'rp' || $action == 'resetpass' ) {
 		  if( isset($_GET['key']) && isset($_GET['login']) ) {
-			  $rp_path = wp_unslash('/login/');
+			  $rp_path = wp_unslash(home_url('/login/'));
 			  $rp_cookie	= 'wp-resetpass-' . COOKIEHASH;
 			  $value = sprintf( '%s:%s', wp_unslash( $_GET['login'] ), wp_unslash( $_GET['key'] ) );
 			  setcookie( $rp_cookie, $value, 0, $rp_path, COOKIE_DOMAIN, is_ssl(), true );
