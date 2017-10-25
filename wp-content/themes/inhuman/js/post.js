@@ -37,42 +37,6 @@ jQuery(document).ready(function($) {
   $(".spam-shield a").click(handleShowSpam);
 
   //
-  // Like and Share popup handling
-  //
-  let popupHandlers = function(type) {
-    let alltypes = ["like", "share"];
-    let othertypes = alltypes.filter(function(t) { return t != type });
-
-    let show = function(e) {
-      e.preventDefault();
-      othertypes.forEach(function(other) {
-        $("." + other + "-box-wrapper").hide();
-      });
-      $("." + type + "-box-wrapper").show();
-    };
-    let hide = function(e) {
-      e.preventDefault();
-      $("." + type + "-box-wrapper").hide();
-    };
-    let toggle = function(e) {
-      e.preventDefault();
-      $("." + type + "-box-wrapper").hide();
-    };
-
-    return [show, hide, toggle];
-  };
-
-  let [showLike, hideLike, toggleLike] = popupHandlers("like");
-  $(".screenshot-actions .like").on("tap", toggleLike);
-  $(".screenshot-actions .like").mouseenter(showLike);
-  $(".like-box-wrapper").mouseleave(hideLike);
-
-  let [showShare, hideShare, toggleShare] = popupHandlers("share");
-  $(".screenshot-actions .share").on("tap", toggleLike);
-  $(".screenshot-actions .share").mouseenter(showShare);
-  $(".share-box-wrapper").mouseleave(hideShare);
-
-  //
   // Wire up "like" buttons
   //
   $(".like-emoji-link").click(function(e) {
@@ -81,7 +45,6 @@ jQuery(document).ready(function($) {
     var postId = $("#post_id").val();
     if (localStorage["liked-"+postId])
       return;
-    $(".like-box-wrapper").hide();
 
 	  var data = {
 		  action: 'inhuman_like',

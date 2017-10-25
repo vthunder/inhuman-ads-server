@@ -10,6 +10,12 @@ h2.page-title {
   margin: 0 80px;
   padding: 10px; }
 
+.post-header-image {
+  width: 100%; }
+  .post-header-image .attachment-post-thumbnail {
+    width: 100%;
+    height: auto; }
+
 h2.article-title {
   font-family: fira-sans, sans-serif;
   font-size: 18pt;

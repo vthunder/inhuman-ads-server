@@ -4,6 +4,10 @@
 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
   <div class="article-body">
+    <div class="post-header-image">
+      <?php the_post_thumbnail();
+        echo get_post(get_post_thumbnail_id())->post_excerpt; ?>
+    </div>
 	  <h2 class="article-title"><?php the_title(); ?></h2>
 	  <p class="article-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a></p>
     <div class="article-content">
