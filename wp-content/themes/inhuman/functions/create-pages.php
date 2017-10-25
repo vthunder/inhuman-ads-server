@@ -50,5 +50,6 @@
     create_or_update_page('Blog', 'blog', 3, '');
     create_or_update_page('Login', 'login', 4, '');
     create_or_update_page('User', 'user', 5, '');
+    create_or_update_page('Submit Ad', 'submit', 6, '');
   }
 ?>

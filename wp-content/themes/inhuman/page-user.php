@@ -1,5 +1,14 @@
 <?php get_header(); ?>
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/login.css"); ?>
+
+<script>
+  var req = localStorage.getItem('pending_request');
+  if (req) {
+    localStorage.removeItem('pending_request');
+    location = location.protocol + '//' + location.host + req;
+  } 
+</script>
+
 <?php
   // MIT licensed, from https://github.com/cubiq/wp-frontend-login
 
@@ -40,8 +49,6 @@
   }
 
 ?>
-
-<?php get_header(); ?>
 
 <main id="main" class="site-main wrapper" role="main">
 	<div class="main-column">
@@ -118,7 +125,6 @@
 
 	</div><!-- .main-column -->
 
-	<?php get_sidebar(); ?>
 </main><!-- #main -->
 
 <?php get_footer(); ?>

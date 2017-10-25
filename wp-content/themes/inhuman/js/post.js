@@ -2,6 +2,31 @@ jQuery(document).ready(function($) {
 
   "use strict";
 
+  $("#screenshot-meta-form").submit(function(e) {
+    e.preventDefault();
+
+    var data = { action: "inhuman_update_screenshot" };
+    $.each(this.elements, function(i, v){
+      var input = $(v);
+      if ("checkbox" == input.prop('type'))
+        data[input.attr("name")] = input.prop('checked');
+      else        
+        data[input.attr("name")] = input.val();
+      delete data["undefined"];
+    });
+
+    $.post($('#php_data_ajax_url').val(), data, function(res) {
+      if(res.success) {
+        location = location.protocol + '//' + location.host +
+          "?nocache=" + (new Date()).getTime();
+			} else {
+        alert("Error updating shot. Try again later!");
+			}
+    }, 'json').fail(function(xhr, textStatus, e) {
+			console.log(xhr.responseText);
+		});
+  });
+
   //
   // Offensive content "load anyway" link
   //
@@ -268,27 +293,23 @@ jQuery(document).ready(function($) {
 
   $("#delete-screenshot").click(function(e) {
     e.preventDefault();
-    callExtension("inhumanRequestLogin", function() {
-  	  var data = {
-		    action: 'inhuman_delete_screenshot',
-        post_id: $("#post_id").val()
-	    };
-      $.ajax({
-        type: 'POST',
-        url: $('#php_data_ajax_url').val() + "?action=inhuman_delete_screenshot",
-        data: JSON.stringify(data),
-        contentType: "application/json"
-      })
-       .done(function(res) {
-         alert("Screenshot deleted.");
-         window.location = "/";
-       })
-       .fail(function(err) {
-         console.log("Error deleting screenshot: " + JSON.stringify(err));
-       });
-    }, function() {
-      console.log("Login failure");
-    });
+
+  	var data = {
+		  action: 'inhuman_delete_screenshot',
+      post_id: $("#post_id").val()
+	  };
+
+    $.post($('#php_data_ajax_url').val(), data, function(res) {
+      if(res.success) {
+        alert("Screenshot deleted.");
+        location = location.protocol + '//' + location.host +
+          "?nocache=" + (new Date()).getTime();
+			} else {
+        alert("Error deleting shot. Try again later!");
+			}
+    }, 'json').fail(function(xhr, textStatus, e) {
+			console.log(xhr.responseText);
+		});
   });
 
   $("#report-link").click(function(e) {

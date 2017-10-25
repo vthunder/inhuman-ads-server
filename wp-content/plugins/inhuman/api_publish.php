@@ -4,13 +4,25 @@
   require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
   use PHPHtmlParser\Dom;
 
+  // 
+  // Redirect logged out users trying to post an ad
+  // 
+  function inhuman_template_redirect () {
+	  if (is_page('submit') && !is_user_logged_in()) {
+      $url = add_query_arg('orig_request', urlencode($_SERVER[REQUEST_URI]),
+                           home_url('/login/'));
+		  wp_safe_redirect(esc_url($url));
+		  exit();
+	  }
+  }
+  add_action('template_redirect', 'inhuman_template_redirect');
+
   //
-  // Add screenshot (XHR from add-on method)
+  // Add screenshot
   //
   function inhuman_add_screenshot() {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $shotId = $data["shotId"];
-    $shotDomain = $data["shotDomain"];
+    $shotId = $_POST["shotId"];
+    $shotDomain = $_POST["shotDomain"];
     $url = sanitize_text_field("https://screenshots.firefox.com/{$shotId}/{$shotDomain}");
 
     $dom = new Dom;
@@ -66,11 +78,10 @@
   add_action('wp_ajax_inhuman_add_screenshot', 'inhuman_add_screenshot');
 
   //
-  // Update/publish screenshot (XHR from page)
+  // Update/publish screenshot
   //
   function inhuman_update_screenshot() {
-    $raw = json_decode(file_get_contents('php://input'), true);
-    $post_id = sanitize_text_field($raw["post_id"]);
+    $post_id = sanitize_text_field($_POST["post_id"]);
     $author = get_post_field('post_author', $post_id);
 
     if ($author != get_current_user_id()) {
@@ -79,14 +90,17 @@
     } elseif (false) {
       // FIXME: check if flagged for moderation / as spam
     } else {
-      $offensive = sanitize_text_field($raw["offensive"]);
+      $offensive = sanitize_text_field($_POST["offensive"]);
+      // HACK: something is getting lost in encoding, restore boolean
+      if ($offensive == "false")
+        $offensive = false;
       wp_update_post(array(
         'ID' => $post_id,
-        'post_title' => sanitize_text_field($raw["caption"]),
+        'post_title' => sanitize_text_field($_POST["caption"]),
         'post_status' => 'publish',
         'meta_input' => array(
           'inhuman_meta_status' => 'publish',
-          'inhuman_meta_ad_brand' => sanitize_text_field($raw["brand"]),
+          'inhuman_meta_ad_brand' => sanitize_text_field($_POST["brand"]),
           'inhuman_meta_offensive' => $offensive
         )));
       if ($offensive) {
@@ -105,8 +119,7 @@
   // Remove screenshot
   //
   function inhuman_delete_screenshot() {
-    $data = json_decode(file_get_contents('php://input'), true);
-    $post_id = sanitize_text_field($data["post_id"]);
+    $post_id = sanitize_text_field($_POST["post_id"]);
     $author_id = get_post_field('post_author', $post_id);
     $success = false;
 

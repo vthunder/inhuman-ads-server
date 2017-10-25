@@ -7,10 +7,15 @@
   $action = !empty( $_GET['action'] ) && ($_GET['action'] == 'register' || $_GET['action'] == 'forgot' || $_GET['action'] == 'resetpass') ? $_GET['action'] : 'login';
   $success = !empty( $_GET['success'] );
   $failed = !empty( $_GET['failed'] ) ? $_GET['failed'] : false;
+  $orig_request = !empty( $_GET['orig_request'] ) ? $_GET['orig_request'] : false;
 
 ?>
 
-<?php get_header(); ?>
+<?php if ($orig_request): ?>
+  <script>
+    localStorage.setItem('pending_request', "<?php echo $orig_request; ?>");
+  </script>
+<?php endif; ?>
 
 <main id="main" class="site-main wrapper" role="main">
 	<div class="main-column">
@@ -223,7 +228,6 @@
 
 	</div><!-- .main-column -->
 
-	<?php get_sidebar(); ?>
 </main><!-- #main -->
 
 <script>
