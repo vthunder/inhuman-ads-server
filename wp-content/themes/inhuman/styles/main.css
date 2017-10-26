@@ -1888,6 +1888,7 @@ ul.search-results {
   .grid {
     grid-template-columns: 1fr 1fr 1fr; }
     .grid nav {
-      grid-column: 1 / 4; } }
+      grid-column: 1 / 4;
+      width: 750px; } }
 
 /*# sourceMappingURL=main.css.map */

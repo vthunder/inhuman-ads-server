@@ -798,6 +798,7 @@ ul.search-results {
     grid-template-columns: 1fr 1fr 1fr;
     nav {
       grid-column: 1 / 4;
+      width: 750px; // fixme: to force wider grid on pages 2+
     }
   }
 }
