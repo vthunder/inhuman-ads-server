@@ -40,7 +40,12 @@
 	  <input type="file" class="upload" name="screenshot-file" value="" />
 	  <?php wp_nonce_field( plugin_basename( __FILE__ ), 'example-jpg-nonce' ); ?>
   </div></p>
-
+  <script>
+    jQuery('.upload-button').click(function(e) {
+      e.preventDefault();
+      alert("We're still working on this feature. Coming soon!");
+    });
+  </script>
   <p>Now, go forth and browse, find the worst ads! Good luck with your
   newfound superpower — use it wisely.</p>
 </div>

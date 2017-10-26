@@ -154,7 +154,6 @@
     $tpldir = get_bloginfo('template_directory');
     wp_enqueue_style('wp-default', $tpldir . '/styles/wp-default.css');
     wp_enqueue_style('default', $tpldir . '/styles/main.css');
-    wp_enqueue_style('sidr', $tpldir . '/vendor/sidr/dist/stylesheets/jquery.sidr.bare.css' );
     wp_enqueue_style('buttons', $tpldir . '/vendor/buttons/css/buttons.css' );
     wp_enqueue_style('font-awesome', $tpldir . '/vendor/font-awesome/css/font-awesome.css' );
   }
@@ -169,25 +168,9 @@
           'file' => "$vendor/jquery/dist/jquery.min.js",
           'deps' => []
         ],
-        'sidr' => [
-          'file' => "$vendor/sidr/dist/jquery.sidr.min.js",
-          'deps' => ['jquery']
-        ],
-        'dim-bg' => [
-          'file' => "$vendor/jquery-dim-background/jquery.dim-background.min.js",
-          'deps' => ['jquery']
-        ],
-        'jquery-isotope' => [
-          'file' => "$vendor/isotope/dist/isotope.pkgd.min.js",
-          'deps' => ['jquery']
-        ],
-        'jquery-docsize' => [
-          'file' => "$vendor/jquery.documentsize/dist/jquery.documentsize.min.js",
-          'deps' => ['jquery']
-        ],
-        'jquery-isinview' => [
-          'file' => "$vendor/jquery.isinview/dist/jquery.isinview.min.js",
-          'deps' => ['jquery', 'jquery-docsize']
+        'basket' => [
+          'file' => "$jsdir/basket-client.js",
+          'deps' => []
         ]
       ],
       'components' => [
@@ -201,18 +184,13 @@
         ],
         'sidebar' => [
           'file' => "$jsdir/sidebar.js",
-          'deps' => ['jquery', 'sidr', 'dim-bg']
-        ],
-        'basket' => [
-          'file' => "$jsdir/basket-client.js",
-          'deps' => []
+          'deps' => ['jquery']
         ]
       ],
       'main' => [
         'front' => [
           'file' => "$jsdir/front.js",
-          'deps' => ['jquery', 'jquery-isotope', 'jquery-isinview',
-                     'analytics', 'header', 'sidebar', 'basket']
+          'deps' => ['jquery', 'analytics', 'header', 'sidebar', 'basket']
         ],
         'post' => [
           'file' => "$jsdir/post.js",
