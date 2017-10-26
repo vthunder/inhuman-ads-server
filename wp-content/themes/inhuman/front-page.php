@@ -30,7 +30,8 @@
 		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('blog-post-summary', get_post_format());
 		  endwhile; endif;
-	  ?>
+      wp_reset_postdata();
+    ?>
   </div>
 </div>
 
@@ -56,6 +57,7 @@
             include(locate_template('card.php', false, false));
             $card_num++;
 		        endwhile; endif;
+            wp_reset_postdata();
 	        ?>
         </div>
       </div>
@@ -81,6 +83,7 @@
 		  if ($loop->have_posts()): while ($loop->have_posts()): $loop->the_post();
 		  get_template_part('card', get_post_format());
 		  endwhile;
+      wp_reset_postdata();
 
       $pagination_args = array(
         'base' => get_pagenum_link(1) . '%_%',

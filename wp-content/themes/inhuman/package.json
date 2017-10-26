@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "stylegen": "cd styles; sass --watch main.scss:main.css post.scss:post.css contribute.scss:contribute.css login.scss:login.css"
+    "stylegen": "cd styles; sass --watch main.scss:main.css post.scss:post.css contribute.scss:contribute.css login.scss:login.css single-screenshot.scss:single-screenshot.css blog.scss:blog.css"
   },
   "repository": {
     "type": "git",
