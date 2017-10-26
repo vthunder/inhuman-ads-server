@@ -1,3 +1,38 @@
+<?php
+
+  // Check that the nonce is valid, and the user can edit this post.
+  if (isset($_POST['screenshot_upload_nonce'])
+	    && wp_verify_nonce($_POST['screenshot_upload_nonce'], 'screenshot_upload')) {
+
+	  // These files need to be included as dependencies when on the front end.
+	  require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	  require_once( ABSPATH . 'wp-admin/includes/file.php' );
+	  require_once( ABSPATH . 'wp-admin/includes/media.php' );
+
+    // create new screenshot post
+    $post_id = wp_insert_post(array(
+      'post_title'    => '',
+      'post_content'  => '',
+      'post_status'   => 'publish',
+      'post_author'   => get_current_user_id(),
+      'post_type' => 'inhuman_screenshot',
+      'meta_input' => array(
+        'inhuman_meta_type' => 'screenshot',
+        'inhuman_meta_status' => 'draft'
+      )
+    ));
+
+	  $attachment_id = media_handle_upload('screenshot_upload', $post_id);
+    set_post_thumbnail($post_id, $attachment_id);
+
+	  if (is_wp_error($attachment_id)) {
+      echo "Error uploading image: " . $attachment_id;
+	  } else {
+      echo '<script>location = "/screenshot/' . $post_id . '?edit";</script>';
+	  }
+  }
+?>
+
 <?php get_header(); ?>
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/contribute.css"); ?>
 
@@ -9,7 +44,7 @@
     <p>It’s easy submitting inhuman ads with Firefox Screenshots!</p>
 
     <p>Firefox Screenshots is a new feature to take, download, collect
-    and share screenshots.</p>
+      and share screenshots.</p>
 
     <p>To submit a bad ad, you will need to click on the button below
       to install the Inhuman Ads add-on (no restart required):</p>
@@ -35,17 +70,23 @@
     already got a screenshot of an inhuman ad you would like to
     submit, click the button below:</p>
 
-  <p><div class="upload-button button button-primary">
-    Select file on your computer...
-	  <input type="file" class="upload" name="screenshot-file" value="" />
-	  <?php wp_nonce_field( plugin_basename( __FILE__ ), 'example-jpg-nonce' ); ?>
-  </div></p>
+
+  <p>
+    <form id="image_upload" method="post" action="#" enctype="multipart/form-data">
+      <div class="upload-button button button-primary">
+        Select file on your computer...
+	      <input type="file" class="upload" name="screenshot_upload" id="screenshot_upload" value="" />
+      </div><br>
+	    <?php wp_nonce_field('screenshot_upload', 'screenshot_upload_nonce'); ?>
+    </form>
+  </p>
+
   <script>
-    jQuery('.upload-button').click(function(e) {
-      e.preventDefault();
-      alert("We're still working on this feature. Coming soon!");
+    jQuery('#screenshot_upload').change(function() {
+      jQuery('#image_upload').submit();
     });
   </script>
+
   <p>Now, go forth and browse, find the worst ads! Good luck with your
   newfound superpower — use it wisely.</p>
 </div>
