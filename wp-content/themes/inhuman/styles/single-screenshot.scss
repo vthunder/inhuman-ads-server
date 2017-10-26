@@ -1,0 +1,183 @@
+//
+// Screenshot posts
+//
+
+$main-color: #24d1e4;
+
+h1 {
+  padding: 0 0 20px;;
+  margin: 0;
+}
+
+.screenshot-meta {
+  display: flex;
+  flex-direction: row;
+  font-size: 10pt;
+  justify-content: space-between;
+
+  .left-meta {
+  }
+  .share {
+    img { height: 20px; }
+  }
+}
+
+.bottom-meta {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 40px 0;
+  width: 100%;
+
+  .like {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-right: 20px;
+    img {
+      height: 35px;
+      margin: 0 5px 0 20px;
+    }
+    .count-text {
+      color: #678197;
+    }
+  }
+}
+
+.screenshot-card {
+  border: 1px solid $main-color;
+  position: relative;
+
+  .prev-screenshot,
+  .next-screenshot {
+    position: absolute;
+    margin-top: 25%;
+    color: $main-color;
+    text-decoration: none;
+  }
+  .prev-screenshot:hover,
+  .next-screenshot:hover {
+    color: black;
+  }
+  .prev-screenshot { left: -40px; }
+  .next-screenshot { right: -40px; }
+  
+  .wp-post-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 80%;
+  }
+  .screenshot-meta {
+    background-color: #fff;
+    min-height: 2.5em;
+    padding: .5em;
+
+    .screenshot-actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+    }
+  }
+  .screenshot-meta-2 {
+    background-color: $main-color;
+    display: flex;
+    flex-direction: row;
+    font-size: 9pt;
+    justify-content: space-between;
+    padding: .25em .5em;
+
+    .screenshot-brand,
+    .screenshot-domain {
+      a {
+        color: black;
+        text-decoration: underline;
+      }
+    }
+    .screenshot-domain {
+      flex: 1;
+      text-align: right;
+    }
+  }
+  .secondary-actions {
+    float: right;
+    margin-top: .25em;
+    text-decoration: none;
+    * {
+      color: #888;
+      font-size: 9pt;
+    }
+    .fa {
+      padding-right: .25em;
+    }
+    .action-txt {
+      text-decoration: underline;
+    }
+  }
+}
+
+.screenshot-edit {
+  columns: 2;
+  #screenshot-meta-form {
+    input[type="text"] {
+      display: block;
+      font-size: 14pt;
+      margin: .5em auto;
+      width: 100%;
+    }
+    .meta-offensive-wrapper {
+      font-size: 10pt;
+      margin: .5em 0;
+      width: 100%;
+    }
+  }
+}
+
+.tos-privacy {
+  font-size: 9pt;
+  text-align: center;
+}
+
+//
+// Comments
+//
+
+.logged-in-as a:nth-child(2) {
+  display: none;
+}
+
+.comment-form-comment label {
+  display: none;
+}
+
+#user-setup {
+  display: inline-block;
+  border: 1px solid lightgray;
+  margin: 0 auto;
+  padding: 10px;
+
+  label {
+    display: inline-block;
+    min-width: 4em;
+  }
+  #user-setup-submit {
+    display: block;
+    margin-top: 10px;
+  }
+  #user-setup-existing {
+    display: none;
+  }
+  #create-account-link {
+    display: none;
+    font-size: 10pt;
+  }
+  #existing-account-link {
+    font-size: 10pt;
+  }
+  #user-setup-error {
+    font-weight: 500;
+  }
+}
