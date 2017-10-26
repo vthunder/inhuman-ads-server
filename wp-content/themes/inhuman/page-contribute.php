@@ -1,7 +1,8 @@
 <?php
 
-  // Check that the nonce is valid, and the user can edit this post.
+  // Check that the nonce is valid, user is logged in
   if (isset($_POST['screenshot_upload_nonce'])
+      && is_user_logged_in()
 	    && wp_verify_nonce($_POST['screenshot_upload_nonce'], 'screenshot_upload')) {
 
 	  // These files need to be included as dependencies when on the front end.
@@ -82,9 +83,16 @@
   </p>
 
   <script>
-    jQuery('#screenshot_upload').change(function() {
-      jQuery('#image_upload').submit();
-    });
+    <?php if (is_user_logged_in()): ?>
+      jQuery('#screenshot_upload').change(function() {
+        jQuery('#image_upload').submit();
+      });
+    <?php else: ?>
+      jQuery('#screenshot_upload').click(function(e) {
+        e.preventDefault();
+        location = "/login?orig_request=" + encodeURIComponent("/contribute");
+      });
+    <?php endif; ?>
   </script>
 
   <p>Now, go forth and browse, find the worst ads! Good luck with your
