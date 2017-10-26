@@ -81,17 +81,17 @@
                 <a class="like-emoji-link" data-emoji="funny" href="#">
                   <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
                 </a>
-                <span class="count-text"><?php echo $funny_likes; ?></span>
+                <span class="count-text funny"><?php echo $funny_likes; ?></span>
 
                 <a class="like-emoji-link" data-emoji="angry" href="#">
                   <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
                 </a>
-                <span class="count-text"><?php echo $angry_likes; ?></span>
+                <span class="count-text angry"><?php echo $angry_likes; ?></span>
 
                 <a class="like-emoji-link" data-emoji="sad" href="#">
                   <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
                 </a>
-                <span class="count-text"><?php echo $sad_likes; ?></span>
+                <span class="count-text sad"><?php echo $sad_likes; ?></span>
               </div>
               <div class="share">
                 <a class="twitter-share-button"

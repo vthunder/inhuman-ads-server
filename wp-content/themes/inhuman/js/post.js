@@ -60,7 +60,7 @@ jQuery(document).ready(function($) {
      .done(function(res) {
        res = JSON.parse(res);
 		   if(res.success) {
-         var count_span = $(".like-emoji-count-box .count-text");
+         var count_span = $(".like .count-text."+data.emoji);
          var count = parseInt(count_span.text());
          count_span.text(count + 1);
          localStorage["liked-"+postId] = true;
