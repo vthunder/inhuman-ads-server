@@ -1,0 +1,109 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Global navigation header
+// ---------------------------------------------------------
+
+header {
+  width: 100%;
+
+  .header-top {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 10px;
+
+    .header-top-left {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+    }
+    .header-top-right {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .logo {
+      height: 30px;
+      padding: 4px 0 0;
+    }
+
+    .powered-by {
+      align-items: top;
+      display: none;
+      flex-direction: column;
+
+      &.withlogo { margin-left: 10px; }
+
+      span {
+        font-size: 8pt;
+      }
+      .firefox-screenshots-logo {
+        display: block;
+        height: 18px;
+      }
+    }
+
+    .header-links {
+      display: none;
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        display: inline;
+        padding-left: 0;
+        padding-right: 2em;
+        a { color: black; }
+      }
+    }
+
+    .search-form {
+      .screen-reader-text, .search-submit { display: none; }
+      .search-field {
+        border: 2px solid $main-color;
+        border-radius: 15px;
+        color: darken(saturate($main-color, 30%), 20%);
+        padding: 4px 8px;
+      }
+    }
+
+    @media #{$mq-phone-wide} {
+      .powered-by {
+      }
+      .header-links {
+        display: block;
+        font-size: 8pt;
+      }
+    }
+    @media #{$mq-tablet} {
+      .logo {
+        height: 30px;
+        padding: 0;
+      }
+      .powered-by {
+        display: flex;
+        .firefox-screenshots-logo {
+          display: block;
+          height: 30px;
+        }
+      }
+      .header-links {
+        display: block;
+        font-size: inherit;
+      }
+    }
+    @media #{$mq-desktop} {
+      padding: 10px;
+      .logo { height: 40px; }
+      .powered-by {
+        flex-direction: row;
+      }
+    }
+  }
+}

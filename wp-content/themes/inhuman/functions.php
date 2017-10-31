@@ -153,9 +153,10 @@
   function inhuman_enqueue_styles() {
     $tpldir = get_bloginfo('template_directory');
     wp_enqueue_style('wp-default', $tpldir . '/styles/wp-default.css');
-    wp_enqueue_style('default', $tpldir . '/styles/main.css');
-    wp_enqueue_style('buttons', $tpldir . '/vendor/buttons/css/buttons.css' );
+    //    wp_enqueue_style('default', $tpldir . '/styles/main.css');
+    //    wp_enqueue_style('buttons', $tpldir . '/vendor/buttons/css/buttons.css' );
     wp_enqueue_style('font-awesome', $tpldir . '/vendor/font-awesome/css/font-awesome.css' );
+    wp_register_style('home', $tpldir . '/styles/page/home.css' );
   }
   function inhuman_enqueue_scripts() {
     $tpldir = get_bloginfo('template_directory');

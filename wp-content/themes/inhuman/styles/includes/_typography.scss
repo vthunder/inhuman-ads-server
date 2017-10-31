@@ -1,0 +1,75 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Global font defaults
+// ---------------------------------------------------------
+
+* {
+    color: #333;
+    font-family: “-apple-system, BlinkMacSystemFont, “segoe ui”, “helvetica neue”, helvetica, ubuntu, roboto, noto, arial, sans-serif”;
+    font-weight: 300;
+}
+
+p {
+  font-size: 10pt;
+}
+
+h1 {
+  color: white;
+  font-weight: 600;
+  margin-top: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 14pt;
+  font-weight: 400;
+  margin-top: 0;
+}
+h3 {
+  font-size: 12pt;
+  font-weight: 300;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a {
+  color: darken(saturate($main-color, 20%), 5%);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+}
+button:active {
+  background-color: white;
+  color: gray;
+}
+
+.hide {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// Responsive breaks
+
+@media #{$mq-phone-wide} {
+  .break-phone { display: none; }
+}
+@media #{$mq-tablet} {
+  .break-phone-wide { display: none; }
+}
+@media #{$mq-desktop} {
+  .break-tablet { display: none; }
+}
+@media #{$mq-desktop-wide} {
+  .break-desktop { display: none; }
+}

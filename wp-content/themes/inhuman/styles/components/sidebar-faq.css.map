@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AASE,OAAG;EAAE,UAAU,EAAE,CAAC;AAElB,OAAG;EACD,SAAS,EAAE,IAAI;EACf,WAAW,EAAE,GAAG;EAChB,aAAa,EAAE,GAAG;AAEpB,OAAG;EACD,SAAS,EAAE,IAAI;EACf,aAAa,EAAE,GAAG;EAClB,WAAW,EAAE,CAAC",
+"sources": ["sidebar-faq.scss"],
+"names": [],
+"file": "sidebar-faq.css"
+}

@@ -1,0 +1,51 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Global footer links
+// ---------------------------------------------------------
+
+footer {
+  width: 100%;
+  align-items: start;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+
+  .mozilla-logo {
+    display: block;
+    height: 30px;
+    padding: 0;
+  }
+  .footer-links {
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+
+    li {
+      display: inline;
+      padding: 0 2em 0 0;
+      a {
+        color: darken(saturate($main-color, 30%), 10%);
+        font-size: 10pt;
+        font-weight: 300;
+      }
+    }
+  }
+  @media #{$mq-tablet} {
+    align-items: center;
+    flex-direction: row;
+
+    .footer-links {
+      align-items: center;
+      margin-top: 0;
+      flex-direction: row;
+    }
+  }
+}

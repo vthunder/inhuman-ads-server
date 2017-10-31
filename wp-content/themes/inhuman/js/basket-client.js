@@ -5,6 +5,31 @@
 jQuery(document).ready(function($) {
     'use strict';
 
+  /*
+   * Expand footer email form on input focus or submit if details aren't visible
+   */
+  function initFooterEmailForm () {
+    var $submitButton = $('#newsletter_form button#newsletter_submit');
+    var $formDetails = $('#newsletter_form .form_details');
+
+    function footerEmailFormShowDetails() {
+      if (!$formDetails.is(':visible')) {
+        $formDetails.slideDown('normal');
+      }
+    }
+
+    $('#newsletter_form').on('focus', 'select, input', footerEmailFormShowDetails);
+
+    $submitButton.on('click', function (e) {
+      if (!$formDetails.is(':visible')) {
+        e.preventDefault();
+        footerEmailFormShowDetails();
+      }
+    });
+  }
+
+  initFooterEmailForm();
+
     // !! this file assumes only one signup form per page !!
 
     var newsletterForm = document.getElementById('newsletter_form');

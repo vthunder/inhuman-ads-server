@@ -1,0 +1,70 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Page title
+// ---------------------------------------------------------
+
+.title {
+  background-color: $main-color;
+  width: 100%;
+
+  &.small { .title-inner { .logo { margin: 20px auto; } } }
+  .title-inner {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    padding: 10px 0 0;
+    width: $content-width-phone;
+
+    img {
+      display: block;
+      height: 56px;
+      margin: 10px auto;
+    }
+    .logo {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .clouds { height: 25px; }
+    .cloud-left { float: right; }
+    .cloud-right { float: left; }
+
+    h2 {
+      color: white;
+      font-size: 11pt;
+      font-weight: 300;
+      font-style: normal;
+      grid-column: 1 / 4;
+      grid-row: 2;
+      text-align: center;
+    }
+
+    @media #{$mq-phone-wide} {
+      width: $content-width-phone-wide;
+      .clouds { height: 45px; }
+      .cloud-left { margin-right: 10px; }
+      .cloud-right { margin-left: 10px; }
+    }
+    @media #{$mq-tablet} {
+      width: $content-width-tablet;
+      .logo { height: 65px; }
+      .clouds { height: 55px; }
+      .cloud-left { margin-right: 10px; }
+      .cloud-right { margin-left: 10px; }
+      h2 {
+        font-size: 14pt;
+        font-weight: 400;
+      }
+    }
+    @media #{$mq-desktop} {
+      width: $content-width-desktop;
+      .logo { height: 80px; }
+      .clouds { height: 80px; }
+      .cloud-left { margin-right: 10px; }
+      .cloud-right { margin-left: 10px; }
+    }
+  }
+}

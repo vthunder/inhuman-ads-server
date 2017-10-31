@@ -1,0 +1,14 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Debugging
+// ---------------------------------------------------------
+
+/* Add some margin to the body to add space and 
+see where your offending elements cross the line */
+body { margin: 30px; }
+
+/* add a border to all other elements on the page */
+body * { border: 1px solid red; }

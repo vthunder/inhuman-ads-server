@@ -1,0 +1,22 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// FAQ - Sidebar
+// ---------------------------------------------------------
+
+.faq {
+  h2 { margin-top: 0; }
+
+  dt {
+    font-size: 11pt;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+  dd {
+    font-size: 10pt;
+    margin-bottom: 1em;
+    margin-left: 0;
+  }
+}

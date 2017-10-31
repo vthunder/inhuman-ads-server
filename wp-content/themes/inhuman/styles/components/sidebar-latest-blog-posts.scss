@@ -1,0 +1,45 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Latest blog posts - Sidebar
+// ---------------------------------------------------------
+
+.latest-blog-posts {
+  h3 { margin-top: 20px; }
+
+  .latest-blog-posts-header {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0px;
+
+    .seeall { font-size: 10pt; }
+  }
+  .latest-blog-posts {
+    margin-bottom: 20px;
+
+    .blog-post-summary {
+      align-items: start;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+
+      .thumb div {
+        background-size: cover;
+        background-position: center center;
+        height: 75px;
+        width: 75px;
+      }
+      .text {
+        padding-left: 10px;
+        h3 {
+          font-size: 10pt;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

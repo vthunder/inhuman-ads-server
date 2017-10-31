@@ -1,5 +1,10 @@
-<?php get_header(); ?>
-<?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/login.css"); ?>
+<?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/page/page-login.css"); ?>
+<?php get_header('page'); ?>
+
+<section class="title small">
+  <div class="title-inner">
+  </div>
+</section>
 
 <?php
   // MIT licensed, from https://github.com/cubiq/wp-frontend-login

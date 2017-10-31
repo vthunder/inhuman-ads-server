@@ -1,0 +1,32 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+// ---------------------------------------------------------
+// Pebble overrides
+// ---------------------------------------------------------
+
+// $mq-phone:          'screen and (max-width: 480px)';
+// $mq-phone-wide:     'screen and (min-width: 480px)';
+// $mq-tablet:         'screen and (min-width: 760px)';
+// $mq-desktop:        'screen and (min-width: 1000px)';
+// $mq-desktop-wide:   'screen and (min-width: 1400px)';
+
+$width-phone:           320px;
+$width-phone-wide:      480px;
+$width-tablet:          760px;
+$width-desktop:         1000px;
+$width-desktop-wide:    1040px; // + 40px extra sidebar width
+
+$content-width-phone: 250px;
+$content-width-phone-wide: 460px;
+$content-width-tablet: 730px;
+$content-width-desktop: 1000px;
+$content-width-desktop-wide: 1000px;
+
+// ---------------------------------------------------------
+// Colors
+// ---------------------------------------------------------
+
+$main-color: #24d1e4;
+

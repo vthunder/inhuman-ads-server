@@ -1,0 +1,55 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../includes/lib';
+
+// ---------------------------------------------------------
+// Share buttons - Sidebar
+// ---------------------------------------------------------
+
+.share-buttons-sidebar {
+  .share-buttons {
+    display: flex;
+    flex-direction: row;
+    button {
+      border: 0;
+      border-radius: 2px;
+      color: white;
+      font-size: 9pt;
+      height: 50px;
+      padding: 4px 4px;
+      width: 100%;
+
+      i {
+        color: white;
+      }
+    }
+    button:active {
+      background-color: white;
+      color: gray;
+      i { color: gray; }
+    }
+    .share-facebook {
+      background-color: #3b5998;
+      margin-bottom: 5px;
+    }
+    .share-twitter {
+      background-color: #55acee;
+      margin-left: 5px;
+    }
+  }
+
+  @media #{$mq-desktop} {
+    .sidebar { width: 100%; }
+    .share-buttons {
+      flex-direction: column;
+
+      button { font-size: 10pt; }
+      .share-twitter {
+        margin-left: 0;
+      }
+    }
+  }
+}
+

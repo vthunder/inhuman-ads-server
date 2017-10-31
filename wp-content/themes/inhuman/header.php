@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <header class="<?php echo (is_single() || is_page() || $paged > 1)? "smaller" : ""; ?>">
+    <header>
       <div class="header-top">
         <div class="powered-by">
           <span>Powered by</span>
@@ -28,10 +28,6 @@
           </div>
         </div>
       </div>
-      <div class="header-bottom<?php echo (is_single() || is_page() || $paged > 1)? " small" : ""; ?>">
-        <img class="clouds cloud-left" src="<?php tpldir(); ?>/assets/clouds-left.png">
-        <a href="<?php echo site_url(); ?>"><img src="<?php tpldir(); ?>/assets/inhuman-logo-2.png"></a>
-        <img class="clouds cloud-right" src="<?php tpldir(); ?>/assets/clouds-right.png">
-        <h2>Money and robots made a mess of the web.<br>Humans will clean it up.</h2>
-      </div>
     </header>
+
+    <?php inhuman_setup_js_vars(); ?>

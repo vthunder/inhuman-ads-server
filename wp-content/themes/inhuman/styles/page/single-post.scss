@@ -1,0 +1,114 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../includes/lib';
+
+@import
+    '../components/global-nav',
+    '../components/title',
+    '../components/sidebar-submit-an-ad',
+    '../components/sidebar-latest-blog-posts',
+    '../components/sidebar-share-buttons',
+    '../components/global-footer',
+    '../components/newsletter-form';
+
+// ---------------------------------------------------------
+// Articles
+// ---------------------------------------------------------
+
+.post-header-image {
+  margin: 0 auto 40px;
+  max-height: none;
+  height: 200px;
+  overflow: hidden;
+
+  .attachment-post-thumbnail {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-15%);
+  }
+
+  .post-header-image-caption {
+    
+  }
+}
+
+@media only screen and (min-width: 480px) {
+  .post-header-image {
+    .attachment-post-thumbnail {
+      transform: translateY(-25%);
+    }
+  }
+}
+@media only screen and (min-width: 760px) {
+  .post-header-image {
+    .attachment-post-thumbnail {
+      transform: translateY(-50%);
+    }
+  }
+}
+
+h2.article-title {
+  font-family: fira-sans, sans-serif;
+  font-size: 18pt;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.article-meta {
+  font-family: fira-sans, sans-serif;
+  font-size: 9pt;
+  text-align: right;
+}
+
+.article-content {
+  font-family: fira-sans, sans-serif;
+  font-size: 11pt;
+  margin-top: 20px;
+}
+
+.article-body {
+  background-color: #fff;
+  margin: 20px 80px;
+  padding: 20px;
+//  width: 300px;
+}
+
+
+//
+// High Scores Page
+//
+
+// FIXME: refactor
+
+table.highscore-table {
+  width:90%;
+  border-top:1px solid #e5eff8;
+  border-right:1px solid #e5eff8;
+  margin:1em auto;
+  border-collapse:collapse;
+
+  th {
+    padding:.3em 1em;
+    border-left:1px solid #e5eff8;
+    border-bottom:1px solid #e5eff8;
+  }
+  th.user-header {
+    text-align: left;
+  }
+  td {
+    color:#678197;
+    border-bottom:1px solid #e5eff8;
+    border-left:1px solid #e5eff8;
+    padding:.3em 1em;
+    text-align:center;
+  }
+  td.highscore-user {
+    text-align: left;
+  }
+}

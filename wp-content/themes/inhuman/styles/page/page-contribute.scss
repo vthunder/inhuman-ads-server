@@ -1,0 +1,71 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../includes/lib';
+
+@import
+    '../components/global-nav',
+    '../components/title',
+    '../components/global-footer',
+    '../components/newsletter-form';
+
+// ---------------------------------------------------------
+// Sidebar sections
+// ---------------------------------------------------------
+
+.faq {
+  h2 { margin-top: 0; }
+
+  dt {
+    font-size: 11pt;
+    font-weight: 500;
+    margin-bottom: 1em;
+  }
+  dd {
+    font-size: 10pt;
+    margin-bottom: 1em;
+    margin-left: 0;
+  }
+}
+
+// ---------------------------------------------------------
+// Main content section
+// ---------------------------------------------------------
+
+.main {
+  .install-p {
+    padding: 0;
+    margin-bottom: 0;
+  }
+
+  .landing1 {
+    float: right;
+    height: 150px;
+    width: 150px;
+    margin: 20px 20px 10px 10px;
+  }
+
+  .landing2 {
+    border: 1px solid $main-color;
+    height: auto;
+    width: 100%;
+  }
+
+  .upload-button {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+  }
+  .upload-button input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+}

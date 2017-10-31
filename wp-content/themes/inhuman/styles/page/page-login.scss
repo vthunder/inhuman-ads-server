@@ -1,0 +1,54 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../includes/lib';
+
+@import
+    '../components/global-nav',
+    '../components/title',
+    '../components/sidebar-submit-an-ad',
+    '../components/sidebar-latest-blog-posts',
+    '../components/sidebar-share-buttons',
+    '../components/global-footer',
+    '../components/newsletter-form';
+
+// ---------------------------------------------------------
+// Login screens
+// ---------------------------------------------------------
+
+#main {
+  grid-area: main;
+  width: 400px;
+  margin: 20px auto;
+}
+
+.tabs {
+  display: inline;
+  list-style: none;
+  padding-left: 0;
+  li {
+    display: inline;
+    padding: 0 5px 0;
+  }
+  li.active-tab {
+    border: 2px solid $main-color;
+    border-bottom: 2px solid white;
+    border-radius: 4px 4px 0 0;
+    a {
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+.tab-content {
+  border: 2px solid $main-color;
+  border-radius: 0 4px 4px;
+  padding: 0 20px 20px;
+}
+
+.message-error {
+  border: 2px solid red;
+  margin-top: 1em;
+  padding: .5em;
+}

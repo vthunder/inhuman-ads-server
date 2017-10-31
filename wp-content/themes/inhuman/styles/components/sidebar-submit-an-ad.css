@@ -1,0 +1,13 @@
+.submit-an-ad h3 {
+  margin-top: 20px; }
+.submit-an-ad .submit-an-ad-link {
+  display: flex;
+  justify-content: start; }
+  .submit-an-ad .submit-an-ad-link img {
+    height: 18vw;
+    max-height: 80px; }
+.submit-an-ad .learnmore {
+  float: right;
+  font-size: 10pt; }
+
+/*# sourceMappingURL=sidebar-submit-an-ad.css.map */

@@ -1,0 +1,54 @@
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/.
+
+@import '../includes/lib';
+
+@import
+    '../components/global-nav',
+    '../components/title',
+    '../components/sidebar-submit-an-ad',
+    '../components/sidebar-latest-blog-posts',
+    '../components/global-footer',
+    '../components/newsletter-form';
+
+// ---------------------------------------------------------
+// Search results page
+// ---------------------------------------------------------
+
+ul.search-results {
+  border: 1px solid lightgray;
+  list-style-type: none;
+  margin: 0 20px;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid lightgray;
+    padding: 10px;
+    a {
+      display: flex;
+    }
+    a.hide {
+      display: none;
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 10px;
+    }
+    .caption {
+      font-weight: 500;
+    }
+    .brand-domain {
+      font-size: 10pt;
+      .domain {
+        margin-left: 1em;
+      }
+    }
+  }
+  li:last-child {
+    border-bottom: none;
+  }
+}
