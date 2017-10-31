@@ -15,8 +15,10 @@
 
 <div class="content-wrapper">
 
-  <div class="sidebars">
+  <div class="sidebars-top">
     <?php include('components/sidebar-submit-an-ad.php'); ?>
+  </div>
+  <div class="sidebars-bottom">
     <?php include('components/sidebar-latest-blog-posts.php'); ?>
     <?php include('components/sidebar-share-buttons.php'); ?>
   </div>
