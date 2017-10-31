@@ -3324,11 +3324,19 @@ h1 {
       align-items: center;
       display: flex;
       flex-direction: row; }
-      .bottom-meta .like .like-buttons img {
-        height: 35px;
-        margin: 0 5px 0 20px; }
-    .bottom-meta .like .count-text {
-      color: #678197; }
+      .bottom-meta .like .like-buttons .like-emoji-link {
+        border-radius: 4px;
+        padding: 4px; }
+        .bottom-meta .like .like-buttons .like-emoji-link:hover {
+          background-color: #aceef5;
+          text-decoration: none; }
+        .bottom-meta .like .like-buttons .like-emoji-link.liked {
+          border-bottom: 2px solid #24d1e4; }
+        .bottom-meta .like .like-buttons .like-emoji-link img {
+          height: 35px;
+          margin: 0 5px 0 20px; }
+        .bottom-meta .like .like-buttons .like-emoji-link .count-text {
+          color: #678197; }
   @media screen and (min-width: 760px) {
     .bottom-meta {
       grid-template-areas: "prev-screenshot  like  next-screenshot";

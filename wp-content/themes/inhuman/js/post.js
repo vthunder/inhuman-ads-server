@@ -36,13 +36,18 @@ jQuery(document).ready(function($) {
   }
   $(".spam-shield a").click(handleShowSpam);
 
+  // Style liked emoji differently
+  var postId = $("#post_id").val();
+  if (localStorage["liked-"+postId]) {
+    $('.like-emoji-link[data-emoji="' + localStorage["liked-"+postId] + '"]').addClass("liked");
+  }
+  
   //
   // Wire up "like" buttons
   //
   $(".like-emoji-link").click(function(e) {
     e.preventDefault();
 
-    var postId = $("#post_id").val();
     if (localStorage["liked-"+postId])
       return;
 
@@ -63,7 +68,8 @@ jQuery(document).ready(function($) {
          var count_span = $(".like .count-text."+data.emoji);
          var count = parseInt(count_span.text());
          count_span.text(count + 1);
-         localStorage["liked-"+postId] = true;
+         localStorage["liked-"+postId] = data.emoji;
+         $('.like-emoji-link[data-emoji="' + data.emoji + '"]').addClass("liked");
 		   } else {
          console.log("Error liking screenshot:");
 			   console.log(res);

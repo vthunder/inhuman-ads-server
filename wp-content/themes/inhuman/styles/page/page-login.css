@@ -3273,6 +3273,9 @@ footer {
       .newsletter-section .newsletter-inner {
         width: 1000px; } }
 
+h1 {
+  color: black; }
+
 #main {
   grid-area: main;
   width: 400px;

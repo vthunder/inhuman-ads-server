@@ -79,13 +79,27 @@ h1 {
       align-items: center;
       display: flex;
       flex-direction: row;
-      img {
-        height: 35px;
-        margin: 0 5px 0 20px;
+
+      .like-emoji-link {
+        border-radius: 4px;
+        padding: 4px;
+
+        &:hover {
+          background-color: lighten($main-color, 30%);
+          text-decoration: none;
+        }
+        &.liked {
+          border-bottom: 2px solid $main-color;
+        }
+
+        img {
+          height: 35px;
+          margin: 0 5px 0 20px;
+        }
+        .count-text {
+          color: #678197;
+        }
       }
-    }
-    .count-text {
-      color: #678197;
     }
   }
 

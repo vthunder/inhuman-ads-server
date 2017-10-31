@@ -136,18 +136,18 @@
             <div class="like-buttons">
               <a class="like-emoji-link" data-emoji="funny" href="#">
                 <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+                <span class="count-text funny"><?php echo $funny_likes; ?></span>
               </a>
-              <span class="count-text funny"><?php echo $funny_likes; ?></span>
 
               <a class="like-emoji-link" data-emoji="angry" href="#">
                 <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+                <span class="count-text angry"><?php echo $angry_likes; ?></span>
               </a>
-              <span class="count-text angry"><?php echo $angry_likes; ?></span>
 
               <a class="like-emoji-link" data-emoji="sad" href="#">
                 <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+                <span class="count-text sad"><?php echo $sad_likes; ?></span>
               </a>
-              <span class="count-text sad"><?php echo $sad_likes; ?></span>
             </div>
           </div>
 
@@ -156,6 +156,9 @@
           <?php endif; ?>
         </div>
 
+        <?php if (!is_user_logged_in()): ?>
+          <p>Have something to say about this ad? <a href="/login?orig_request=<?php echo urlencode("/screenshot/" . get_the_ID()); ?>">Log in</a> and leave a comment!</p>
+        <?php endif; ?>
         <?php comments_template(); ?>
 
       <?php endif; ?>
