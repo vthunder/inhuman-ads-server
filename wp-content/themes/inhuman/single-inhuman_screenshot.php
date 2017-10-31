@@ -128,26 +128,27 @@
         <div class="bottom-meta">
           <?php if (!empty($prev_next['prev'])): ?>
             <a href="<?php echo get_permalink($prev_next['prev']); ?>" class="prev-screenshot">&laquo;prev</a>
-          <?php else: ?>
-            <span><!-- hack to keep the bottom row properly justified --></span>
           <?php endif; ?>
 
           <div class="like">
-            <span>This ad makes me feel: </span>
-            <a class="like-emoji-link" data-emoji="funny" href="#">
-              <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
-            </a>
-            <span class="count-text funny"><?php echo $funny_likes; ?></span>
+            <span class="like-text">This ad makes me feel: </span>
 
-            <a class="like-emoji-link" data-emoji="angry" href="#">
-              <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
-            </a>
-            <span class="count-text angry"><?php echo $angry_likes; ?></span>
+            <div class="like-buttons">
+              <a class="like-emoji-link" data-emoji="funny" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-funny.svg">
+              </a>
+              <span class="count-text funny"><?php echo $funny_likes; ?></span>
 
-            <a class="like-emoji-link" data-emoji="sad" href="#">
-              <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
-            </a>
-            <span class="count-text sad"><?php echo $sad_likes; ?></span>
+              <a class="like-emoji-link" data-emoji="angry" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-angry.svg">
+              </a>
+              <span class="count-text angry"><?php echo $angry_likes; ?></span>
+
+              <a class="like-emoji-link" data-emoji="sad" href="#">
+                <img src="<?php tpldir(); ?>/assets/emojiicon-sad.svg">
+              </a>
+              <span class="count-text sad"><?php echo $sad_likes; ?></span>
+            </div>
           </div>
 
           <?php if (!empty($prev_next['next'])): ?>

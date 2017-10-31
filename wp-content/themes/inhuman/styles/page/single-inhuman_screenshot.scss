@@ -37,25 +37,62 @@ h1 {
 }
 
 .bottom-meta {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "     like      like      like      "
+                       "prev-screenshot  .  next-screenshot";
+  grid-template-columns: 1fr 3fr 1fr;
   margin: 40px 0;
   width: 100%;
 
+  .prev-screenshot {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    grid-area: prev-screenshot;
+  }
+  .next-screenshot {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    grid-area: next-screenshot;
+  }
   .like {
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin-right: 20px;
-    img {
-      height: 35px;
-      margin: 0 5px 0 20px;
+    flex-wrap: wrap;
+    grid-area: like;
+    justify-content: center;
+    margin: 0 0 20px;
+    .like-text {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      margin: 0 0 10px;
+      @media #{$mq-phone-wide} {
+        margin: 0;
+      }
+    }
+    .like-buttons {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      img {
+        height: 35px;
+        margin: 0 5px 0 20px;
+      }
     }
     .count-text {
       color: #678197;
     }
+  }
+
+  @media #{$mq-tablet} {
+    grid-template-areas: "prev-screenshot  like  next-screenshot";
+    grid-template-columns: 1fr 3fr 1fr;
+    .like { margin: 0; }
   }
 }
 

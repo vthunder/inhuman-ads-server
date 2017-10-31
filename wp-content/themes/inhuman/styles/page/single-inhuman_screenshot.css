@@ -3287,22 +3287,54 @@ h1 {
     height: 20px; }
 
 .bottom-meta {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas: "     like      like      like      " "prev-screenshot  .  next-screenshot";
+  grid-template-columns: 1fr 3fr 1fr;
   margin: 40px 0;
   width: 100%; }
+  .bottom-meta .prev-screenshot {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    grid-area: prev-screenshot; }
+  .bottom-meta .next-screenshot {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    grid-area: next-screenshot; }
   .bottom-meta .like {
     align-items: center;
     display: flex;
     flex-direction: row;
-    margin-right: 20px; }
-    .bottom-meta .like img {
-      height: 35px;
-      margin: 0 5px 0 20px; }
+    flex-wrap: wrap;
+    grid-area: like;
+    justify-content: center;
+    margin: 0 0 20px; }
+    .bottom-meta .like .like-text {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      margin: 0 0 10px; }
+      @media screen and (min-width: 480px) {
+        .bottom-meta .like .like-text {
+          margin: 0; } }
+    .bottom-meta .like .like-buttons {
+      align-items: center;
+      display: flex;
+      flex-direction: row; }
+      .bottom-meta .like .like-buttons img {
+        height: 35px;
+        margin: 0 5px 0 20px; }
     .bottom-meta .like .count-text {
       color: #678197; }
+  @media screen and (min-width: 760px) {
+    .bottom-meta {
+      grid-template-areas: "prev-screenshot  like  next-screenshot";
+      grid-template-columns: 1fr 3fr 1fr; }
+      .bottom-meta .like {
+        margin: 0; } }
 
 .screenshot-card {
   border: 1px solid #24d1e4;
