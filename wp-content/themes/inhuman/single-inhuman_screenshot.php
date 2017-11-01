@@ -83,19 +83,22 @@
           </div>
 
           <div class="share">
-            <a class="twitter-share-button"
-               data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
-               href="#">
-              <i class="fa fa-twitter-square fa-lg"></i></a>
             <a class="facebook-share-button"
                data-fb-u="<?php echo urlencode(get_permalink()); ?>"
                data-fb-title="<?php echo urlencode(get_the_title()); ?>"
                href="#">
-              <i class="fa fa-facebook-square fa-lg"></i></a>
+              <img src="<?php tpldir(); ?>/assets/btn-fb.svg">
+            </a>
+            <a class="twitter-share-button"
+               data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
+               href="#">
+              <img src="<?php tpldir(); ?>/assets/btn-twitter.svg">
+            </a>
             <a class="email-share-button"
                data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
                href="#">
-              <i class="fa fa-envelope-square fa-lg"></i></a>
+              <img src="<?php tpldir(); ?>/assets/btn-email.svg">
+            </a>
           </div>
         </div>
 

@@ -3283,8 +3283,11 @@ h1 {
   flex-direction: row;
   font-size: 10pt;
   justify-content: space-between; }
-  .screenshot-meta .share img {
-    height: 20px; }
+  .screenshot-meta .share {
+    display: flex; }
+    .screenshot-meta .share img {
+      height: 20px;
+      margin-left: 3px; }
 
 .bottom-meta {
   display: grid;
