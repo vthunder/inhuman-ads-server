@@ -6,7 +6,7 @@
         $url = 'https://inhumanads.com/';
         $fb = 'http://www.facebook.com/sharer/sharer.php?u=' . urlencode($url) .
               '&title=' . urlencode('Check out Inhuman Ads!');
-        $tw = 'http://twitter.com/intent/tweet?status=' . urlencode("Check out Inhuman Ads! $url");
+        $tw = 'http://twitter.com/intent/tweet?status=' . urlencode("Check out Inhuman Ads! #inhumanads $url");
       ?>
       <a href="<?php echo $fb; ?>" target="_blank"
          class="button share-facebook">

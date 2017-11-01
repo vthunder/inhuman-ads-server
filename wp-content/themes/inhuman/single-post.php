@@ -18,6 +18,25 @@
     <div class="main">
       <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
         <div class="article-body">
+          <?php
+            $url = get_permalink();
+            $title = get_the_title();
+            $fb = 'http://www.facebook.com/sharer/sharer.php?u=' . urlencode($url) .
+                  '&title=' . urlencode($title);
+            $tw = 'http://twitter.com/intent/tweet?status=' . urlencode("$title #inhumanads $url");
+            $email = "mailto:Subject=" . urlencode("$title\n$url");
+          ?>
+          <div class="share">
+            <a target="_blank" href="<?php echo $fb; ?>" class="facebook-share-button">
+              <img src="<?php tpldir(); ?>/assets/btn-fb.svg">
+            </a>
+            <a target="_blank" href="<?php echo $tw; ?>" class="twitter-share-button">
+              <img src="<?php tpldir(); ?>/assets/btn-twitter.svg">
+            </a>
+            <a target="_blank" href="<?php echo $email; ?>" class="email-share-button">
+              <img src="<?php tpldir(); ?>/assets/btn-email.svg">
+            </a>
+          </div>
           <div class="post-header-image">
             <?php the_post_thumbnail(); ?>
             <div class="post-header-image-caption">

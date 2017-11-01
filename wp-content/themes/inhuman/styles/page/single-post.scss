@@ -17,6 +17,15 @@
 // Articles
 // ---------------------------------------------------------
 
+.share {
+  display: flex;
+  justify-content: end;
+  img {
+    height: 20px;
+    margin-left: 3px;
+  }
+}
+
 .post-header-image {
   margin: 0 auto 40px;
   max-height: none;
