@@ -1462,7 +1462,7 @@ section {
 .share-buttons-sidebar .share-buttons {
   display: flex;
   flex-direction: row; }
-  .share-buttons-sidebar .share-buttons button {
+  .share-buttons-sidebar .share-buttons .button {
     border: 0;
     border-radius: 2px;
     color: white;
@@ -1470,12 +1470,12 @@ section {
     height: 50px;
     padding: 4px 4px;
     width: 100%; }
-    .share-buttons-sidebar .share-buttons button i {
+    .share-buttons-sidebar .share-buttons .button i {
       color: white; }
-  .share-buttons-sidebar .share-buttons button:active {
+  .share-buttons-sidebar .share-buttons .button:active {
     background-color: white;
     color: gray; }
-    .share-buttons-sidebar .share-buttons button:active i {
+    .share-buttons-sidebar .share-buttons .button:active i {
       color: gray; }
   .share-buttons-sidebar .share-buttons .share-facebook {
     background-color: #3b5998;
@@ -1488,7 +1488,7 @@ section {
     width: 100%; }
   .share-buttons-sidebar .share-buttons {
     flex-direction: column; }
-    .share-buttons-sidebar .share-buttons button {
+    .share-buttons-sidebar .share-buttons .button {
       font-size: 10pt; }
     .share-buttons-sidebar .share-buttons .share-twitter {
       margin-left: 0; } }

@@ -18,7 +18,8 @@
           <a href="<?php echo site_url(); ?>"><img class="logo" src="<?php tpldir(); ?>/assets/inhuman-logo-2.png"></a>
           <div class="powered-by withlogo">
             <span>Powered by</span>
-            <a href="https://screenshots.firefox.com/"><img class="firefox-screenshots-logo" src="<?php tpldir(); ?>/assets/firefox-screenshots.png"></a>
+            <a target="_blank" href="https://screenshots.firefox.com/">
+              <img class="firefox-screenshots-logo" src="<?php tpldir(); ?>/assets/firefox-screenshots.png"></a>
           </div>
         </div>
         <div class="header-top-right">

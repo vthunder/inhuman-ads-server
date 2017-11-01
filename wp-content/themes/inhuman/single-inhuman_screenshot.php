@@ -86,17 +86,17 @@
             <a class="facebook-share-button"
                data-fb-u="<?php echo urlencode(get_permalink()); ?>"
                data-fb-title="<?php echo urlencode(get_the_title()); ?>"
-               href="#">
+               target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-fb.svg">
             </a>
             <a class="twitter-share-button"
                data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
-               href="#">
+               target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-twitter.svg">
             </a>
             <a class="email-share-button"
                data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
-               href="#">
+               target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-email.svg">
             </a>
           </div>

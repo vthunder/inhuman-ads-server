@@ -16,7 +16,8 @@
       <div class="header-top">
         <div class="powered-by">
           <span>Powered by</span>
-          <a href="https://screenshots.firefox.com/"><img class="firefox-screenshots-logo" src="<?php tpldir(); ?>/assets/firefox-screenshots.png"></a>
+          <a target="_blank" href="https://screenshots.firefox.com/">
+            <img class="firefox-screenshots-logo" src="<?php tpldir(); ?>/assets/firefox-screenshots.png"></a>
         </div>
         <div class="header-top-right">
           <ul class="header-links">
