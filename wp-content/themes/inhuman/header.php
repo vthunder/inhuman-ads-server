@@ -8,11 +8,11 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.png">
-    <meta property="og:url" content="<?php the_permalink(); ?>" />
+    <meta property="og:url" content="<?php echo site_url(); ?>" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo get_bloginfo('name'); ?>" />
     <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
-    <meta property="og:image" content="https://inhumanads.com/wp-content/themes/inhuman/assets/inhuman-logo-2.png" />
+    <meta property="og:image" content="<?php tpldir(); ?>/assets/inhuman-logo-2.png" />
     <?php wp_head();?>
   </head>
 
