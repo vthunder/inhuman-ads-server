@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title><?php echo get_bloginfo( 'name' ); ?></title>
-    <meta name="description" content="<?php echo get_bloginfo( 'description' ); ?>" />
+    <title><?php echo get_bloginfo('name'); ?></title>
+    <meta name="description" content="<?php echo get_bloginfo('description'); ?>" />
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.png">
     <meta property="og:url" content="<?php the_permalink(); ?>" />
-    <meta property="og:type" content="website" /> <?php /* FIXME: not correct for blog posts. what about screenshots? */ ?>
-    <meta property="og:title" content="Inhuman Ads" />
-    <meta property="og:description" content="Money and robots made a mess of the web. Humans will clean it up." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<?php echo get_bloginfo('name'); ?>" />
+    <meta property="og:description" content="<?php echo get_bloginfo('description'); ?>" />
     <meta property="og:image" content="https://inhumanads.com/wp-content/themes/inhuman/assets/inhuman-logo-2.png" />
     <?php wp_head();?>
   </head>
