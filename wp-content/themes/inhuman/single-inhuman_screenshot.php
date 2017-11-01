@@ -26,6 +26,7 @@
 
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/page/single-inhuman_screenshot.css"); ?>
 <?php get_header('page'); ?>
+<?php wp_enqueue_script('post'); ?>
 
 <section class="title small">
   <div class="title-inner">
@@ -84,18 +85,18 @@
 
           <div class="share">
             <a class="facebook-share-button"
-               data-fb-u="<?php echo urlencode(get_permalink()); ?>"
-               data-fb-title="<?php echo urlencode(get_the_title()); ?>"
+               data-fb-u="<?php echo rawurlencode(get_permalink()); ?>"
+               data-fb-title="<?php echo rawurlencode(get_the_title()); ?>"
                target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-fb.svg">
             </a>
             <a class="twitter-share-button"
-               data-twitter-status="<?php echo urlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
+               data-twitter-status="<?php echo rawurlencode(get_the_title() . " " . get_permalink() . " #inhumanads"); ?>"
                target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-twitter.svg">
             </a>
             <a class="email-share-button"
-               data-email="<?php echo urlencode(get_the_title() . "\n" . get_permalink()); ?>"
+               data-email="<?php echo rawurlencode(get_the_title() . "\n" . get_permalink()); ?>"
                target="_blank" href="#">
               <img src="<?php tpldir(); ?>/assets/btn-email.svg">
             </a>
@@ -160,7 +161,7 @@
         </div>
 
         <?php if (!is_user_logged_in()): ?>
-          <p>Have something to say about this ad? <a href="/login?orig_request=<?php echo urlencode("/screenshot/" . get_the_ID()); ?>">Log in</a> and leave a comment!</p>
+          <p>Have something to say about this ad? <a href="/login?orig_request=<?php echo rawurlencode("/screenshot/" . get_the_ID()); ?>">Log in</a> and leave a comment!</p>
         <?php endif; ?>
         <?php comments_template(); ?>
 

@@ -11,6 +11,7 @@
 
 <?php wp_enqueue_style('home', get_template_directory_uri() . "/styles/page/front-page.css"); ?>
 <?php get_header(); ?>
+<?php wp_enqueue_script('front'); ?>
 <?php include('title.php'); ?>
 
 <div class="content-wrapper">

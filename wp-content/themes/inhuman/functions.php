@@ -207,12 +207,9 @@
       }
     }
 
-    // Single pages load post.js, front page loads front.js
-    if (is_single()) {
-      wp_enqueue_script('post');
-    } else {
-      wp_enqueue_script('front');
-    }
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('analytics');
+    wp_enqueue_script('basket');
 
     // Set some data as hidden fields so it can be accessible to JS
     inhuman_setup_js_vars();

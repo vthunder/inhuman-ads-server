@@ -121,7 +121,7 @@ jQuery(document).ready(function($) {
     e.preventDefault();
     var status = this.getAttribute('data-twitter-status');
     bumpHighScore(function(e) {
-      document.location = "http://twitter.com/intent/tweet?status=" + status;
+      window.open("http://twitter.com/intent/tweet?status=" + status, '_blank');
     });
   });
   $(".facebook-share-button").click(function(e) {
@@ -129,14 +129,14 @@ jQuery(document).ready(function($) {
     var u = this.getAttribute('data-fb-u');
     var title = this.getAttribute('data-fb-title');
     bumpHighScore(function(e) {
-      document.location = "http://www.facebook.com/sharer/sharer.php?u=" + u + "&title=" + title;
+      window.open("http://www.facebook.com/sharer/sharer.php?u=" + u + "&title=" + title, '_blank');
     });
   });
   $(".email-share-button").click(function(e) {
     e.preventDefault();
     var email = this.getAttribute('data-email');
     bumpHighScore(function(e) {
-      document.location = "mailto:?Subject=" + email;
+      window.open("mailto:?Subject=" + email, '_blank');
     });
   });
 

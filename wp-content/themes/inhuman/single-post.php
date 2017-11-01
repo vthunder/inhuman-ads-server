@@ -21,10 +21,10 @@
           <?php
             $url = get_permalink();
             $title = get_the_title();
-            $fb = 'http://www.facebook.com/sharer/sharer.php?u=' . urlencode($url) .
-                  '&title=' . urlencode($title);
-            $tw = 'http://twitter.com/intent/tweet?status=' . urlencode("$title #inhumanads $url");
-            $email = "mailto:Subject=" . urlencode("$title\n$url");
+            $fb = 'http://www.facebook.com/sharer/sharer.php?u=' . rawurlencode($url) .
+                  '&title=' . rawurlencode($title);
+            $tw = 'http://twitter.com/intent/tweet?status=' . rawurlencode("$title #inhumanads $url");
+            $email = "mailto:Subject=" . rawurlencode("$title\n$url");
           ?>
           <div class="share">
             <a target="_blank" href="<?php echo $fb; ?>" class="facebook-share-button">
