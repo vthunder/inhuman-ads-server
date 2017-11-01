@@ -8,6 +8,11 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="<?php echo get_bloginfo( 'template_directory' );?>/favicon.png">
+    <meta property="og:url" content="<?php the_permalink(); ?>" />
+    <meta property="og:type" content="website" /> <?php /* FIXME: not correct for blog posts. what about screenshots? */ ?>
+    <meta property="og:title" content="Inhuman Ads" />
+    <meta property="og:description" content="Money and robots made a mess of the web. Humans will clean it up." />
+    <meta property="og:image" content="https://inhumanads.com/wp-content/themes/inhuman/assets/inhuman-logo-2.png" />
     <?php wp_head();?>
   </head>
 
