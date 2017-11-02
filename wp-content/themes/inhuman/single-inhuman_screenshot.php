@@ -25,7 +25,10 @@
 ?>
 
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/page/single-inhuman_screenshot.css"); ?>
-<?php get_header('page'); ?>
+<?php
+  $fb_image = get_the_post_thumbnail_url();
+  include('header-page.php');
+?>
 <?php wp_enqueue_script('post'); ?>
 
 <section class="title small">

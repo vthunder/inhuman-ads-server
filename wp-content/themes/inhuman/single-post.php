@@ -1,5 +1,9 @@
 <?php wp_enqueue_style('post', get_template_directory_uri() . "/styles/page/single-post.css"); ?>
-<?php get_header('page'); ?>
+<?php
+  $fb_type = "article";
+  $fb_image = get_the_post_thumbnail_url();
+  include('header-page.php');
+?>
 
 <section class="title small">
   <div class="title-inner">
