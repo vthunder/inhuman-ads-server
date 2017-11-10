@@ -13,13 +13,12 @@
   &.small { .title-inner { .logo { margin: 20px auto; } } }
   .title-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 10px 0 0;
     width: $content-width-phone;
 
     img {
       display: block;
-      height: 56px;
       margin: 10px auto;
     }
     .logo {
@@ -27,8 +26,9 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
+      width: 100%;
     }
-    .clouds { height: 25px; }
+    .clouds { width: 100%; }
     .cloud-left { float: right; }
     .cloud-right { float: left; }
 
@@ -44,27 +44,18 @@
 
     @media #{$mq-phone-wide} {
       width: $content-width-phone-wide;
-      .clouds { height: 45px; }
       .cloud-left { margin-right: 10px; }
       .cloud-right { margin-left: 10px; }
     }
     @media #{$mq-tablet} {
-      width: $content-width-tablet;
-      .logo { height: 65px; }
-      .clouds { height: 55px; }
-      .cloud-left { margin-right: 10px; }
-      .cloud-right { margin-left: 10px; }
+      width: $content-width-tablet - 100px;
       h2 {
         font-size: 14pt;
         font-weight: 400;
       }
     }
     @media #{$mq-desktop} {
-      width: $content-width-desktop;
-      .logo { height: 80px; }
-      .clouds { height: 80px; }
-      .cloud-left { margin-right: 10px; }
-      .cloud-right { margin-left: 10px; }
+      width: $content-width-desktop - 400px;
     }
   }
 }

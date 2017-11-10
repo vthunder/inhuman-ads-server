@@ -1539,20 +1539,20 @@ header {
     margin: 20px auto; }
   .title .title-inner {
     display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     padding: 10px 0 0;
     width: 250px; }
     .title .title-inner img {
       display: block;
-      height: 56px;
       margin: 10px auto; }
     .title .title-inner .logo {
       align-items: center;
       display: flex;
       flex-direction: row;
-      justify-content: center; }
+      justify-content: center;
+      width: 100%; }
     .title .title-inner .clouds {
-      height: 25px; }
+      width: 100%; }
     .title .title-inner .cloud-left {
       float: right; }
     .title .title-inner .cloud-right {
@@ -1568,37 +1568,19 @@ header {
     @media screen and (min-width: 480px) {
       .title .title-inner {
         width: 460px; }
-        .title .title-inner .clouds {
-          height: 45px; }
         .title .title-inner .cloud-left {
           margin-right: 10px; }
         .title .title-inner .cloud-right {
           margin-left: 10px; } }
     @media screen and (min-width: 760px) {
       .title .title-inner {
-        width: 730px; }
-        .title .title-inner .logo {
-          height: 65px; }
-        .title .title-inner .clouds {
-          height: 55px; }
-        .title .title-inner .cloud-left {
-          margin-right: 10px; }
-        .title .title-inner .cloud-right {
-          margin-left: 10px; }
+        width: 630px; }
         .title .title-inner h2 {
           font-size: 14pt;
           font-weight: 400; } }
     @media screen and (min-width: 1000px) {
       .title .title-inner {
-        width: 1000px; }
-        .title .title-inner .logo {
-          height: 80px; }
-        .title .title-inner .clouds {
-          height: 80px; }
-        .title .title-inner .cloud-left {
-          margin-right: 10px; }
-        .title .title-inner .cloud-right {
-          margin-left: 10px; } }
+        width: 600px; } }
 
 .submit-an-ad h3 {
   margin-top: 20px; }
